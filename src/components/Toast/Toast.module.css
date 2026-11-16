@@ -1,0 +1,23 @@
+/* Toast (20:9454). lg : marge 12, rayon 10 ; sm : marge 8, rayon 8. Ombre shadow-flat-4. */
+.toast {
+  box-sizing: border-box; display: flex; align-items: flex-start; gap: 8px; width: 400px; max-width: 100%;
+  box-shadow: var(--shadow-flat-4); font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight);
+  background: var(--bg); color: var(--t1);
+}
+.lg { padding: 12px; border-radius: 10px; }
+.sm { padding: 8px; border-radius: 8px; align-items: center; }
+.icon { display: flex; padding: 2px 0; color: var(--t1); flex: none; }
+.text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.sm .text { flex-direction: row; align-items: baseline; gap: 4px; }
+.title { font-size: 14px; line-height: 20px; font-weight: var(--font-weight-semibold); color: var(--t1); }
+.desc { font-size: 12px; line-height: 18px; font-weight: var(--font-weight-medium); color: var(--t2); }
+.sm .desc { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.close { color: var(--t2) !important; margin: -2px 0; }
+
+.success { --bg: var(--brand-success-alpha-12); --t1: var(--content-success-strong-on-light); --t2: var(--content-success-subtle-on-light); }
+.error { --bg: var(--brand-danger-alpha-12); --t1: var(--content-danger-strong-on-light); --t2: var(--content-danger-subtle-on-light); }
+.warning { --bg: var(--brand-warning-alpha-12); --t1: var(--content-warning-strong-on-light); --t2: var(--content-warning-subtle-on-light); }
+.brand { --bg: var(--brand-primary-alpha-12); --t1: var(--content-brand-strong-on-light); --t2: var(--content-brand-subtle-on-light); }
+.neutral { --bg: var(--content-neutral-black-alpha-5); --t1: var(--content-neutral-black-alpha-80); --t2: var(--content-neutral-black-alpha-60); }
+.neutral-light { --bg: var(--neutral-surface-default); --t1: var(--content-neutral-black-alpha-80); --t2: var(--content-neutral-black-alpha-60); }
+.neutral-dark { --bg: var(--neutral-surface-inverse); --t1: var(--content-neutral-white-alpha-80); --t2: var(--content-neutral-white-alpha-60); }

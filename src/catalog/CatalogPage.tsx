@@ -33,7 +33,7 @@ function Card({ entry }: { entry: Entry }) {
         </div>
         <div className={styles.links}>
           {entry.coded && (
-            <a className={styles.coded} href={`?path=/docs/${entry.coded}`} target="_top">Voir le code</a>
+            <a className={styles.coded} href={`?path=/${entry.coded.endsWith("--docs") ? "docs" : "story"}/${entry.coded}`} target="_top">Voir le code</a>
           )}
           <a className={styles.figma} href={FIGMA + entry.id.replace(':', '-')} target="_blank" rel="noreferrer">Ouvrir dans Figma</a>
         </div>

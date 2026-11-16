@@ -1,0 +1,36 @@
+/* ButtonGradient (4576:14773) et ButtonLink (125:22418). Dégradé de marque #0555FF → #AA62FF. */
+.gradient, .link {
+  display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; cursor: pointer;
+  font-family: var(--font-family-body); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-tight);
+  border: 1px solid transparent; background: transparent; text-decoration: none;
+  transition: background-color var(--duration-fast) var(--easing-standard), filter var(--duration-fast);
+}
+.gradient { --grad: linear-gradient(90deg, #0555ff 0%, #aa62ff 100%); }
+.gradient:focus-visible, .link:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.gradient:disabled, .link:disabled { opacity: 0.38; cursor: not-allowed; }
+
+.full { background: var(--grad); color: var(--button-buttonbrand-fill-content-default); }
+.full:hover:not(:disabled) { background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), var(--grad); }
+.outline { background: linear-gradient(var(--neutral-surface-default), var(--neutral-surface-default)) padding-box, var(--grad) border-box; }
+.flat:hover:not(:disabled) { background: var(--button-buttonbrand-ghost-background-hover); }
+.light { background: var(--button-buttonbrand-subtle-background-default); }
+.light:hover:not(:disabled) { background: var(--button-buttonbrand-subtle-background-hover); }
+/* Texte en dégradé pour outline, flat et light */
+.outline .label, .flat .label, .light .label { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.outline svg, .flat svg, .light svg { color: #5a5cff; }
+
+.label { display: inline-block; }
+.xs { height: 24px; padding: 3px 4px; border-radius: var(--component-input-button-xs); font-size: 12px; line-height: 18px; }
+.xs .label { padding: 0 5px; }
+.sm { height: 32px; padding: 7px 12px; border-radius: var(--component-input-button-sm); font-size: 12px; line-height: 18px; }
+.sm .label { padding: 0 6px; }
+.md { height: 40px; padding: 10px 12px; border-radius: var(--component-input-button-md); font-size: 14px; line-height: 20px; }
+.md .label { padding: 0 8px; }
+.lg { height: 48px; padding: 12px 16px; border-radius: var(--component-input-button-lg); font-size: 16px; line-height: 24px; }
+.lg .label { padding: 0 8px; }
+
+.link { gap: 8px; }
+.link-brand { color: var(--button-buttonbrand-ghost-content-default); }
+.link-purple { color: var(--button-buttonpurple-ghost-content-default); }
+.link:hover:not(:disabled) span { text-decoration: underline; text-underline-offset: 3px; }
+.link.flush { height: auto; padding: 0; border-radius: var(--radius-xs); }
