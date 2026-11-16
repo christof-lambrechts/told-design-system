@@ -1,0 +1,25 @@
+# Publie le Storybook sur Chromatic à chaque envoi sur GitHub.
+# Prérequis : secret CHROMATIC_PROJECT_TOKEN dans Settings > Secrets and variables > Actions.
+name: Storybook (Chromatic)
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  chromatic:
+    if: ${{ vars.CHROMATIC_ENABLED == 'true' || secrets.CHROMATIC_PROJECT_TOKEN != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - uses: chromaui/action@v11
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: build-storybook
+          exitZeroOnChanges: true
