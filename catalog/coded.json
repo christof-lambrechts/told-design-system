@@ -15,5 +15,14 @@
   "Toast": "composants-statut-et-aide-toast--defaut",
   "TextTab": "composants-navigation-onglets--texte",
   "ButtonTab": "composants-navigation-onglets--bouton",
-  "GroupTab": "composants-navigation-onglets--groupe"
+  "GroupTab": "composants-navigation-onglets--groupe",
+  "Input": "composants-saisie-et-choix-champs--champ",
+  "SearchBar": "composants-saisie-et-choix-champs--recherche",
+  "TextArea": "composants-saisie-et-choix-champs--zone",
+  "Pagination": "composants-navigation-pagination--defaut",
+  "PaginationButton": "composants-navigation-pagination--cases",
+  "logoTold2025": "composants-visuels-logo--declinaisons",
+  "FileUploader": "composants-saisie-et-choix-fileuploader--defaut",
+  "FlagCountry": "composants-visuels-flag--langues",
+  "NavButtonItem": "composants-navigation-navbuttonitem--menu"
 }

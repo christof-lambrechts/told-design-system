@@ -1,0 +1,46 @@
+/* Champs (Input 2932:184217, SearchBar 3596:90113, TextArea 543:14037), construits sur _InputBase.
+   Libellé Body/12 SemiBold avec retrait de 8 ; champ md 40 de haut, rayon 12, marge 10/14/10/10 ; aide Body/12 retrait 5. */
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.label { padding: 0 8px; font-size: 12px; line-height: 18px; font-weight: var(--font-weight-semibold); color: var(--input-brand-content-label); }
+.required { margin-left: 2px; color: var(--content-danger-default-on-light); }
+.helper, .errorText { padding: 0 5px; font-size: 12px; line-height: 18px; font-weight: var(--font-weight-medium); }
+.helper { color: var(--input-brand-content-helper); }
+.errorText { color: var(--content-danger-default-on-light); }
+.hasError .label { color: var(--input-brand-content-error); }
+
+.box {
+  box-sizing: border-box; display: flex; align-items: center; min-width: 0;
+  background: var(--input-brand-background-default); border: 1px solid var(--input-brand-border-default);
+  transition: border-color var(--duration-fast) var(--easing-standard), background-color var(--duration-fast), box-shadow var(--duration-fast);
+}
+.box:hover { border-color: var(--input-brand-border-hover); background: var(--input-brand-background-hover); }
+.box:focus-within { border-color: var(--input-brand-border-focus); background: var(--input-brand-background-focus); box-shadow: 0 0 0 1px var(--input-brand-border-focus); }
+.flat { border-color: transparent; background: transparent; }
+.light { border-color: transparent; background: color-mix(in srgb, var(--input-brand-background-default) 5%, transparent); }
+.hasError .box { border-color: var(--input-brand-border-error); }
+.hasError .light, .hasError .flat { border-color: transparent; background: color-mix(in srgb, var(--input-brand-background-error) 5%, transparent); }
+.disabled { opacity: 0.38; pointer-events: none; }
+
+.control {
+  all: unset; box-sizing: border-box; flex: 1; min-width: 0; color: var(--content-default-default);
+  font-family: inherit; font-weight: var(--font-weight-medium); letter-spacing: inherit;
+}
+.control::placeholder { color: var(--input-brand-content-placeholder); opacity: 1; }
+.hasError .control { color: var(--content-danger-default-on-light); }
+.control::-webkit-search-cancel-button { display: none; }
+.lead { display: flex; padding-left: 12px; color: var(--content-subtle-default); }
+.trail { display: flex; align-items: center; padding-right: 10px; flex: none; }
+
+.sm .box { min-height: 32px; border-radius: 10px; }
+.sm .control { padding: 7px 8px; font-size: 12px; line-height: 18px; }
+.md .box { min-height: 40px; border-radius: 12px; }
+.md .control { padding: 10px 14px 10px 10px; font-size: 14px; line-height: 20px; }
+.lg .box { min-height: 48px; border-radius: 14px; }
+.lg .control { padding: 12px 16px 12px 12px; font-size: 16px; line-height: 24px; }
+.lead + .control { padding-left: 8px; }
+
+/* TextArea : fond teinté à 5 %, contour à 20 % (style brand). */
+.area { align-items: stretch; padding: 1px; }
+.area .control { resize: vertical; min-height: 38px; padding: 9px 18px 9px 8px; color: var(--input-brand-content-filled); }
+.tone-brand { background: color-mix(in srgb, var(--input-brand-background-default) 5%, transparent); border-color: color-mix(in srgb, var(--input-brand-border-default) 20%, transparent); }
+.tone-neutral { background: var(--neutral-surface-default); border-color: var(--neutral-border-default); }
