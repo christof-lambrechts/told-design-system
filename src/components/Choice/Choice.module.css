@@ -62,6 +62,8 @@
 
 /* Interrupteur : sm 28 × 16, md 36 × 20, lg 44 × 24 */
 .track {
+  /* Règle : pastille de même taille dans les deux états, même retrait à gauche et à droite.
+     Déplacement = largeur − 2 × retrait − pastille. */
   box-sizing: border-box; display: flex; align-items: center;
   width: 36px; height: 20px; padding: 0 4px; border-radius: 9999px;
   background: var(--switch-track-off);
@@ -69,17 +71,17 @@
 }
 .knob {
   /* Pastille toujours blanche : dans Figma, Content/default/inverse la rend foncée en sombre (à corriger dans le DS). */
-  width: 12px; height: 12px; border-radius: 9999px; background: var(--white-white-100);
-  transition: transform var(--duration-fast) var(--easing-standard), width var(--duration-fast);
+  flex: none; width: 12px; height: 12px; border-radius: 9999px; background: var(--white-white-100);
+  transition: transform var(--duration-fast) var(--easing-standard);
 }
-.checked .track { background: var(--brand-color-brand); padding: 0 3px; }
-.checked .knob { width: 13px; height: 13px; transform: translateX(14px); }
-.sm .track { width: 28px; height: 16px; padding: 0 2px; }
-.sm .knob { width: 12px; height: 12px; }
+.checked .track { background: var(--brand-color-brand); }
+.checked .knob { transform: translateX(16px); }
+.sm .track { width: 28px; height: 16px; padding: 0 3px; }
+.sm .knob { width: 10px; height: 10px; }
 .sm.checked .knob { transform: translateX(12px); }
-.lg .track { width: 44px; height: 24px; padding: 0 3px; }
+.lg .track { width: 44px; height: 24px; padding: 0 4px; }
 .lg .knob { width: 16px; height: 16px; }
-.lg.checked .knob { transform: translateX(22px); }
+.lg.checked .knob { transform: translateX(20px); }
 .disabled .track { background: var(--switch-track-off-disabled); }
 .disabled.checked .track { background: var(--brand-color-brand); }
 
