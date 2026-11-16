@@ -1,0 +1,141 @@
+#Organismes / AppSidebar ❌
+Info list|2822:8705|526x220|"typeText;"description;?hasIcon;divider=true,false;type=default,link|Liste d'informations.|782:34578|100,260
+Side bar header|1018:43024|720x64|"title;?hasIcon;?hasClose;?hasBack|En-tête de panneau latéral.|782:34578|100,672
+AppSidebar|8:14681|2328x1064|?hasSettings;?hasUpgrade;?hasSearch;type=team,settings,sources,template,audience,main;sourceInstalled=false,true;collapsed=false,true|Barre latérale de l'application.|5943:140484|80,375
+UpgradeCard|1215:34428|1176x184|type=team-blocked,quota-low,trial,quota-reached|Encart d'offre pour les comptes gratuits, en bas de la barre.|5943:140484|80,1519
+ProjectSwitcher|7855:4195|248x53|"projectName;"organization;"initials;?hasDetails|Sélecteur de projet en tête de la barre latérale.|7855:4195|0,0
+AccountCard|7855:4203|248x57|"name;"email;?hasDetails;?hasNotifications|Bloc utilisateur en bas d’AppSidebar.|7855:4203|0,0
+ProjectMenu|7897:2046|280x249|?hasProject2|Menu ouvert depuis ProjectSwitcher.|7897:2046|0,0
+AccountMenu|7912:3119|280x253||Menu du compte.|7912:3119|0,0
+NotificationBell|7937:29048|32x32|?hasDot|Cloche des notifications avec pastille.|7937:29048|0,0
+#Organismes / Auth ❌
+CodeDigit|8181:83342|290x106|"digit;state=default,focus,filled,error|Une case du code à usage unique.|8181:83342|0,0
+CodeInput|8181:83416|1546x184|?hasCountdown;state=default,focus,filled,error|Code à usage unique en 6 cases (3 + 3).|8181:83416|0,0
+PasswordStrength|8182:1187|1770x116|?hasRules;level=weak,medium,good,excellent|Force du mot de passe.|8182:1187|0,0
+DividerLabel|8182:1188|400x18||Séparateur avec un texte centré (« ou »).|8182:1188|0,0
+SocialButton|8182:1247|450x146|provider=google,microsoft|Connexion par un fournisseur.|8182:1247|0,0
+AuthPanel|8182:1367|3050x950|"title;"subtitle;?hasSubtitle;theme=default,website,mobile,email|Panneau visuel des écrans de connexion.|8182:1367|0,0
+#Organismes / CommandPalette ❌
+CommandItem|7967:10930|664x140|"label;"detail;?hasDetail;?hasShortcut;state=default,selected|Ligne de la palette ⌘K.|7967:10930|0,0
+CommandPalette|7967:10931|640x408||Palette de recherche ⌘K.|7967:10931|0,0
+#Organismes / Diffuser ❌
+ChannelCard|8239:631|810x1611|"title;"summary;?hasEnvironment;@settings;state=off,on,open,error|Carte d’un canal de diffusion.|8239:631|0,0
+SentenceToken|8239:643|374x76|"value;state=default,hover,empty|Élément cliquable d’une phrase de ciblage.|8239:643|0,0
+TargetingSentence|8239:644|680x24||Ciblage du canal en une phrase cliquable.|8239:644|0,0
+CodeBlock|8241:1067|680x112|"code;"language|Bloc de code copiable.|8241:1067|0,0
+QRCode|8241:1083|136x136||QR code d’exemple pour le canal Lien public.|8241:1083|0,0
+CheckRow|8241:1467|530x314|"title;"detail;?hasDetail;state=pass,fail,warning,pending|Ligne de vérification.|8241:1467|0,0
+ChannelSettings|8243:2271|3074x998|channel=website,link,embed,email|Réglages d’un canal.|8243:2271|0,0
+DeliverySimulator|8244:2419|1570x842|state=form,fail,pass|Simulateur « Pourquoi ne s’affiche-t-il pas ? ».|8244:2419|0,0
+PublishPanel|8245:3224|2090x950|mode=publish,request;state=ready,blocked|Validation avant publication.|8245:3224|0,0
+ChannelItem|8248:2294|350x455|"title;"description;?hasStatus;"statusProd;"statusTest;?hasNotReady;state=default,hover,selected,disabled|Canal dans la colonne de gauche de Diffuser.|8248:2294|0,0
+ChannelSteps|8250:3023|2272x2461|channel=web,mobile,link,embed,email;published=false,true|Carte d’étapes d'un canal.|8250:3023|0,0
+ChannelOptions|8252:4265|1958x728|channel=web,mobile,link,embed,email|Colonne de droite de Diffuser.|8252:4265|0,0
+StatusBanner|8253:2940|770x280|state=nowhere,test,live|Bandeau d’état de Diffuser.|8253:2940|0,0
+ResponsesSummary|8253:2941|720x133||Résumé des réponses par canal sur 7 jours.|8253:2941|0,0
+DisplayRulesNote|8253:2973|720x49||Pied de Diffuser.|8253:2973|0,0
+#Organismes / Displayer ❌
+Rating scale - Question|791:89276|1991x425|?hasTextInput;type=meteo,emoji,star-lt5,number-lt5,thumb,star-5plus,number-5plus;size=sm,lg|Question à échelle, côté répondant.|787:66903|80,375
+NPS Component|787:69652|888x182|?hasCaption;circleNumber=true,false;size=lg,sm|Question NPS, côté répondant.|787:66903|80,880
+scale-bar|4103:115915|273x156|style=star,number|Barre d'échelle.|787:66903|80,1142
+Raking - Question|787:69219|324x1836|state=default,hover,pressed,selected;theme=light,dark;active=off,on;size=l,xl|Question de classement.|787:66903|80,1378
+ranking number|787:69338|181x64|active=off,on;theme=dark,light|Numéro de classement.|787:66903|444,1378
+wireframe|4268:15337|298x314|?hasLabel;type=light,dark|Maquette fil de fer.|787:66903|80,3812
+FooterVoting|4093:92200|1548x2258|?hasNextButton;?hasPreviousButton;?hasPreviousIcon;?hasNextIcon;?hasLinkbutton;?hasToldLogo;?hasTextarea;scroll=true,false;size=sm,md,lg;activeFooter=true,false;hideButton=false,true|Pied de widget de réponse.|787:66903|80,4206
+Title|787:71431|324x974|?hasInstruction;?hasLabel;"labelText;size=sm,md,lg;labelStyle=badge,text|Titre de question.|787:66903|80,6544
+disclamer|4687:127520|340x102|darkMode=true|Mention légale.|787:66903|444,6544
+content-modale|4688:128664|605x284|?hasDisclaimer;?hasLinkButton|Contenu de modale.|787:66903|824,6544
+label tour|5361:41221|356x208|style=text,badge;size=sm,lg|Étiquette de visite guidée.|787:66903|1469,6544
+🏞️ Image-survey-link|1588:169298|629x1700|?hasLogo;type=image,color;device=desktop,mobile|Fond d'un questionnaire par lien.|787:66903|80,7733
+🏞️ background glass|4110:35235|629x1224|type=image,color;device=desktop|Fond verre.|787:66903|809,7733
+📝 survey_content|4091:189506|5578x1429|type=text-field,message-field,calendar,forms,scale-meteo,scale-star-lt5,…+5;color=dark,light;device=lg,sm|Contenu d'un questionnaire.|787:66903|80,9513
+Miniature survey e-mail|1579:130556|2938x1521|type=emoji,star,nps,meteo,other-question;miniature=true,false;align=gauche,centre|Question intégrée dans un e-mail.|787:66903|80,11022
+AIconversationItem|6290:42264|340x362|state=default,false,speaking|Élément de conversation IA.|787:66903|80,12623
+AIConversationWidget|6294:59603|340x657|?hasMedia|Widget de conversation IA.|6348:47616|80,375
+Link-survey|1588:169302|14862x3465|?hasGdprConsent;?hasConfetti;?hasLogo;device=desktop,mobile;shape=capsule,full-page;scroll=false,true;style=white,light,dark,glass-dark|Questionnaire par lien.|4093:16133|556,310
+tour-resume-list|3738:45455|219x146|active=true,false;textColor=dark,white|Sommaire de visite guidée.|4093:16149|0,135
+welcome-modale-tour|3738:158203|5869x576|?hasLabel;?hasTitle;?hasMedia;text=white,black;miniature=false,true;summaryList=true,false;variant=minimal,extend,resume|Modale d'accueil de visite guidée.|4093:16149|0,381
+TourItemBase|3712:40132|5315x3343|?hasTitle;?hasImage;?hasWithFooter;?hasGlassShape;?hasLight;format=widget,modal,welcome;image=right,left,bottom,top;header=none,progress-bar,avatar;close=true,false|Étape de visite guidée.|3712:40132|0,0
+Widget-tour|3715:41441|2485x1623|arrow=top-left,top,bottom-left,bottom,left,right,bottom-right,top-right;text=white,black;format=widget,modal|Bulle de visite guidée avec flèche.|3715:41441|0,0
+Wireframe|4268:14486|342x474|?hasStep;?hasImage|Maquette fil de fer d'écran.|4268:14486|0,0
+#Organismes / EditionSidebar ❌
+EditionSidebar|8:14494|4820x1022|?hasScrollbar;?hasInsertBar;menu=customisation,question,questionreport,configurationinapp,configurationsurvey,connexion,…+5;feature=announcement,longformsurvey,inapp;state=default,empty,hover,empty-hover|Colonne de gauche de l'éditeur.|5943:137238|80,375
+QuestionNavItem|782:34719|296x320|?hasTranslation;?hasRequired;?hasCondition;?hasMenu;"label;?hasHandle;state=default,hover,selected,focus,disabled;questionType=open|Ligne de question de l'éditeur.|5943:137238|80,1477
+StepTransition|7941:4375|248x24|"transition|Transition entre deux étapes.|7941:4375|0,0
+#Organismes / Filter ❌
+Event filtre base|5571:24554|855x276|?hasIcon;?hasComma;?hasChevron;state=default,hover,selected,disabled;type=filtre,value;shape=main-filter,text,operator,icon,nps;placeholder=false,true|Élément de filtre.|1439:139391|80,683
+Frame 427320124|5571:24673|104x176|state=default,variant2,hover|Opérateur de filtre.|1439:139391|945,683
+Filtre line base|5571:24709|1060x461|?hasEqual;?hasAndOr;?hasLineBreak;number=1,2,3,4;add=false,true|Ligne de filtre.|1439:139391|80,1534
+FilterPanel|5571:24844|1134x728|filters=default,1-line,2-and-more;style=float,default|Panneau de filtres.|1439:139391|80,2075
+#Organismes / Modals ❌
+Toldies|26:19880|120x120||Illustration Toldies des modales.|26:13393|80,375
+ModalContent|36:17736|5188x488|type=invite,langue,radio-list|Contenus de modale.|26:13393|80,575
+footer|2939:186298|508x152|?hasOutlineButton;?hasPrimaryButton;?hasDeleteButton;?hasTextInfo;line=true,false|Pied de modale.|26:13393|80,1143
+modale- selection langue par default|5314:14347|524x470||Modale de langue par défaut.|26:13393|80,1375
+ModalBase|6234:9287|540x978|?hasDescription;"title;"description;?hasClose;?hasDangerButton;?hasPrimaryButton;?hasSecondaryButton;?hasContent;?hasToldies;divider=false,true|Base de modale.|26:13393|80,1925
+Upload media modale|3688:179398|1528x990||Modale d'envoi de média.|26:13393|80,2983
+Modal|29:13412|3068x998|type=default,danger|Modale.|26:13393|80,4053
+CreateModal|7860:2051|1200x640|"note|Modale de création d'une expérience.|7860:2051|0,0
+TemplateRow|7855:3399|544x1024|"title;"description;@icon;?hasArrow;state=default,hover,selected;intention=neutral,demander,guider,recompenser|Ligne de modèle dans la modale de création.|7855:3399|0,0
+TemplatePreview|7855:3400|440x546|"result;"note;?hasNote;?hasChannel3|Colonne d'aperçu de la modale de création.|7855:3400|0,0
+ConfirmModal|7950:1584|480x209|"title;"description;?hasArchive|Confirmation d'une action destructrice à trois issues.|7950:1584|0,0
+IntentCard|7967:12281|936x675|?hasExamples;intention=demander,guider,recompenser;state=default,hover,selected|Choix de l'intention à la création.|7967:12281|0,0
+TemplateCard|7968:1695|632x334|"title;"description;"detail;?hasPopular;state=default,hover|Carte de la galerie de modèles.|7968:1695|0,0
+#Organismes / Notifications ❌
+NotificationItem|7967:10662|424x320|"title;"message;"time;?hasMessage;state=unread,read,hover|Une notification du centre de notifications.|7967:10662|0,0
+NotificationCenter|7967:10663|400x549||Centre de notifications.|7967:10663|0,0
+#Organismes / OptionCustomisation ❌
+OptionCustomisation|1043:135563|1060x5646|?hasPreferenceColor;type=bg-color-text-light-solid,bg-color-text-dark-solid,bg-color-text-light-gradient,bg-color-text-dark-gradient,couverture,footer,…+14;active=false,true;kind=customisation|Options de personnalisation.|6114:28071|80,375
+CustomisationPanel|8172:103231|2812x912|section=color,radius,position,avatar,logo,footer,confetti|Colonne de droite de l'onglet Design.|8172:103231|0,0
+PositionPreview|8172:103367|1584x1044|position=top-left,top-center,top-right,middle-left,center,middle-right,…+3|Aperçu de la position du widget.|8172:103367|0,0
+CustomisationPopover|8208:237547|300x218||Carte flottante de réglage de l’onglet Design.|8208:237547|0,0
+#Organismes / OptionPanel ❌
+OptionPanel|6031:85898|1228x3040|?hasIA;contentType=survey,tour,announcement;scope=step,block,secondary|Colonne d'options de l'éditeur.|6031:87220|80,375
+PanelHeader|7851:8151|304x70|"title;"description;?hasChangeType;?hasMenu;?hasBack;"backLabel|En-tête du panneau d'édition d'un bloc.|7851:8151|0,0
+#Organismes / Report ❌
+NpsReport|29:20672|1110x3868|state=pie-chart,table,graph,column-chart;device=desktop,mobile|Rapport NPS.|38:27537|180,475
+OpinionScaleReport|29:23446|1112x4594|type=emoji,like-dislike,meteo,star,number;number=less-than-5,more-than-5;device=desktop,mobile|Rapport d'échelle.|38:27537|1390,475
+GlobalStatsReport|38:21931|1486x2477|name=conversion-funnel,conversion-over-time,dropout,dropout-by,dropout-by-question,device,languages;device=desktop,mobile|Statistiques globales.|38:27537|2602,475
+ContactInfoReport|38:24909|1119x4180|name=all-info,text-input,multiple-select;column=1,2,default;device=desktop,mobile|Rapport de coordonnées.|38:27537|4188,475
+MultipleChoiceReport|557:11171|760x1606|device=desktop,mobile|Rapport de choix multiple.|38:27537|5407,475
+OpenQuestionReport|38:29081|1135x2578|column=1,2,3;device=desktop,mobile|Rapport de question ouverte.|38:27537|6267,475
+UserTesterReport|633:59651|1111x2722|device=desktop,mobile|Rapport par testeur.|38:27537|7502,475
+Dropout list|564:23053|1108x455|type=scale,multi-question,open-question,nps;divider=true,false;device=desktop,mobile|Liste des abandons.|564:23053|0,0
+NPS list|588:8442|1101x514|type=promoter,passive,detractor;device=desktop,mobile;divider=true,false;disable=false,true|Liste NPS.|588:8442|0,0
+Stat report|627:46496|1892x1516|"label;device=desktop,mobile;color=cyan,primary,sucess,red,apple,orange,…+9;direction=horizontal,vertical|Barre de statistique.|627:46496|0,0
+Tester Card|635:73752|720x3127||Carte de testeur.|635:73752|0,0
+User response|636:81421|2177x2980|type=open-question,rating-scale-emoji,rating-scale-star,rating-scale-meteo,rating-scale-number,nps,contact-form,multiple-choice;device=desktop,mobile;version=1-5,2-0|Réponse d'un utilisateur.|636:81421|0,0
+User response base|636:81639|1137x1536|?hasMultipleChoice;?hasOpinionScaleEmoji;?hasOpinionScaleMeteo;?hasOpinionScaleNumberNps;?hasOpenQuestion;?hasHeader;?hasOpinionScaleStar;type=question,contact-form;device=desktop,mobile|Base de réponse.|636:81639|0,0
+StatCard|7950:15173|260x143|"label;"value;"comparison;?hasIcon;?hasVariation;?hasComparison|Carte chiffre clé (accueil, résultats).|7950:15173|0,0
+#Organismes / Dashboard ❌
+ThemeTrendItem|8285:467|328x168|"title;"trend;"count;?hasTrend;state=default,hover|Thème qui monte dans les verbatims.|8285:467|0,0
+TaskItem|8285:529|838x192|"title;"detail;?hasAction;?hasAssignee;?hasAssign;@icon;state=default,hover|Ligne « À traiter » de l’accueil.|8285:529|0,0
+InsightPanel|8286:462|320x664|"title;"summary;"themesLabel;"digestLabel;"digest;?hasTheme4;?hasTheme5;?hasDigest|Panneau d'analyse des verbatims.|8286:462|0,0
+TaskList|8287:1187|790x414|"label;?hasFilters;?hasItem4;?hasItem5;?hasFooter|Liste « À traiter » de l’accueil.|8287:1187|0,0
+ResponsesChart|8287:1366|1126x266|"title;"description;"startLabel;"endLabel;?hasLink|Graphique « Réponses par semaine ».|8287:1366|0,0
+HighlightItem|8288:1319|748x152|"text;kind=up,down,done|Une ligne « Ce qui a changé ».|8288:1319|0,0
+WeekChanges|8288:1320|790x174|"title;?hasItem3|Carte « Ce qui a changé » du résumé de la semaine.|8288:1320|0,0
+NpsSummaryCard|8299:15840|1776x554|"title;"description;view=donut,graph,empty|Carte de synthèse NPS.|8299:15840|0,0
+#Organismes / TemplateSidebar ❌
+TemplateSidebar|1633:132419|804x1064|?hasVideoTutorial;level=fistlevel,secondlevel|Colonne des modèles.|6012:15017|80,460
+TemplateVideoCards|1633:138958|393x156||Cartes de tutoriel vidéo.|6012:15017|934,375
+QuestionTemplate|1635:138984|412x540|?hasCondition;type=nps,multi-choice,message,scale,contact-info,calendar,open-text|Modèle de question.|6012:15017|934,581
+#Organismes / Widget ✅
+WidgetChoice|7995:1312|348x148|"label;state=default,selected|Un choix du widget visiteur.|7995:1312|0,0
+WidgetBlock|7996:3648|740x2668|?hasChoice3;?hasChoice4;type=text-field,message-field,calendar,multi-choice,forms,scale-meteo,…+7;theme=light,dark|Le bloc « type de question » du widget visiteur.|7996:3648|0,0
+Collapse_Multiple choice|787:69078|333x1024|state=default,hover,click,disable;theme=dark,light|Choix multiple repliable.|787:69078|0,0
+Widget|7999:3504|5360x3587|?hasImage;?hasConsent;?hasLogo;?hasPrevious;?hasNext;?hasConfetti;?hasLanguage;theme=light,dark;state=open,teaser,consent;type=text-field,none,message-field,calendar,multi-choice,forms,…+8|Widget visiteur.|7999:3504|0,0
+WidgetConsent|8018:3754|3424x467|"message;?hasPolicy;style=card,step;state=ask,accepted,accepted-open,refused,refused-open;tone=neutral,tinted|Bloc de consentement du widget.|8018:3754|0,0
+WidgetDropdown|8028:29124|1012x400|"placeholder;?hasSearch;state=closed,open,selected|Liste déroulante du widget visiteur.|8028:29124|0,0
+ChecklistItem|8036:4506|996x146|"title;"description;?hasDescription;state=todo,current,done|Un point de la checklist du widget.|8036:4506|0,0
+WidgetChecklist|8037:3993|1244x515|theme=light,dark;state=open,collapsed|Checklist vue par le visiteur.|8037:3993|0,0
+GlassFrame|8041:5482|916x878|?hasLight;@content;theme=light,dark|Contour verre optionnel autour d'un widget ou d'une modale.|8041:5482|0,0
+WidgetPreview|8198:6261|768x1048|?hasCover;?hasLogo;theme=light,dark|Aperçu simplifié du widget pour l’onglet Design.|8198:6261|0,0
+CustomisationPreview|8198:6417|2013x9382|device=desktop,mobile;position=bottom-right,bottom-center,top-left,top-center,top-right,middle-left,…+3;format=widget,modal,capsule,fullscreen;theme=light,dark|Aperçu dans un écran schématique.|8198:6417|0,0
+PreviewToolbar|8222:9684|770x674|format=widget,modal,capsule,fullscreen;device=desktop,mobile|Barre au-dessus de l’aperçu de l’onglet Design.|8222:9684|0,0
+DesignPreview|8222:10503|2560x6474|format=widget,modal,capsule,fullscreen;device=desktop,mobile;theme=light,dark|Zone d’aperçu de l’onglet Design.|8222:10503|0,0
+WidgetButton|8233:10717|622x240|"label;?hasIconLeft;?hasIconRight;@iconLeft;@iconRight;type=primary,secondary,ghost;size=sm,md;state=default,hover,disabled|Boutons du widget (répondant).|8233:10717|0,0
+WidgetZone|8261:10026|1132x420|zone=cover,sender,progress,description,logo;state=ghost,hover,added|Zone facultative du widget en mode plan.|8261:10026|0,0
+WidgetBlueprint|8262:9481|770x526|theme=light,dark|Widget en mode plan pour l’édition.|8262:9481|0,0
+#Assets / User story ✅
+User story|7806:3673|2320x980|"ID;"Title;"As a;"I want;"So that;"Screens;"Persona;"Persona detail;"Version;"Criterion 1;?Show criterion 1;"Criterion 2;?Show criterion 2;"Criterion 3;?Show criterion 3;"Criterion 4;?Show criterion 4;Status=À rédiger,À valider,Validée|Fiche user story pour les parcours.|7806:3673|0,0

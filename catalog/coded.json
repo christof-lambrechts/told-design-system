@@ -1,0 +1,9 @@
+{
+  "Button": "composants-actions-button--docs",
+  "ButtonIcon": "composants-actions-button--docs",
+  "Checkbox": "composants-saisie-et-choix-checkbox-radio-switch--docs",
+  "Radio": "composants-saisie-et-choix-checkbox-radio-switch--docs",
+  "Switch": "composants-saisie-et-choix-checkbox-radio-switch--docs",
+  "Kbd": "composants-statut-et-aide-kbd--docs",
+  "KbdCombo": "composants-statut-et-aide-kbd--docs"
+}

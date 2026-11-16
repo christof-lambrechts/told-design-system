@@ -11,7 +11,7 @@ const preview: Preview = {
     backgrounds: { disable: true },
     options: {
       storySort: {
-        order: ['Introduction', 'Fondations', ['Couleurs', 'Typographie', 'Espacements et rayons', 'Ombres'], 'Composants'],
+        order: ['Introduction', 'Fondations', ['Couleurs', 'Typographie', 'Espacements et rayons', 'Ombres'], 'Composants', 'Catalogue Figma', ['Atomes', 'Molécules', 'Organismes', 'Assets']],
       },
     },
   },

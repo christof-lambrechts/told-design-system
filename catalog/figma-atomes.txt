@@ -1,0 +1,162 @@
+#Atomes / _ButtonBase ✅
+ButtonMicro|787:70410|88x468|"textInput;?hasIconLeft;?hasIconRight;?hasText;state=default,hover,pressed;theme=light,dark;active=off,on|Bouton miniature des widgets.|789:82725|100,480
+ButtonMobile|787:70401|344x236|"textInput;state=default,pressed;theme=dark,light|Bouton tactile des widgets mobiles.|789:82725|238,480
+Response Button|791:90056|1160x480|state=default,hover,press,select;active=off,on;size=sm,lg,xs;style=emoji,thumb,number-circle,meteo,star|Bouton de réponse d'un questionnaire.|789:82725|100,998
+Icon Button widget|787:70941|132x284|state=default,hover,click;size=l,m;theme=light,dark|Bouton icône compact des widgets.|789:82725|100,1528
+Calendar Date_Item|787:70994|64x1356|state=disable,default,hover,press,select;active=false,true;theme=dark,light;size=l,xl|Case de date du calendrier des widgets.|789:82725|100,1862
+Calendar_Hour Item|787:71051|94x1496|state=disable,default,hover,press,select;active=false,true;theme=light,dark;size=l,xl|Case d'horaire du calendrier des widgets.|789:82725|214,1862
+#Atomes / Alert ❌
+Alert|6259:87310|461x1252|?hasIcon;?hasTitle;"descriptionText;"titleText;?hasDescription;?hasCloseButton;?hasButtonLink;?hasMiniButton;?hasActionButtons;size=lg,sm;type=error,success,warning,brand,neutral,neutral-light,neutral-dark|Message en ligne : succès, erreur, avertissement, information.|6259:87308|80,375
+UpgradePromptBanner|6259:87626|1236x72||Bandeau d'invitation à changer d'offre.|6259:87308|80,1707
+#Atomes / AmbientBackground ❌
+AmbientBackground|8301:923|2080x736|Tone=Lavender,Brand;Intensity=Pale,Soft,Medium,Vivid|Fond d'ambiance en dégradé doux (halos flous + trame de points blancs tous les 6).|8301:923|0,0
+#Atomes / AudioInput ❌
+AnswerInput|6351:59142|2560x1526|?hasHelper;"placeholderText;"helperText;?hasRequired;style=brand,neutral;size=sm,md,lg;state=default,hover,focus,error,disabled,listening;placeholder=false,true|Champ de réponse texte ou voix.|6351:59140|90,385
+Voice|6350:51626|414x656|?hasTextStyle;size=sm,md,lg;type=recording,listening,answering|Commandes de saisie vocale.|6351:59140|90,1991
+TextEditorControls|6351:60023|152x232|?hasTextStyle;?hasImprove;?hasMicro;positition=footer;size=sm,md,lg;type=default|Barre d'outils d'édition, en pied.|6351:59140|90,2727
+#Atomes / Avatar ❌
+Avatar|1053:144214|741x358|"text;size=3xl,2xl,xl,lg,md,sm,xs;style=text,icon,image,logo,toldies;outline=false,true|Avatar : initiales, icône, image, logo ou Toldies.|5872:64011|80,375
+#Atomes / Badge ❌
+Badge|2794:179295|368x1364|size=xs,sm,md,lg;color=blue,tree,green,orange,red,purple,light-gray,white,pink-gradient;style=outline,fill,subtle|Statut figé d’un objet, et aussi étiquette non cliquable (ancien Tag fusionné ici).|4:1683|80,565
+FloatBadge|3613:133857|273x42|size=lg,sm,md|Mini badge flottant (indicateur).|4:1683|80,2009
+LabelBase|4:1557|202x86|?hasClose;?hasIconLeft;size=m,l;rounded=false|Base des étiquettes.|569:59906|80,450
+LabelTag|569:60860|325x676|shape=default;color=apple,green,pink,peach,orange,mustard,yellow,tree,…+8;size=sm,lg|Étiquette de catégorie colorée.|569:59906|80,651
+NotificationDot — color=default|6057:105|8x8||Pastille de notification, neutre.|6057:102|0,28
+NotificationDot — color=danger|6057:107|8x8||Pastille de notification, danger.|6057:102|24,28
+NotificationDot — color=success|6057:109|8x8||Pastille de notification, succès.|6057:102|48,28
+NotificationDot — color=warning|6057:111|8x8||Pastille de notification, avertissement.|6057:102|72,28
+#Atomes / Kbd ✅
+Kbd|7952:80274|312x120|"keys;size=xs,sm,md;tone=neutral,brand;shape=auto,square|Touche clavier.|7952:80274|0,0
+KbdCombo|7955:25615|222x72|?hasKey3;size=xs,sm,md|Raccourci à plusieurs touches, une touche Kbd par caractère (⌘ + K, ⌘ + ⇧ + P).|7955:25615|0,0
+#Atomes / Button ✅
+Button|2754:16796|1834x1268|"label;?hasLabel;?hasIconLeft;@iconLeft;?hasIconRight;@iconRight;color=brand,success,neutral,danger,warning,purple;type=primary,secondary,ghost,tertiary;size=lg,md,sm,xs;state=default,hover,disabled|Bouton principal de l'application.|7813:84792|140,150
+#Atomes / ButtonGradient ✅
+ButtonGradient|4576:14773|637x1208|style=full,outline,flat,light;size=lg,md,sm,xs;state=default,hover,disabled|Bouton dégradé réservé aux offres (UpgradeCard, page Offres).|5937:43026|100,395
+#Atomes / ButtonIcon ✅
+ButtonIcon|5867:56798|328x4840|style=fill,outline,ghost,subtle;size=lg,md,sm,xs;state=default,hover,selected,disabled;color=brand,purple,success,danger,neutral|Bouton carré avec une seule icône.|5867:56795|100,395
+#Atomes / ButtonMisc ✅
+ButtonDropdown|5937:42255|772x1000|style=fill,outline,flat,light;size=lg,md,sm,xs;state=default,hover,selected,disabled|Bouton avec chevron qui ouvre un menu.|5937:32170|100,395
+ButtonLink|125:22418|430x692|?hasIconLeft;?hasIconRight;"label;@iconLeft;@iconRight;color=brand,purple;state=default,hover,disabled;padding=true,false;size=lg,md,sm|Bouton texte présenté comme un lien.|5870:60099|100,395
+ButtonScaleQuestion|635:77498|1283x96|type=emoji,meteo,star,number;actif=false,true;device=desktop,mobile|Bouton de note d'une question à échelle.|6137:79815|100,395
+#Atomes / Checkbox ✅
+Checkbox|4554:111425|4904x400|"labelText;?hasLabel;"descriptionText;?hasDescription;?hasIcon;?hasBadge;?hasButtonLink;size=lg,md;state=default,disabled,error;checked=false,true;boxed=false,true;checkPlacement=left,right;descriptionPlacement=below,inline|Case à cocher avec libellé.|553:37013|90,90
+CheckboxItem|4554:110759|160x200|state=default,disabled,error;color=brand,neutral;checked=false,true|Case seule.|553:37013|5074,90
+#Atomes / Divider ✅
+Divider|6055:89|1440x1||Séparateur horizontal.|6108:97170|80,375
+DividerVertical|6055:90|1x156||Séparateur vertical.|6108:97170|80,392
+#Atomes / DropdownField ❌
+DropdownField|4855:20599|1812x1600|style=default,flat,light;size=sm,md,lg;state=default,focus,error,disabled;placeholder=true,false|Champ de sélection.|5884:33181|90,385
+#Atomes / Icons ❌
+Asterisk|787:72863|108x64|style=solid,stroke;type=standard|Astérisque d'obligation.|1:13141|90,455
+require|1:7628|224x72|state=default;size=xl,lg,md,sm,xs|Marque d'obligation.|1:13141|90,531
+menu-dashboard|2947:95232|64x108|outline=true,false|Icône menu tableau de bord.|1:13141|418,455
+square|5452:30608|64x108|stroke=true,false|Icône carré.|1:13141|418,583
+comportement|2579:151252|64x108|outline=true,false|Icône comportement.|1:13141|522,455
+left-to-right-block-quote|2948:1904|64x108|outline=true,false|Icône citation.|1:13141|522,575
+note|2960:45430|64x108|outline=true,false|Icône note.|1:13141|522,695
+IconColor|1442:141718|64x64|size=lg|Icône colorée.|1:13141|522,815
+Number icon|1410:135462|106x228|style=light,fill;size=xxl,xl,lg,md,sm,xs|Numéro en pastille.|1:13141|522,969
+Flag|1:8526|224x72|size=xl,lg,md,sm,xs|Icône drapeau.|1:13141|90,1347
+Apple|1:10558|64x228|state=default;size=xxl,xl,lg,md,sm,xs|Logo Apple.|1:13141|90,1569
+Hubspot|1262:135801|64x228|size=xxl,xl,lg,md,sm,xs|Logo HubSpot.|1:13141|174,1569
+Calendly|1262:135824|64x228|size=xxl,xl,lg,md,sm,xs|Logo Calendly.|1:13141|258,1569
+google agenda|1262:135875|64x228|size=xxl,xl,lg,md,sm,xs|Logo Google Agenda.|1:13141|342,1569
+brevo|1262:135928|64x228|size=xxl,xl,lg,md,sm,xs|Logo Brevo.|1:13141|426,1569
+google|3601:79854|64x108|outline=true,false|Logo Google.|1:13141|510,1569
+arcade|5406:27102|64x108|stroke=tru,false|Logo Arcade.|1:13141|594,1569
+youtube|5406:27143|64x108|stroke=true,false|Logo YouTube.|1:13141|678,1569
+told-mini|3601:79873|64x108|outline=true,fals|Logo Told miniature.|1:13141|762,1569
+Google tag Manager|1:10571|64x228|logo=default;size=xl,l,m,s,xs,xxs|Logo Google Tag Manager.|1:13141|846,1569
+Segment|1632:126020|64x228|logo=default;size=xl,lg,md,sm,sx,xxs|Logo Segment.|1:13141|930,1569
+Javascript|1:10584|64x228|state=default;size=xl,l,m,s,xs,xxs|Logo JavaScript.|1:13141|1014,1569
+Unsplash|1:10597|56x176|state=default;size=l,m,s,xs,xxs|Logo Unsplash.|1:13141|1098,1569
+microsoft|8182:1210|24x24||Logo Microsoft en couleurs d’origine (fixes), pour le bouton « Continuer avec Microsoft ».|1:13141|1258,1569
+TeamImg|20:14656|112x585|state=default,hover;image=off,on;type=default,image|Image d'équipe.|1:13141|1342,1606
+AvatarButton|20:14667|104x524|state=default,edit;content=icon,picture;size=m,max|Bouton avatar modifiable.|1:13141|1474,1606
+Logo|4:5105|64x231|type=toldies;color=orange,grey,pink,black|Logo Toldies.|1:13141|1598,1606
+Toldies|4:4993|757x216|name=told-white,toldie-masque,heart-pink,cross-error,check-success,circle-cyan,wave-apple,wave-german,…+13;shadow=true,false;background=without,square,rounded-square;color=light,full|Personnages Toldies.|1:13141|1682,1606
+icon_file_upload|2986:36367|88x359|type=drag,drop,default|Icône de dépôt de fichier.|1:13141|2459,1606
+IconBoxedColor|4:4197|40x3008|icon=excel,click,chart,iframe,mail,button,organization,end,…+81;style=filled,subtle|Icône dans une pastille colorée.|1:13141|2567,1606
+IconBackground|6306:31567|100x340|"emoji;@icon;style=icon,emoji;color=glass,color|Icône ou emoji sur fond.|1:13141|2627,1606
+dot-pagination-base|3698:96263|28x46|active=true,false;darkMode=false,true|Point de pagination.|1:13141|2839,1569
+dot-pagination|3699:26690|204x206|actif=1,2,3,4,5;pagination=5,4,3,2;darkMode=false,true|Pagination à points.|1:13141|2839,1655
+Meteo|2:542|120x184|name=lightning,sun,cloud-sun,rain,cloud;style=pluricolor,stroke,monocolor|Pictos météo.|1:13141|90,2833
+Emoji_asset|2:241|227x184|face=very-happy,happy,middle,bad,very-bad;color=grey,black,blue,gradient,color;stroke=no,yes;gradient=yes,no|Emojis de satisfaction.|1:13141|251,2833
+Number input|791:91583|64x276|"textInput;state=default;size=lg,sm,xs;circle=true,false|Pastille numérotée.|1:13141|519,2833
+Frame 1073714370|2284:100095|336x1000|star=10,9,8,7,6,5,4,3,2,1;size=xl,lg,sm|Rangée d'étoiles.|1:13141|624,2833
+Product tour step/default/false/Number/false|3617:186393|56x32|"number;?hasHidden|Numéro d'étape de visite guidée.|3617:186393|0,0
+#Atomes / DropdownItem ❌
+DropdownItem|4544:102435|1964x1008|state=default,hover,selected,disabled;selected=false,true;type=accordion,checkbox,default,radio,switch;flat=false,true;tone=default,danger|Ligne de menu ou d'option.|5937:115288|603,375
+DropdownSection|4554:111153|317x150|?hasTag;divider=true,false;type=divider,title|Titre ou séparateur de section dans un menu.|5937:115288|2761,375
+#Atomes / FileItem ❌
+FilesItem|5756:26793|505x82|?hasUploadFailed|Ligne de fichier envoyé.|5943:123539|90,385
+privacyPolitieItem|6113:111395|342x144|withPolicy=default,true|Ligne de politique de confidentialité.|5943:123539|90,547
+#Atomes / FileUploader ✅
+FileUploader|2547:103458|540x948|?hasRecommendedSize;?hasWeightFileTag;state=hover,fill,default,file-drop|Zone de dépôt de fichier.|1156:85204|90,385
+#Atomes / Flag ✅
+FlagCountry|567:57115|720x520|country=al-albania,dz-algeria,be-belgium,fr-france,es-spain,pt-portugal,de-germany,jp-japan,…+208|Drapeaux des pays et continents.|5872:64461|80,315
+#Atomes / Illustrations ❌
+Illu_Survey/Survey|4:12792|200x140||Illustration questionnaire.|5871:63488|180,375
+Illu_Survey/Illu_Grid_Qualif|4:12808|200x140||Illustration grille de qualification.|5871:63488|180,548
+Illu_Survey/Illu_Brainstorm|4:12836|200x140||Illustration brainstorming.|5871:63488|180,721
+Illu_Survey/Illu_Persona|4:12876|200x140||Illustration persona.|5871:63488|180,894
+Illu_Survey/Illu_CJM|4:12752|200x140||Illustration parcours client.|5871:63488|180,1067
+Illu_Survey/Illu_Moodboard|4:12725|200x140||Illustration moodboard.|5871:63488|180,1240
+Illu_Survey/Illu_BMC|4:12918|200x140||Illustration business model canvas.|5871:63488|180,1413
+Illu_Storyboard|4:12953|200x140||Illustration storyboard.|5871:63488|180,1586
+Illu_Sondage|4:12993|200x140||Illustration sondage.|5871:63488|180,1759
+Image Multiple Choice|38:33611|124x720|questionType=message,ouverte,multiple,echelle,nps,personal-info,legal,calendar;state=default|Vignette par type de question.|5871:63488|480,450
+trigger-asset|38:33728|144x1916|name=banner,infinite-period,time-period,all-pages,one-page,widget,popup,page-loading,…+9|Vignettes de déclencheurs.|5871:63488|832,450
+Image folder|11:18180|340x1094|type=website,product,link,mobile,preview-site|Illustrations de dossiers.|5871:63488|1116,450
+Illu_card_emptyScreen|1861:154894|3494x468|type=default,mobile,email,linksurvey,website,onboarding,banner,question|Illustrations des états vides.|5871:63488|1116,1584
+Template illustration|1521:72837|552x605|type=nps,multi-choice,scale,message,np;size=sm,lg;style=email,miniature,widget|Vignettes de modèles.|5871:63488|1116,2092
+#Atomes / Input ✅
+Input|2932:184217|1812x1996|style=default,flat,light;size=sm,md,lg;state=default,focus,error,disabled;placeholder=true,false|Champ de saisie.|543:21493|90,385
+SearchBar|3596:90113|3110x587|size=lg,md,sm;state=default,hover,pressed,focus,error,disabled;placeholder=true,false|Barre de recherche sans libellé, icône loupe, raccourci ⌘K.|5884:31977|90,385
+InputTag|3756:113687|3110x621|size=sm,md,lg;stats=default,disable,hover,pressed,select,error;placeholder=true,false|Champ à étiquettes.|5901:44965|90,385
+InputContactForm|6148:91504|1440x5448|state=default,hover,pressed,focus,error;infoType=personal,company,link,mail,phone,social,website,other;hasrequire=false,true|Champ de formulaire de contact.|6148:59768|90,385
+Contact info_input|8:13793|316x552|?hasRequired;?hasIconLeft;state=default,fill,hover,click,error;level=primary,secondary|Champ de coordonnées.|6148:59768|90,5913
+Contact Info_multiple inputs|8:14796|728x884|?hasRequired;state=default,hover;open=off,on|Formulaire de coordonnées complet.|6148:59768|90,6545
+#Atomes / Logos ✅
+logoTold2025|4:4766|160x646|theme=light,dark;size=lg,md,sm,xs;background=no;version=2025;mini=false,true|Logo Told 2025.|552:36171|80,375
+LogoPartner|4:13217|64x1280|company=tol,figma,marvel,jira,maze,notion,trello,drive,…+31|Logos de partenaires et d'outils.|552:36171|290,375
+#Atomes / NavButtonItem ✅
+NavButtonItem|1023:80470|1176x552|?hasIconLeft;?hasIconRight;?hasLabel;?hasTag;"label;@iconBoxed;@icon;@iconRight;?hasShortcut;state=default,hover,selected,disabled;level=primary,secondary;style=default,dropdown;iconType=default,boxed|Élément de navigation du menu latéral.|5978:16592|80,375
+ButtonEditionMenu|1018:49167|73x128|state=default,hover,actif|Bouton du menu d'édition.|5978:16592|80,1007
+Avatar|541:9850|119x109|type=multi,single|Avatar de navigation.|5978:16592|80,1215
+Profile|635:66174|284x168|state=default,hover,press-select|Accès au profil.|5978:16592|80,1404
+#Atomes / ProgressBar ❌
+ProgressBar|556:57661|421x2110|length=0,10,20,30,40,50,60,70,…+3;direction=horizontal,vertical;size=lg,sm|Barre de progression.|5922:65029|90,385
+ProgressBarWidget|787:72909|300x74|style=multi,single;size=sm,lg|Progression dans un widget.|5922:65029|591,385
+loader|1156:85211|1026x477|?hasLabel;style=line-simple,line-spinner,dot-circle;sizz=3xs,lg,md,sm,xl,xs,xxs|Indicateur de chargement.|5922:65029|971,385
+SkeletonLine|6057:97|200x12||Ligne fantôme de chargement.|6057:94|0,28
+SkeletonCard|6057:98|240x1||Carte fantôme de chargement.|6057:94|224,28
+#Atomes / Radio ✅
+Radio|4554:113764|2656x670|"labelText;?hasLabel;"descriptionText;?hasDescription;?hasIcon;?hasBadge;size=lg,md;state=default,disabled,error;checked=false,true;boxed=false,true;descriptionPlacement=below,inline|Bouton radio avec libellé.|4554:113761|90,355
+RadioItem|7:2083|160x360|state=default,error,disabled;checked=false,true;style=check,dot;color=brand,shamrock|Bouton radio seul.|4554:113761|90,1075
+#Atomes / Selection ❌
+SelectionCard|4625:104218|682x724|"labelText;?hasLabel;"descriptionText;?hasDescription;?hasIcon;?hasBadge;?hasNumber;@icon;size=lg,md;state=default,hover,pressed,checked,disabled,error;checked=false,true|Carte de choix.|4771:78149|90,355
+SelectionItem|4722:47894|336x388|"labelText;?hasLabel;?hasIcon;?hasBadge;checked=false,true;state=default,hover,pressed,checked,disabled|Ligne de choix.|4771:78149|852,355
+SelectableCard|6258:86451|349x1688|"labelText;?hasLabel;"descriptionText;?hasDescription;?hasBadge;size=lg,md;state=default,hover,pressed,checked,disabled,error;checked=false,true|Carte sélectionnable.|4771:78149|1268,355
+Template cards|1506:7664|3732x408|?hasTag;style=from-scratch,template;states=default,pressed,hover,current;version=horizontal,vertical|Carte de modèle de départ.|4771:78149|1697,355
+#Atomes / Slider ❌
+ScrollBar|635:63091|316x284|orientation=vertical,horizontal|Barre de défilement.|790:85917|80,377
+SliderBar|944:117082|464x288|?hasLabel;?hasPercentage;state=v-1,v-2;theme=light;empty=false,true|Curseur de valeur.|790:85917|446,375
+SliderCapsule|3696:120151|464x168|?hasLabel;?hasPercentage;style=double,empty,simple|Curseur en capsule.|790:85917|960,435
+Slider bar widget voting|787:71352|284x132|state=default;theme=light,dark|Curseur de vote des widgets.|790:85917|80,1160
+#Atomes / Switch ✅
+Switch|5905:70473|5220x1222|"labelText;?hasLabel;"descriptionText;?hasDescription;?hasIcon;?hasBadge;?hasButtonLink;size=lg,md,sm;state=default,disabled,error;checked=false,true;boxed=false,true;checkPlacement=left,right;descriptionPlacement=below,inline|Interrupteur avec libellé.|4551:104851|80,375
+SwitchItem|4552:110688|100x1660|size=lg,md,sm;color=brand,shamrock,mustard;checked=true,false;disabled=false,true|Interrupteur seul.|4551:104851|5380,375
+SwitchOptionCard|5563:21578|680x86||Carte de réglage avec interrupteur.|4551:104851|5932,375
+#Atomes / Tabs ✅
+TextTab|20:14461|460x112|?hasIconLeft;?hasIconRight;"label;@iconLeft;@iconRight;?hasCount;"count;state=default,hover,selected,disabled|Onglet texte.|5930:10785|80,375
+ButtonTab|3594:233176|1376x2608|style=fill,outline,ghost,subtle;size=lg,md,sm;state=default,hover,selected,disabled;font=medium,semibold;current=false,true;color=brand,inverse|Onglet de l’éditeur (EditionNav, Langues).|5930:2855|180,762
+GroupTab|20:13981|1844x400|?hasText;?hasIcon;size=sm,lg;tabNumber=2,3,4;selectedTab=1,2,3,4|Contrôle segmenté : de 2 à 4 segments, un seul actif (selectedTab).|5927:77220|80,375
+#Atomes / TextArea ✅
+TextArea|543:14037|1660x1922|?hasAiButton;?hasHeaderEditor;?hasHelper;?hasLabel;"placeholderText;"labelText;"helperText;?hasTooltip;?hasDescription;"descriptionText;?hasRequired;"value;style=brand,neutral;size=sm,md,lg;state=default,focus,error,disabled;placeholder=false,true|Zone de texte sur plusieurs lignes.|5884:35359|90,385
+TextEditorControls|3542:67880|414x200|?hasTextStyle;?hasImprove;?hasMicro;positition=header;size=sm,md,lg;type=default|Barre d'outils d'édition, en tête.|5884:35359|90,2387
+#Atomes / Toast ✅
+Toast|20:9454|1257x849|?hasIcon;?hasTitle;"descriptionText;"titleText;?hasDescription;?hasCloseButton;?hasButtonLink;?hasButton;size=lg,sm;type=error,success,warning,brand,neutral,neutral-light,neutral-dark|Notification flottante temporaire.|23:16304|80,375
+PremiumToast|1985:148938|1110x364|"gradientText;?hasGradientText;"text;?hasButton;?hasText;type=premium,blocked;size=sm,lg|Notification d'offre ou de limite atteinte.|23:16304|80,1304
+#Atomes / Tooltip ✅
+Tooltip|20:9483|223x956|"text;?hasIconRight;?hasIconLeft;@iconLeft;@iconRight;direction=up,upright,upleft,left,right,down,downleft,downright;size=sm,md|Bulle d'aide contextuelle.|553:36517|80,375

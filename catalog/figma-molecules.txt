@@ -1,0 +1,159 @@
+#Molécules / Accordion ❌
+Accordion|635:66388|324x168|"label;@icon;@icon2;"description;?hasDescription;state=default,hover,click|Section repliable.|635:66388|0,0
+#Molécules / AddBlockModal ✅
+QuestionCard|1280:91800|4568x318|question=mutiplechoice,ranking,text,smiley,meteo,numbers,nps,google-review,…+4|Carte de type de question.|6142:86272|80,473
+BlockTypePreview|8133:10329|2440x1561|type=ai-agent,multiple-choice,dropdown,scale,nps,ranking,review,open,…+19|Illustration d'un type de bloc, colonne de droite d'AddBlockModal.|8133:10329|0,0
+BlockTypeItem|8133:86310|816x84|"label;?hasPro;state=default,hover,selected|Ligne de la liste des types d'AddBlockModal.|8133:86310|0,0
+AddBlockModal|8136:20553|3440x7172|selected=multiple-choice,ai-agent,dropdown,scale,nps,ranking,review,open,…+19|Modale d'ajout de bloc du questionnaire.|8136:20553|0,0
+#Molécules / Calendar ✅
+Calendar|20:16545|1776x434|"summary;?hasModes;side=periode,all-time,last,single|Sélecteur de dates.|5943:143913|80,375
+#Molécules / Cards ❌
+CardHeader|6210:35475|1965x54|"title;"description;?hasDescription|En-tête de carte.|11:15364|80,375
+cards-item|1443:141835|1965x1029|type=members,welcome,survey-upgrade,sources-ugrade|Cartes d'information de l'accueil.|11:15364|80,509
+Card_plan|1215:34462|323x794|type=default,card-plan-exceed,variant4,variant3|Carte d'offre.|11:15364|80,1854
+Question option card item|937:105252|304x1020|?hasTag;?hasButton;active=false,true;style=options,check-states,checkbox|Carte d'option de question.|11:15364|80,2688
+FileCard|20:27110|488x1630|?hasButton;state=new,wireframe,empty,template,default,hover,press;live=on,off|Carte de fichier ou de contenu.|11:15364|80,3788
+TriggerCard|38:33426|1124x192|state=default,hover,pressed,selected,disabled|Carte de déclencheur.|11:15364|80,5498
+Title|562:22014|318x125|?hasIconButton;?hasInfoIcon;?hasIconLeft;?hasNumber;size=sm,md,lg|Titre de carte.|11:15364|80,5845
+Template Card|635:76926|424x944|?hasAvatar;?hasLogo;?hasNewTag;state=default,hover,press|Carte de modèle.|11:15364|80,6050
+event-base|2392:130363|575x354|?hasButton;?hasIcon;type=lg,sm|Base d'événement.|11:15364|80,7224
+event|2392:130386|575x504|type=survey-answer,page-view,did-this-event;stats=default,hover,actif;size=lg,sm|Événement déclencheur.|11:15364|80,7618
+Property Card|635:76954|1785x196|?hasInput;state=default,hover,select,focus;type=select,select-plus-input|Carte de propriété.|11:15364|80,8237
+InfoCard|4782:14777|636x2505|type=documentation,triggers,liens,hidden-fields,audience,periode,url-dynamique,fix-id,…+4|Carte d'aide contextuelle.|11:15364|80,8513
+#Molécules / Conditions ❌
+Condition|1098:63109|659x2252|type=default,avec-condition|Logique conditionnelle d'une question.|6142:81623|180,475
+Condition_item_SN|1098:69308|611x848|condition=aller-a-la-prochaine-question,aller-a-un-bloc-specifique,lien-externe|Action d'une condition.|6142:81623|5198,475
+#Molécules / ContentRow ❌
+ContentRow|7887:1174|1156x1642|"title;"kind;"surface;"responses;"activity;@icon;?hasMenu;?hasStatus;state=default,hover,selected;contentType=neutral,questionnaire,product-tour,annonce,nps,checklist|Ligne de la liste des Told.|7887:1174|0,0
+ContentRowHeader|7887:1178|1092x39|?hasStatus|En-tête de colonnes de la liste, aligné sur ContentRow.|7887:1178|0,0
+#Molécules / Conversation ❌
+IntentInput|7865:516|2288x596|"placeholder;"value;?hasHint;?hasMic;state=default,filled,listening;size=default,compact;emphasis=default,ai|Champ d’intention « Demander à Told ».|7865:516|0,0
+QuickSuggestion|7866:506|850x102|"label;?hasIcon;@icon;state=default,hover,selected|Suggestion rapide sous la zone de saisie d'intention.|7866:506|0,0
+ChatBubble|7866:530|704x270|?hasName;role=told,user;state=default,typing|Bulle de conversation.|7866:530|0,0
+ClarifyOption|7867:520|712x198|"label;"description;?hasDescription;@icon;state=default,hover,selected|Réponse en un clic à une question de précision de Told.|7867:520|0,0
+ClarifyQuestion|7867:521|640x214|"question;"step;?hasStep;?hasOption4;?hasOther;?hasSkip|Question de précision posée par Told.|7867:521|0,0
+ProposalCard|7917:1091|784x896|"title;"why;"where;"who;"when;?hasPreview;?hasOtherOption;?hasContent3;type=single,scenario|Proposition de Told.|7917:1091|0,0
+PreparingStep|7868:621|194x140|"label;state=done,current,todo|Étape de l'indicateur de préparation.|7868:621|0,0
+PreparingIndicator|7868:622|480x182|"title;"subtitle|Indicateur de préparation : Told montre ce qu'il fait.|7868:622|0,0
+ContentTypeCard|8268:1229|1072x984|type=survey,tour,announcement;state=default,hover,selected|Grande carte de choix du type de Told.|8268:1229|0,0
+PlanItem|8269:1273|690x926|"number;"typeLabel;"question;"condition;?hasCondition;kind=step,message,thanks;state=default,hover,new,removed|Ligne du plan proposé par Told.|8269:1273|0,0
+PlanOutline|8269:1959|680x430|"title;"summary;?hasBranch3;?hasStep4;?hasStep5|Plan proposé par Told.|8269:1959|0,0
+StarterCard|8333:39775|756x696|intention=demander,guider,annoncer;state=default,hover,selected|Carte de départ de « Créer ».|8333:39775|0,0
+#Molécules / EmptyState ❌
+EmptyState|7855:516|1360x471|?hasButton;?hasLink;type=default,with-cta,error|État vide d'une liste ou d'un écran.|7855:516|0,0
+DesktopOnlyNotice|7941:80192|390x844|"title;"description|Écran mobile affiché quand on ouvre l’application sur téléphone.|7941:80192|0,0
+#Molécules / GettingStarted ✅
+GettingStartedStep|7903:1087|328x320|"title;"description;?hasDescription;"number;state=done,current,todo|Étape du bloc Pour commencer.|7903:1087|0,0
+GettingStarted|7903:1169|955x2608|?hasStep4;layout=wide,column;current=2,1,3,4|Bloc « Pour commencer » de l'accueil.|7903:1169|0,0
+GettingStartedIllustration|8272:91810|1224x208|step=install,create,tour,publish,invite|Illustrations des étapes de « Pour commencer ».|8272:91810|0,0
+#Molécules / Headers ❌
+PageHeader|3572:6519|1488x320|?hasSecondaryButton;?hasButton;?hasIcon;?hasButtonMore;"title;@icon2;?hasDescription;"description;type=editable,back,static|En-tête de page.|552:29771|80,375
+SectionTitleMenu|6187:116469|1488x18|"text|Titre de section de menu.|552:29771|80,775
+SectionTitle|8039:3312|1488x260|?hasButton;?hasIconbutton;level=h2,h4,h1,h3|Titre de section d’une page de l’application.|552:29771|80,873
+TopBar|7858:1613|1140x65|"title;?hasSearch;?hasEnvironment;?hasNotifications;@icon;?hasIntent;?hasDescription;"description;?hasAction|Barre du haut de l'application, à droite d'AppSidebar.|552:29771|80,1213
+EnvironmentButton|7906:1349|779x88|?hasLabel;env=live,test,preprod|Bouton d'environnement du TopBar.|552:29771|80,1358
+EnvironmentTag|7941:3994|248x56|env=production,preproduction|Tag d’environnement à côté du statut d’un scénario.|552:29771|80,1526
+EnvironmentMenu|7906:1431|1056x345|?hasAdvanced;env=live,test,preprod|Menu ouvert depuis EnvironmentButton.|552:29771|80,1662
+EnvironmentBanner|7906:1440|1488x136|env=test,preprod|Bandeau en haut de l'écran hors environnement en ligne.|552:29771|80,2087
+EditionNav|1018:36318|4696x810|?hasPreview;?hasPublish;?hasSaveStatus;"saveStatus;?hasChanges;"changesLabel;step=construire,diffuser,analyser;status=brouillon,en-ligne;tabStyle=square,icon,text|En-tête de l'éditeur d'un Told.|9:22187|80,375
+VersionItem|8088:223035|1496x100|"version;"detail;?hasStatus;state=default,hover;live=false,true|Une version publiée dans ChangeHistory.|9:22187|80,1265
+ChangeItem|8088:222948|784x252|"title;"detail;"time;?hasDetail;kind=added,edited,deleted;state=default,hover|Une ligne de l’historique des changements non publiés.|9:22187|80,1445
+ChangeHistory|8088:223036|376x503|?hasUnpublished;"sectionTitle|Historique des changements.|9:22187|80,1777
+#Molécules / BlockHeaders ❌
+EditionCardHeader|554:39303|660x68|?hasLeftIcons;?hasMandatoryIcon;?hasRequiredToggle;?hasPremiumBadge;?hasAibutton;"title;?hasFormat;?hasActiveToggle;state=default|En-tête des cartes d’édition.|554:39303|0,0
+headerCards|1045:140468|1440x188|?hasDate;?hasTextOption;divider=false,true|En-tête de carte.|1045:140468|0,0
+OptionSectionTitle|1265:46404|1440x364|"description;"title;?hasToggle;?hasNumber;?hasIcon;?hasButtonLink;?hasDescription;divider=false,true;padding=true,false|Titre de section d'options.|1265:46404|0,0
+PremiumItem|554:39885|1440x91|?hasPremiumTag;device=desktop,mobile|Ligne de fonction payante.|554:39885|0,0
+#Molécules / Languages ❌
+LanguageItem|8051:24798|920x256|"label;?hasToggle;state=default,hover,selected;isDefault=false,true;boxed=true,false|Une langue du Told.|8194:4043|80,375
+LanguagePanel|8174:4121|356x332||Colonne de droite de l’onglet Langues.|8194:4043|80,711
+TranslationTable|8245:4085|1158x1320|?hasEnglish;?hasSpanish;?hasGerman;?hasItalian;?hasScrollbar;scrolled=false,true|Traduction d’un Told, une ligne par texte.|8194:4043|80,1123
+Langues|1145:49152|878x132|languages=single,multiple|Sélecteur de langues.|8194:4043|80,2523
+#Molécules / Menu ❌
+ActionMenu|4772:5404|150x174||Menu d'actions contextuel.|879:34361|80,375
+NavigationMenu|4771:81917|224x459||Menu de navigation.|879:34361|80,629
+Listbox|879:4729|465x667|?hasScrollbar;?hasSearchbar;?hasFooter;size=lg,md,sm;type=floating|Liste d'options flottante.|879:34361|80,1168
+#Molécules / ModuleCard ✅
+ModuleCard|7850:2521|2200x189|"title;?hasMenu;?hasSubStep2;?hasSubStep3;?hasSubStep4;?hasSubStep5;?hasSubStep6;?hasAdd;"count;?hasDisplay;?hasIcon;"format;?hasType2;?hasType3;?hasType4;?hasType5;state=default,selected,hover,dragging;expanded=true,false|Carte d’un module dans la colonne de gauche de la construction.|7850:2521|0,0
+SubStepItem|8044:2542|792x80|"label;?hasMissingTranslation;?hasCondition;?hasDelete;state=default,hover,selected|Ligne de sous-étape dans ModuleCard.|8044:2542|0,0
+MessageCard|8070:2583|2472x108|?hasDetail;kind=welcome,thanks;state=default,selected,hover,disabled,dragging|Carte d’un message de début ou de fin.|8070:2583|0,0
+FlowDivider|8070:2592|296x133|"label;kind=start,end,content|Séparation de la colonne des modules.|8070:2592|0,0
+DropZone|8173:3496|248x60||Emplacement de dépôt sur la surface de logique.|8173:3496|0,0
+InsertBar|8199:6014|280x66|state=default,drop-target|Barre d’insertion entre deux blocs.|8199:6014|0,0
+#Molécules / Notifications ❌
+notificationItem|2794:198377|1011x1292|state=default,hover,pressed;notification=false,true;style=default,feature|Notification.|6210:39140|180,550
+Notification_sidebar|2795:214336|607x1102|device=desktop|Panneau des notifications.|6210:39140|1291,475
+#Molécules / OptionContent ❌
+OptionPanelItem|6031:85291|1234x5517|?hasMissingTranslation;?hasLanguage;?hasPro;type=format,position,trigger,textalign,buttonlink,buttoncustom,buttondefaut,buttonsurvey,…+8;state=closed,open|Ligne d'option du panneau de réglages.|6113:104097|80,375
+contrastCheck|4747:71663|85x96|checked=false,true|Contrôle de contraste.|6113:104097|80,5972
+OptionProgressbarItem|5395:21581|296x182|active=false,true|Option barre de progression.|6113:104097|80,6148
+OptionAvatarItem|5395:21734|276x400|active=false,true;avatarUpload=false,true|Option avatar.|6113:104097|80,6410
+OptionOverlayItem|5395:23203|296x245|active=false,true|Option voile.|6113:104097|80,6890
+OptionBlurItem|5396:21756|296x108|active=false,true|Option flou.|6113:104097|80,7215
+OptionCoverItem|5396:21957|276x344|active=false,true;coverUpload=false,true|Option image de couverture.|6113:104097|80,7403
+OptionLogoItem|5396:22443|276x304|active=false,true;coverUpload=false,true|Option logo.|6113:104097|80,7827
+OptionRadiusItem|5396:23567|276x350|buttonRadius=false,true|Option arrondis.|6113:104097|80,8211
+OptionCloseItem|5396:51890|296x108|active=false,true|Option bouton fermer.|6113:104097|80,8641
+OptionSkipItem|5396:52028|296x108|active=false,true|Option passer.|6113:104097|80,8829
+OptionShadowItem|5674:11202|276x300|buttonRadius=false,true|Option ombre.|6113:104097|80,9017
+OptionSoundItem|5694:25971|276x622|buttonRadius=false,true|Option son.|6113:104097|80,9397
+OptionFooterItem|5396:50185|296x108|active=false,true|Option pied de widget.|6113:104097|80,10099
+OptionBadgeItem|5396:50391|276x342|active=false,true;freemium=false,true|Option badge.|6113:104097|80,10287
+LogicRule|8115:6555|724x202|"label;kind=rule,else|Règle de logique d’une question.|8115:6555|0,0
+FormatCard|8115:12218|724x135|"title;"help;?hasRecommended;state=default,selected|Carte de choix du format d’un module.|8115:12218|0,0
+TypeSettings|8137:3775|2416x686|type=multiple-choice,dropdown,scale,nps,ranking,review,open,contact,…+3|Réglages propres au type de question.|8137:3775|0,0
+SecondaryBlockSettings|8172:3854|2020x589|type=image,text,video,button,divider|Réglages d'un bloc secondaire.|8172:3854|0,0
+#Molécules / Pagination ✅
+PaginationButton|23:16467|119x227|"textInput;state=default,hover,pressed,selected;device=desktop,mobile|Bouton de page.|1033:83896|80,375
+PaginationDot|23:16476|44x132|color=grey,blue;size=lg,sm|Point de pagination.|1033:83896|219,375
+PaginationSquare|23:16485|44x76|state=default,select|Carré de pagination.|1033:83896|283,375
+Pagination|1436:137865|438x168|?hasRowCount;?hasRowsPerPage;device=desktop,mobile|Pagination de liste.|1033:83896|347,375
+#Molécules / QuestionEdit ❌
+ContentBlock|8316:8017|1264x160|type=title,description|Blocs de contenu communs à tous les presets.|8319:7394|64,212
+NPSQuestionEdition|943:112666|596x228|?haslabel;?hasgoal;label=true;goal=true|Édition d'une question NPS.|8319:7394|64,459
+QuestionScaleItem|937:106131|2613x1392|label=true,false;type=emoji,meteo,star,numbers;style=minimal,color|Édition d'une échelle.|8319:7394|724,459
+QuestionTypeEdition|937:107543|2420x500|type=contactform,multianswer,calendar,quiz|Édition selon le type de question.|8319:7394|3401,459
+DropdownEdit|8029:5636|904x372|state=default,focus|Édition d’une question à liste déroulante.|8319:7394|5885,459
+OpenQuestionEdit|1282:137872|2535x523|?hasTitle;openList=false,true|Édition d'une question ouverte.|8319:7394|6853,459
+ConsentBlock|8162:106149|580x342||Bloc consentement d'une question.|8319:7394|1996,1938
+SecondaryBlock|8159:36893|3220x446|?isHovered;?isSelected;?hasButton2;?hasButton3;?hasReplaceNextHint;?hasLogicLink;?isDragging;type=image,text,video,divider,button|Bloc secondaire d'une étape.|8319:7394|64,2442
+ScaleLabel|8159:233200|636x216|"label;position=left,center,right;state=default,hover,selected|Libellé d'échelle.|8319:7394|64,2975
+ConsentPreview|8163:227551|280x105||Illustration minimale du consentement.|8319:7394|764,2975
+MultiBaseInput|933:71125|620x824|mode=standard,quiz;state=default,hover;correct=false,true|Ligne de réponse d'un choix multiple.|8319:7394|1108,2975
+MessageBase|1252:115416|635x150|?hasSectionTitle;?hasCustomColor;?hasMessage;?hasDescriptionInput;?hasQuestion;?hasMessageTab;?hasMedia;type=default|Base de message.|8319:7394|1792,2975
+TabMessage|3607:217054|635x388|tabs=1,2,3,4,empty|Onglets des étapes d'un module.|8319:7394|2491,2975
+ConsentItemBase|1259:128688|356x1036|state=default,accepted,declined;wireframe=false,true|Ligne de consentement.|8319:7394|3190,2975
+MediaItem|3542:186456|280x1140|type=default,hover;kind=picture,video;size=lg,sm|Média joint.|8319:7394|3610,2975
+MediaFiles|3607:216939|659x424|size=lg,sm|Liste de médias joints.|8319:7394|3954,2975
+InputLink|3539:108425|579x422|?hasDelete;"buttonLabel;"action;?hasLanguages;link=open,close,error;placeholder=true|Champ de lien.|8319:7394|4677,2975
+Preset|8156:14320|3240x2131|?hasDescription;?hasConsent;?isSelected;?isHovered;?isDragging;type=nps,scale,multiple-choice,dropdown,open,contact,calendar,ranking,…+4|Preset d'une étape : assemblage de blocs séparés.|8319:7413|64,212
+ModuleEditCard|8128:222944|580x94||Carte du module au-dessus de StepEditCard.|8319:7420|64,212
+StepEditCard|8171:108570|1300x553|?hasInsertBar;?hasFooter;?hasPrevious;?hasSecondaryBefore;?hasSecondaryAfter;state=default,empty|Carte de l'étape.|8319:7420|708,212
+BlockFrame|7851:6609|1104x216|?hasLabel;state=selected,hover|Cadre de sélection d'un bloc.|8319:7420|64,852
+InsertMenu|8116:5476|200x170||Menu du « + » de la barre d’insertion.|8319:7420|1232,852
+AIAssistBlock|8098:188643|356x115|"label;?hasResult;"result;?hasSuggestions|« Demander à Told » en tête de la colonne d'options.|8319:7420|1496,852
+WidgetHeaderPreview|8128:222928|3140x640|?hasSender;steps=1,2,3,4,5;current=1,2,3,4,5|Aperçu de l'en-tête du widget.|8319:7420|1916,852
+PublishItem|932:60013|659x666|?hasTitleSection;type=publish-v1,publish-v2,active-v1,active-v2;state=default|Ligne de publication.|8319:7420|64,1579
+LabelReport|23:16310|524x376|?hasCenterLabel;state=default,hover,selected;side=all,left,center,right|Libellés d'une échelle.|8319:7420|787,1579
+MessageEdit|1252:105879|2613x1608|link=false,true;media=false,true;customization=false,true|Édition d'un message (ancien).|8319:7430|64,212
+#Molécules / Scenario ❌
+ScenarioStep|7920:22202|784x310|"title;"meta;"results;"number;?hasResults;?hasNumber;?hasStatus;state=default,hover,selected|Une brique dans la suite d’un scénario.|7920:22202|0,0
+ScenarioConnector|7921:541|784x168|"rule;state=default,hover|Liaison entre deux étapes d’un scénario.|7921:541|0,0
+ScenarioTrigger|7921:542|720x166|"start;"frequency;?hasFrequency|Départ d’un scénario.|7921:542|0,0
+ScenarioCondition|7922:705|784x364|"condition;else=end,step|Branche « Si … » d’un scénario.|7922:705|0,0
+ScenarioRow|7922:848|1156x288|"title;"summary;"progress;"activity;?hasContent2;?hasContent3;?hasContent4;?hasAudience;?hasEnvironment;state=default,hover,selected|Ligne de la liste des scénarios.|7922:848|0,0
+ScenarioOverview|7917:1002|1156x856|"title;"summary;?hasContent3;"rule1;"rule2;?hasType2;?hasType3;?hasType4;?hasEnvironment;expanded=true,false;state=default,selected|Aperçu dépliable d’un scénario.|7917:1002|0,0
+ScenarioPanel|7937:30020|2424x940|"title;"summary;?hasIntent;status=live,draft;preproduction=false,true|Panneau d’un scénario, en colonne à droite.|7937:30020|0,0
+ScenarioStart|7938:1153|200x56|"audience;"start|Vue Carte : départ d’une rangée de scénario.|7938:1153|0,0
+ScenarioNode|7938:1176|552x111|"title;"results;state=default,selected|Vue Carte : une brique en nœud compact.|7938:1176|0,0
+ScenarioBranch|7938:1177|182x32|"condition|Vue Carte : pastille « Si … ».|7938:1177|0,0
+ScenarioEdge|7938:1203|488x112|"rule;?hasLabel;?hasDelete;shape=straight,elbow-up,elbow-down|Vue Carte : liaison entre deux éléments.|7938:1203|0,0
+DotGrid|7964:1626|560x600||Fond de construction : fond uni et trame de points blancs.|7964:1626|0,0
+ScenarioFork|8173:2360|696x218|"rule1;"rule2;"rule3;"rule4;outputs=2,3,4|Branche à plusieurs sorties.|8173:2360|0,0
+CanvasToolbar|8173:3504|244x42|"zoom;?hasMinimap|Barre d’outils de la surface de logique.|8173:3504|0,0
+LogicNode|8189:1992|1280x522|?hasOutput2;?hasOutput3;"title;"content;?hasFormat;kind=welcome,step,message,thanks;state=default,hover,selected,dragging|Bloc de la surface de logique.|8189:1992|0,0
+#Molécules / Table ❌
+TableHeaderCell|418:10486|382x125|?hasSort;?hasText;"text2;?hasCheckbox;?hasFlag;?isDefault;empty=false,true;background=true,false|En-tête de colonne.|417:433|180,375
+TableCell|418:26173|686x779|state=default,actif,disabled;size=lg,sm;hover=false,true;noContent=false,true;hasdivider=true,false|Cellule de tableau.|417:433|711,580
+DomaineTable|1532:126431|1192x463|validated=true,false;row=2,1|Tableau des domaines.|417:433|1477,580
+TranslationCell|8024:2562|1080x277|"text;state=source,filled,empty,focus,loading;kind=url,text|Cellule du tableau de traduction.|417:433|80,1778
