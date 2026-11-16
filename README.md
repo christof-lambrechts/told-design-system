@@ -23,10 +23,26 @@ npm run typecheck        # vérification TypeScript
 
 ## Composants
 
-- **Button** (`color` brand · neutral · danger · success · warning · purple, `variant` primary · secondary · tertiary · ghost, `size` xs · sm · md · lg, `iconLeft`, `iconRight`) et **ButtonIcon** (`appearance` fill · outline · ghost · subtle).
-- **Checkbox**, **Radio**, **Switch** (`label`, `description`, `boxed`, `descriptionPlacement`, `error`, `size`, `checkPlacement`).
-- **Kbd** et **KbdCombo**.
-- **Icon** : icônes HugeIcons Solid Standard exportées de Figma (à compléter au besoin).
+Codés (validés ✅ dans Figma), visibles dans Storybook sous « Composants » :
+
+- **Actions** : Button, ButtonIcon, ButtonGradient, ButtonDropdown, ButtonLink.
+- **Saisie et choix** : Checkbox, Radio, Switch, Input, SearchBar, TextArea, FileUploader, Calendar.
+- **Navigation** : TextTab, ButtonTab, GroupTab, Pagination, NavButtonItem.
+- **Statut et aide** : Kbd, KbdCombo, Tooltip, Toast.
+- **Structure et visuels** : Divider, Icon (156 icônes du fichier Figma), IconBoxed, Logo, Flag.
+- **Cartes et modales** : GettingStarted, ModuleCard (et SubStepItem, MessageCard, FlowDivider, InsertBar, DropZone), AddBlockModal, BlockTypeItem.
+- **Widget visiteur** : Widget, WidgetChoice, WidgetButton, WidgetConsent, ChecklistItem (thème clair et sombre).
+- **Assets** : UserStory.
+
+Tous les autres composants du fichier Figma sont dans **Catalogue Figma** : aperçu, propriétés, statut et lien vers Figma. Ils sont codés une fois validés.
+
+## Mettre à jour depuis Figma
+
+| Quoi | Où | Commande |
+| --- | --- | --- |
+| Couleurs | `tokens/figma/*.txt` (export des variables) | `npm run tokens` |
+| Icônes | `catalog/icons-*.txt` (tracés exportés de la page Icons) | `npm run icons` |
+| Catalogue | `catalog/figma-*.txt` (propriétés), `public/catalog/*.webp` (aperçus), `catalog/coded.json` (composants codés) | `npm run catalog` |
 
 ## Règles
 
@@ -37,7 +53,13 @@ npm run typecheck        # vérification TypeScript
 
 ## Intégration dans le monorepo
 
-Le dossier est autonome (React 19, Vite, Storybook 10). Pour l'intégrer à `told-monorepo-front`, le copier comme paquet (`packages/design-system`) et importer `@told/design-system` : `src/index.ts` charge les jetons et exporte les composants. Next.js lit les CSS modules sans réglage.
+Le dossier est autonome (React 19, Vite, Storybook 10). Un autre projet l'installe directement depuis GitHub (accès au dépôt requis) :
+
+```
+npm install github:christof-lambrechts/told-design-system
+```
+
+puis `import { Button } from '@told/design-system'` : l'entrée `src/index.ts` charge les jetons et exporte les composants (TypeScript et CSS modules, lus tels quels par Vite et Next.js). Mise à jour : `npm update @told/design-system`.
 
 ## Mise en ligne
 
