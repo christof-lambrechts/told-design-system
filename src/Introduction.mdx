@@ -1,0 +1,26 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# Design system Told V3
+
+Le design system de l'application Told, en code. Chaque composant reprend son équivalent du fichier Figma **DESIGN-SYSTEM-TOLD-V.3** : mêmes noms, mêmes variantes, mêmes jetons.
+
+## Comment c'est construit
+
+- **Jetons** : les variables Figma deviennent des variables CSS (`src/tokens`). Couleurs claires et sombres (`data-theme="light"` ou `"dark"` sur `<html>`), espacements, rayons, typographie, ombres, durées.
+- **Composants** : React + TypeScript, un dossier par composant, styles en CSS modules qui n'utilisent que les jetons sémantiques.
+- **Mode sombre** : bouton « Clair / Sombre » dans la barre du haut.
+
+## Ce qui est déjà là
+
+Seuls les composants **validés ✅ par Christof dans Figma** sont codés : Button, ButtonIcon, Checkbox, Radio, Switch, Kbd et KbdCombo, ainsi que les fondations (couleurs, typographie, espacements et rayons, ombres).
+
+Les composants marqués ❌ dans Figma arrivent au fur et à mesure de leur validation. EditionNav et GettingStarted (validés) suivent : ils demandent l'export de leurs icônes et illustrations.
+
+## Règles à garder
+
+- Contenu en français, vouvoiement.
+- Une seule action primary par vue.
+- Couleurs : uniquement les jetons sémantiques, jamais une valeur en dur.
+- Un changement de valeur se fait d'abord dans Figma, puis on régénère les jetons (`npm run tokens`).

@@ -1,0 +1,90 @@
+/* Structure commune de Checkbox, Radio et Switch (pages Figma Checkbox ✅, Radio ✅, Switch ✅). */
+.field {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: var(--font-family-body);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--content-default-default);
+  cursor: pointer;
+  position: relative;
+}
+.field.sm { gap: 8px; }
+.right { flex-direction: row-reverse; justify-content: space-between; }
+.boxed {
+  display: flex;
+  padding: 10px 12px;
+  border: 1px solid var(--selectionbox-border-default);
+  border-radius: var(--radius-md);
+  background: var(--selectionbox-background-default);
+  transition: background-color var(--duration-fast) var(--easing-standard), border-color var(--duration-fast);
+}
+.boxed:hover { background: var(--selectionbox-background-hover); border-color: var(--selectionbox-border-hover); }
+.boxed.checked { background: var(--selectionbox-background-checked); border-color: var(--selectionbox-background-checked); }
+.boxed.error { border-color: var(--selectionbox-border-error); background: var(--selectionbox-background-error); }
+.disabled { opacity: 0.38; cursor: not-allowed; }
+
+.input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; pointer-events: none; }
+.controlWrap { display: flex; padding: 2px 0; flex: none; }
+.sm .controlWrap { padding: 2px 0; }
+
+.content { display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1; }
+.inline { flex-direction: row; align-items: baseline; gap: 8px; }
+.inline .description { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.label { font-weight: var(--font-weight-medium); font-size: 14px; line-height: 20px; }
+.lg .label { font-size: 16px; line-height: 24px; }
+.sm .label { font-size: 12px; line-height: 18px; }
+.description { font-size: 12px; line-height: 18px; color: var(--content-subtle-default); }
+
+/* Case à cocher */
+.box {
+  width: 16px; height: 16px; border-radius: 4px; box-sizing: border-box;
+  border: 1px solid var(--control-border-default);
+  background: var(--neutral-surface-default);
+  display: grid; place-items: center; color: var(--content-default-inverse);
+}
+.checked .box { background: var(--brand-surface-selected); border-color: var(--brand-surface-selected); }
+.error .box { background: var(--selectionbox-background-error); border-color: var(--selectionbox-border-error); }
+.lg .box { margin-top: 2px; }
+
+/* Bouton radio */
+.radio {
+  width: 16px; height: 16px; border-radius: 50%; box-sizing: border-box;
+  border: 1px solid var(--control-border-default);
+  background: var(--neutral-surface-default);
+  display: grid; place-items: center;
+}
+.radio::after { content: ''; width: 8px; height: 8px; border-radius: 50%; background: transparent; }
+.checked .radio { border-color: var(--brand-border-selected); }
+.checked .radio::after { background: var(--content-default-selected); }
+.error .radio { border-color: var(--selectionbox-border-error); }
+.lg .radio { margin-top: 2px; }
+
+/* Interrupteur : sm 28 × 16, md 36 × 20, lg 44 × 24 */
+.track {
+  box-sizing: border-box; display: flex; align-items: center;
+  width: 36px; height: 20px; padding: 0 4px; border-radius: 9999px;
+  background: var(--switch-track-off);
+  transition: background-color var(--duration-fast) var(--easing-standard);
+}
+.knob {
+  /* Pastille toujours blanche : dans Figma, Content/default/inverse la rend foncée en sombre (à corriger dans le DS). */
+  width: 12px; height: 12px; border-radius: 9999px; background: var(--white-white-100);
+  transition: transform var(--duration-fast) var(--easing-standard), width var(--duration-fast);
+}
+.checked .track { background: var(--brand-color-brand); padding: 0 3px; }
+.checked .knob { width: 13px; height: 13px; transform: translateX(14px); }
+.sm .track { width: 28px; height: 16px; padding: 0 2px; }
+.sm .knob { width: 12px; height: 12px; }
+.sm.checked .knob { transform: translateX(12px); }
+.lg .track { width: 44px; height: 24px; padding: 0 3px; }
+.lg .knob { width: 16px; height: 16px; }
+.lg.checked .knob { transform: translateX(22px); }
+.disabled .track { background: var(--switch-track-off-disabled); }
+.disabled.checked .track { background: var(--brand-color-brand); }
+
+.input:focus-visible + .controlWrap > * { box-shadow: var(--focus-ring); }
+
+@media (prefers-reduced-motion: reduce) {
+  .track, .knob, .boxed { transition: none; }
+}

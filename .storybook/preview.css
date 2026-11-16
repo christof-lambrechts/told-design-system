@@ -1,0 +1,6 @@
+/* Fond des aperçus Storybook : suit le mode clair ou sombre. */
+html[data-theme] body,
+html[data-theme] .docs-story {
+  background: var(--neutral-surface-page);
+}
+.sb-show-main.sb-main-centered #storybook-root { padding: 24px; }

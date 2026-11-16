@@ -1,0 +1,43 @@
+/* Button : reprend « container » et « text » du composant Figma (2754:16796).
+   type primary = fill, secondary = outline, tertiary = subtle, ghost = ghost. */
+.button {
+  --bg: transparent;
+  --bg-hover: transparent;
+  --bg-pressed: transparent;
+  --fg: currentColor;
+  --border: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-tight);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--easing-standard);
+}
+.button:hover { background: var(--bg-hover); }
+.button:active { background: var(--bg-pressed); }
+.button:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.button:disabled { opacity: 0.38; cursor: not-allowed; background: var(--bg); }
+.label { display: inline-block; }
+.icon { flex: none; }
+
+/* Tailles : hauteur, marges, rayon, texte, marge du libellé (text-pad) */
+.xs { height: 24px; padding: 3px 4px; border-radius: var(--component-input-button-xs); font-size: 12px; line-height: 18px; }
+.xs .label { padding: 0 5px; }
+.sm { height: 32px; padding: 7px 12px; border-radius: var(--component-input-button-sm); font-size: 12px; line-height: 18px; }
+.sm .label { padding: 0 6px; }
+.md { height: 40px; padding: 10px 12px; border-radius: var(--component-input-button-md); font-size: 14px; line-height: 20px; }
+.md .label { padding: 0 8px; }
+.lg { height: 48px; padding: 12px 16px; border-radius: var(--component-input-button-lg); font-size: 16px; line-height: 24px; }
+.lg .label { padding: 0 8px; }
+.iconOnly.xs { width: 24px; padding: 0; }
+.iconOnly.sm { width: 32px; padding: 0; }
+.iconOnly.md { width: 40px; padding: 0; }
+.iconOnly.lg { width: 48px; padding: 0; }
+.fullWidth { width: 100%; }

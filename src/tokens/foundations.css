@@ -1,0 +1,193 @@
+/* Fondations Told V3, reprises des collections Figma 02-spacing, 03-radius, 04-typography,
+   05-effects, 06-motion et des styles d'effet. Valeurs Desktop ; Mobile en media query. */
+
+@import '@fontsource/figtree/400.css';
+@import '@fontsource/figtree/500.css';
+@import '@fontsource/figtree/600.css';
+@import '@fontsource/figtree/700.css';
+@import '@fontsource/plus-jakarta-sans/700.css';
+@import '@fontsource/dm-mono/500.css';
+@import '@fontsource/inter/600.css';
+
+:root {
+  /* 02-spacing (Desktop) */
+  --base-000: 0px;
+  --base-025: 2px;
+  --base-050: 4px;
+  --base-100: 8px;
+  --base-150: 12px;
+  --base-200: 16px;
+  --base-250: 20px;
+  --base-300: 24px;
+  --base-400: 32px;
+  --base-500: 40px;
+  --base-600: 48px;
+  --base-800: 64px;
+  --base-1000: 80px;
+  --base-1200: 96px;
+  --component-card-header-padding-x: var(--base-200);
+  --component-button-padding-xs-left-right: 4px;
+  --component-button-padding-xs-top-bottom: 3px;
+  --component-button-padding-xs-icon-size: 14px;
+  --component-button-padding-sm-left-right: 12px;
+  --component-button-padding-sm-top-bottom: 7px;
+  --component-button-padding-sm-icon-size: 16px;
+  --component-button-padding-md-left-right: 12px;
+  --component-button-padding-md-top-bottom: 10px;
+  --component-button-padding-md-icon-size: 18px;
+  --component-button-padding-xl-left-right: 16px;
+  --component-button-padding-xl-top-bottom: 12px;
+  --component-button-padding-xl-icon-size: 20px;
+
+  /* 03-radius (mode Default) */
+  --radius-none: 0px;
+  --radius-2xs: 4px;
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-full: 1000px;
+  --component-input-button-xs: var(--radius-xs);
+  --component-input-button-sm: var(--radius-sm);
+  --component-input-button-md: var(--radius-md);
+  --component-input-button-lg: var(--radius-lg);
+  --component-input-sm: var(--radius-md);
+  --component-input-md: var(--radius-lg);
+  --component-input-lg: var(--radius-xl);
+  --component-tag-badge-xs: var(--radius-2xs);
+  --component-tag-badge-sm: 5px;
+  --component-tag-badge-md: var(--radius-xs);
+  --component-tag-badge-lg: var(--radius-xs);
+  --component-cards-xs: var(--radius-xs);
+  --component-cards-sm: var(--radius-sm);
+  --component-cards-md: var(--radius-md);
+  --component-cards-lg: var(--radius-lg);
+  --component-cards-xl: var(--radius-xl);
+  --component-cards-2xl: var(--radius-2xl);
+  --component-cards-3xl: var(--radius-3xl);
+  --component-kbd-xs: 5px;
+  --component-kbd-sm: var(--radius-xs);
+  --component-kbd-md: 7px;
+  --component-glass-outer: 28px;
+  --component-glass-modal: 32px;
+
+  /* 04-typography (Desktop) */
+  --font-family-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-family-body: 'Figtree', system-ui, sans-serif;
+  --font-family-mono: 'DM Mono', ui-monospace, monospace;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --letter-spacing-tight: -0.02em;
+  --body-10-size: 11px;
+  --body-10-line-height: 14px;
+  --body-12-size: 12px;
+  --body-12-line-height: 18px;
+  --body-14-size: 14px;
+  --body-14-line-height: 20px;
+  --body-16-size: 16px;
+  --body-16-line-height: 24px;
+  --body-18-size: 18px;
+  --body-18-line-height: 26px;
+  --heading-h6-size: 16px;
+  --heading-h6-line-height: 23px;
+  --heading-h5-size: 18px;
+  --heading-h5-line-height: 27px;
+  --heading-h4-size: 20px;
+  --heading-h4-line-height: 29px;
+  --heading-h3-size: 24px;
+  --heading-h3-line-height: 33px;
+  --heading-h2-size: 32px;
+  --heading-h2-line-height: 39px;
+  --heading-h1-size: 40px;
+  --heading-h1-line-height: 55px;
+  --other-tag-size: 14px;
+  --other-tag-line-height: 15px;
+  --other-tag-xs-size: 11px;
+  --other-tag-xs-line-height: 12px;
+
+  /* 05-effects */
+  --blur-sm: 4px;
+  --blur-md: 12px;
+  --blur-lg: 24px;
+  --blur-xl: 40px;
+
+  /* Styles d'effet */
+  --shadow-flat-1: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02);
+  --shadow-flat-2: 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02);
+  --shadow-flat-4: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02);
+  --shadow-flat-8: 0 8px 16px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02);
+  --shadow-fill-1: 0 1px 2px 0 rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.02);
+  --shadow-fill-2: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.02);
+  --shadow-fill-4: 0 4px 8px 0 rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.02);
+  --shadow-fill-8: 0 8px 16px 0 rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.02);
+  --shadow-inner-sidebar: inset 0 0 10px 0 rgba(0, 0, 0, 0.05);
+  --shadow-glow-ai: 0 10px 28px -6px rgba(170, 98, 255, 0.2), 0 16px 32px -10px rgba(26, 99, 255, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+  --shadow-glow-ai-strong: 0 10px 28px -6px rgba(170, 98, 255, 0.4), 0 16px 32px -10px rgba(26, 99, 255, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+  --focus-ring: 0 0 0 3px var(--brand-border-focus);
+
+  /* 06-motion */
+  --duration-instant: 0ms;
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+  --duration-slower: 600ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* 02-spacing et 04-typography : mode Mobile */
+@media (max-width: 767px) {
+  :root {
+    --base-100: 6px;
+    --base-150: 8px;
+    --base-200: 10px;
+    --base-250: 12px;
+    --base-300: 16px;
+    --base-400: 24px;
+    --base-500: 32px;
+    --base-600: 40px;
+    --base-800: 56px;
+    --base-1000: 72px;
+    --base-1200: 80px;
+    --body-12-line-height: 16px;
+    --body-14-line-height: 22px;
+    --body-16-line-height: 22px;
+    --heading-h3-line-height: 27px;
+    --heading-h2-size: 24px;
+    --heading-h2-line-height: 33px;
+    --heading-h1-size: 32px;
+    --heading-h1-line-height: 39px;
+  }
+}
+
+/* Styles de texte (mêmes noms que Figma) */
+.text-body-10 { font: var(--font-weight-regular) var(--body-10-size) / var(--body-10-line-height) var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.text-body-12 { font: var(--font-weight-regular) var(--body-12-size) / var(--body-12-line-height) var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.text-body-14 { font: var(--font-weight-regular) var(--body-14-size) / var(--body-14-line-height) var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.text-body-16 { font: var(--font-weight-regular) var(--body-16-size) / var(--body-16-line-height) var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.text-body-18 { font: var(--font-weight-regular) var(--body-18-size) / var(--body-18-line-height) var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.text-h6 { font: var(--font-weight-bold) var(--heading-h6-size) / var(--heading-h6-line-height) var(--font-family-heading); letter-spacing: var(--letter-spacing-tight); }
+.text-h5 { font: var(--font-weight-bold) var(--heading-h5-size) / var(--heading-h5-line-height) var(--font-family-heading); letter-spacing: var(--letter-spacing-tight); }
+.text-h4 { font: var(--font-weight-bold) var(--heading-h4-size) / var(--heading-h4-line-height) var(--font-family-heading); letter-spacing: var(--letter-spacing-tight); }
+.text-h3 { font: var(--font-weight-bold) var(--heading-h3-size) / var(--heading-h3-line-height) var(--font-family-heading); letter-spacing: var(--letter-spacing-tight); }
+.text-h2 { font: var(--font-weight-bold) var(--heading-h2-size) / var(--heading-h2-line-height) var(--font-family-heading); letter-spacing: var(--letter-spacing-tight); }
+.text-h1 { font: var(--font-weight-bold) var(--heading-h1-size) / var(--heading-h1-line-height) var(--font-family-heading); letter-spacing: var(--letter-spacing-tight); }
+.text-tag { font: var(--font-weight-medium) var(--other-tag-size) / var(--other-tag-line-height) var(--font-family-mono); }
+.text-tag-xs { font: var(--font-weight-medium) var(--other-tag-xs-size) / var(--other-tag-xs-line-height) var(--font-family-mono); }
+.medium { font-weight: var(--font-weight-medium); }
+.semibold { font-weight: var(--font-weight-semibold); }
+.bold { font-weight: var(--font-weight-bold); }
+
+body {
+  margin: 0;
+  font-family: var(--font-family-body);
+  color: var(--content-default-default);
+  background: var(--neutral-surface-page);
+  -webkit-font-smoothing: antialiased;
+}
