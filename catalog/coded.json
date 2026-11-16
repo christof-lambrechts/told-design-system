@@ -39,5 +39,9 @@
   "WidgetConsent": "composants-widget-widget-visiteur--clair",
   "WidgetButton": "composants-widget-widget-visiteur--boutons",
   "ChecklistItem": "composants-widget-widget-visiteur--checklist",
-  "WidgetChecklist": "composants-widget-widget-visiteur--checklist"
+  "WidgetChecklist": "composants-widget-widget-visiteur--checklist",
+  "AddBlockModal": "composants-modales-addblockmodal--modale",
+  "BlockTypeItem": "composants-modales-addblockmodal--ligne",
+  "Calendar": "composants-saisie-et-choix-calendar--defaut",
+  "User story": "composants-assets-user-story--defaut"
 }

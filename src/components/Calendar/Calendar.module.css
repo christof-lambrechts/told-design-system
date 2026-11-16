@@ -1,0 +1,18 @@
+.cal { display: inline-flex; border-radius: 16px; border: 1px solid var(--neutral-border-default); background: var(--neutral-surface-default); box-shadow: var(--shadow-flat-4); overflow: hidden; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.modes { width: 168px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; padding: 16px; border-right: 1px solid var(--neutral-border-default); }
+.main { width: 276px; display: flex; flex-direction: column; }
+.inputs { display: flex; gap: 6px; padding: 12px; border-bottom: 1px solid var(--neutral-border-default); }
+.inputs > * { flex: 1; }
+.month { display: flex; flex-direction: column; gap: 4px; padding: 12px; }
+.monthHead { display: flex; align-items: center; justify-content: space-between; height: 24px; margin-bottom: 4px; }
+.monthName { font-size: 14px; line-height: 20px; font-weight: var(--font-weight-semibold); color: var(--content-default-default); text-transform: capitalize; }
+.grid { display: grid; grid-template-columns: repeat(7, 36px); row-gap: 2px; }
+.dow { height: 32px; display: flex; align-items: center; justify-content: center; font-size: 11px; line-height: 14px; color: var(--content-muted-default); }
+.day { all: unset; box-sizing: border-box; height: 30px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 12px; line-height: 18px; font-weight: var(--font-weight-medium); color: var(--content-default-default); border-radius: 8px; }
+.day:hover { background: var(--neutral-surface-muted); }
+.day:focus-visible { box-shadow: var(--focus-ring); }
+.inRange { background: var(--brand-surface-default); border-radius: 0; color: var(--content-brand-default-on-light); }
+.edge, .edge:hover { background: var(--brand-color-brand); color: #fff; border-radius: 8px; }
+.today { text-decoration: underline; text-underline-offset: 3px; }
+.summary { margin-top: 6px; font-size: 11px; line-height: 14px; color: var(--content-muted-default); }
+.foot { display: flex; justify-content: flex-end; gap: 8px; padding: 12px 20px; border-top: 1px solid var(--neutral-border-default); margin-top: auto; }

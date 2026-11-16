@@ -27,3 +27,7 @@ export { IconBoxed } from './components/IconBoxed/IconBoxed';
 export { GettingStarted, GettingStartedStep } from './components/GettingStarted/GettingStarted';
 export { ModuleCard, SubStepItem, MessageCard, FlowDivider, InsertBar, DropZone } from './components/ModuleCard/ModuleCard';
 export { Widget, WidgetButton, WidgetChoice, WidgetConsent, ChecklistItem } from './components/Widget/Widget';
+export { AddBlockModal, BlockTypeItem } from './components/AddBlockModal/AddBlockModal';
+export type { BlockType } from './components/AddBlockModal/AddBlockModal';
+export { Calendar } from './components/Calendar/Calendar';
+export { UserStory } from './components/UserStory/UserStory';
