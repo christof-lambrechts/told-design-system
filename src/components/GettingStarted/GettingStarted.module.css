@@ -1,0 +1,27 @@
+.step {
+  all: unset; box-sizing: border-box; display: flex; align-items: flex-start; gap: 12px; width: 100%; padding: 8px 12px; border-radius: 10px; cursor: pointer;
+  background: var(--neutral-surface-default); border: 1px solid var(--neutral-border-default); font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight);
+}
+.step:focus-visible { box-shadow: var(--focus-ring); }
+.marker { flex: none; width: 20px; height: 20px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; line-height: 18px; font-weight: var(--font-weight-semibold);
+  background: var(--neutral-surface-muted); color: var(--content-subtle-default); }
+.texts { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.title { font-size: 14px; line-height: 20px; font-weight: var(--font-weight-semibold); color: var(--content-default-default); }
+.desc { font-size: 12px; line-height: 18px; color: var(--content-subtle-default); }
+.done .marker { background: var(--content-success-default-on-light); color: #fff; }
+.done .title { color: var(--content-subtle-default); }
+.current { background: var(--brand-surface-default); border-color: var(--brand-border-selected); }
+.current .marker { background: var(--brand-border-selected); color: var(--content-default-inverse); }
+.current .title { color: var(--content-brand-default-on-light); }
+.step:not(.current):hover { border-color: var(--neutral-border-hover); }
+
+.block { display: flex; border-radius: 12px; border: 1px solid var(--neutral-border-default); background: var(--neutral-surface-default); overflow: hidden; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.column { flex-direction: column; }
+.steps { flex: none; width: 328px; box-sizing: border-box; padding: 16px; display: flex; flex-direction: column; gap: 6px; background: var(--neutral-surface-subtle); }
+.column .steps { width: auto; }
+.detail { flex: 1; display: flex; gap: 32px; align-items: center; padding: 20px 32px; }
+.detailText { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+.detailTitle { margin: 0; font-size: 18px; line-height: 27px; font-weight: var(--font-weight-bold); color: var(--content-default-default); }
+.detailBody { margin: 0; font-size: 14px; line-height: 20px; color: var(--content-subtle-default); }
+.actions { display: flex; gap: 8px; padding-top: 8px; }
+.illu { flex: none; width: 190px; }

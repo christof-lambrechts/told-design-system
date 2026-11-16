@@ -1,0 +1,32 @@
+.card { all: unset; box-sizing: border-box; display: flex; flex-direction: column; width: 248px; padding: 8px 8px 6px; border-radius: 10px;
+  background: var(--neutral-surface-default); border: 1px solid var(--neutral-border-default); font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.cardSelected { border-color: var(--brand-border-selected); box-shadow: 0 0 0 1px var(--brand-border-selected); }
+.head { display: flex; align-items: center; gap: 6px; padding: 0 0 4px 4px; min-height: 24px; }
+.title { flex: 1; min-width: 0; font-size: 12px; line-height: 18px; font-weight: var(--font-weight-bold); color: var(--content-default-default); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.format { font-size: 11px; line-height: 14px; color: var(--content-muted-default); }
+.list { display: flex; flex-direction: column; }
+.sub { all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 6px; height: 32px; padding: 0 8px 0 4px; border-radius: 8px; cursor: pointer;
+  font-size: 11px; line-height: 14px; font-weight: var(--font-weight-medium); color: var(--content-muted-default); }
+.sub:hover { background: var(--neutral-surface-muted); }
+.sub:focus-visible, .card:focus-visible { box-shadow: var(--focus-ring); }
+.subSelected, .subSelected:hover { background: color-mix(in srgb, var(--selectionbox-background-checked) 10%, transparent); color: var(--content-default-selected); }
+.subLabel { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.meta { color: var(--content-subtle-default); flex: none; }
+.warnDot { width: 6px; height: 6px; border-radius: 50%; background: var(--brand-color-orange); flex: none; }
+.add { all: unset; display: inline-flex; align-items: center; gap: 4px; margin: 4px 4px 2px; font-size: 11px; line-height: 14px; font-weight: var(--font-weight-semibold); color: var(--brand-color-brand); cursor: pointer; }
+
+.message { padding: 8px 5px; cursor: pointer; text-align: left; }
+.message:disabled { opacity: 0.38; cursor: not-allowed; }
+.msgHead { display: flex; align-items: center; gap: 8px; padding: 0 0 2px 4px; }
+.preview { padding-left: 30px; font-size: 11px; line-height: 14px; font-weight: var(--font-weight-medium); color: var(--content-muted-default); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.divider { display: flex; align-items: center; gap: 6px; width: 248px; padding: 4px 4px 0; color: var(--content-subtle-default); font-family: var(--font-family-body); font-size: 12px; line-height: 18px; font-weight: var(--font-weight-semibold); }
+.line { flex: 1; height: 1px; background: var(--neutral-border-default); }
+
+.insert { display: flex; align-items: center; width: 248px; height: 16px; --c: #3366ff; opacity: 0; transition: opacity var(--duration-fast); }
+.insert:hover, .insert:focus-within, .insertActive { opacity: 1; }
+.insertBtn { all: unset; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 8px; border: 1px solid var(--c); background: var(--neutral-surface-default); color: var(--c); cursor: pointer; }
+.insertLine { flex: 1; height: 1px; background: var(--c); }
+.insertActive .insertLine { height: 2px; }
+.drop { box-sizing: border-box; display: flex; align-items: center; justify-content: center; width: 248px; height: 60px; border-radius: 10px;
+  background: var(--brand-surface-muted); border: 1.5px dashed var(--brand-border-selected); color: var(--content-brand-default-on-light); font-family: var(--font-family-body); font-size: 12px; line-height: 18px; font-weight: var(--font-weight-medium); }

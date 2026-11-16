@@ -24,5 +24,13 @@
   "logoTold2025": "composants-visuels-logo--declinaisons",
   "FileUploader": "composants-saisie-et-choix-fileuploader--defaut",
   "FlagCountry": "composants-visuels-flag--langues",
-  "NavButtonItem": "composants-navigation-navbuttonitem--menu"
+  "NavButtonItem": "composants-navigation-navbuttonitem--menu",
+  "GettingStarted": "composants-cartes-gettingstarted--bloc",
+  "GettingStartedStep": "composants-cartes-gettingstarted--etapes",
+  "ModuleCard": "composants-cartes-modulecard--colonne",
+  "SubStepItem": "composants-cartes-modulecard--colonne",
+  "MessageCard": "composants-cartes-modulecard--colonne",
+  "FlowDivider": "composants-cartes-modulecard--colonne",
+  "InsertBar": "composants-cartes-modulecard--colonne",
+  "DropZone": "composants-cartes-modulecard--colonne"
 }

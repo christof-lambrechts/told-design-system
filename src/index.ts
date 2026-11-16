@@ -23,3 +23,6 @@ export { Logo } from './components/Logo/Logo';
 export { FileUploader } from './components/FileUploader/FileUploader';
 export { Flag } from './components/Flag/Flag';
 export { NavButtonItem } from './components/Nav/NavButtonItem';
+export { IconBoxed } from './components/IconBoxed/IconBoxed';
+export { GettingStarted, GettingStartedStep } from './components/GettingStarted/GettingStarted';
+export { ModuleCard, SubStepItem, MessageCard, FlowDivider, InsertBar, DropZone } from './components/ModuleCard/ModuleCard';
