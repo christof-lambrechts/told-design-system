@@ -26,3 +26,4 @@ export { NavButtonItem } from './components/Nav/NavButtonItem';
 export { IconBoxed } from './components/IconBoxed/IconBoxed';
 export { GettingStarted, GettingStartedStep } from './components/GettingStarted/GettingStarted';
 export { ModuleCard, SubStepItem, MessageCard, FlowDivider, InsertBar, DropZone } from './components/ModuleCard/ModuleCard';
+export { Widget, WidgetButton, WidgetChoice, WidgetConsent, ChecklistItem } from './components/Widget/Widget';

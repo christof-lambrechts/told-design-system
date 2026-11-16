@@ -32,5 +32,12 @@
   "MessageCard": "composants-cartes-modulecard--colonne",
   "FlowDivider": "composants-cartes-modulecard--colonne",
   "InsertBar": "composants-cartes-modulecard--colonne",
-  "DropZone": "composants-cartes-modulecard--colonne"
+  "DropZone": "composants-cartes-modulecard--colonne",
+  "Widget": "composants-widget-widget-visiteur--clair",
+  "WidgetChoice": "composants-widget-widget-visiteur--clair",
+  "WidgetBlock": "composants-widget-widget-visiteur--clair",
+  "WidgetConsent": "composants-widget-widget-visiteur--clair",
+  "WidgetButton": "composants-widget-widget-visiteur--boutons",
+  "ChecklistItem": "composants-widget-widget-visiteur--checklist",
+  "WidgetChecklist": "composants-widget-widget-visiteur--checklist"
 }
