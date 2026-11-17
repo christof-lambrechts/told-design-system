@@ -8,7 +8,7 @@ export type { CheckboxProps, RadioProps, SwitchProps } from './components/Choice
 export { Kbd, KbdCombo } from './components/Kbd/Kbd';
 export type { KbdProps, KbdComboProps } from './components/Kbd/Kbd';
 export { Icon, iconNames } from './components/Icon/Icon';
-export type { IconName } from './components/Icon/Icon';
+export type { IconName, IconVariant } from './components/Icon/Icon';
 export { ButtonDropdown, ButtonGradient, ButtonLink } from './components/Button/ButtonMisc';
 export type { ButtonDropdownProps, ButtonGradientProps, ButtonLinkProps } from './components/Button/ButtonMisc';
 export { Divider } from './components/Divider/Divider';
@@ -24,6 +24,7 @@ export { FileUploader } from './components/FileUploader/FileUploader';
 export { Flag } from './components/Flag/Flag';
 export { NavButtonItem } from './components/Nav/NavButtonItem';
 export { IconBoxed } from './components/IconBoxed/IconBoxed';
+export { IconBoxedColor, iconBoxedColorNames, type IconBoxedColorName, type IconBoxedColorProps } from './components/IconBoxed/IconBoxedColor';
 export { GettingStarted, GettingStartedStep } from './components/GettingStarted/GettingStarted';
 export { ModuleCard, SubStepItem, MessageCard, FlowDivider, InsertBar, DropZone } from './components/ModuleCard/ModuleCard';
 export { Widget, WidgetButton, WidgetChoice, WidgetConsent, ChecklistItem } from './components/Widget/Widget';

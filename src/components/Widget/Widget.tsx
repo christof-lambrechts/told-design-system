@@ -18,9 +18,9 @@ export interface WidgetButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonE
 export function WidgetButton({ children, variant = 'primary', size = 'md', iconLeft, iconRight, className, ...rest }: WidgetButtonProps) {
   return (
     <button type="button" className={cx(styles.wbtn, styles[`wb-${variant}`], styles[`wb-${size}`], className)} {...rest}>
-      {iconLeft && <Icon name={iconLeft} size={16} />}
+      {iconLeft && <Icon name={iconLeft} variant="solid" size={16} />}
       {children}
-      {iconRight && <Icon name={iconRight} size={16} />}
+      {iconRight && <Icon name={iconRight} variant="solid" size={16} />}
     </button>
   );
 }

@@ -18,10 +18,10 @@ export function TextTab({ children, selected, iconLeft, iconRight, count, classN
   return (
     <button type="button" role="tab" aria-selected={!!selected} className={cx(styles.textTab, selected && styles.selected, className)} {...rest}>
       <span className={styles.textContent}>
-        {iconLeft && <Icon name={iconLeft} size={16} />}
+        {iconLeft && <Icon name={iconLeft} size={16} variant={selected ? 'solid' : 'stroke'} />}
         {children}
         {count != null && <span className={styles.count}>{count}</span>}
-        {iconRight && <Icon name={iconRight} size={16} />}
+        {iconRight && <Icon name={iconRight} size={16} variant={selected ? 'solid' : 'stroke'} />}
       </span>
       <span className={styles.underline} aria-hidden="true" />
     </button>
@@ -50,7 +50,7 @@ export function ButtonTab({ children, appearance = 'fill', size = 'md', selected
       className={cx(styles.buttonTab, styles[appearance], styles[size], selected && styles.selected, weight === 'semibold' && styles.semibold, className)}
       {...rest}
     >
-      {icon && <Icon name={icon} size={size === 'lg' ? 16 : 14} />}
+      {icon && <Icon name={icon} size={size === 'lg' ? 16 : 14} variant={selected ? 'solid' : 'stroke'} />}
       {children != null && <span className={styles.btLabel}>{children}</span>}
     </button>
   );
@@ -78,7 +78,7 @@ export function GroupTab({ items, value, onChange, size = 'lg', ...rest }: Group
           className={cx(styles.segment, it.value === value && styles.segActive)}
           onClick={() => onChange?.(it.value)}
         >
-          {it.icon && <Icon name={it.icon} size={16} />}
+          {it.icon && <Icon name={it.icon} size={16} variant={it.value === value ? 'solid' : 'stroke'} />}
           {it.label}
         </button>
       ))}

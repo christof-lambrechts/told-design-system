@@ -26,7 +26,7 @@ export function IconBoxed({ icon, color = 'brand', appearance = 'subtle', size =
         background: appearance === 'filled' ? c : `color-mix(in srgb, ${c} 14%, transparent)`, color: appearance === 'filled' ? '#fff' : c,
       }}
     >
-      <Icon name={icon} size={Math.round(size * 0.62)} />
+      <Icon name={icon} variant="solid" size={Math.round(size * 0.62)} />
     </span>
   );
 }
