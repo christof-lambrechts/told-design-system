@@ -23,10 +23,12 @@ import { createRequire } from 'node:module';
 const req = createRequire(import.meta.url);
 const free = req('@hugeicons/core-free-icons');
 const pascal = (n) => n.split(/[-_ ]/).map((p) => p[0].toUpperCase() + p.slice(1)).join('') + 'Icon';
+// Le contour libre ne ressemble pas toujours au plein du fichier : on prend alors un dessin plus proche (même choix que dans Figma).
+const alias = { 'cursor-magic-selection-01': 'CursorMagicSelection03Icon', 'logout-02': 'Logout01Icon', 'ai-chat-02': 'AiChat01Icon', invoice: 'Invoice02Icon' };
 const stroke = {};
 const missing = [];
 for (const n of names) {
-  const data = free[pascal(n.replace(/-stroke$/, ''))];
+  const data = free[alias[n] ?? pascal(n.replace(/-stroke$/, ''))];
   if (!data) { missing.push(n); continue; }
   stroke[n] = data.map(([tag, a]) => {
     const { key, stroke: s, strokeLinecap, strokeLinejoin, strokeWidth, ...rest } = a;
