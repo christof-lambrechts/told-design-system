@@ -14,7 +14,7 @@ const styleOf: Record<ButtonType, 'fill' | 'outline' | 'subtle' | 'ghost'> = {
   ghost: 'ghost',
 };
 
-const iconSize: Record<ButtonSize, number> = { xs: 14, sm: 16, md: 18, lg: 20 };
+const iconSize: Record<ButtonSize, number> = { xs: 12, sm: 14, md: 16, lg: 18 };
 
 /** Variables CSS d'un bouton, construites depuis les jetons Button/Button<Couleur>/<style>/*. */
 export function buttonVars(color: ButtonColor, type: ButtonType): CSSProperties {

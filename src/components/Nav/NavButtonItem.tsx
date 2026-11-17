@@ -30,11 +30,11 @@ export function NavButtonItem({ children, icon, leading, selected, level = 'prim
       className={[styles.item, selected && styles.selected, level === 'secondary' && styles.secondary, className].filter(Boolean).join(' ')}
       {...rest}
     >
-      {leading ?? (icon && <Icon name={icon} size={16} className={styles.icon} />)}
+      {leading ?? (icon && <Icon name={icon} size={14} className={styles.icon} />)}
       <span className={styles.label}>{children}</span>
       {tag != null && <span className={styles.tag}>{tag}</span>}
       {shortcut && <KbdCombo keys={shortcut} size="xs" />}
-      {expanded !== undefined && <Icon name={expanded ? 'arrow-up-01' : 'arrow-down-01'} size={16} className={styles.icon} />}
+      {expanded !== undefined && <Icon name={expanded ? 'arrow-up-01' : 'arrow-down-01'} size={14} className={styles.icon} />}
     </button>
   );
 }

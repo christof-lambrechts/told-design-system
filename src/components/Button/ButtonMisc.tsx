@@ -3,7 +3,7 @@ import { Button, type ButtonProps, type ButtonSize } from './Button';
 import { Icon, type IconName } from '../Icon/Icon';
 import styles from './ButtonMisc.module.css';
 
-const iconSize: Record<ButtonSize, number> = { xs: 14, sm: 16, md: 18, lg: 20 };
+const iconSize: Record<ButtonSize, number> = { xs: 12, sm: 14, md: 16, lg: 18 };
 
 export type ButtonDropdownStyle = 'fill' | 'outline' | 'flat' | 'light';
 const dropdownVariant = { fill: 'primary', outline: 'secondary', flat: 'ghost', light: 'tertiary' } as const;

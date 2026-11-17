@@ -50,7 +50,7 @@ export function ButtonTab({ children, appearance = 'fill', size = 'md', selected
       className={cx(styles.buttonTab, styles[appearance], styles[size], selected && styles.selected, weight === 'semibold' && styles.semibold, className)}
       {...rest}
     >
-      {icon && <Icon name={icon} size={size === 'lg' ? 18 : 16} />}
+      {icon && <Icon name={icon} size={size === 'lg' ? 16 : 14} />}
       {children != null && <span className={styles.btLabel}>{children}</span>}
     </button>
   );

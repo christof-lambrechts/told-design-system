@@ -9,7 +9,7 @@
 .column { flex: 1; display: flex; flex-direction: column; gap: 16px; }
 .group { display: flex; flex-direction: column; gap: 4px; }
 .groupTitle { padding: 0 8px 4px; font-size: 11px; line-height: 14px; font-weight: var(--font-weight-bold); text-transform: uppercase; letter-spacing: 0.04em; color: var(--content-muted-default); }
-.item { all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 8px; height: 36px; padding: 4px 8px; border-radius: 10px; cursor: pointer; font-size: 14px; line-height: 20px; font-weight: var(--font-weight-medium); color: var(--content-default-default); }
+.item { all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 8px; height: 36px; padding: 4px 8px; border-radius: 10px; cursor: pointer; font-size: 13px; line-height: 18px; font-weight: var(--font-weight-medium); color: var(--content-default-default); }
 .item:hover { background: var(--neutral-surface-muted); }
 .item:focus-visible { box-shadow: var(--focus-ring); }
 .itemSel, .itemSel:hover { background: var(--brand-surface-default); color: var(--content-brand-default-on-light); }
@@ -18,8 +18,8 @@
 .preview { flex: none; width: 400px; display: flex; flex-direction: column; gap: 16px; border-left: 1px solid var(--neutral-border-default); }
 .previewHead { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 16px 16px 0; }
 .previewHead > div { display: flex; flex-direction: column; gap: 4px; }
-.previewTitle { font-size: 16px; line-height: 24px; font-weight: var(--font-weight-semibold); color: var(--content-default-default); }
-.previewDesc { font-size: 14px; line-height: 20px; color: var(--content-subtle-default); }
+.previewTitle { font-size: 15px; line-height: 22px; font-weight: var(--font-weight-semibold); color: var(--content-default-default); }
+.previewDesc { font-size: 13px; line-height: 18px; color: var(--content-subtle-default); }
 .example { display: flex; align-items: center; gap: 0; }
 .exLine { height: 1px; background: var(--neutral-border-default); flex: 1; }
 .exLine:first-child { flex: 0 0 18px; }

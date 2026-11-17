@@ -6,8 +6,8 @@
 .textTab:disabled, .buttonTab:disabled { opacity: 0.38; cursor: not-allowed; }
 
 /* TextTab (20:14461) : marge 6/4/0/4, contenu puis trait de 2 à 12 en dessous. */
-.textTab { display: inline-flex; flex-direction: column; align-items: center; padding: 10px 4px 0; gap: 12px;
-  color: color-mix(in srgb, var(--tab-tabtext-content-default) 80%, transparent); font-size: 16px; line-height: 24px; }
+.textTab { display: inline-flex; flex-direction: column; align-items: center; padding: 8px 3px 0; gap: 10px;
+  color: color-mix(in srgb, var(--tab-tabtext-content-default) 80%, transparent); font-size: 15px; line-height: 22px; }
 .textContent { display: inline-flex; align-items: center; gap: 4px; }
 .underline { align-self: stretch; height: 2px; border-radius: 2px; background: currentColor; opacity: 0; transition: opacity var(--duration-fast); }
 .textTab:hover:not(:disabled) { color: var(--tab-tabtext-content-default); }
@@ -23,9 +23,9 @@
 .buttonTab.selected { --bt-bg: var(--bt-bg-sel); --bt-bg-a: var(--bt-sel-a, 100%); color: var(--bt-fg-sel); }
 .btLabel { padding: 0 2px; }
 .semibold { font-weight: var(--font-weight-semibold); }
-.sm { height: 24px; padding: 4px 6px; border-radius: 8px; font-size: 12px; line-height: 18px; }
-.md { height: 32px; padding: 8px; border-radius: 10px; font-size: 14px; line-height: 20px; }
-.lg { height: 40px; padding: 10px 12px; border-radius: 10px; font-size: 14px; line-height: 20px; }
+.sm { height: 22px; padding: 3px 5px; border-radius: 8px; font-size: 12px; line-height: 18px; }
+.md { height: 28px; padding: 5px 7px; border-radius: 10px; font-size: 13px; line-height: 18px; }
+.lg { height: 34px; padding: 8px 10px; border-radius: 10px; font-size: 13px; line-height: 18px; }
 
 .fill { --bt-bg: var(--tab-tab-button-fill-background-default); --bt-bg-hover: var(--tab-tab-button-fill-background-hover); --bt-hover-a: 20%;
   --bt-bg-sel: var(--tab-tab-button-fill-background-selected); --bt-fg: var(--tab-tab-button-fill-content-default); --bt-fg-sel: var(--tab-tab-button-fill-content-selected); }
@@ -40,10 +40,10 @@
 
 /* GroupTab (20:13981) : piste Neutral/surface/muted, marge 4, rayon 10 ; segment actif blanc, rayon 6, ombre flat-1. */
 .group { display: inline-flex; padding: 4px; border-radius: 10px; background: var(--neutral-surface-muted); }
-.segment { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 14px; border-radius: 6px;
-  color: var(--content-subtle-default); font-size: 14px; line-height: 20px; white-space: nowrap; }
-.g-lg .segment { height: 32px; }
+.segment { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 12px; border-radius: 6px;
+  color: var(--content-subtle-default); font-size: 13px; line-height: 18px; white-space: nowrap; }
+.g-lg .segment { height: 28px; }
 .g-sm { padding: 2px; border-radius: 8px; }
-.g-sm .segment { height: 24px; padding: 0 10px; font-size: 12px; line-height: 18px; }
+.g-sm .segment { height: 22px; padding: 0 10px; font-size: 12px; line-height: 18px; }
 .segment:hover:not(.segActive) { color: var(--content-default-default); }
 .segActive { background: var(--neutral-surface-default); color: var(--content-default-default); box-shadow: var(--shadow-flat-1); }

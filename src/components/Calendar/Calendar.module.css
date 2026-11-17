@@ -5,7 +5,7 @@
 .inputs > * { flex: 1; }
 .month { display: flex; flex-direction: column; gap: 4px; padding: 12px; }
 .monthHead { display: flex; align-items: center; justify-content: space-between; height: 24px; margin-bottom: 4px; }
-.monthName { font-size: 14px; line-height: 20px; font-weight: var(--font-weight-semibold); color: var(--content-default-default); text-transform: capitalize; }
+.monthName { font-size: 13px; line-height: 18px; font-weight: var(--font-weight-semibold); color: var(--content-default-default); text-transform: capitalize; }
 .grid { display: grid; grid-template-columns: repeat(7, 36px); row-gap: 2px; }
 .dow { height: 32px; display: flex; align-items: center; justify-content: center; font-size: 11px; line-height: 14px; color: var(--content-muted-default); }
 .day { all: unset; box-sizing: border-box; height: 30px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 12px; line-height: 18px; font-weight: var(--font-weight-medium); color: var(--content-default-default); border-radius: 8px; }

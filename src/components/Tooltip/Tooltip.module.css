@@ -4,7 +4,7 @@
   display: inline-flex; align-items: center; gap: 10px; background: var(--neutral-surface-inverse); color: var(--content-default-inverse);
   font-family: var(--font-family-body); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-tight);
 }
-.md .bubble { padding: 8px 12px; border-radius: 12px; font-size: 16px; line-height: 24px; }
+.md .bubble { padding: 6px 10px; border-radius: 12px; font-size: 15px; line-height: 22px; }
 .sm .bubble { padding: 6px 10px; border-radius: 10px; font-size: 12px; line-height: 18px; }
 .dot { flex: none; width: 12px; height: 12px; box-sizing: border-box; border-radius: 50%; background: var(--neutral-surface-inverse); border: 2px solid var(--content-default-inverse); }
 

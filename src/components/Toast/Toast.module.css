@@ -4,12 +4,12 @@
   box-shadow: var(--shadow-flat-4); font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight);
   background: var(--bg); color: var(--t1);
 }
-.lg { padding: 12px; border-radius: 10px; }
-.sm { padding: 8px; border-radius: 8px; align-items: center; }
+.lg { padding: 9px 10px; border-radius: 10px; }
+.sm { padding: 6px 7px; border-radius: 8px; align-items: center; }
 .icon { display: flex; padding: 2px 0; color: var(--t1); flex: none; }
 .text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
 .sm .text { flex-direction: row; align-items: baseline; gap: 4px; }
-.title { font-size: 14px; line-height: 20px; font-weight: var(--font-weight-semibold); color: var(--t1); }
+.title { font-size: 13px; line-height: 18px; font-weight: var(--font-weight-semibold); color: var(--t1); }
 .desc { font-size: 12px; line-height: 18px; font-weight: var(--font-weight-medium); color: var(--t2); }
 .sm .desc { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .close { color: var(--t2) !important; margin: -2px 0; }

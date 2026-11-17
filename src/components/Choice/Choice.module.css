@@ -31,8 +31,8 @@
 .content { display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1; }
 .inline { flex-direction: row; align-items: baseline; gap: 8px; }
 .inline .description { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.label { font-weight: var(--font-weight-medium); font-size: 14px; line-height: 20px; }
-.lg .label { font-size: 16px; line-height: 24px; }
+.label { font-weight: var(--font-weight-medium); font-size: 13px; line-height: 18px; }
+.lg .label { font-size: 15px; line-height: 22px; }
 .sm .label { font-size: 12px; line-height: 18px; }
 .description { font-size: 12px; line-height: 18px; color: var(--content-subtle-default); }
 
@@ -65,7 +65,7 @@
   /* Règle : pastille de même taille dans les deux états, même retrait à gauche et à droite.
      Déplacement = largeur − 2 × retrait − pastille. */
   box-sizing: border-box; display: flex; align-items: center;
-  width: 36px; height: 20px; padding: 0 4px; border-radius: 9999px;
+  width: 34px; height: 18px; padding: 0 3px; border-radius: 9999px;
   background: var(--switch-track-off);
   transition: background-color var(--duration-fast) var(--easing-standard);
 }
@@ -79,9 +79,9 @@
 .sm .track { width: 28px; height: 16px; padding: 0 3px; }
 .sm .knob { width: 10px; height: 10px; }
 .sm.checked .knob { transform: translateX(12px); }
-.lg .track { width: 44px; height: 24px; padding: 0 4px; }
+.lg .track { width: 40px; height: 22px; padding: 0 3px; }
 .lg .knob { width: 16px; height: 16px; }
-.lg.checked .knob { transform: translateX(20px); }
+.lg.checked .knob { transform: translateX(18px); }
 .disabled .track { background: var(--switch-track-off-disabled); }
 .disabled.checked .track { background: var(--brand-color-brand); }
 
