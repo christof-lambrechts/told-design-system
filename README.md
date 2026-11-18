@@ -23,7 +23,7 @@ npm run typecheck        # vérification TypeScript
 
 ## Composants
 
-Codés, visibles dans Storybook sous « Composants ». Badge, Tag, Avatar, Select, Modal et le panneau d'options sont codés d'après Figma mais leurs pages Figma ne sont pas encore validées ✅ : leur API peut encore bouger.
+Codés, visibles dans Storybook sous « Composants ». Select (DropdownField) est validé ✅. Badge, Tag, Avatar, Modal et le panneau d'options sont codés d'après Figma mais leurs pages Figma ne sont pas encore validées ✅ : leur API peut encore bouger.
 
 Versions : voir `CHANGELOG.md` ; contribuer : voir `CONTRIBUTING.md`.
 

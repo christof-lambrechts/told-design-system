@@ -44,7 +44,7 @@ CheckboxItem|4554:110759|160x200|state=default,disabled,error;color=brand,neutra
 #Atomes / Divider ✅
 Divider|6055:89|1440x1||Séparateur horizontal.|6108:97170|80,375
 DividerVertical|6055:90|1x156||Séparateur vertical.|6108:97170|80,392
-#Atomes / DropdownField ❌
+#Atomes / DropdownField ✅
 DropdownField|4855:20599|1812x1600|style=default,flat,light;size=sm,md,lg;state=default,focus,error,disabled;placeholder=true,false|Champ de sélection.|5884:33181|90,385
 #Atomes / Icons ❌
 Asterisk|787:72863|108x64|style=solid,stroke;type=standard|Astérisque d'obligation.|1:13141|90,455
