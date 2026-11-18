@@ -1,6 +1,6 @@
 # Design system Told V3 · guide développeur
 
-Pour Jonathan et toute personne qui code avec le design system Told (Told et Told Record). Version du paquet au moment de l'écriture : **v0.6.0** (18/11/2026).
+Pour Jonathan et toute personne qui code avec le design system Told (Told et Told Record). Version du paquet au moment de l'écriture : **v0.6.1** (18/11/2026).
 
 ## 1. Les liens
 
@@ -26,10 +26,10 @@ Chaque page de composant dans Figma a un bouton **Storybook** dans son en-tête 
 Dans le projet (monorepo ou application React 18 ou plus) :
 
 ```bash
-npm install github:christof-lambrechts/told-design-system#v0.6.0
+npm install github:christof-lambrechts/told-design-system#v0.6.1
 ```
 
-Toujours fixer une version (`#v0.6.0`) pour ne pas recevoir un changement visuel sans le voir. Pour passer à une version suivante, changer le numéro puis relancer l'installation, après avoir lu `CHANGELOG.md`.
+Toujours fixer une version (`#v0.6.1`) pour ne pas recevoir un changement visuel sans le voir. Pour passer à une version suivante, changer le numéro puis relancer l'installation, après avoir lu `CHANGELOG.md`.
 
 Le paquet s'appelle `@told/design-system`. Son entrée (`src/index.ts`) est en TypeScript avec des CSS modules : Vite et Next.js les lisent tels quels, rien à compiler avant.
 
@@ -181,7 +181,7 @@ Après une mise à jour : `npm run typecheck` et `npm run build-storybook` doive
 1. Partir de `main` à jour, créer une branche `composant/<nom>`.
 2. Un dossier par composant : `src/components/<Nom>/<Nom>.tsx`, `<Nom>.module.css`, `<Nom>.stories.tsx`.
 3. Mêmes noms de propriétés et de valeurs que Figma (`size`, `state`, `checked`, `hasIcon`…), textes en français.
-4. Uniquement des jetons, aucune valeur en dur.
+4. Uniquement des jetons, aucune valeur en dur. Chaque sélecteur CSS contient une classe locale (`.badge[data-color='blue']`), sinon Next refuse le CSS module.
 5. Exporter dans `src/index.ts`, relier la fiche Figma dans `catalog/coded.json`, puis `npm run catalog`.
 6. Ouvrir une pull request vers `main`. Cloudflare publie un Storybook d'aperçu de la branche, et Chromatic compare les captures avant et après.
 7. Christof relit et fusionne. `main` est protégée : pas d'envoi direct.
@@ -190,7 +190,7 @@ Après une mise à jour : `npm run typecheck` et `npm run build-storybook` doive
 
 - Numérotation `MAJEUR.MINEUR.CORRECTIF`. Tant qu'on est en `0.x`, une version mineure peut changer l'apparence : lire le `CHANGELOG.md`.
 - Quand le numéro change dans `package.json` sur `main`, le tag et la page de version GitHub sont créés automatiquement.
-- Historique : v0.3.0 densité compacte et icônes contour ; v0.4.0 OptionPanel, Select, Modal, Badge, Tag, Avatar ; v0.5.0 `secondary-outline` ; v0.5.1 Select validé ; **v0.6.0 ProgressBar, Loader, Skeleton, Notifications**.
+- Historique : v0.3.0 densité compacte et icônes contour ; v0.4.0 OptionPanel, Select, Modal, Badge, Tag, Avatar ; v0.5.0 `secondary-outline` ; v0.5.1 Select validé ; v0.6.0 ProgressBar, Loader, Skeleton, Notifications ; **v0.6.1 correction du Badge pour Next**.
 
 ## 13. Règles à garder en tête
 

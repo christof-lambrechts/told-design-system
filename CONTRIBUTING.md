@@ -16,6 +16,7 @@ Le design system est la référence commune de Told et de Told Record. On y ajou
 - **Uniquement les jetons du DS** (variables CSS de `src/tokens/`). Pas de couleur, de taille ou de police en dur ; s'il manque un jeton, il s'ajoute d'abord dans Figma.
 - **Les noms de propriétés de Figma** (`size`, `state`, `checked`, `hasIcon`…), mêmes valeurs de variantes.
 - Icônes : `<Icon name="…" />` (contour par défaut, `variant="solid"` pour l'état actif).
+- **CSS modules compatibles Next** : chaque sélecteur contient une classe locale (`.badge[data-color='blue']`, jamais `[data-color='blue']` seul ni une balise seule), sinon Next refuse le fichier et bloque tout projet qui importe le design system.
 - Exporter le composant dans `src/index.ts`.
 - Relier la fiche Figma au code dans `catalog/coded.json` (`"NomFigma": "id-de-l-histoire"`), puis `npm run catalog`.
 - Vérifier avant la pull request : `npx tsc --noEmit` et `npm run build-storybook` sans erreur, rendu clair et sombre.
