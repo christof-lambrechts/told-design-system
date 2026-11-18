@@ -23,17 +23,17 @@ npm run typecheck        # vérification TypeScript
 
 ## Composants
 
-Codés, visibles dans Storybook sous « Composants ». Select (DropdownField) est validé ✅. Badge, Tag, Avatar, Modal et le panneau d'options sont codés d'après Figma mais leurs pages Figma ne sont pas encore validées ✅ : leur API peut encore bouger.
+Codés, visibles dans Storybook sous « Composants ». Guide complet pour un développeur : `docs/GUIDE-DEVELOPPEUR.md`. Select (DropdownField), ProgressBar et Notifications sont validés ✅. Badge, Tag, Avatar, Modal et le panneau d'options sont codés d'après Figma mais leurs pages Figma ne sont pas encore validées ✅ : leur API peut encore bouger.
 
 Versions : voir `CHANGELOG.md` ; contribuer : voir `CONTRIBUTING.md`.
 
 - **Actions** : Button, ButtonIcon, ButtonGradient, ButtonDropdown, ButtonLink.
 - **Saisie et choix** : Checkbox, Radio, Switch, Input, SearchBar, TextArea, Select (et DropdownMenu, DropdownItem), FileUploader, Calendar.
 - **Navigation** : TextTab, ButtonTab, GroupTab, Pagination, NavButtonItem (bouton ou vrai lien avec `href`).
-- **Statut et aide** : Kbd, KbdCombo, Tooltip, Toast, Badge, Tag.
+- **Statut et aide** : Kbd, KbdCombo, Tooltip, Toast, Badge, Tag, ProgressBar, ProgressSteps, Loader, SkeletonLine, SkeletonCard.
 - **Structure et visuels** : Divider, Icon (165 icônes, contour ou plein), IconBoxed, IconBoxedColor (93 pictos de couleur), Avatar, Logo, Flag.
 - **Cartes et modales** : GettingStarted, ModuleCard (et SubStepItem, MessageCard, FlowDivider, InsertBar, DropZone), Modal, AddBlockModal, BlockTypeItem.
-- **Panneaux** : OptionPanel, OptionPanelItem, PanelHeader (colonne de réglages de l'éditeur).
+- **Panneaux** : OptionPanel, OptionPanelItem, PanelHeader (colonne de réglages de l'éditeur), NotificationCenter, NotificationItem.
 - **Widget visiteur** : Widget, WidgetChoice, WidgetButton, WidgetConsent, ChecklistItem (thème clair et sombre).
 - **Assets** : UserStory.
 

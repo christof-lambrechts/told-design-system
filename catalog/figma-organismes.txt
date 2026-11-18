@@ -45,18 +45,10 @@ FooterVoting|4093:92200|1548x2258|?hasNextButton;?hasPreviousButton;?hasPrevious
 Title|787:71431|324x974|?hasInstruction;?hasLabel;"labelText;size=sm,md,lg;labelStyle=badge,text|Titre de question.|787:66903|80,6544
 disclamer|4687:127520|340x102|darkMode=true|Mention légale.|787:66903|444,6544
 content-modale|4688:128664|605x284|?hasDisclaimer;?hasLinkButton|Contenu de modale.|787:66903|824,6544
-label tour|5361:41221|356x208|style=text,badge;size=sm,lg|Étiquette de visite guidée.|787:66903|1469,6544
-🏞️ Image-survey-link|1588:169298|629x1700|?hasLogo;type=image,color;device=desktop,mobile|Fond d'un questionnaire par lien.|787:66903|80,7733
 🏞️ background glass|4110:35235|629x1224|type=image,color;device=desktop|Fond verre.|787:66903|809,7733
-📝 survey_content|4091:189506|5578x1429|type=text-field,message-field,calendar,forms,scale-meteo,scale-star-lt5,…+5;color=dark,light;device=lg,sm|Contenu d'un questionnaire.|787:66903|80,9513
 Miniature survey e-mail|1579:130556|2938x1521|type=emoji,star,nps,meteo,other-question;miniature=true,false;align=gauche,centre|Question intégrée dans un e-mail.|787:66903|80,11022
 AIconversationItem|6290:42264|340x362|state=default,false,speaking|Élément de conversation IA.|787:66903|80,12623
 AIConversationWidget|6294:59603|340x657|?hasMedia|Widget de conversation IA.|6348:47616|80,375
-Link-survey|1588:169302|14862x3465|?hasGdprConsent;?hasConfetti;?hasLogo;device=desktop,mobile;shape=capsule,full-page;scroll=false,true;style=white,light,dark,glass-dark|Questionnaire par lien.|4093:16133|556,310
-tour-resume-list|3738:45455|219x146|active=true,false;textColor=dark,white|Sommaire de visite guidée.|4093:16149|0,135
-welcome-modale-tour|3738:158203|5869x576|?hasLabel;?hasTitle;?hasMedia;text=white,black;miniature=false,true;summaryList=true,false;variant=minimal,extend,resume|Modale d'accueil de visite guidée.|4093:16149|0,381
-TourItemBase|3712:40132|5315x3343|?hasTitle;?hasImage;?hasWithFooter;?hasGlassShape;?hasLight;format=widget,modal,welcome;image=right,left,bottom,top;header=none,progress-bar,avatar;close=true,false|Étape de visite guidée.|3712:40132|0,0
-Widget-tour|3715:41441|2485x1623|arrow=top-left,top,bottom-left,bottom,left,right,bottom-right,top-right;text=white,black;format=widget,modal|Bulle de visite guidée avec flèche.|3715:41441|0,0
 Wireframe|4268:14486|342x474|?hasStep;?hasImage|Maquette fil de fer d'écran.|4268:14486|0,0
 #Organismes / EditionSidebar ❌
 EditionSidebar|8:14494|4820x1022|?hasScrollbar;?hasInsertBar;menu=customisation,question,questionreport,configurationinapp,configurationsurvey,connexion,…+5;feature=announcement,longformsurvey,inapp;state=default,empty,hover,empty-hover|Colonne de gauche de l'éditeur.|5943:137238|80,375
@@ -139,3 +131,13 @@ WidgetZone|8261:10026|1132x420|zone=cover,sender,progress,description,logo;state
 WidgetBlueprint|8262:9481|770x526|theme=light,dark|Widget en mode plan pour l’édition.|8262:9481|0,0
 #Assets / User story ✅
 User story|7806:3673|2320x980|"ID;"Title;"As a;"I want;"So that;"Screens;"Persona;"Persona detail;"Version;"Criterion 1;?Show criterion 1;"Criterion 2;?Show criterion 2;"Criterion 3;?Show criterion 3;"Criterion 4;?Show criterion 4;Status=À rédiger,À valider,Validée|Fiche user story pour les parcours.|7806:3673|0,0
+#Organismes / ProductTour ❌
+label tour|5361:41221|356x208|style=text,badge;size=sm,lg|Étiquette de visite guidée.|787:66903|1469,6544
+tour-resume-list|3738:45455|219x146|active=true,false;textColor=dark,white|Sommaire de visite guidée.|4093:16149|0,135
+welcome-modale-tour|3738:158203|5869x576|?hasLabel;?hasTitle;?hasMedia;text=white,black;miniature=false,true;summaryList=true,false;variant=minimal,extend,resume|Modale d'accueil de visite guidée.|4093:16149|0,381
+TourItemBase|3712:40132|5315x3343|?hasTitle;?hasImage;?hasWithFooter;?hasGlassShape;?hasLight;format=widget,modal,welcome;image=right,left,bottom,top;header=none,progress-bar,avatar;close=true,false|Étape de visite guidée.|3712:40132|0,0
+Widget-tour|3715:41441|2485x1623|arrow=top-left,top,bottom-left,bottom,left,right,bottom-right,top-right;text=white,black;format=widget,modal|Bulle de visite guidée avec flèche.|3715:41441|0,0
+#Organismes / Survey ❌
+🏞️ Image-survey-link|1588:169298|629x1700|?hasLogo;type=image,color;device=desktop,mobile|Fond d'un questionnaire par lien.|787:66903|80,7733
+📝 survey_content|4091:189506|5578x1429|type=text-field,message-field,calendar,forms,scale-meteo,scale-star-lt5,…+5;color=dark,light;device=lg,sm|Contenu d'un questionnaire.|787:66903|80,9513
+Link-survey|1588:169302|14862x3465|?hasGdprConsent;?hasConfetti;?hasLogo;device=desktop,mobile;shape=capsule,full-page;scroll=false,true;style=white,light,dark,glass-dark|Questionnaire par lien.|4093:16133|556,310

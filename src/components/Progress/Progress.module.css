@@ -1,0 +1,36 @@
+/* ProgressBar (556:57661) : sm 10 de haut, rayon 20 ; lg 40, sans arrondi. Verticale : mêmes épaisseurs en largeur. */
+.bar { position: relative; overflow: hidden; background: var(--neutral-surface-muted); flex: none; }
+.horizontal { width: 100%; }
+.horizontal.sm { height: 10px; border-radius: 20px; }
+.horizontal.lg { height: 40px; }
+.vertical { height: 100%; min-height: 80px; display: inline-block; }
+.vertical.sm { width: 10px; border-radius: 20px; }
+.vertical.lg { width: 40px; }
+.fill { position: absolute; left: 0; bottom: 0; background: var(--brand-surface-selected); transition: width 200ms ease, height 200ms ease; }
+.horizontal .fill { top: 0; width: var(--value); }
+.vertical .fill { right: 0; height: var(--value); }
+.sm .fill { border-radius: inherit; }
+
+/* ProgressBarWidget (787:72909) : segments de 3, rayon 10, écart 8 ; actif Content/neutral/black/100, reste black/alpha/20. */
+.steps { display: flex; gap: 8px; width: 100%; }
+.steps-lg { gap: 8px; }
+.seg { flex: 1; height: 3px; border-radius: 10px; background: var(--content-neutral-black-alpha-20); overflow: hidden; }
+.steps-lg .seg { height: 4px; }
+.segOn, .segFill { background: var(--content-neutral-black-100); }
+.segFill { position: absolute; inset: 0 auto 0 0; border-radius: inherit; }
+
+/* Loader (1156:85211) : piste Neutral/border/default, arc Content/default/selected, texte Body semibold. */
+.loader { display: inline-flex; flex-direction: column; align-items: center; color: var(--content-default-default); font-family: var(--font-family-body); font-weight: var(--font-weight-semibold); }
+.spin { animation: spin 900ms linear infinite; }
+.track { stroke: var(--neutral-border-default); }
+.arc { stroke: var(--content-default-selected); }
+.label { white-space: nowrap; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spin { animation-duration: 2.4s; } .fill { transition: none; } }
+
+/* Skeleton (6057:97, 6057:98) */
+.line { display: block; height: 12px; border-radius: 6px; background: var(--neutral-surface-strong); max-width: 100%; animation: pulse 1.4s ease-in-out infinite; }
+.card { box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 16px 20px; width: 240px; border-radius: 8px; background: var(--neutral-surface-subtle); }
+@keyframes pulse { 50% { opacity: 0.55; } }
+@media (prefers-reduced-motion: reduce) { .line { animation: none; } }

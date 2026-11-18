@@ -53,5 +53,12 @@
   "OptionPanelItem": "composants-panneaux-optionpanel--panneau",
   "OptionPanel": "composants-panneaux-optionpanel--docs",
   "PanelHeader": "composants-panneaux-optionpanel--en-tete",
-  "IconBoxedColor": "composants-visuels-pictos-de-couleur--catalogue"
+  "IconBoxedColor": "composants-visuels-pictos-de-couleur--catalogue",
+  "ProgressBar": "composants-statut-et-aide-progression-et-chargement--docs",
+  "ProgressBarWidget": "composants-statut-et-aide-progression-et-chargement--etapes",
+  "Loader": "composants-statut-et-aide-progression-et-chargement--chargement",
+  "SkeletonLine": "composants-statut-et-aide-progression-et-chargement--squelette",
+  "SkeletonCard": "composants-statut-et-aide-progression-et-chargement--squelette",
+  "NotificationItem": "composants-panneaux-notifications--docs",
+  "NotificationCenter": "composants-panneaux-notifications--docs"
 }

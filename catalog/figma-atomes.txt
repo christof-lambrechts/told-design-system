@@ -125,7 +125,7 @@ NavButtonItem|1023:80470|1176x552|?hasIconLeft;?hasIconRight;?hasLabel;?hasTag;"
 ButtonEditionMenu|1018:49167|73x128|state=default,hover,actif|Bouton du menu d'édition.|5978:16592|80,1007
 Avatar|541:9850|119x109|type=multi,single|Avatar de navigation.|5978:16592|80,1215
 Profile|635:66174|284x168|state=default,hover,press-select|Accès au profil.|5978:16592|80,1404
-#Atomes / ProgressBar ❌
+#Atomes / ProgressBar ✅
 ProgressBar|556:57661|421x2110|length=0,10,20,30,40,50,60,70,…+3;direction=horizontal,vertical;size=lg,sm|Barre de progression.|5922:65029|90,385
 ProgressBarWidget|787:72909|300x74|style=multi,single;size=sm,lg|Progression dans un widget.|5922:65029|591,385
 Loader|1156:85211|1026x477|?hasLabel;style=line-simple,line-spinner,dot-circle;size=3xs,lg,md,sm,xl,xs,xxs|Indicateur de chargement.|5922:65029|971,385
