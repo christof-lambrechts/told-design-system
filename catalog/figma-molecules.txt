@@ -69,10 +69,6 @@ LanguageItem|8051:24798|920x256|"label;?hasToggle;state=default,hover,selected;i
 LanguagePanel|8174:4121|356x332||Colonne de droite de l’onglet Langues.|8194:4043|80,711
 TranslationTable|8245:4085|1158x1320|?hasEnglish;?hasSpanish;?hasGerman;?hasItalian;?hasScrollbar;scrolled=false,true|Traduction d’un Told, une ligne par texte.|8194:4043|80,1123
 Langues|1145:49152|878x132|languages=single,multiple|Sélecteur de langues.|8194:4043|80,2523
-#Molécules / Menu ❌
-ActionMenu|4772:5404|150x174||Menu d'actions contextuel.|879:34361|80,375
-NavigationMenu|4771:81917|224x459||Menu de navigation.|879:34361|80,629
-Listbox|879:4729|465x667|?hasScrollbar;?hasSearchbar;?hasFooter;size=lg,md,sm;type=floating|Liste d'options flottante.|879:34361|80,1168
 #Molécules / ModuleCard ✅
 ModuleCard|7850:2521|2200x189|"title;?hasMenu;?hasSubStep2;?hasSubStep3;?hasSubStep4;?hasSubStep5;?hasSubStep6;?hasAdd;"count;?hasDisplay;?hasIcon;"format;?hasType2;?hasType3;?hasType4;?hasType5;state=default,selected,hover,dragging;expanded=true,false|Carte d’un module dans la colonne de gauche de la construction.|7850:2521|0,0
 SubStepItem|8044:2542|792x80|"label;?hasMissingTranslation;?hasCondition;?hasDelete;state=default,hover,selected|Ligne de sous-étape dans ModuleCard.|8044:2542|0,0
@@ -157,3 +153,9 @@ TableHeaderCell|418:10486|382x125|?hasSort;?hasText;"text2;?hasCheckbox;?hasFlag
 TableCell|418:26173|686x779|state=default,actif,disabled;size=lg,sm;hover=false,true;noContent=false,true;hasdivider=true,false|Cellule de tableau.|417:433|711,580
 DomaineTable|1532:126431|1192x463|validated=true,false;row=2,1|Tableau des domaines.|417:433|1477,580
 TranslationCell|8024:2562|1080x277|"text;state=source,filled,empty,focus,loading;kind=url,text|Cellule du tableau de traduction.|417:433|80,1778
+
+#Molécules / DropdownMenu ❌
+DropdownItem|4544:102435|1964x1008|state=default,hover,selected,disabled;selected=false,true;type=accordion,checkbox,default,radio,switch;flat=false,true;tone=default,danger|Ligne de menu ou d'option.|5937:115288|603,375
+DropdownSection|4554:111153|317x150|?hasTag;divider=true,false;type=divider,title|Titre ou séparateur de section dans un menu.|5937:115288|2761,375
+ActionMenu|4772:5404|150x174||Menu d'actions contextuel.|879:34361|80,375
+Listbox|879:4729|465x667|?hasScrollbar;?hasSearchbar;?hasFooter;size=lg,md,sm;type=floating|Liste d'options flottante.|879:34361|80,1168

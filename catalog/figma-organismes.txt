@@ -8,6 +8,7 @@ AccountCard|7855:4203|248x57|"name;"email;?hasDetails;?hasNotifications|Bloc uti
 ProjectMenu|7897:2046|280x249|?hasProject2|Menu ouvert depuis ProjectSwitcher.|7897:2046|0,0
 AccountMenu|7912:3119|280x253||Menu du compte.|7912:3119|0,0
 NotificationBell|7937:29048|32x32|?hasDot|Cloche des notifications avec pastille.|7937:29048|0,0
+NavigationMenu|4771:81917|224x459||Menu de navigation.|879:34361|80,629
 #Organismes / Auth ❌
 CodeDigit|8181:83342|290x106|"digit;state=default,focus,filled,error|Une case du code à usage unique.|8181:83342|0,0
 CodeInput|8181:83416|1546x184|?hasCountdown;state=default,focus,filled,error|Code à usage unique en 6 cases (3 + 3).|8181:83416|0,0

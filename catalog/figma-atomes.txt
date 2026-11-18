@@ -85,9 +85,6 @@ Emoji_asset|2:241|227x184|face=very-happy,happy,middle,bad,very-bad;color=grey,b
 Number input|791:91583|64x276|"textInput;state=default;size=lg,sm,xs;circle=true,false|Pastille numérotée.|1:13141|519,2833
 Frame 1073714370|2284:100095|336x1000|star=10,9,8,7,6,5,4,3,2,1;size=xl,lg,sm|Rangée d'étoiles.|1:13141|624,2833
 Product tour step/default/false/Number/false|3617:186393|56x32|"number;?hasHidden|Numéro d'étape de visite guidée.|3617:186393|0,0
-#Atomes / DropdownItem ❌
-DropdownItem|4544:102435|1964x1008|state=default,hover,selected,disabled;selected=false,true;type=accordion,checkbox,default,radio,switch;flat=false,true;tone=default,danger|Ligne de menu ou d'option.|5937:115288|603,375
-DropdownSection|4554:111153|317x150|?hasTag;divider=true,false;type=divider,title|Titre ou séparateur de section dans un menu.|5937:115288|2761,375
 #Atomes / FileItem ❌
 FilesItem|5756:26793|505x82|?hasUploadFailed|Ligne de fichier envoyé.|5943:123539|90,385
 privacyPolitieItem|6113:111395|342x144|withPolicy=default,true|Ligne de politique de confidentialité.|5943:123539|90,547
