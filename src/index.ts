@@ -57,3 +57,7 @@ export { TourStep, TourBubble, TourWelcome } from './components/Tour/Tour';
 export type { TourStepProps, TourBubbleProps, TourWelcomeProps, TourArrow } from './components/Tour/Tour';
 export { LinkSurvey, ScaleAnswer, NpsAnswer } from './components/Survey/Survey';
 export type { LinkSurveyProps, ScaleAnswerProps, NpsAnswerProps, AnswerSize } from './components/Survey/Survey';
+export { OptionToggle, FormatCard, LogicRule } from './components/OptionPanel/OptionDetails';
+export type { OptionToggleProps, FormatCardProps, LogicRuleProps } from './components/OptionPanel/OptionDetails';
+export { TranslationTable, LanguageItem } from './components/Languages/Languages';
+export type { TranslationTableProps, TranslationGroup, TranslationRow, Language, LanguageItemProps } from './components/Languages/Languages';

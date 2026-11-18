@@ -3,6 +3,15 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.8.0 · 18/11/2026
+
+Composants codés d’après les pages Figma validées :
+- **Auth** : `CodeInput` (6 cases, collage du code, compte à rebours de renvoi, erreur), `PasswordStrength` (4 niveaux et règles), `DividerLabel` (« ou »), `SocialButton` (Google, Microsoft), `AuthPanel` (colonne de marque, 4 thèmes).
+- **Product Tour** : `TourStep` (étape widget ou modale, image à gauche, droite, haut, bas ; en-tête avatar ou progression ; croix dans l’en-tête ; encadré et bouton d’action), `TourBubble` (bulle ancrée, flèche en 8 positions), `TourWelcome` (modale d’accueil minimal, extend, resume avec sommaire). Couleur du client par `color`, texte blanc ou noir par `tone`.
+- **Survey** : `LinkSurvey` (capsule, pleine page, mobile ; styles white, light, dark, glass-dark ; contenu qui défile entre l’en-tête et le pied), `ScaleAnswer` (étoiles, chiffres, émotions, météo) et `NpsAnswer` à trois tailles : `sm` widget, `md` capsule, `lg` pleine page.
+- **OptionContent** : `OptionToggle` (détail activable : libellé, interrupteur, réglages), `FormatCard`, `LogicRule` (si / sinon).
+- **Languages** : `TranslationTable` (colonnes fixes Élément et langue par défaut, autres langues qui défilent, cases à traduire et en cours), `LanguageItem`.
+
 ## v0.7.0 · 18/11/2026
 
 - **AppLayout** (page Figma `📐 Templates / AppLayout` validée ✅) : gabarit de l’application en deux versions, `menu="transparent"` (menu sur le fond de page, contenu en carte blanche) ou `menu="filled"` (menu en bloc avec fond et ombre intérieure, contenu posé sur fond blanc). Un seul en-tête par écran (TopBar). Menu de 264 de large.

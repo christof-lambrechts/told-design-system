@@ -1,0 +1,19 @@
+.toggle { display: flex; flex-direction: column; gap: 10px; font-family: var(--font-family-body); }
+.toggleRow { display: flex; align-items: center; gap: 7px; }
+.toggleLabel { flex: 1; font-size: 15px; line-height: 22px; font-weight: var(--font-weight-medium); color: var(--content-subtle-default); cursor: pointer; }
+.toggleBody { display: flex; flex-direction: column; gap: 10px; }
+
+.format { all: unset; box-sizing: border-box; width: 100%; display: flex; align-items: flex-start; gap: 12px; padding: 12px; border-radius: 10px; border: 1px solid var(--neutral-border-default); background: var(--neutral-surface-default); cursor: pointer; font-family: var(--font-family-body); }
+.format:hover { border-color: var(--brand-border-hover); }
+.format:focus-visible { box-shadow: var(--focus-ring); }
+.formatOn { background: var(--brand-surface-default); border-color: var(--brand-border-hover); }
+.formatText { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.formatName { display: flex; align-items: center; gap: 8px; font-size: 13px; line-height: 18px; font-weight: var(--font-weight-semibold); color: var(--content-default-default); }
+.reco { padding: 0 6px; border-radius: 6px; background: var(--badge-subtle-green-background); color: var(--badge-subtle-green-content); font-size: 11px; line-height: 16px; font-weight: var(--font-weight-semibold); }
+.formatHelp { font-size: 12px; line-height: 18px; color: var(--content-muted-default); }
+.formatCheck { flex: none; color: var(--content-default-selected); }
+
+.rule { box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: 12px; background: var(--neutral-surface-subtle); font-family: var(--font-family-body); }
+.ruleHead { display: flex; align-items: center; justify-content: space-between; min-height: 22px; }
+.ruleLabel { font-size: 12px; line-height: 18px; font-weight: var(--font-weight-medium); color: var(--content-muted-default); }
+.ruleCond { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }

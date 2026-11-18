@@ -1,6 +1,6 @@
 # Design system Told V3 · guide développeur
 
-Pour Jonathan et toute personne qui code avec le design system Told (Told et Told Record). Version du paquet au moment de l'écriture : **v0.7.0** (18/11/2026).
+Pour Jonathan et toute personne qui code avec le design system Told (Told et Told Record). Version du paquet au moment de l'écriture : **v0.8.0** (18/11/2026).
 
 ## 1. Les liens
 
@@ -26,10 +26,10 @@ Chaque page de composant dans Figma a un bouton **Storybook** dans son en-tête 
 Dans le projet (monorepo ou application React 18 ou plus) :
 
 ```bash
-npm install github:christof-lambrechts/told-design-system#v0.7.0
+npm install github:christof-lambrechts/told-design-system#v0.8.0
 ```
 
-Toujours fixer une version (`#v0.7.0`) pour ne pas recevoir un changement visuel sans le voir. Pour passer à une version suivante, changer le numéro puis relancer l'installation, après avoir lu `CHANGELOG.md`.
+Toujours fixer une version (`#v0.8.0`) pour ne pas recevoir un changement visuel sans le voir. Pour passer à une version suivante, changer le numéro puis relancer l'installation, après avoir lu `CHANGELOG.md`.
 
 Le paquet s'appelle `@told/design-system`. Son entrée (`src/index.ts`) est en TypeScript avec des CSS modules : Vite et Next.js les lisent tels quels, rien à compiler avant.
 
@@ -146,6 +146,34 @@ Statut : ✅ = page Figma validée, API stable. ⏳ = codé d'après Figma, page
 | `Modal` | ⏳ | Fenêtre de 500 ; Échap et clic sur le voile ferment. |
 | `OptionPanel`, `OptionPanelItem`, `PanelHeader` | ⏳ | Colonne de réglages de l'éditeur. |
 
+### Connexion (Auth)
+| Composant | Statut | Notes |
+| --- | --- | --- |
+| `CodeInput` | ✅ | Code à 6 chiffres : `value`, `onChange`, `error`, `countdown` (secondes), `onResend`. Le collage répartit les chiffres ; `autocomplete="one-time-code"`. |
+| `PasswordStrength` | ✅ | `level` weak, medium, good, excellent ; `rules` (libellé, ok). |
+| `SocialButton`, `DividerLabel` | ✅ | `provider` google ou microsoft ; « ou » entre deux méthodes. |
+| `AuthPanel` | ✅ | Colonne de marque : `theme` default, website, mobile, email ; `title`, `subtitle`, `illustration`. |
+
+### Product Tour
+| Composant | Statut | Notes |
+| --- | --- | --- |
+| `TourStep` | ✅ | `format` widget (314) ou modal (886) ; `color` (marque du client) et `tone` dark (texte blanc) ou light (texte noir) ; `image` + `imagePosition` ; `sender`, `progress`, `onClose` (croix dans l’en-tête) ; `label`, `title`, `description`, `notice`, `action` ; `onPrevious`, `onNext`. |
+| `TourBubble` | ✅ | Étape widget avec flèche : `arrow` top, top-left, top-right, right, bottom, bottom-left, bottom-right, left. |
+| `TourWelcome` | ✅ | Modale d’accueil : `variant` minimal, extend, resume (`steps`, `activeStep`). |
+
+### Survey
+| Composant | Statut | Notes |
+| --- | --- | --- |
+| `LinkSurvey` | ✅ | Questionnaire par lien : `shape` capsule ou full-page, `device`, `appearance` white, light, dark, glass-dark ; la taille du contenu suit (lg pleine page, md capsule, sm mobile). Contenu qui défile entre l’en-tête et le pied. |
+| `ScaleAnswer`, `NpsAnswer` | ✅ | Réponses à `size` sm (widget), md (capsule), lg (pleine page). `kind` star, number, emoji, meteo. |
+
+### Réglages et langues
+| Composant | Statut | Notes |
+| --- | --- | --- |
+| `OptionToggle` | ✅ | Détail activable de la colonne de réglages (progression, avatar, couverture, logo…) : `active`, `onActiveChange`, réglages en enfants. |
+| `FormatCard`, `LogicRule` | ✅ | Choix de format ; règle si / sinon avec condition et destination. |
+| `TranslationTable`, `LanguageItem` | ✅ | Traduction d’un Told ; valeur absente = à traduire, `null` = en cours. |
+
 ### Gabarit
 | Composant | Statut | Notes |
 | --- | --- | --- |
@@ -163,7 +191,7 @@ Chaque composant a sa page dans Storybook (onglet « Docs ») avec ses propriét
 
 Tout est visible dans Storybook, rubrique **Catalogue Figma** (aperçu, propriétés, statut, lien vers Figma). En bref :
 
-- **Validé, à coder ensuite** : Languages (tableau de traduction, cellules), Survey (questionnaire par lien, capsule et pleine page), ProductTour (étapes, bulle ancrée, modale d'accueil), OptionContent (lignes et détails de réglages), Auth (connexion, code, mot de passe), et quelques pièces listées dans le catalogue (PremiumToast, SwitchOptionCard, InputTag, champs Contact, Profile, TextEditorControls, QuestionCard, GlassFrame, aperçus de l'onglet Design du widget, WidgetDropdown).
+- **Validé, à coder ensuite** : et quelques pièces listées dans le catalogue (PremiumToast, SwitchOptionCard, InputTag, champs Contact, Profile, TextEditorControls, QuestionCard, GlassFrame, aperçus de l'onglet Design du widget, WidgetDropdown).
 - **Pas encore validé** : Alert, AudioInput, FileItem, Illustrations, Selection, Slider ; Accordion, Cards, Conditions, ContentRow, Conversation, EmptyState, Headers, Menu, QuestionEdit, Scenario, Table ; AppSidebar, Auth, CommandPalette, Dashboard, Diffuser, EditionSidebar, Filter, Modals, OptionCustomisation, Report, TemplateSidebar.
 - **Formats d'affichage d'un Told**, rangés le 18/11 :
   - page **ProductTour** : étape de tour (`TourItemBase`, formats modal, widget, welcome ; en-tête rien, avatar ou barre de progression ; image à gauche, droite, haut, bas), bulle ancrée (`Widget-tour`, flèche dans 8 directions), modale d'accueil et sommaire ;
@@ -195,7 +223,7 @@ Après une mise à jour : `npm run typecheck` et `npm run build-storybook` doive
 
 - Numérotation `MAJEUR.MINEUR.CORRECTIF`. Tant qu'on est en `0.x`, une version mineure peut changer l'apparence : lire le `CHANGELOG.md`.
 - Quand le numéro change dans `package.json` sur `main`, le tag et la page de version GitHub sont créés automatiquement.
-- Historique : v0.3.0 densité compacte et icônes contour ; v0.4.0 OptionPanel, Select, Modal, Badge, Tag, Avatar ; v0.5.0 `secondary-outline` ; v0.5.1 Select validé ; v0.6.0 ProgressBar, Loader, Skeleton, Notifications ; v0.6.1 correction du Badge pour Next ; **v0.7.0 AppLayout**.
+- Historique : v0.3.0 densité compacte et icônes contour ; v0.4.0 OptionPanel, Select, Modal, Badge, Tag, Avatar ; v0.5.0 `secondary-outline` ; v0.5.1 Select validé ; v0.6.0 ProgressBar, Loader, Skeleton, Notifications ; v0.6.1 correction du Badge pour Next ; v0.7.0 AppLayout ; **v0.8.0 Auth, Product Tour, Survey, réglages et langues**.
 
 ## 13. Règles à garder en tête
 
