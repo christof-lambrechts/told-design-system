@@ -53,3 +53,5 @@ export { AppLayout } from './components/AppLayout/AppLayout';
 export type { AppLayoutProps } from './components/AppLayout/AppLayout';
 export { AuthPanel, CodeInput, DividerLabel, PasswordStrength, SocialButton } from './components/Auth/Auth';
 export type { AuthPanelProps, CodeInputProps, PasswordStrengthProps, PasswordLevel, SocialButtonProps } from './components/Auth/Auth';
+export { TourStep, TourBubble, TourWelcome } from './components/Tour/Tour';
+export type { TourStepProps, TourBubbleProps, TourWelcomeProps, TourArrow } from './components/Tour/Tour';
