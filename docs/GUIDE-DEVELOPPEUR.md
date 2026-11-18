@@ -191,7 +191,7 @@ Chaque composant a sa page dans Storybook (onglet « Docs ») avec ses propriét
 
 Tout est visible dans Storybook, rubrique **Catalogue Figma** (aperçu, propriétés, statut, lien vers Figma). En bref :
 
-- **Validé, à coder ensuite** : et quelques pièces listées dans le catalogue (PremiumToast, SwitchOptionCard, InputTag, champs Contact, Profile, TextEditorControls, QuestionCard, GlassFrame, aperçus de l'onglet Design du widget, WidgetDropdown).
+- **Validé, à coder ensuite** : quelques pièces listées dans le catalogue (PremiumToast, SwitchOptionCard, InputTag, champs Contact, Profile, TextEditorControls, QuestionCard, GlassFrame, aperçus de l'onglet Design du widget, WidgetDropdown).
 - **Pas encore validé** : Alert, AudioInput, FileItem, Illustrations, Selection, Slider ; Accordion, Cards, Conditions, ContentRow, Conversation, EmptyState, Headers, Menu, QuestionEdit, Scenario, Table ; AppSidebar, Auth, CommandPalette, Dashboard, Diffuser, EditionSidebar, Filter, Modals, OptionCustomisation, Report, TemplateSidebar.
 - **Formats d'affichage d'un Told**, rangés le 18/11 :
   - page **ProductTour** : étape de tour (`TourItemBase`, formats modal, widget, welcome ; en-tête rien, avatar ou barre de progression ; image à gauche, droite, haut, bas), bulle ancrée (`Widget-tour`, flèche dans 8 directions), modale d'accueil et sommaire ;
