@@ -16,7 +16,7 @@ const meta = {
   args: { children: 'Libellé', color: 'brand', variant: 'primary', size: 'md', disabled: false },
   argTypes: {
     color: { control: 'inline-radio', options: ['brand', 'neutral', 'danger', 'success', 'warning', 'purple'] },
-    variant: { control: 'inline-radio', options: ['primary', 'secondary', 'tertiary', 'ghost'] },
+    variant: { control: 'inline-radio', options: ['primary', 'primary-outline', 'secondary-outline', 'tertiary', 'ghost'] },
     size: { control: 'inline-radio', options: ['xs', 'sm', 'md', 'lg'] },
     iconLeft: { control: 'select', options: [undefined, ...iconNames] },
     iconRight: { control: 'select', options: [undefined, ...iconNames] },
@@ -33,7 +33,7 @@ const col = { display: 'flex', flexDirection: 'column' as const, gap: 16 };
 export const Types: Story = {
   render: (a) => (
     <div style={row}>
-      {(['primary', 'secondary', 'tertiary', 'ghost'] as ButtonType[]).map((t) => (
+      {(['primary', 'primary-outline', 'secondary-outline', 'tertiary', 'ghost'] as ButtonType[]).map((t) => (
         <Button key={t} {...a} variant={t}>
           {t[0].toUpperCase() + t.slice(1)}
         </Button>
@@ -47,7 +47,7 @@ export const Couleurs: Story = {
     <div style={col}>
       {(['brand', 'neutral', 'danger', 'success', 'warning', 'purple'] as ButtonColor[]).map((c) => (
         <div key={c} style={row}>
-          {(['primary', 'secondary', 'tertiary', 'ghost'] as ButtonType[]).map((t) => (
+          {(['primary', 'primary-outline', 'secondary-outline', 'tertiary', 'ghost'] as ButtonType[]).map((t) => (
             <Button key={t} {...a} color={c} variant={t}>
               {c}
             </Button>
@@ -76,7 +76,7 @@ export const AvecIcones: Story = {
   render: (a) => (
     <div style={row}>
       <Button {...a} />
-      <Button {...a} variant="secondary" iconLeft={undefined} iconRight="arrow-right-01">
+      <Button {...a} variant="primary-outline" iconLeft={undefined} iconRight="arrow-right-01">
         Continuer
       </Button>
       <Button {...a} color="danger" variant="ghost" iconLeft="delete-02">
@@ -92,7 +92,7 @@ export const Desactive: Story = {
   render: (a) => (
     <div style={row}>
       <Button {...a} />
-      <Button {...a} variant="secondary" />
+      <Button {...a} variant="primary-outline" />
       <Button {...a} variant="ghost" />
     </div>
   ),

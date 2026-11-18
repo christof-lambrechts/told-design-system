@@ -90,7 +90,7 @@ export function OptionPanelItem({ icon, label, value, required, pro, open, defau
           {pro && <Badge color="pink-gradient" appearance="fill" size="xs">Pro</Badge>}
           {value && <Badge color="light-gray" size="xs">{value}</Badge>}
         </button>
-        {!isOpen && children && <Button variant="secondary" size="xs" onClick={toggle}>{actionLabel}</Button>}
+        {!isOpen && children && <Button variant="primary-outline" size="xs" onClick={toggle}>{actionLabel}</Button>}
         {isOpen && <ButtonIcon icon="arrow-up-01" label="Replier" size="xs" onClick={toggle} />}
       </div>
       {isOpen && children && <div id={cid} className={styles.itemBody}>{children}</div>}

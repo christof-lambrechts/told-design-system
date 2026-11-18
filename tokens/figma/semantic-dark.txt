@@ -507,3 +507,5 @@
 --badge-subtle-purple-content:var(--purple-700)
 --badge-subtle-twine-background:var(--twine-50)
 --badge-subtle-twine-content:var(--twine-700)
+--button-buttonsecondaryoutline-border-default:var(--input-brand-border-default)
+--button-buttonsecondaryoutline-border-hover:var(--input-brand-border-hover)

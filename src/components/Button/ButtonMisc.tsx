@@ -6,7 +6,7 @@ import styles from './ButtonMisc.module.css';
 const iconSize: Record<ButtonSize, number> = { xs: 12, sm: 14, md: 16, lg: 18 };
 
 export type ButtonDropdownStyle = 'fill' | 'outline' | 'flat' | 'light';
-const dropdownVariant = { fill: 'primary', outline: 'secondary', flat: 'ghost', light: 'tertiary' } as const;
+const dropdownVariant = { fill: 'primary', outline: 'primary-outline', flat: 'ghost', light: 'tertiary' } as const;
 
 export interface ButtonDropdownProps extends Omit<ButtonProps, 'variant' | 'iconRight'> {
   /** Style Figma : fill, outline, flat (sans fond) ou light (fond léger). */

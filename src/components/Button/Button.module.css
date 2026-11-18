@@ -20,7 +20,7 @@
   cursor: pointer;
   transition: background-color var(--duration-fast) var(--easing-standard);
 }
-.button:hover { background: var(--bg-hover); }
+.button:hover { background: var(--bg-hover); border-color: var(--border-hover, var(--border)); }
 .button:active { background: var(--bg-pressed); }
 .button:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .button:disabled { opacity: 0.38; cursor: not-allowed; background: var(--bg); }

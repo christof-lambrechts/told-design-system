@@ -3,12 +3,16 @@ import { Icon, type IconName } from '../Icon/Icon';
 import styles from './Button.module.css';
 
 export type ButtonColor = 'brand' | 'neutral' | 'danger' | 'success' | 'warning' | 'purple';
-export type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'ghost';
+/** primary (plein) · primary-outline (contour de la couleur) · secondary-outline (contour gris clair, moins d'accent) · tertiary (fond teinté) · ghost.
+ *  `secondary` reste accepté et vaut `primary-outline` (ancien nom). */
+export type ButtonType = 'primary' | 'primary-outline' | 'secondary-outline' | 'secondary' | 'tertiary' | 'ghost';
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 
-/** Correspondance avec les jetons Figma : primary = fill, secondary = outline, tertiary = subtle, ghost = ghost. */
+/** Correspondance avec les jetons Figma : primary = fill, primary-outline et secondary-outline = outline, tertiary = subtle, ghost = ghost. */
 const styleOf: Record<ButtonType, 'fill' | 'outline' | 'subtle' | 'ghost'> = {
   primary: 'fill',
+  'primary-outline': 'outline',
+  'secondary-outline': 'outline',
   secondary: 'outline',
   tertiary: 'subtle',
   ghost: 'ghost',
@@ -25,7 +29,8 @@ export function buttonVars(color: ButtonColor, type: ButtonType): CSSProperties 
     '--bg-hover': `var(${p}-background-hover)`,
     '--bg-pressed': `var(${p}-background-pressed)`,
     '--fg': `var(${p}-content-default)`,
-    '--border': s === 'outline' ? `var(${p}-border-default)` : 'transparent',
+    '--border': type === 'secondary-outline' ? 'var(--button-buttonsecondaryoutline-border-default)' : s === 'outline' ? `var(${p}-border-default)` : 'transparent',
+    '--border-hover': type === 'secondary-outline' ? 'var(--button-buttonsecondaryoutline-border-hover)' : s === 'outline' ? `var(${p}-border-default)` : 'transparent',
   } as CSSProperties;
 }
 
@@ -78,7 +83,7 @@ export interface ButtonIconProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
   htmlType?: 'button' | 'submit' | 'reset';
 }
 
-const typeOf = { fill: 'primary', outline: 'secondary', subtle: 'tertiary', ghost: 'ghost' } as const;
+const typeOf = { fill: 'primary', outline: 'primary-outline', subtle: 'tertiary', ghost: 'ghost' } as const;
 
 /** ButtonIcon : bouton carré sans libellé (5867:56798). */
 export function ButtonIcon({
