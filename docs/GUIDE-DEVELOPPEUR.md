@@ -146,6 +146,11 @@ Statut : ✅ = page Figma validée, API stable. ⏳ = codé d'après Figma, page
 | `Modal` | ⏳ | Fenêtre de 500 ; Échap et clic sur le voile ferment. |
 | `OptionPanel`, `OptionPanelItem`, `PanelHeader` | ⏳ | Colonne de réglages de l'éditeur. |
 
+### Gabarit
+| Composant | Statut | Notes |
+| --- | --- | --- |
+| `AppLayout` | ⏳ | Gabarit de l'application (piste B, décidée le 18/11) : `sidebar` à gauche sur le fond de page (`--neutral-surface-page`), contenu dans une carte blanche (filet `--neutral-border-subtle`, rayon 16, ombre `--shadow-flat-1`), marges 12 en haut, à droite, en bas ; `topbar` en haut de la carte, puis la page. AppSidebar et TopBar ne sont pas encore codés : on y met les vôtres en attendant. |
+
 ### Widget visiteur et assets
 | Composant | Statut | Notes |
 | --- | --- | --- |

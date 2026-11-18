@@ -49,3 +49,5 @@ export { ProgressBar, ProgressSteps, Loader, SkeletonLine, SkeletonCard } from '
 export type { ProgressBarProps, ProgressStepsProps, LoaderProps, LoaderSize } from './components/Progress/Progress';
 export { NotificationCenter, NotificationItem } from './components/Notifications/Notifications';
 export type { NotificationCenterProps, NotificationItemProps, NotificationGroup } from './components/Notifications/Notifications';
+export { AppLayout } from './components/AppLayout/AppLayout';
+export type { AppLayoutProps } from './components/AppLayout/AppLayout';
