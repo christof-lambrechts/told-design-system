@@ -469,6 +469,7 @@
   --danger-border-danger: var(--brand-danger-500);
   --brand-surface-default: var(--brand-primary-10);
   --brand-surface-muted: var(--brand-primary-20);
+  --brand-surface-tint: var(--brand-primary-20);
   --brand-surface-strong: var(--brand-primary-50);
   --brand-surface-selected: var(--brand-primary-500);
   --brand-border-hover: var(--brand-primary-50);
@@ -1128,6 +1129,7 @@
   --danger-border-danger: var(--brand-danger-300);
   --brand-surface-default: var(--black-100);
   --brand-surface-muted: var(--white-alpha-20);
+  --brand-surface-tint: var(--brand-primary-alpha-20);
   --brand-surface-strong: var(--white-alpha-40);
   --brand-surface-selected: var(--brand-primary-300);
   --brand-border-hover: var(--white-alpha-20);
