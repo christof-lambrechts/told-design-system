@@ -24,7 +24,7 @@
 .boxed.error { border-color: var(--selectionbox-border-error); background: var(--selectionbox-background-error); }
 .disabled { opacity: 0.38; cursor: not-allowed; }
 
-.input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; pointer-events: none; }
+.input { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: inherit; }
 .controlWrap { display: flex; padding: 2px 0; flex: none; }
 .sm .controlWrap { padding: 2px 0; }
 
