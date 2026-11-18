@@ -1,4 +1,4 @@
-.item {
+.item { text-decoration: none; color: inherit; 
   all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 7px; width: 100%; min-height: 34px; padding: 8px 9px; border-radius: 10px; cursor: pointer;
   font-family: var(--font-family-body); font-size: 13px; line-height: 18px; font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-tight);
   color: var(--content-muted-default); transition: background-color var(--duration-fast) var(--easing-standard), color var(--duration-fast);

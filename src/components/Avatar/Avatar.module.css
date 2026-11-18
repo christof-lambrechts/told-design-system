@@ -1,0 +1,17 @@
+/* Avatar (1053:144214). Tailles et rayons : xs 12/4, sm 16/5, md 20/6, lg 24/8, xl 32/10, 2xl 40/12, 3xl 60/16. */
+.avatar {
+  box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; flex: none; overflow: hidden;
+  font-family: var(--font-family-body); font-weight: var(--font-weight-semibold); letter-spacing: var(--letter-spacing-tight); user-select: none;
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.text { background: var(--brand-primary-600); color: var(--white-white-100); }
+.icon, .image { background: var(--brand-primary-20); color: var(--brand-primary-600); }
+.logo { background: var(--neutral-surface-default); }
+.outline { box-shadow: 0 0 0 2px var(--neutral-surface-default); }
+.sxs { width: 12px; height: 12px; border-radius: 4px; font-size: 5px; line-height: 6px; }
+.ssm { width: 16px; height: 16px; border-radius: 5px; font-size: 7px; line-height: 8px; }
+.smd { width: 20px; height: 20px; border-radius: 6px; font-size: 8px; line-height: 10px; }
+.slg { width: 24px; height: 24px; border-radius: 8px; font-size: 10px; line-height: 14px; }
+.sxl { width: 32px; height: 32px; border-radius: 10px; font-size: 13px; line-height: 18px; }
+.s2xl { width: 40px; height: 40px; border-radius: 12px; font-size: 15px; line-height: 22px; }
+.s3xl { width: 60px; height: 60px; border-radius: 16px; font: var(--font-weight-bold) var(--heading-h4-size) / var(--heading-h4-line-height) var(--font-family-heading); }

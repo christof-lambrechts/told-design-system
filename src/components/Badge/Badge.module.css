@@ -1,0 +1,30 @@
+/* Badge (2794:179295), sur _badgeBase. xs 18 (marge 2/6, rayon 4, Body/10), sm 20 (2/9, rayon 5, Body/12),
+   md 24 (2/13, rayon 6, Body/14), lg 28 (4/14, rayon 6, Body/14). Couleurs : jetons Badge/<style>/<couleur>/*. */
+.badge {
+  box-sizing: border-box; display: inline-flex; align-items: center; gap: 2px; flex: none; white-space: nowrap;
+  font-family: var(--font-family-body); font-weight: var(--font-weight-semibold); letter-spacing: var(--letter-spacing-tight);
+  border: 1px solid transparent; background: var(--bg); color: var(--fg); border-color: var(--bd, transparent);
+}
+.text { padding: 0 2px; }
+.xs { height: 18px; padding: 0 4px; border-radius: var(--component-tag-badge-xs); font-size: 10px; line-height: 14px; }
+.sm { height: 20px; padding: 0 6px; border-radius: var(--component-tag-badge-sm); font-size: 12px; line-height: 13px; }
+.md { height: 24px; padding: 0 9px; border-radius: var(--component-tag-badge-md); font-size: 13px; line-height: 16px; }
+.lg { height: 28px; padding: 0 10px; border-radius: var(--component-tag-badge-lg); font-size: 13px; line-height: 16px; }
+.sm .text, .md .text, .lg .text { padding: 0 3px; }
+
+.subtle { --bg: var(--badge-subtle-c-background); --fg: var(--badge-subtle-c-content); }
+.outline { --bg: transparent; --fg: var(--badge-outline-c-content); --bd: var(--badge-outline-c-border); }
+.fill { --bg: var(--badge-fill-c-background); --fg: var(--badge-fill-c-content); }
+
+/* Une couleur = trois jetons par style. */
+[data-color='blue'] { --badge-subtle-c-background: var(--badge-subtle-blue-background); --badge-subtle-c-content: var(--badge-subtle-blue-content); --badge-outline-c-content: var(--badge-outline-blue-content); --badge-outline-c-border: var(--badge-outline-blue-border); --badge-fill-c-background: var(--badge-fill-blue-background); --badge-fill-c-content: var(--badge-fill-blue-content); }
+[data-color='tree'] { --badge-subtle-c-background: var(--badge-subtle-tree-background); --badge-subtle-c-content: var(--badge-subtle-tree-content); --badge-outline-c-content: var(--badge-outline-tree-content); --badge-outline-c-border: var(--badge-outline-tree-border); --badge-fill-c-background: var(--badge-fill-tree-background); --badge-fill-c-content: var(--badge-fill-tree-content); }
+[data-color='green'] { --badge-subtle-c-background: var(--badge-subtle-green-background); --badge-subtle-c-content: var(--badge-subtle-green-content); --badge-outline-c-content: var(--badge-outline-green-content); --badge-outline-c-border: var(--badge-outline-green-border); --badge-fill-c-background: var(--badge-fill-green-background); --badge-fill-c-content: var(--badge-fill-green-content); }
+[data-color='orange'] { --badge-subtle-c-background: var(--badge-subtle-orange-background); --badge-subtle-c-content: var(--badge-subtle-orange-content); --badge-outline-c-content: var(--badge-outline-orange-content); --badge-outline-c-border: var(--badge-outline-orange-border); --badge-fill-c-background: var(--badge-fill-orange-background); --badge-fill-c-content: var(--badge-fill-orange-content); }
+[data-color='red'] { --badge-subtle-c-background: var(--badge-subtle-red-background); --badge-subtle-c-content: var(--badge-subtle-red-content); --badge-outline-c-content: var(--badge-outline-red-content); --badge-outline-c-border: var(--badge-outline-red-border); --badge-fill-c-background: var(--badge-fill-red-background); --badge-fill-c-content: var(--badge-fill-red-content); }
+[data-color='purple'] { --badge-subtle-c-background: var(--badge-subtle-purple-background); --badge-subtle-c-content: var(--badge-subtle-purple-content); --badge-outline-c-content: var(--badge-outline-purple-content); --badge-outline-c-border: var(--badge-outline-purple-border); --badge-fill-c-background: var(--badge-fill-purple-background); --badge-fill-c-content: var(--badge-fill-purple-content); }
+[data-color='gray-light'] { --badge-subtle-c-background: var(--badge-subtle-gray-light-background); --badge-subtle-c-content: var(--badge-subtle-gray-light-content); --badge-outline-c-content: var(--badge-outline-gray-light-content); --badge-outline-c-border: var(--badge-outline-gray-light-border); --badge-fill-c-background: var(--badge-fill-gray-light-background); --badge-fill-c-content: var(--badge-fill-gray-light-content); }
+[data-color='white'] { --badge-subtle-c-background: var(--badge-subtle-white-background); --badge-subtle-c-content: var(--badge-subtle-white-content); --badge-outline-c-content: var(--badge-outline-white-content); --badge-outline-c-border: var(--badge-outline-white-border); --badge-fill-c-background: var(--badge-fill-white-background); --badge-fill-c-content: var(--badge-fill-white-content); }
+/* Pro, nouveauté : dégradé violet → rose (pas de jeton dans Figma, couleurs du composant). */
+[data-color='pink-gradient'] { --badge-subtle-c-background: color-mix(in srgb, #d05ac4 12%, transparent); --badge-subtle-c-content: #d05ac4; --badge-outline-c-content: #d05ac4; --badge-outline-c-border: #d05ac4; --badge-fill-c-content: var(--white-white-100); }
+.gradient.fill { background: linear-gradient(90deg, #aa62ff, #ff4f7c); }

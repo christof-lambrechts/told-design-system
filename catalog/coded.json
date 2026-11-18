@@ -43,5 +43,15 @@
   "AddBlockModal": "composants-modales-addblockmodal--modale",
   "BlockTypeItem": "composants-modales-addblockmodal--ligne",
   "Calendar": "composants-saisie-et-choix-calendar--defaut",
-  "User story": "composants-assets-user-story--defaut"
+  "User story": "composants-assets-user-story--defaut",
+  "Badge": "composants-statut-et-aide-badge-et-tag--docs",
+  "LabelTag": "composants-statut-et-aide-badge-et-tag--tags",
+  "Avatar": "composants-visuels-avatar--docs",
+  "DropdownField": "composants-saisie-et-choix-select--docs",
+  "DropdownItem": "composants-saisie-et-choix-select--liste",
+  "ModalBase": "composants-modales-modal--docs",
+  "OptionPanelItem": "composants-panneaux-optionpanel--panneau",
+  "OptionPanel": "composants-panneaux-optionpanel--docs",
+  "PanelHeader": "composants-panneaux-optionpanel--en-tete",
+  "IconBoxedColor": "composants-visuels-pictos-de-couleur--catalogue"
 }

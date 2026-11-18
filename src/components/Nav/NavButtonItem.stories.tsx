@@ -31,3 +31,14 @@ export const Menu: StoryObj = {
     );
   },
 };
+
+export const Liens: StoryObj = {
+  name: 'Version lien',
+  render: () => (
+    <nav style={{ width: 240, display: 'grid', gap: 2 }}>
+      <NavButtonItem href="#accueil" icon="home-09" selected>Accueil</NavButtonItem>
+      <NavButtonItem href="#told" icon="layers-01">Told</NavButtonItem>
+      <NavButtonItem href="#audiences" icon="user-group-02">Audiences</NavButtonItem>
+    </nav>
+  ),
+};

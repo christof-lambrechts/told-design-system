@@ -36,6 +36,16 @@ for (const n of names) {
     return [tag, rest];
   });
 }
+// Contours dessinés dans Figma (icônes HugeIcons Pro ajoutées depuis la banque) : prioritaires.
+for (const line of readFileSync('catalog/icons-stroke-figma.txt', 'utf8').split('\n')) {
+  if (!line.trim() || line.startsWith('#')) continue;
+  const [name, body] = line.split('|');
+  stroke[name] = body.split(/;(?=[EN]:)/).map((p) => {
+    const [flag, d] = [p.slice(0, 1), p.slice(2)];
+    return ['path', flag === 'E' ? { d, fill: 'currentColor', stroke: 'none', fillRule: 'evenodd', clipRule: 'evenodd' } : { d, fill: 'currentColor', stroke: 'none' }];
+  });
+  const i = missing.indexOf(name); if (i >= 0) missing.splice(i, 1);
+}
 writeFileSync('src/components/Icon/iconsStroke.ts', `// Fichier généré par scripts/build-icons.mjs : version contour (HugeIcons stroke-rounded, MIT). Ne pas modifier.
 /** Icônes sans version contour (dessins maison) : ${missing.join(', ')}. Elles restent pleines. */
 export const iconsStroke: Record<string, [string, Record<string, string>][]> = ${JSON.stringify(stroke)};

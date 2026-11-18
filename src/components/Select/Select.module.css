@@ -1,0 +1,55 @@
+/* Select (DropdownField 4855:20599) et DropdownItem (4544:102435). Champ aligné sur Input. */
+.field { position: relative; display: flex; flex-direction: column; gap: 4px; min-width: 0; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.label { padding: 0 8px; font-size: 12px; line-height: 18px; font-weight: var(--font-weight-semibold); color: var(--input-brand-content-label); }
+.required { margin-left: 2px; color: var(--content-danger-default-on-light); }
+.helper, .errorText { padding: 0 5px; font-size: 12px; line-height: 18px; font-weight: var(--font-weight-medium); }
+.helper { color: var(--input-brand-content-helper); }
+.errorText, .hasError .label { color: var(--content-danger-default-on-light); }
+
+.box {
+  all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 8px; width: 100%; cursor: pointer; min-width: 0;
+  background: var(--input-brand-background-default); border: 1px solid var(--input-brand-border-default); color: var(--content-default-default);
+  font-weight: var(--font-weight-medium);
+  transition: border-color var(--duration-fast) var(--easing-standard), background-color var(--duration-fast), box-shadow var(--duration-fast);
+}
+.box:hover { border-color: var(--input-brand-border-hover); background: var(--input-brand-background-hover); }
+.box:focus-visible, .open { border-color: var(--input-brand-border-focus); background: var(--input-brand-background-focus); box-shadow: 0 0 0 1px var(--input-brand-border-focus); }
+.flat { border-color: transparent; background: transparent; }
+.light { border-color: transparent; }
+.hasError .box { border-color: var(--input-brand-border-error); background: var(--input-brand-background-error); }
+.disabled { opacity: 0.38; cursor: default; }
+.value { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.placeholder { color: var(--input-brand-content-placeholder); }
+.chevron { display: flex; align-items: center; justify-content: center; flex: none; color: var(--content-subtle-default); transition: transform var(--duration-fast); }
+.open .chevron { transform: rotate(180deg); }
+
+.sm .box { min-height: 28px; border-radius: 10px; padding: 0 6px 0 8px; font-size: 12px; line-height: 18px; }
+.md .box { min-height: 34px; border-radius: 12px; padding: 0 9px 0 10px; font-size: 13px; line-height: 18px; }
+.lg .box { min-height: 40px; border-radius: 14px; padding: 0 10px 0 12px; font-size: 15px; line-height: 22px; }
+
+/* Liste */
+.menu {
+  box-sizing: border-box; display: flex; flex-direction: column; gap: 2px; padding: 4px; min-width: 180px;
+  background: var(--dropdown-background-default); border: 1px solid var(--neutral-border-subtle); border-radius: 12px; box-shadow: var(--shadow-flat-8);
+}
+.popover { position: absolute; z-index: 20; top: calc(100% + 4px); left: 0; right: 0; max-height: 280px; overflow: auto; }
+.label + .box + .popover { top: calc(100% + 4px); }
+
+.item {
+  all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 7px; width: 100%; padding: 6px 9px; border-radius: 8px; cursor: pointer;
+  font-family: var(--font-family-body); font-size: 13px; line-height: 18px; font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-tight);
+  color: var(--content-default-default);
+}
+.item:hover, .active { background: var(--dropdown-background-hover); }
+.item:active { background: var(--dropdown-background-pressed); }
+.item:focus-visible { outline: 2px solid var(--brand-border-focus); outline-offset: -2px; }
+.item:disabled { opacity: 0.38; cursor: default; background: none; }
+.selected, .selected:hover { background: var(--dropdown-background-selected); }
+.danger { color: var(--content-danger-default-on-light); }
+.itemIcon { flex: none; color: var(--content-subtle-default); }
+.danger .itemIcon { color: inherit; }
+.itemText { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.itemLabel { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.itemDesc { font-size: 12px; line-height: 18px; font-weight: var(--font-weight-regular); color: var(--content-subtle-default); }
+.shortcut { flex: none; font-size: 12px; color: var(--content-subtle-default); }
+.tick { flex: none; color: var(--content-default-selected); }

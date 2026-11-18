@@ -1,0 +1,27 @@
+/* Panneau d'options : PanelHeader (7851:8151), OptionPanelItem (6031:85291), OptionPanel (6031:85898). */
+.panel { box-sizing: border-box; display: flex; flex-direction: column; background: var(--neutral-surface-default); font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); color: var(--content-default-default); }
+.panelHead { padding: 16px 16px 12px; }
+.panelScope { padding: 4px 16px 12px; }
+.panelScope > * { width: 100%; }
+.options { display: flex; flex-direction: column; border-top: 1px solid var(--neutral-border-default); }
+
+/* En-tête */
+.header { display: flex; flex-direction: column; gap: 7px; padding: 3px 0; }
+.back { all: unset; display: inline-flex; align-items: center; gap: 4px; align-self: flex-start; cursor: pointer; font-size: 12px; line-height: 18px; font-weight: var(--font-weight-medium); color: var(--content-brand-default-on-light); border-radius: 4px; }
+.back:hover { text-decoration: underline; }
+.back:focus-visible { outline: 2px solid var(--brand-border-focus); }
+.headRow { display: flex; align-items: flex-start; gap: 10px; }
+.headText { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.headTitle { font-size: 15px; line-height: 22px; font-weight: var(--font-weight-semibold); }
+.headSub { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.headDesc { font-size: 12px; line-height: 18px; color: var(--content-subtle-default); }
+
+/* Option */
+.item { display: flex; flex-direction: column; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--neutral-border-default); }
+.itemHead { display: flex; align-items: center; gap: 14px; min-height: 22px; }
+.itemToggle { all: unset; flex: 1; min-width: 0; display: flex; align-items: center; gap: 7px; cursor: pointer; border-radius: 6px; }
+.itemToggle:focus-visible { outline: 2px solid var(--brand-border-focus); outline-offset: 2px; }
+.itemLabel { font-size: 13px; line-height: 18px; font-weight: var(--font-weight-medium); color: var(--content-muted-default); }
+.itemOpen .itemLabel, .itemToggle:hover .itemLabel { color: var(--content-default-default); }
+.required { margin-left: 2px; color: var(--content-danger-default-on-light); }
+.itemBody { display: flex; flex-direction: column; gap: 8px; }

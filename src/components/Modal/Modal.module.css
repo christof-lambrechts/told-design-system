@@ -1,0 +1,20 @@
+/* ModalBase (6234:9287). */
+.overlay {
+  position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 20px;
+  background: var(--neutral-surface-overlay);
+}
+.modal {
+  position: relative; box-sizing: border-box; display: flex; flex-direction: column; max-width: 100%; max-height: calc(100vh - 40px); overflow: auto;
+  background: var(--neutral-surface-default); border-radius: 12px; box-shadow: var(--shadow-flat-8); outline: none;
+  font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); color: var(--content-default-default);
+}
+.close { position: absolute; top: 12px; right: 12px; }
+.head { display: flex; flex-direction: column; gap: 10px; padding: 40px 40px 20px; }
+.title { margin: 0; font: var(--font-weight-bold) var(--heading-h4-size) / var(--heading-h4-line-height) var(--font-family-heading); }
+.desc { margin: 0; font-size: 13px; line-height: 18px; color: var(--content-subtle-default); }
+.body { padding: 12px 40px; }
+.foot { display: flex; justify-content: flex-end; align-items: center; gap: 16px; padding: 20px 40px 40px; }
+.divider { border: 1px solid var(--neutral-border-subtle); }
+.divider .head { border-bottom: 1px solid var(--neutral-border-subtle); }
+.divider .foot { border-top: 1px solid var(--neutral-border-subtle); padding-top: 20px; }
+.divider .body { padding: 20px 40px; }

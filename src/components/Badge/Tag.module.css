@@ -1,0 +1,16 @@
+/* LabelTag (569:60860) : partie libellé sur <couleur>/50, partie valeur sur <couleur>/200. sm 20, lg 30 (rayon 6 et 8). */
+.tag {
+  display: inline-flex; align-items: stretch; flex: none; overflow: hidden; white-space: nowrap;
+  font-family: var(--font-family-body); font-size: 12px; line-height: 18px; font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-tight); color: var(--content-default-default);
+}
+.sm { height: 20px; border-radius: 6px; }
+.lg { height: 30px; border-radius: 8px; }
+.main, .value { display: flex; align-items: center; gap: 2px; padding: 0 8px; }
+.main { background: var(--c50); }
+.value { background: var(--c200); }
+.text { padding: 0 4px; }
+.main .text:first-child { padding-left: 0; }
+.remove { all: unset; display: flex; cursor: pointer; border-radius: 4px; color: inherit; margin-right: -4px; }
+.remove:hover { background: var(--content-neutral-black-alpha-5); }
+.remove:focus-visible { outline: 2px solid var(--brand-border-focus); }

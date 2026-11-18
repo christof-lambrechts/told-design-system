@@ -23,14 +23,17 @@ npm run typecheck        # vérification TypeScript
 
 ## Composants
 
-Codés (validés ✅ dans Figma), visibles dans Storybook sous « Composants » :
+Codés, visibles dans Storybook sous « Composants ». Badge, Tag, Avatar, Select, Modal et le panneau d'options sont codés d'après Figma mais leurs pages Figma ne sont pas encore validées ✅ : leur API peut encore bouger.
+
+Versions : voir `CHANGELOG.md` ; contribuer : voir `CONTRIBUTING.md`.
 
 - **Actions** : Button, ButtonIcon, ButtonGradient, ButtonDropdown, ButtonLink.
-- **Saisie et choix** : Checkbox, Radio, Switch, Input, SearchBar, TextArea, FileUploader, Calendar.
-- **Navigation** : TextTab, ButtonTab, GroupTab, Pagination, NavButtonItem.
-- **Statut et aide** : Kbd, KbdCombo, Tooltip, Toast.
-- **Structure et visuels** : Divider, Icon (156 icônes du fichier Figma), IconBoxed, Logo, Flag.
-- **Cartes et modales** : GettingStarted, ModuleCard (et SubStepItem, MessageCard, FlowDivider, InsertBar, DropZone), AddBlockModal, BlockTypeItem.
+- **Saisie et choix** : Checkbox, Radio, Switch, Input, SearchBar, TextArea, Select (et DropdownMenu, DropdownItem), FileUploader, Calendar.
+- **Navigation** : TextTab, ButtonTab, GroupTab, Pagination, NavButtonItem (bouton ou vrai lien avec `href`).
+- **Statut et aide** : Kbd, KbdCombo, Tooltip, Toast, Badge, Tag.
+- **Structure et visuels** : Divider, Icon (165 icônes, contour ou plein), IconBoxed, IconBoxedColor (93 pictos de couleur), Avatar, Logo, Flag.
+- **Cartes et modales** : GettingStarted, ModuleCard (et SubStepItem, MessageCard, FlowDivider, InsertBar, DropZone), Modal, AddBlockModal, BlockTypeItem.
+- **Panneaux** : OptionPanel, OptionPanelItem, PanelHeader (colonne de réglages de l'éditeur).
 - **Widget visiteur** : Widget, WidgetChoice, WidgetButton, WidgetConsent, ChecklistItem (thème clair et sombre).
 - **Assets** : UserStory.
 
