@@ -12,7 +12,7 @@ const meta = {
 export default meta;
 
 const side = (
-  <nav style={{ width: 300, padding: '12px 14px', display: 'grid', gap: 2, alignContent: 'start' }}>
+  <nav style={{ width: 264, padding: '12px 14px', display: 'grid', gap: 2, alignContent: 'start' }}>
     {['Accueil', 'Scénarios', 'Told', 'Audiences', 'Résultats'].map((l, i) => <NavButtonItem key={l} selected={i === 2}>{l}</NavButtonItem>)}
   </nav>
 );
