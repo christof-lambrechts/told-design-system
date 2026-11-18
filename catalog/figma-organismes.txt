@@ -35,7 +35,7 @@ ChannelOptions|8252:4265|1958x728|channel=web,mobile,link,embed,email|Colonne de
 StatusBanner|8253:2940|770x280|state=nowhere,test,live|Bandeau d’état de Diffuser.|8253:2940|0,0
 ResponsesSummary|8253:2941|720x133||Résumé des réponses par canal sur 7 jours.|8253:2941|0,0
 DisplayRulesNote|8253:2973|720x49||Pied de Diffuser.|8253:2973|0,0
-#Organismes / Displayer ❌
+#Organismes / Email ❌
 Rating scale - Question|791:89276|1991x425|?hasTextInput;type=meteo,emoji,star-lt5,number-lt5,thumb,star-5plus,number-5plus;size=sm,lg|Question à échelle, côté répondant.|787:66903|80,375
 NPS Component|787:69652|888x182|?hasCaption;circleNumber=true,false;size=lg,sm|Question NPS, côté répondant.|787:66903|80,880
 scale-bar|4103:115915|273x156|style=star,number|Barre d'échelle.|787:66903|80,1142
@@ -138,7 +138,7 @@ tour-resume-list|3738:45455|219x146|active=true,false;textColor=dark,white|Somma
 welcome-modale-tour|3738:158203|5869x576|?hasLabel;?hasTitle;?hasMedia;text=white,black;miniature=false,true;summaryList=true,false;variant=minimal,extend,resume|Modale d'accueil de visite guidée.|4093:16149|0,381
 TourItemBase|3712:40132|5315x3343|?hasTitle;?hasImage;?hasWithFooter;?hasGlassShape;?hasLight;format=widget,modal,welcome;image=right,left,bottom,top;header=none,progress-bar,avatar;close=true,false|Étape de visite guidée.|3712:40132|0,0
 Widget-tour|3715:41441|2485x1623|arrow=top-left,top,bottom-left,bottom,left,right,bottom-right,top-right;text=white,black;format=widget,modal|Bulle de visite guidée avec flèche.|3715:41441|0,0
-#Organismes / Survey ❌
+#Organismes / Survey ✅
 🏞️ Image-survey-link|1588:169298|629x1700|?hasLogo;type=image,color;device=desktop,mobile|Fond d'un questionnaire par lien.|787:66903|80,7733
 📝 survey_content|4091:189506|5578x1429|type=text-field,message-field,calendar,forms,scale-meteo,scale-star-lt5,…+5;color=dark,light;device=lg,sm|Contenu d'un questionnaire.|787:66903|80,9513
 Link-survey|1588:169302|14862x3465|?hasGdprConsent;?hasConfetti;?hasLogo;device=desktop,mobile;shape=capsule,full-page;scroll=false,true;style=white,light,dark,glass-dark|Questionnaire par lien.|4093:16133|556,310
