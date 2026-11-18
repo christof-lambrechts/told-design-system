@@ -46,7 +46,7 @@ Divider|6055:89|1440x1||Séparateur horizontal.|6108:97170|80,375
 DividerVertical|6055:90|1x156||Séparateur vertical.|6108:97170|80,392
 #Atomes / DropdownField ✅
 DropdownField|4855:20599|1812x1600|style=default,flat,light;size=sm,md,lg;state=default,focus,error,disabled;placeholder=true,false|Champ de sélection.|5884:33181|90,385
-#Atomes / Icons ❌
+#Atomes / Icons ✅
 Asterisk|787:72863|108x64|style=solid,stroke;type=standard|Astérisque d'obligation.|1:13141|90,455
 require|1:7628|224x72|state=default;size=xl,lg,md,sm,xs|Marque d'obligation.|1:13141|90,531
 menu-dashboard|2947:95232|64x108|outline=true,false|Icône menu tableau de bord.|1:13141|418,455
