@@ -51,3 +51,5 @@ export { NotificationCenter, NotificationItem } from './components/Notifications
 export type { NotificationCenterProps, NotificationItemProps, NotificationGroup } from './components/Notifications/Notifications';
 export { AppLayout } from './components/AppLayout/AppLayout';
 export type { AppLayoutProps } from './components/AppLayout/AppLayout';
+export { AuthPanel, CodeInput, DividerLabel, PasswordStrength, SocialButton } from './components/Auth/Auth';
+export type { AuthPanelProps, CodeInputProps, PasswordStrengthProps, PasswordLevel, SocialButtonProps } from './components/Auth/Auth';

@@ -1,0 +1,49 @@
+/* CodeInput / CodeDigit */
+.code { display: flex; flex-direction: column; gap: 10px; }
+.cases { display: flex; gap: 7px; }
+.gap { width: 8px; flex: none; }
+.digit { box-sizing: border-box; width: 48px; height: 56px; border-radius: 12px; border: 1px solid var(--input-brand-border-default); background: var(--neutral-surface-default); text-align: center; font: 700 20px/28px var(--font-family-body); color: var(--content-default-default); caret-color: var(--input-brand-border-focus); outline: none; }
+.digit:hover { border-color: var(--input-brand-border-hover); }
+.digit:focus { border-color: var(--input-brand-border-focus); box-shadow: 0 0 0 1px var(--input-brand-border-focus); }
+.digitError, .digitError:focus { border-color: var(--input-brand-border-error); color: var(--content-danger-default-on-light); box-shadow: none; }
+.error { margin: 0; max-width: 338px; font: 400 12px/18px var(--font-family-body); color: var(--content-danger-default-on-light); }
+.resend { margin: 0; display: flex; gap: 4px; font: 400 12px/18px var(--font-family-body); }
+.link { all: unset; cursor: pointer; font-weight: 500; color: var(--content-brand-default-on-light); }
+.link:disabled { cursor: default; color: var(--content-muted-default); }
+.link:focus-visible { outline: 2px solid var(--input-brand-border-focus); border-radius: 4px; }
+.muted { color: var(--content-muted-default); }
+
+/* PasswordStrength */
+.pw { --tone: var(--content-success-default-on-light); display: flex; flex-direction: column; gap: 7px; font-family: var(--font-family-body); }
+.pw[data-tone='danger'] { --tone: var(--content-danger-default-on-light); }
+.pw[data-tone='warning'] { --tone: var(--content-warning-default-on-light); }
+.gauge { display: flex; align-items: center; gap: 10px; }
+.segments { flex: 1; display: flex; gap: 4px; }
+.seg { flex: 1; height: 4px; border-radius: 2px; background: var(--neutral-border-default); }
+.segOn { background: var(--tone); }
+.level { font: 500 12px/18px var(--font-family-body); color: var(--tone); }
+.rules { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.rule { display: flex; align-items: center; gap: 6px; font: 400 12px/18px var(--font-family-body); color: var(--content-muted-default); }
+.ruleOk { color: var(--content-success-default-on-light); }
+
+/* DividerLabel */
+.divider { display: flex; align-items: center; gap: 10px; font: 500 12px/18px var(--font-family-body); color: var(--content-muted-default); }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--neutral-border-default); }
+
+/* SocialButton : aspect du Button primary-outline neutral md */
+.social { box-sizing: border-box; width: 100%; height: 34px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 12px; border-radius: var(--component-input-button-md, 10px); border: 1px solid var(--neutral-border-default); background: var(--neutral-surface-default); color: var(--content-default-default); font: 500 13px/18px var(--font-family-body); cursor: pointer; }
+.social:hover { background: var(--neutral-surface-subtle); }
+.social:focus-visible { outline: 2px solid var(--input-brand-border-focus); outline-offset: 2px; }
+
+/* AuthPanel */
+.panel { box-sizing: border-box; display: flex; flex-direction: column; gap: 32px; height: 100%; min-height: 0; overflow: hidden; }
+.panel[data-theme-panel='default'] { background: #fce2de; }
+.panel[data-theme-panel='website'] { background: #dffbf1; }
+.panel[data-theme-panel='mobile'] { background: #fff2db; }
+.panel[data-theme-panel='email'] { background: #f5ebff; }
+.panelTop { display: flex; flex-direction: column; gap: 32px; padding: 64px 64px 0; }
+.pitch { display: flex; flex-direction: column; gap: 12px; }
+.title { margin: 0; font: 700 32px/39px var(--font-family-heading); color: #1f2429; }
+.subtitle { margin: 0; font: 400 15px/22px var(--font-family-body); color: #4a5560; }
+.illu { flex: 1; min-height: 0; display: flex; align-items: flex-end; }
+.illu > img { width: 100%; height: auto; display: block; }
