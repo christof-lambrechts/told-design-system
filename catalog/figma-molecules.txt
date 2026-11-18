@@ -64,7 +64,7 @@ EditionCardHeader|554:39303|660x68|?hasLeftIcons;?hasMandatoryIcon;?hasRequiredT
 headerCards|1045:140468|1440x188|?hasDate;?hasTextOption;divider=false,true|En-tête de carte.|1045:140468|0,0
 OptionSectionTitle|1265:46404|1440x364|"description;"title;?hasToggle;?hasNumber;?hasIcon;?hasButtonLink;?hasDescription;divider=false,true;padding=true,false|Titre de section d'options.|1265:46404|0,0
 PremiumItem|554:39885|1440x91|?hasPremiumTag;device=desktop,mobile|Ligne de fonction payante.|554:39885|0,0
-#Molécules / Languages ❌
+#Molécules / Languages ✅
 LanguageItem|8051:24798|920x256|"label;?hasToggle;state=default,hover,selected;isDefault=false,true;boxed=true,false|Une langue du Told.|8194:4043|80,375
 LanguagePanel|8174:4121|356x332||Colonne de droite de l’onglet Langues.|8194:4043|80,711
 TranslationTable|8245:4085|1158x1320|?hasEnglish;?hasSpanish;?hasGerman;?hasItalian;?hasScrollbar;scrolled=false,true|Traduction d’un Told, une ligne par texte.|8194:4043|80,1123
@@ -80,7 +80,7 @@ MessageCard|8070:2583|2472x108|?hasDetail;kind=welcome,thanks;state=default,sele
 FlowDivider|8070:2592|296x133|"label;kind=start,end,content|Séparation de la colonne des modules.|8070:2592|0,0
 DropZone|8173:3496|248x60||Emplacement de dépôt sur la surface de logique.|8173:3496|0,0
 InsertBar|8199:6014|280x66|state=default,drop-target|Barre d’insertion entre deux blocs.|8199:6014|0,0
-#Molécules / Notifications ❌
+#Molécules / Notifications ✅
 notificationItem|2794:198377|1011x1292|state=default,hover,pressed;notification=false,true;style=default,feature|Notification.|6210:39140|180,550
 Notification_sidebar|2795:214336|607x1102|device=desktop|Panneau des notifications.|6210:39140|1291,475
 #Molécules / OptionContent ❌

@@ -128,7 +128,7 @@ Profile|635:66174|284x168|state=default,hover,press-select|Accès au profil.|597
 #Atomes / ProgressBar ❌
 ProgressBar|556:57661|421x2110|length=0,10,20,30,40,50,60,70,…+3;direction=horizontal,vertical;size=lg,sm|Barre de progression.|5922:65029|90,385
 ProgressBarWidget|787:72909|300x74|style=multi,single;size=sm,lg|Progression dans un widget.|5922:65029|591,385
-loader|1156:85211|1026x477|?hasLabel;style=line-simple,line-spinner,dot-circle;sizz=3xs,lg,md,sm,xl,xs,xxs|Indicateur de chargement.|5922:65029|971,385
+Loader|1156:85211|1026x477|?hasLabel;style=line-simple,line-spinner,dot-circle;size=3xs,lg,md,sm,xl,xs,xxs|Indicateur de chargement.|5922:65029|971,385
 SkeletonLine|6057:97|200x12||Ligne fantôme de chargement.|6057:94|0,28
 SkeletonCard|6057:98|240x1||Carte fantôme de chargement.|6057:94|224,28
 #Atomes / Radio ✅

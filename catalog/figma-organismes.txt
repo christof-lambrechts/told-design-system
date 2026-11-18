@@ -81,7 +81,7 @@ TemplatePreview|7855:3400|440x546|"result;"note;?hasNote;?hasChannel3|Colonne d'
 ConfirmModal|7950:1584|480x209|"title;"description;?hasArchive|Confirmation d'une action destructrice à trois issues.|7950:1584|0,0
 IntentCard|7967:12281|936x675|?hasExamples;intention=demander,guider,recompenser;state=default,hover,selected|Choix de l'intention à la création.|7967:12281|0,0
 TemplateCard|7968:1695|632x334|"title;"description;"detail;?hasPopular;state=default,hover|Carte de la galerie de modèles.|7968:1695|0,0
-#Organismes / Notifications ❌
+#Organismes / Notifications ✅
 NotificationItem|7967:10662|424x320|"title;"message;"time;?hasMessage;state=unread,read,hover|Une notification du centre de notifications.|7967:10662|0,0
 NotificationCenter|7967:10663|400x549||Centre de notifications.|7967:10663|0,0
 #Organismes / OptionCustomisation ❌
