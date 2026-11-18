@@ -55,3 +55,5 @@ export { AuthPanel, CodeInput, DividerLabel, PasswordStrength, SocialButton } fr
 export type { AuthPanelProps, CodeInputProps, PasswordStrengthProps, PasswordLevel, SocialButtonProps } from './components/Auth/Auth';
 export { TourStep, TourBubble, TourWelcome } from './components/Tour/Tour';
 export type { TourStepProps, TourBubbleProps, TourWelcomeProps, TourArrow } from './components/Tour/Tour';
+export { LinkSurvey, ScaleAnswer, NpsAnswer } from './components/Survey/Survey';
+export type { LinkSurveyProps, ScaleAnswerProps, NpsAnswerProps, AnswerSize } from './components/Survey/Survey';
