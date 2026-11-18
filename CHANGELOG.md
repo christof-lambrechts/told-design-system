@@ -3,9 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
-## Prochaine version (pas encore publiée)
+## v0.7.0 · 18/11/2026
 
-- **AppLayout** : gabarit de l’application, contenu dans une carte blanche avec filet (piste B). Page Figma `📐 Templates / AppLayout` pas encore validée.
+- **AppLayout** (page Figma `📐 Templates / AppLayout` validée ✅) : gabarit de l’application en deux versions, `menu="transparent"` (menu sur le fond de page, contenu en carte blanche) ou `menu="filled"` (menu en bloc avec fond et ombre intérieure, contenu posé sur fond blanc). Un seul en-tête par écran (TopBar). Menu de 264 de large.
+- Pages Figma validées depuis la v0.6.1 (à coder ensuite) : Survey, ProductTour, OptionContent, Auth, AppLayout.
+- Rangement Figma : Displayer devient Email ; pièces communes du widget, de la Survey et du tour dans la page Widget ; DropdownMenu regroupe les listes et le menu « … » ; filtres renommés et traduits.
 
 ## v0.6.1 · 18/11/2026
 
