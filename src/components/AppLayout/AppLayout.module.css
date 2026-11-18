@@ -9,3 +9,7 @@
 .filled { padding: 12px; gap: 12px; background: var(--neutral-surface-default); }
 .filled .sidebar { background: var(--neutral-surface-sidebar); border-radius: 12px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05); overflow: hidden; }
 .filled .card { background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+.filled .topbar { position: relative; }
+.filled .topbar > * { border-bottom: 0 !important; }
+/* menu=filled : le trait sous l'en-tête commence à l'icône et finit au bouton de droite (retrait 24). */
+.filled .topbar::after { content: ''; position: absolute; left: 24px; right: 24px; bottom: 0; height: 1px; background: var(--neutral-border-default); }
