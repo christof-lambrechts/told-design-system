@@ -32,3 +32,8 @@ export const Defaut: StoryObj<typeof AppLayout> = {
     </div>
   ) },
 };
+
+export const MenuAvecFond: StoryObj<typeof AppLayout> = {
+  name: 'Menu avec fond',
+  args: { ...Defaut.args, menu: 'filled' },
+};

@@ -8,17 +8,20 @@ export interface AppLayoutProps {
   topbar?: ReactNode;
   /** En-tête de page (PageHeader) puis contenu. */
   children: ReactNode;
+  /** transparent : menu sans fond, contenu en carte blanche. filled : menu en bloc (fond et ombre intérieure) sur fond blanc, contenu sans carte. */
+  menu?: 'transparent' | 'filled';
   className?: string;
 }
 
 /**
- * AppLayout (8544:4323, page 📐 Templates / AppLayout) : gabarit de l'application, piste B.
+ * AppLayout (set 8564:5514, page 📐 Templates / AppLayout) : gabarit de l'application, deux versions (menu transparent ou avec fond).
+ * Un seul en-tête : TopBar (icône, titre, description, recherche, options, actions secondaire et principale).
  * Fond Neutral/surface/page ; menu à gauche ; contenu dans une carte blanche
  * (Neutral/surface/default, filet Neutral/border/subtle, rayon 16, ombre shadow-flat-1), marges 12 en haut, à droite, en bas.
  */
-export function AppLayout({ sidebar, topbar, children, className }: AppLayoutProps) {
+export function AppLayout({ sidebar, topbar, children, menu = 'transparent', className }: AppLayoutProps) {
   return (
-    <div className={[styles.layout, className].filter(Boolean).join(' ')}>
+    <div className={[styles.layout, styles[menu], className].filter(Boolean).join(' ')}>
       <aside className={styles.sidebar}>{sidebar}</aside>
       <div className={styles.card}>
         {topbar && <div className={styles.topbar}>{topbar}</div>}
