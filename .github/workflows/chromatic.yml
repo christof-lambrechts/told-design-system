@@ -1,11 +1,11 @@
 # Publie le Storybook sur Chromatic à chaque envoi sur GitHub.
-# Désactivé tant que la variable CHROMATIC_ENABLED n'est pas à true (Settings > Secrets and variables > Actions),
-# avec le secret CHROMATIC_PROJECT_TOKEN. En attendant, Cloudflare Pages publie un aperçu par branche.
+# Actif quand la variable CHROMATIC_ENABLED vaut true (Settings > Secrets and variables > Actions), avec le secret CHROMATIC_PROJECT_TOKEN.
 name: Storybook (Chromatic)
 on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
 jobs:
   chromatic:
     if: ${{ vars.CHROMATIC_ENABLED == 'true' }}
