@@ -42,5 +42,11 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18"
-  }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/christof-lambrechts/told-design-system.git"
+  },
+  "homepage": "https://told-design-system.pages.dev"
 }
