@@ -1,0 +1,28 @@
+# Publie une version quand le numéro de package.json change sur main :
+# crée le tag vX.Y.Z et la page de version GitHub avec la section du CHANGELOG.
+name: Version
+on:
+  push:
+    branches: [main]
+    paths: [package.json, CHANGELOG.md]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Lire la version
+        id: v
+        run: echo "tag=v$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+      - name: Créer le tag et la version s'ils n'existent pas
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.v.outputs.tag }}
+        run: |
+          if git rev-parse "$TAG" >/dev/null 2>&1; then echo "$TAG existe déjà"; exit 0; fi
+          awk -v t="## $TAG" 'index($0,t)==1{f=1;next} /^## v/{if(f)exit} f' CHANGELOG.md > notes.md
+          gh release create "$TAG" --target "$GITHUB_SHA" --title "$TAG" --notes-file notes.md
