@@ -91,6 +91,8 @@ Le widget visiteur n'est pas concerné (il garde ses tailles).
 
 ## 8. Les composants codés
 
+Noms Figma ↔ code ↔ Told Record, correspondance des propriétés et doublons : **[NOMMAGE.md](NOMMAGE.md)**. À lire avant de créer un composant.
+
 Statut : ✅ = page Figma validée, API stable. ⏳ = codé d'après Figma, page pas encore validée, l'API peut bouger.
 
 ### Actions

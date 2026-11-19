@@ -1,5 +1,7 @@
 # Contribuer au design system Told
 
+> Avant de créer un composant, lire [docs/NOMMAGE.md](docs/NOMMAGE.md) : noms Figma et code, propriétés, doublons.
+
 Le design system est la référence commune de Told et de Told Record. On y ajoute des briques communes, jamais des pièces propres à un produit (réglages de Told Record, canevas, player…).
 
 ## Le circuit

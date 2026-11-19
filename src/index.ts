@@ -93,3 +93,9 @@ export { ButtonGroup } from './components/Button/ButtonGroup';
 export type { ButtonGroupProps } from './components/Button/ButtonGroup';
 export { StepThumb, StepGroup, StepList } from './components/DemoEditor/Steps';
 export type { StepThumbProps, StepGroupProps, StepListProps } from './components/DemoEditor/Steps';
+// Alias : noms Figma des composants renommés dans le code (docs/NOMMAGE.md § 2).
+export { Modal as ModalBase } from './components/Modal/Modal';
+export { Select as DropdownField } from './components/Select/Select';
+export { Flag as FlagCountry } from './components/Flag/Flag';
+export { TourStep as TourItemBase } from './components/Tour/Tour';
+export { ProgressSteps as ProgressBarWidget } from './components/Progress/Progress';

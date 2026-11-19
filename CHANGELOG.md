@@ -3,6 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.10.1 · 19/11/2026
+
+- **docs/NOMMAGE.md** : correspondance des noms Figma, code et Told Record, des propriétés, doublons à régler.
+- **Alias** des noms Figma : `ModalBase` (Modal), `DropdownField` (Select), `FlagCountry` (Flag), `TourItemBase` (TourStep), `ProgressBarWidget` (ProgressSteps).
+
 ## v0.10.0 · 19/11/2026
 
 - **AiTag** (étiquette « IA » violette, xs 16 sur les vignettes, sm 20 à côté d'un titre) et **AiNotice** (bandeau violet : `review` à relire, `generating` l'IA travaille, `done` résultat ; un ou deux liens d'action).
