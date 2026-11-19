@@ -55,11 +55,14 @@ Wireframe|4268:14486|342x474|?hasStep;?hasImage|Maquette fil de fer d'écran.|42
 EditionSidebar|8:14494|4820x1022|?hasScrollbar;?hasInsertBar;menu=customisation,question,questionreport,configurationinapp,configurationsurvey,connexion,…+5;feature=announcement,longformsurvey,inapp;state=default,empty,hover,empty-hover|Colonne de gauche de l'éditeur.|5943:137238|80,375
 QuestionNavItem|782:34719|296x320|?hasTranslation;?hasRequired;?hasCondition;?hasMenu;"label;?hasHandle;state=default,hover,selected,focus,disabled;questionType=open|Ligne de question de l'éditeur.|5943:137238|80,1477
 StepTransition|7941:4375|248x24|"transition|Transition entre deux étapes.|7941:4375|0,0
-#Organismes / Filter ❌
-Event filtre base|5571:24554|855x276|?hasIcon;?hasComma;?hasChevron;state=default,hover,selected,disabled;type=filtre,value;shape=main-filter,text,operator,icon,nps;placeholder=false,true|Élément de filtre.|1439:139391|80,683
-Frame 427320124|5571:24673|104x176|state=default,variant2,hover|Opérateur de filtre.|1439:139391|945,683
-Filtre line base|5571:24709|1060x461|?hasEqual;?hasAndOr;?hasLineBreak;number=1,2,3,4;add=false,true|Ligne de filtre.|1439:139391|80,1534
-FilterPanel|5571:24844|1134x728|filters=default,1-line,2-and-more;style=float,default|Panneau de filtres.|1439:139391|80,2075
+#Organismes / Filter ✅
+_FilterChip|8698:2136|1000x248|"field;"operator;"value;@icon;?hasClose;state=default,hover,open,incomplete;valueType=text,stars,emoji,meteo|Puce d’un filtre (type, opérateur, valeur, croix).|1439:137920|0,0
+_FilterLogic|5571:24673|-|state=default,open,hover|Opérateur et / ou entre deux puces.|1439:137920|0,0
+_FilterSearchField|8698:2147|-|"query;state=empty,filled|Champ de recherche du menu de filtres (touche F).|1439:137920|0,0
+_FilterMenuTitle|8698:2148|-|"title|Titre de famille du menu de filtres.|1439:137920|0,0
+_FilterMenuItem|8698:2181|-|"label;"detail;@icon;kind=type,suggestion;state=default,hover|Ligne du menu de filtres.|1439:137920|0,0
+FilterMenu|8698:2311|-|state=empty,typing|Menu « + Filtre » : types par famille ou suggestions.|1439:137920|0,0
+FilterBar|8698:2515|-|?hasClear;?hasSaveView;placement=page,floating|Barre de filtres en page ou flottante (Analyser). Effacer en rouge, actions en haut.|1439:137920|0,0
 #Organismes / Modals ❌
 Toldies|26:19880|120x120||Illustration Toldies des modales.|26:13393|80,375
 ModalContent|36:17736|5188x488|type=invite,langue,radio-list|Contenus de modale.|26:13393|80,575
