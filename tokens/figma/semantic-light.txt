@@ -31,7 +31,7 @@
 --neutral-surface-white-alpha-10:var(--white-alpha-10)
 --neutral-surface-white-alpha-5:var(--white-alpha-5)
 --neutral-surface-white-alpha-0:var(--white-alpha-0)
---neutral-border-default:var(--gray-40)
+--neutral-border-default:var(--gray-50)
 --neutral-border-hover:var(--brand-neutral-100)
 --neutral-border-pressed:var(--brand-primary-50)
 --neutral-border-subtle:var(--brand-neutral-20)

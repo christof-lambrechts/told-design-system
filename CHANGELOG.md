@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.8.3 · 19/11/2026
+
+- **Bordure grise plus contrastée** : `--neutral-border-default` (et ses équivalents inverses) passe du gris 40 (#e8ecf0) au gris 50 (#dfe5ea). Tous les champs, cartes, boutons à contour et séparateurs qui utilisent cette bordure gagnent un peu de contraste. Le survol reste au gris 100.
+
 ## v0.8.2 · 19/11/2026
 
 - **Typo** : Figtree passe en police variable (`@fontsource-variable/figtree`, famille `Figtree Variable`). Le medium passe de 500 à **550** (`--font-weight-medium`), comme les styles Body Medium dans Figma. Si votre projet charge Figtree lui-même (Google Fonts), demandez la plage `wght@300..900` au lieu des graisses fixes, sinon 550 s’affiche en 500 ou 600.

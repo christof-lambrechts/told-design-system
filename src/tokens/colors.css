@@ -459,7 +459,7 @@
   --neutral-surface-white-alpha-10: var(--white-alpha-10);
   --neutral-surface-white-alpha-5: var(--white-alpha-5);
   --neutral-surface-white-alpha-0: var(--white-alpha-0);
-  --neutral-border-default: var(--gray-40);
+  --neutral-border-default: var(--gray-50);
   --neutral-border-hover: var(--brand-neutral-100);
   --neutral-border-pressed: var(--brand-primary-50);
   --neutral-border-subtle: var(--brand-neutral-20);
@@ -1360,7 +1360,7 @@
   --inverse-neutral-surface-subtle: var(--brand-neutral-10);
   --inverse-neutral-surface-muted: var(--brand-neutral-20);
   --inverse-neutral-surface-black-alpha-12: var(--black-alpha-12);
-  --inverse-neutral-border-default: var(--gray-40);
+  --inverse-neutral-border-default: var(--gray-50);
   --inverse-content-default-default: var(--brand-neutral-900);
   --inverse-content-default-inverse: var(--white-white-100);
   --inverse-content-muted-default: var(--brand-neutral-750);
@@ -1369,7 +1369,7 @@
   --inverse-content-success-strong-on-dark: var(--brand-success-500);
   --inverse-input-brand-content-label: var(--brand-neutral-900);
   --inverse-input-brand-content-helper: var(--brand-neutral-750);
-  --inverse-input-brand-border-default: var(--gray-40);
+  --inverse-input-brand-border-default: var(--gray-50);
   --inverse-input-content-secondary: var(--brand-neutral-700);
   --inverse-button-buttonbrand-ghost-content-default: var(--brand-primary-500);
   --inverse-button-buttonpurple-ghost-content-default: var(--purple-500);
