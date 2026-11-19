@@ -3,6 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.8.2 · 19/11/2026
+
+- **Typo** : Figtree passe en police variable (`@fontsource-variable/figtree`, famille `Figtree Variable`). Le medium passe de 500 à **550** (`--font-weight-medium`), comme les styles Body Medium dans Figma. Si votre projet charge Figtree lui-même (Google Fonts), demandez la plage `wght@300..900` au lieu des graisses fixes, sinon 550 s’affiche en 500 ou 600.
+- **NavButtonItem** : icônes du menu de 14 à 16 (icône de gauche et chevron).
+
 ## v0.8.1 · 19/11/2026
 
 - **Icon** : contour épaissi aux petites tailles. Le trait reste à 1,25 px à l’écran quelle que soit la taille (16 et 20 dans le menu ne sont plus trop fins). Rien à changer dans le code qui utilise `Icon`.

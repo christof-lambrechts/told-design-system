@@ -1,6 +1,6 @@
 # Design system Told V3 · guide développeur
 
-Pour Jonathan et toute personne qui code avec le design system Told (Told et Told Record). Version du paquet au moment de l'écriture : **v0.8.1** (19/11/2026).
+Pour Jonathan et toute personne qui code avec le design system Told (Told et Told Record). Version du paquet au moment de l'écriture : **v0.8.2** (19/11/2026).
 
 ## 1. Les liens
 
@@ -26,10 +26,10 @@ Chaque page de composant dans Figma a un bouton **Storybook** dans son en-tête 
 Dans le projet (monorepo ou application React 18 ou plus) :
 
 ```bash
-npm install github:christof-lambrechts/told-design-system#v0.8.1
+npm install github:christof-lambrechts/told-design-system#v0.8.2
 ```
 
-Toujours fixer une version (`#v0.8.1`) pour ne pas recevoir un changement visuel sans le voir. Pour passer à une version suivante, changer le numéro puis relancer l'installation, après avoir lu `CHANGELOG.md`.
+Toujours fixer une version (`#v0.8.2`) pour ne pas recevoir un changement visuel sans le voir. Pour passer à une version suivante, changer le numéro puis relancer l'installation, après avoir lu `CHANGELOG.md`.
 
 Le paquet s'appelle `@told/design-system`. Son entrée (`src/index.ts`) est en TypeScript avec des CSS modules : Vite et Next.js les lisent tels quels, rien à compiler avant.
 
@@ -223,7 +223,7 @@ Après une mise à jour : `npm run typecheck` et `npm run build-storybook` doive
 
 - Numérotation `MAJEUR.MINEUR.CORRECTIF`. Tant qu'on est en `0.x`, une version mineure peut changer l'apparence : lire le `CHANGELOG.md`.
 - Quand le numéro change dans `package.json` sur `main`, le tag et la page de version GitHub sont créés automatiquement.
-- Historique : v0.3.0 densité compacte et icônes contour ; v0.4.0 OptionPanel, Select, Modal, Badge, Tag, Avatar ; v0.5.0 `secondary-outline` ; v0.5.1 Select validé ; v0.6.0 ProgressBar, Loader, Skeleton, Notifications ; v0.6.1 correction du Badge pour Next ; v0.7.0 AppLayout ; v0.8.0 Auth, Product Tour, Survey, réglages et langues ; **v0.8.1 contour des petites icônes, jeton de fond teinté**.
+- Historique : v0.3.0 densité compacte et icônes contour ; v0.4.0 OptionPanel, Select, Modal, Badge, Tag, Avatar ; v0.5.0 `secondary-outline` ; v0.5.1 Select validé ; v0.6.0 ProgressBar, Loader, Skeleton, Notifications ; v0.6.1 correction du Badge pour Next ; v0.7.0 AppLayout ; v0.8.0 Auth, Product Tour, Survey, réglages et langues ; v0.8.1 contour des petites icônes, jeton de fond teinté ; **v0.8.2 Figtree variable, medium à 550, icônes du menu à 16**.
 
 ## 13. Règles à garder en tête
 

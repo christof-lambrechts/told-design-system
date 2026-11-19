@@ -1,10 +1,7 @@
 /* Fondations Told V3, reprises des collections Figma 02-spacing, 03-radius, 04-typography,
    05-effects, 06-motion et des styles d'effet. Valeurs Desktop ; Mobile en media query. */
 
-@import '@fontsource/figtree/400.css';
-@import '@fontsource/figtree/500.css';
-@import '@fontsource/figtree/600.css';
-@import '@fontsource/figtree/700.css';
+@import '@fontsource-variable/figtree/wght.css';
 @import '@fontsource/plus-jakarta-sans/700.css';
 @import '@fontsource/dm-mono/500.css';
 @import '@fontsource/inter/600.css';
@@ -76,10 +73,10 @@
 
   /* 04-typography (Desktop) */
   --font-family-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-family-body: 'Figtree', system-ui, sans-serif;
+  --font-family-body: 'Figtree Variable', 'Figtree', system-ui, sans-serif;
   --font-family-mono: 'DM Mono', ui-monospace, monospace;
   --font-weight-regular: 400;
-  --font-weight-medium: 500;
+  --font-weight-medium: 550; /* Figtree variable : entre Medium et SemiBold, comme dans Figma */
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --letter-spacing-tight: -0.02em;

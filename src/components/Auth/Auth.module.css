@@ -8,7 +8,7 @@
 .digitError, .digitError:focus { border-color: var(--input-brand-border-error); color: var(--content-danger-default-on-light); box-shadow: none; }
 .error { margin: 0; max-width: 338px; font: 400 12px/18px var(--font-family-body); color: var(--content-danger-default-on-light); }
 .resend { margin: 0; display: flex; gap: 4px; font: 400 12px/18px var(--font-family-body); }
-.link { all: unset; cursor: pointer; font-weight: 500; color: var(--content-brand-default-on-light); }
+.link { all: unset; cursor: pointer; font-weight: var(--font-weight-medium); color: var(--content-brand-default-on-light); }
 .link:disabled { cursor: default; color: var(--content-muted-default); }
 .link:focus-visible { outline: 2px solid var(--input-brand-border-focus); border-radius: 4px; }
 .muted { color: var(--content-muted-default); }
