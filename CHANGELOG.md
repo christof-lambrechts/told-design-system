@@ -3,6 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.8.1 · 19/11/2026
+
+- **Icon** : contour épaissi aux petites tailles. Le trait reste à 1,25 px à l’écran quelle que soit la taille (16 et 20 dans le menu ne sont plus trop fins). Rien à changer dans le code qui utilise `Icon`.
+- **Jeton** `--brand-surface-tint` : fond teinté de marque (bleu clair en mode clair, bleu transparent en sombre), utilisé pour l’initiale du sélecteur de projet.
+
 ## v0.8.0 · 18/11/2026
 
 Composants codés d’après les pages Figma validées :
