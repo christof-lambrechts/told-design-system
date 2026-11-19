@@ -1,6 +1,6 @@
 {
   "name": "@told/design-system",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "private": true,
   "type": "module",
   "description": "Design system Told V3 : jetons et composants React, documentés dans Storybook.",

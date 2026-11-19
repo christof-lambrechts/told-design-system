@@ -1,0 +1,18 @@
+/* AiTag : xs 16 (marge 0/4, rayon 4, Body/10/Semibold), sm 20 (0/6, rayon 5, Body/12/Semibold). IA = violet. */
+.tag { box-sizing: border-box; display: inline-flex; align-items: center; gap: 2px; flex: none; white-space: nowrap; background: var(--badge-subtle-purple-background); color: var(--badge-subtle-purple-content);
+  font-family: var(--font-family-body); font-weight: var(--font-weight-semibold); letter-spacing: var(--letter-spacing-tight); }
+.xs { height: 16px; padding: 0 4px; border-radius: 4px; font-size: 10px; line-height: 14px; }
+.sm { height: 20px; padding: 0 6px; border-radius: 5px; font-size: 12px; line-height: 16px; }
+.tagIcon { color: var(--brand-color-purple); }
+
+/* AiNotice : fond Badge/subtle/purple, rayon 8, marges 6/10, écart 8, Body/12/Medium. */
+.notice { box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; background: var(--badge-subtle-purple-background);
+  color: var(--badge-subtle-purple-content); font: var(--font-weight-medium) 12px / 18px var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.noticeIcon { flex: none; color: var(--brand-color-purple); }
+.message { flex: 1; min-width: 0; }
+.link { flex: none; border: 0; padding: 0; background: none; color: var(--brand-color-purple); font: inherit; font-weight: var(--font-weight-semibold); cursor: pointer; }
+.link:hover { text-decoration: underline; text-underline-offset: 2px; }
+.link:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: 4px; }
+.spinner { flex: none; width: 12px; height: 12px; border-radius: 50%; border: 1.75px solid color-mix(in srgb, var(--brand-color-purple) 30%, transparent); border-top-color: var(--brand-color-purple); animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 2.4s; } }

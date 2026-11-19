@@ -99,6 +99,7 @@ Statut : ✅ = page Figma validée, API stable. ⏳ = codé d'après Figma, page
 | `Button` | ✅ | `variant` : `primary`, `primary-outline`, `secondary-outline`, `tertiary`, `ghost` (`secondary` reste accepté comme ancien nom de `primary-outline`). `color` : brand, neutral, danger, success, warning, purple. `size` xs à xl. `iconLeft`, `iconRight`, `fullWidth`. Une seule `primary` par vue. `color="ai"` (action IA, contour dégradé violet) et `color="rec"` (enregistrement, rouge avec point) depuis v0.9.0. |
 | `ButtonIcon` | ✅ | `icon`, `label` (lu par les lecteurs d'écran), `appearance` fill, outline, ghost, subtle. |
 | `ButtonGradient`, `ButtonDropdown`, `ButtonLink` | ✅ | Bouton dégradé (IA, Pro), bouton à menu, bouton lien. |
+| `ButtonGroup` | ✅ | Boutons accolés (Partager + Aperçu) ; `appearance` outline ou inverse. Mettre des boutons de même taille. |
 | `FloatingToolbar`, `ToolbarItem`, `ToolbarDivider` | ✅ | Barre d'outils flottante de l'éditeur, `theme` light ou dark, `showLabel`, outil `active` en couleur de marque. |
 
 ### Saisie et choix
@@ -119,6 +120,7 @@ Statut : ✅ = page Figma validée, API stable. ⏳ = codé d'après Figma, page
 | --- | --- | --- |
 | `TextTab`, `ButtonTab`, `GroupTab` | ✅ | Onglets texte, boutons, groupe segmenté (`count` par segment depuis v0.9.0). |
 | `Breadcrumb`, `EditableTitle` | ✅ | Fil d'Ariane avec retour, titre renommable (Entrée valide, Échap annule), statut ; `theme="dark"` dans l'en-tête de l'éditeur. |
+| `StepThumb`, `StepGroup`, `StepList` | ✅ | Colonne Étapes de l'éditeur Record. StepThumb est un `li` : le poser dans StepGroup (grille 2 colonnes) ou une `ol`. Capture en `src`, sinon état vide. |
 | `EditorHeader`, `EditorSaveState`, `EditorChanges` | ✅ | En-tête de l'éditeur Record, toujours sombre ; boutons Partager et Aperçu avec `className={editorHeaderGhostButton}`. |
 | `Pagination` | ✅ | |
 | `NavButtonItem` | ✅ | Entrée de menu ; vrai lien avec `href`, et `linkAs` pour le `Link` de Next ou React Router. |
@@ -128,6 +130,7 @@ Statut : ✅ = page Figma validée, API stable. ⏳ = codé d'après Figma, page
 | --- | --- | --- |
 | `Kbd`, `KbdCombo` | ✅ | Raccourcis clavier. |
 | `Tooltip`, `Toast` | ✅ | Toast : `action` pour « Annuler ». |
+| `AiTag`, `AiNotice` | ✅ | IA = violet. AiTag : contenu écrit par l'IA pas encore relu (xs sur une vignette, sm à côté d'un titre). AiNotice : une phrase et un ou deux liens (`review`, `generating`, `done`). |
 | `Banner` | ✅ | Bandeau pleine largeur : brand, warning, error, success, neutral ; `actionText`, `onClose`. |
 | `ProgressBar` | ✅ | `value` 0 à 100, `size` sm (10, arrondie) ou lg (40), `direction`. |
 | `ProgressSteps` | ✅ | Étapes du widget ou d'un tour : `total`, `current`, `appearance` multi ou single. |
@@ -233,7 +236,7 @@ Après une mise à jour : `npm run typecheck` et `npm run build-storybook` doive
 
 - Numérotation `MAJEUR.MINEUR.CORRECTIF`. Tant qu'on est en `0.x`, une version mineure peut changer l'apparence : lire le `CHANGELOG.md`.
 - Quand le numéro change dans `package.json` sur `main`, le tag et la page de version GitHub sont créés automatiquement.
-- Historique : v0.3.0 densité compacte et icônes contour ; v0.4.0 OptionPanel, Select, Modal, Badge, Tag, Avatar ; v0.5.0 `secondary-outline` ; v0.5.1 Select validé ; v0.6.0 ProgressBar, Loader, Skeleton, Notifications ; v0.6.1 correction du Badge pour Next ; v0.7.0 AppLayout ; v0.8.0 Auth, Product Tour, Survey, réglages et langues ; v0.8.1 contour des petites icônes, jeton de fond teinté ; v0.8.2 Figtree variable, medium à 550, icônes du menu à 16 ; v0.8.3 bordure grise plus contrastée ; v0.9.0 composants de Told Record (champ IA, couleur et contraste, copie, fil d'Ariane, barre d'outils, présence, bandeau, confirmation, choix visuel, en-tête de l'éditeur) ; **v0.9.1 trait des icônes à 1,5 px à l'écran**.
+- Historique : v0.3.0 densité compacte et icônes contour ; v0.4.0 OptionPanel, Select, Modal, Badge, Tag, Avatar ; v0.5.0 `secondary-outline` ; v0.5.1 Select validé ; v0.6.0 ProgressBar, Loader, Skeleton, Notifications ; v0.6.1 correction du Badge pour Next ; v0.7.0 AppLayout ; v0.8.0 Auth, Product Tour, Survey, réglages et langues ; v0.8.1 contour des petites icônes, jeton de fond teinté ; v0.8.2 Figtree variable, medium à 550, icônes du menu à 16 ; v0.8.3 bordure grise plus contrastée ; v0.9.0 composants de Told Record (champ IA, couleur et contraste, copie, fil d'Ariane, barre d'outils, présence, bandeau, confirmation, choix visuel, en-tête de l'éditeur) ; **v0.9.1 trait des icônes à 1,5 px à l'écran ; **v0.10.0 IA, ButtonGroup, colonne Étapes**.
 
 ## 13. Règles à garder en tête
 

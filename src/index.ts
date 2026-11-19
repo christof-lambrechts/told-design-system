@@ -86,3 +86,10 @@ export { ChoiceIllustration } from './components/ChoicePicker/illustrations';
 export type { ChoiceIllustrationName } from './components/ChoicePicker/illustrations';
 export { EditorHeader, EditorSaveState, EditorChanges, editorHeaderGhostButton } from './components/EditorHeader/EditorHeader';
 export type { EditorHeaderProps } from './components/EditorHeader/EditorHeader';
+// v0.10.0
+export { AiTag, AiNotice } from './components/Ai/Ai';
+export type { AiTagProps, AiNoticeProps } from './components/Ai/Ai';
+export { ButtonGroup } from './components/Button/ButtonGroup';
+export type { ButtonGroupProps } from './components/Button/ButtonGroup';
+export { StepThumb, StepGroup, StepList } from './components/DemoEditor/Steps';
+export type { StepThumbProps, StepGroupProps, StepListProps } from './components/DemoEditor/Steps';

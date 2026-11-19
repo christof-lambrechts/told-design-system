@@ -100,5 +100,11 @@
   "ChoicePicker": "composants-saisie-et-choix-choix-visuel--docs",
   "_ChoiceThumb": "composants-saisie-et-choix-choix-visuel--docs",
   "_ChoiceIllustration": "composants-saisie-et-choix-choix-visuel--illustrations",
-  "EditionNavRecord": "composants-navigation-en-tête-éditeur-record--docs"
+  "EditionNavRecord": "composants-navigation-en-tête-éditeur-record--docs",
+  "AiTag": "composants-statut-et-aide-ia--etiquette",
+  "AiNotice": "composants-statut-et-aide-ia--bandeau",
+  "ButtonGroup": "composants-actions-buttongroup--docs",
+  "StepThumb": "composants-éditeur-de-démo-étapes--docs",
+  "StepGroup": "composants-éditeur-de-démo-étapes--docs",
+  "StepList": "composants-éditeur-de-démo-étapes--docs"
 }

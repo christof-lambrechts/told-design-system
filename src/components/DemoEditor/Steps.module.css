@@ -1,0 +1,42 @@
+/* StepThumb (8829:480) : 104 × 64 environ, cadre blanc, bordure grise ; survol bordure hover ; sélection 2 px bleu. */
+.thumbWrap { position: relative; list-style: none; }
+.thumb { position: relative; display: block; width: 100%; aspect-ratio: 104 / 64; padding: 4px; border: 1px solid var(--neutral-border-default); border-radius: 8px;
+  background: var(--neutral-surface-default); cursor: pointer; box-sizing: border-box; }
+.thumb:hover { border-color: var(--neutral-border-hover); }
+.thumb:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.selected, .selected:hover { border: 2px solid var(--brand-border-selected); padding: 3px; }
+.frame { display: block; width: 100%; height: 100%; overflow: hidden; border-radius: 4px; background: var(--neutral-surface-muted); }
+.frame img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.empty { background: transparent; border: 1px dashed var(--neutral-border-default); box-sizing: border-box; }
+.number { position: absolute; left: 7px; bottom: 7px; min-width: 18px; height: 18px; padding: 0 4px; box-sizing: border-box; border-radius: 3px; border: 1px solid var(--neutral-border-default);
+  background: var(--neutral-surface-default); color: var(--content-default-default); font: var(--font-weight-medium) 11px / 16px var(--font-family-body); font-variant-numeric: tabular-nums; text-align: center; }
+.selected .number { border-color: transparent; background: var(--button-buttonbrand-fill-background-default); color: var(--white-white-100); }
+.warning { position: absolute; left: 7px; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: var(--brand-warning-500); box-shadow: 0 0 0 2px var(--neutral-surface-default); }
+.ai { position: absolute; right: 7px; top: 7px; }
+.presence { position: absolute; right: 7px; bottom: 7px; display: flex; }
+.menu { position: absolute; right: 7px; top: 7px; display: none; }
+.thumbWrap:hover .menu, .thumbWrap:focus-within .menu { display: block; }
+.thumbWrap:hover .ai { visibility: hidden; }
+
+/* StepGroup (8830:447) : fond subtle, bordure, rayon 12, marge 8, écart 8 ; grille 2 colonnes écart 8. */
+.group { box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; padding: 8px; border: 1px solid var(--neutral-border-default); border-radius: 12px; background: var(--neutral-surface-subtle);
+  font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.groupHead { display: flex; align-items: center; gap: 4px; width: 100%; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; color: inherit; }
+.groupHead:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: 6px; }
+.chevron { flex: none; color: var(--content-muted-default); transition: transform var(--duration-fast) var(--easing-standard); }
+.folded { transform: rotate(-90deg); }
+.badge { flex: none; height: 20px; padding: 0 6px; border-radius: var(--component-tag-badge-sm); background: var(--badge-subtle-blue-background); color: var(--badge-subtle-blue-content);
+  font-size: 12px; line-height: 20px; font-weight: var(--font-weight-semibold); }
+.groupTitle { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; line-height: 18px; font-weight: var(--font-weight-medium); color: var(--content-default-default); }
+.untitled { color: var(--content-muted-default); }
+.count { flex: none; font-size: 11px; color: var(--content-muted-default); font-variant-numeric: tabular-nums; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0; padding: 0; }
+
+/* StepList (8830:556) */
+.list { display: flex; flex-direction: column; gap: 8px; min-height: 0; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.listHead { display: flex; flex-direction: column; gap: 2px; }
+.listLabel { font-size: 12px; line-height: 18px; font-weight: var(--font-weight-semibold); color: var(--content-subtle-default); }
+.listWarning { align-self: flex-start; border: 0; padding: 0; background: none; color: var(--content-warning-default-on-light); font: var(--font-weight-medium) 12px / 18px var(--font-family-body); cursor: pointer; text-align: left; }
+.listWarning:hover { text-decoration: underline; text-underline-offset: 2px; }
+.listBody { display: flex; flex-direction: column; gap: 10px; min-height: 0; overflow-y: auto; }
+.listFoot { display: flex; flex-direction: column; gap: 8px; padding-top: 12px; border-top: 1px solid var(--neutral-border-default); }

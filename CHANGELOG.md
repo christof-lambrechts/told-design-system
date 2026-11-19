@@ -3,6 +3,13 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.10.0 · 19/11/2026
+
+- **AiTag** (étiquette « IA » violette, xs 16 sur les vignettes, sm 20 à côté d'un titre) et **AiNotice** (bandeau violet : `review` à relire, `generating` l'IA travaille, `done` résultat ; un ou deux liens d'action).
+- **ButtonGroup** : boutons accolés (Partager + Aperçu), seuls les coins extérieurs arrondis ; `appearance` outline (contour commun) ou inverse (blanc 12 % sur en-tête sombre).
+- **StepThumb**, **StepGroup**, **StepList** : colonne Étapes de l'éditeur Told Record. Vignette 16:10 dans un cadre blanc à bordure (numéro, point « À compléter », étiquette IA, présence, menu au survol, état vide), slide repliable avec pastille et nombre d'étapes, colonne avec en-tête « Étapes · n », lien orange et pied d'actions.
+- **Icône** `share-03` (partage de média : plateau et flèche vers le haut).
+
 ## v0.9.1 · 19/11/2026
 
 - **Icon** : contour plus épais. Le trait fait maintenant **1,5 px à l'écran** aux petites tailles (14, 16, 20), au lieu de 1,25 px, et 1,75 sur la grille de 24 au-delà. Rien à changer dans le code qui utilise `Icon`.
