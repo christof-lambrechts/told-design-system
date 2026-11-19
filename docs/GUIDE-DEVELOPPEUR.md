@@ -96,15 +96,20 @@ Statut : ✅ = page Figma validée, API stable. ⏳ = codé d'après Figma, page
 ### Actions
 | Composant | Statut | Notes |
 | --- | --- | --- |
-| `Button` | ✅ | `variant` : `primary`, `primary-outline`, `secondary-outline`, `tertiary`, `ghost` (`secondary` reste accepté comme ancien nom de `primary-outline`). `color` : brand, neutral, danger, success, warning, purple. `size` xs à xl. `iconLeft`, `iconRight`, `fullWidth`. Une seule `primary` par vue. |
+| `Button` | ✅ | `variant` : `primary`, `primary-outline`, `secondary-outline`, `tertiary`, `ghost` (`secondary` reste accepté comme ancien nom de `primary-outline`). `color` : brand, neutral, danger, success, warning, purple. `size` xs à xl. `iconLeft`, `iconRight`, `fullWidth`. Une seule `primary` par vue. `color="ai"` (action IA, contour dégradé violet) et `color="rec"` (enregistrement, rouge avec point) depuis v0.9.0. |
 | `ButtonIcon` | ✅ | `icon`, `label` (lu par les lecteurs d'écran), `appearance` fill, outline, ghost, subtle. |
 | `ButtonGradient`, `ButtonDropdown`, `ButtonLink` | ✅ | Bouton dégradé (IA, Pro), bouton à menu, bouton lien. |
+| `FloatingToolbar`, `ToolbarItem`, `ToolbarDivider` | ✅ | Barre d'outils flottante de l'éditeur, `theme` light ou dark, `showLabel`, outil `active` en couleur de marque. |
 
 ### Saisie et choix
 | Composant | Statut | Notes |
 | --- | --- | --- |
 | `Checkbox`, `Radio`, `Switch` | ✅ | |
-| `Input`, `SearchBar`, `TextArea` | ✅ | Hauteurs 28, 34, 40. |
+| `Input`, `SearchBar`, `TextArea` | ✅ | Hauteurs 28, 34, 40. `counter` (« 94 / 280 ») et `warning` depuis v0.9.0. |
+| `ColorField`, `ContrastBadge`, `ContrastMenu` | ✅ | Couleur avec contrôle de contraste AA ou AAA sur `background`, correction en un clic, annulable. Fonctions `contrastRatio`, `fixContrast`. |
+| `CopyField`, `CodeBlock` | ✅ | Lien à copier (sm, md) ; code d'intégration coloré avec « Copier le code ». |
+| `IntentInput`, `PromptChip`, `QuickSuggestion`, `IntentPanel` | ✅ | Consigne pour l'IA : Entrée envoie, Maj + Entrée va à la ligne ; `emphasis="ai"`, `size` default ou compact ; IA = violet. |
+| `ChoicePicker`, `ChoiceThumb`, `ChoiceIllustration` | ✅ | Choix visuel par vignettes illustrées (pas de capture), puis aperçu réel de l'option. |
 | `Select`, `DropdownMenu`, `DropdownItem` | ✅ | Liste déroulante au clavier, mêmes hauteurs que Input. |
 | `FileUploader` | ✅ | |
 | `Calendar` | ✅ | |
@@ -112,7 +117,9 @@ Statut : ✅ = page Figma validée, API stable. ⏳ = codé d'après Figma, page
 ### Navigation
 | Composant | Statut | Notes |
 | --- | --- | --- |
-| `TextTab`, `ButtonTab`, `GroupTab` | ✅ | Onglets texte, boutons, groupe segmenté. |
+| `TextTab`, `ButtonTab`, `GroupTab` | ✅ | Onglets texte, boutons, groupe segmenté (`count` par segment depuis v0.9.0). |
+| `Breadcrumb`, `EditableTitle` | ✅ | Fil d'Ariane avec retour, titre renommable (Entrée valide, Échap annule), statut ; `theme="dark"` dans l'en-tête de l'éditeur. |
+| `EditorHeader`, `EditorSaveState`, `EditorChanges` | ✅ | En-tête de l'éditeur Record, toujours sombre ; boutons Partager et Aperçu avec `className={editorHeaderGhostButton}`. |
 | `Pagination` | ✅ | |
 | `NavButtonItem` | ✅ | Entrée de menu ; vrai lien avec `href`, et `linkAs` pour le `Link` de Next ou React Router. |
 
@@ -120,12 +127,13 @@ Statut : ✅ = page Figma validée, API stable. ⏳ = codé d'après Figma, page
 | Composant | Statut | Notes |
 | --- | --- | --- |
 | `Kbd`, `KbdCombo` | ✅ | Raccourcis clavier. |
-| `Tooltip`, `Toast` | ✅ | |
+| `Tooltip`, `Toast` | ✅ | Toast : `action` pour « Annuler ». |
+| `Banner` | ✅ | Bandeau pleine largeur : brand, warning, error, success, neutral ; `actionText`, `onClose`. |
 | `ProgressBar` | ✅ | `value` 0 à 100, `size` sm (10, arrondie) ou lg (40), `direction`. |
 | `ProgressSteps` | ✅ | Étapes du widget ou d'un tour : `total`, `current`, `appearance` multi ou single. |
 | `Loader` | ✅ | `appearance` line-spinner, line-simple, dot-circle ; `size` 3xs à xl ; `label` (ou `false`). Durée inconnue. |
 | `SkeletonLine`, `SkeletonCard` | ✅ | À la place d'un contenu qui arrive, quand on connaît sa forme. |
-| `Badge` | ⏳ | Statut figé, non cliquable. 9 couleurs × subtle, outline, fill × xs à lg. |
+| `Badge` | ⏳ | Statut figé, non cliquable. 9 couleurs × subtle, outline, fill × xs à lg. `dot` et `secondDot` depuis v0.9.0. |
 | `Tag` | ⏳ | Catégorie ou filtre, avec valeur et croix en option. Si ça se clique : Tag ; si ça dit l'état d'un objet : Badge. |
 
 ### Visuels et structure
@@ -134,7 +142,8 @@ Statut : ✅ = page Figma validée, API stable. ⏳ = codé d'après Figma, page
 | `Icon`, `IconBoxed`, `IconBoxedColor` | ✅ | Voir section 7. |
 | `Logo`, `Flag` | ✅ | |
 | `Divider` | ✅ | |
-| `Avatar` | ⏳ | Initiales, icône, photo, logo ; 12 à 60. |
+| `Avatar` | ✅ | Initiales, icône, photo, logo ; 12 à 60. |
+| `AvatarGroup`, `PresenceAvatar` | ✅ | Pile de présence (28, chevauchement −6, « +N »), `surface` light ou dark ; `presenceColorFor(id)` donne la même teinte à une personne partout. |
 
 ### Cartes, modales, panneaux
 | Composant | Statut | Notes |
@@ -143,7 +152,8 @@ Statut : ✅ = page Figma validée, API stable. ⏳ = codé d'après Figma, page
 | `ModuleCard` (et `SubStepItem`, `MessageCard`, `FlowDivider`, `InsertBar`, `DropZone`) | ✅ | Colonne de construction de l'éditeur. |
 | `AddBlockModal`, `BlockTypeItem` | ✅ | Fenêtre d'ajout de bloc. |
 | `NotificationCenter`, `NotificationItem` | ✅ | Panneau de 400 ouvert depuis la cloche du menu, 4 px à droite du menu, aligné en bas ; onglets Toutes et Non lues ; groupes par période. |
-| `Modal` | ⏳ | Fenêtre de 500 ; Échap et clic sur le voile ferment. |
+| `Modal` | ⏳ | Fenêtre de 500 ; Échap et clic sur le voile ferment ; `centered`. |
+| `ConfirmModal` | ✅ | Confirmation centrée : `confirmLabel` (le verbe), `danger`, `hasClose`, `illustration`. |
 | `OptionPanel`, `OptionPanelItem`, `PanelHeader` | ⏳ | Colonne de réglages de l'éditeur. |
 
 ### Connexion (Auth)
@@ -223,7 +233,7 @@ Après une mise à jour : `npm run typecheck` et `npm run build-storybook` doive
 
 - Numérotation `MAJEUR.MINEUR.CORRECTIF`. Tant qu'on est en `0.x`, une version mineure peut changer l'apparence : lire le `CHANGELOG.md`.
 - Quand le numéro change dans `package.json` sur `main`, le tag et la page de version GitHub sont créés automatiquement.
-- Historique : v0.3.0 densité compacte et icônes contour ; v0.4.0 OptionPanel, Select, Modal, Badge, Tag, Avatar ; v0.5.0 `secondary-outline` ; v0.5.1 Select validé ; v0.6.0 ProgressBar, Loader, Skeleton, Notifications ; v0.6.1 correction du Badge pour Next ; v0.7.0 AppLayout ; v0.8.0 Auth, Product Tour, Survey, réglages et langues ; v0.8.1 contour des petites icônes, jeton de fond teinté ; v0.8.2 Figtree variable, medium à 550, icônes du menu à 16 ; **v0.8.3 bordure grise plus contrastée**.
+- Historique : v0.3.0 densité compacte et icônes contour ; v0.4.0 OptionPanel, Select, Modal, Badge, Tag, Avatar ; v0.5.0 `secondary-outline` ; v0.5.1 Select validé ; v0.6.0 ProgressBar, Loader, Skeleton, Notifications ; v0.6.1 correction du Badge pour Next ; v0.7.0 AppLayout ; v0.8.0 Auth, Product Tour, Survey, réglages et langues ; v0.8.1 contour des petites icônes, jeton de fond teinté ; v0.8.2 Figtree variable, medium à 550, icônes du menu à 16 ; v0.8.3 bordure grise plus contrastée ; **v0.9.0 composants de Told Record** (champ IA, couleur et contraste, copie, fil d'Ariane, barre d'outils, présence, bandeau, confirmation, choix visuel, en-tête de l'éditeur).
 
 ## 13. Règles à garder en tête
 

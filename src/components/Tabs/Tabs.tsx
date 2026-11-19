@@ -58,7 +58,7 @@ export function ButtonTab({ children, appearance = 'fill', size = 'md', selected
 
 export interface GroupTabProps {
   /** Libellés des segments (2 à 4). */
-  items: { label?: ReactNode; icon?: IconName; value: string }[];
+  items: { label?: ReactNode; icon?: IconName; value: string; /** Compteur après le libellé (hasCounter). */ count?: ReactNode }[];
   value: string;
   onChange?: (value: string) => void;
   size?: 'sm' | 'lg';
@@ -80,6 +80,7 @@ export function GroupTab({ items, value, onChange, size = 'lg', ...rest }: Group
         >
           {it.icon && <Icon name={it.icon} size={16} variant={it.value === value ? 'solid' : 'stroke'} />}
           {it.label}
+          {it.count != null && <span className={styles.segCount}>{it.count}</span>}
         </button>
       ))}
     </div>

@@ -46,3 +46,15 @@ export const Tags: StoryObj = {
     </div>
   ),
 };
+
+export const AvecPoint: StoryObj = {
+  name: 'Avec point',
+  render: () => (
+    <div style={{ display: 'flex', gap: 8 }}>
+      <Badge dot color="light-gray">Brouillon</Badge>
+      <Badge dot color="orange">En relecture</Badge>
+      <Badge dot color="green">Publiée</Badge>
+      <Badge dot secondDot color="green">Publiée · modifiée</Badge>
+    </div>
+  ),
+};

@@ -44,3 +44,9 @@
 .area .control { resize: vertical; min-height: 32px; padding: 7px 15px 7px 7px; color: var(--input-brand-content-filled); }
 .tone-brand { background: color-mix(in srgb, var(--input-brand-background-default) 5%, transparent); border-color: color-mix(in srgb, var(--input-brand-border-default) 20%, transparent); }
 .tone-neutral { background: var(--neutral-surface-default); border-color: var(--neutral-border-default); }
+
+/* hasCounter : compteur calé à droite du libellé. warning : longueur conseillée dépassée. */
+.labelRow { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.counter { padding: 0 8px; font-size: 12px; line-height: 18px; font-weight: var(--font-weight-medium); color: var(--content-muted-default); font-variant-numeric: tabular-nums; }
+.counterWarning, .helperWarning { color: var(--content-warning-default-on-light); }
+.helperWarning { padding: 0 8px; font-size: 12px; line-height: 18px; }

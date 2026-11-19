@@ -18,3 +18,5 @@
 .divider .head { border-bottom: 1px solid var(--neutral-border-subtle); }
 .divider .foot { border-top: 1px solid var(--neutral-border-subtle); padding-top: 20px; }
 .divider .body { padding: 20px 40px; }
+.centered .head { align-items: center; text-align: center; }
+.centered .foot { justify-content: center; }

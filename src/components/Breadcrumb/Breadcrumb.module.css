@@ -1,0 +1,20 @@
+/* Breadcrumb (8739:53399), _BreadcrumbItem (8739:53346), EditableTitle (8739:53341). Les couleurs suivent data-theme. */
+.crumb { display: inline-flex; align-items: center; gap: 8px; min-width: 0; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); color: var(--content-default-default); }
+.list { display: flex; align-items: center; gap: 4px; min-width: 0; margin: 0; padding: 0; list-style: none; }
+.item { display: inline-flex; align-items: center; gap: 4px; min-width: 0; }
+.link { border: 0; padding: 4px 6px; border-radius: 6px; background: none; color: var(--content-muted-default); font: var(--font-weight-medium) 13px / 18px var(--font-family-body); text-decoration: none; cursor: pointer; white-space: nowrap; }
+.link:hover { color: var(--content-default-default); background: var(--neutral-surface-muted); }
+.link:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.sep { color: var(--content-muted-default); opacity: 0.6; font-size: 13px; }
+.current { padding: 4px 6px; font: var(--font-weight-semibold) 13px / 18px var(--font-family-body); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.title { box-sizing: border-box; display: inline-flex; align-items: center; gap: 6px; height: 28px; max-width: 360px; padding: 0 6px; border: 1px solid transparent; border-radius: 6px; background: transparent;
+  color: var(--content-default-default); font: var(--font-weight-semibold) 13px / 18px var(--font-family-body); letter-spacing: var(--letter-spacing-tight); cursor: text; }
+.title:hover { background: var(--neutral-surface-muted); }
+.title:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pencil { flex: none; opacity: 0; color: var(--content-muted-default); }
+.title:hover .pencil, .title:focus-visible .pencil { opacity: 1; }
+.editing { border-color: var(--brand-primary-500); background: var(--neutral-surface-default); cursor: auto; }
+.editing:hover { background: var(--neutral-surface-default); }
+.input { border: 0; outline: 0; padding: 0; background: transparent; color: inherit; font: inherit; min-width: 40px; max-width: 340px; }

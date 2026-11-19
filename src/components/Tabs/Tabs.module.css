@@ -47,3 +47,7 @@
 .g-sm .segment { height: 22px; padding: 0 10px; font-size: 12px; line-height: 18px; }
 .segment:hover:not(.segActive) { color: var(--content-default-default); }
 .segActive { background: var(--neutral-surface-default); color: var(--content-default-default); box-shadow: var(--shadow-flat-1); }
+
+/* GroupTab hasCounter : nombre après le libellé, Body/12/Medium, muted (subtle sur l'onglet actif). */
+.segCount { font-size: 12px; line-height: 18px; font-weight: var(--font-weight-medium); color: var(--content-muted-default); }
+.segActive .segCount { color: var(--content-subtle-default); }

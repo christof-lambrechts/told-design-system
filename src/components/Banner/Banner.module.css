@@ -1,0 +1,14 @@
+/* Banner (8764:101293) : 40 de haut, contenu centré, fond teinté du type, filet bas. */
+.banner { position: relative; box-sizing: border-box; display: flex; align-items: center; justify-content: center; min-height: 40px; padding: 8px 48px; width: 100%;
+  background: var(--bn-bg); color: var(--bn-fg); border-bottom: 1px solid color-mix(in srgb, var(--bn-icon) 18%, transparent); font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.content { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.icon { flex: none; color: var(--bn-icon); }
+.message { font-size: 13px; line-height: 18px; font-weight: var(--font-weight-medium); }
+.action { border: 0; padding: 0; background: none; color: inherit; font: var(--font-weight-semibold) 13px / 18px var(--font-family-body); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.action:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: 4px; }
+.close { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); }
+.banner[data-type='brand'] { --bn-bg: var(--badge-subtle-blue-background); --bn-fg: var(--content-default-default); --bn-icon: var(--content-brand-default-on-light); --bn-bd: var(--badge-outline-blue-border); }
+.banner[data-type='warning'] { --bn-bg: var(--badge-subtle-orange-background); --bn-fg: var(--content-default-default); --bn-icon: var(--brand-warning-500); --bn-bd: var(--badge-outline-orange-border); }
+.banner[data-type='error'] { --bn-bg: var(--badge-subtle-red-background); --bn-fg: var(--content-default-default); --bn-icon: var(--brand-danger-500); --bn-bd: var(--badge-outline-red-border); }
+.banner[data-type='success'] { --bn-bg: var(--badge-subtle-green-background); --bn-fg: var(--content-default-default); --bn-icon: var(--content-success-default-on-light); --bn-bd: var(--badge-outline-green-border); }
+.banner[data-type='neutral'] { --bn-bg: var(--neutral-surface-muted); --bn-fg: var(--content-default-default); --bn-icon: var(--content-subtle-default); --bn-bd: var(--neutral-border-default); }

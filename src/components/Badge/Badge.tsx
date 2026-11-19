@@ -14,14 +14,20 @@ export interface BadgeProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'color
   appearance?: BadgeStyle;
   size?: BadgeSize;
   icon?: IconName;
+  /** Point plein devant le libellé, de la couleur du texte (« Publiée »). */
+  dot?: boolean;
+  /** Second point orange (« Publiée · modifiée »). */
+  secondDot?: boolean;
 }
 
 /** Badge (2794:179295) : statut figé d'un objet ou étiquette non cliquable. Si ça se clique, prendre Tag. */
-export function Badge({ children, color = 'light-gray', appearance = 'subtle', size = 'sm', icon, className, ...rest }: BadgeProps) {
+export function Badge({ children, color = 'light-gray', appearance = 'subtle', size = 'sm', icon, dot, secondDot, className, ...rest }: BadgeProps) {
   const c = color === 'light-gray' ? 'gray-light' : color;
   const cls = [styles.badge, styles[size], styles[appearance], color === 'pink-gradient' && styles.gradient, className].filter(Boolean).join(' ');
   return (
     <span className={cls} data-color={c} {...rest}>
+      {dot && <span className={styles.dot} aria-hidden="true" />}
+      {secondDot && <span className={[styles.dot, styles.dot2].join(' ')} aria-hidden="true" />}
       {icon && <Icon name={icon} size={size === 'xs' ? 10 : size === 'sm' ? 12 : 14} variant="solid" />}
       <span className={styles.text}>{children}</span>
     </span>

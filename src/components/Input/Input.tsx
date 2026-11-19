@@ -15,23 +15,30 @@ interface FieldFrameProps {
   helper?: ReactNode;
   error?: ReactNode;
   required?: boolean;
+  counter?: ReactNode;
+  warning?: boolean;
   size: FieldSize;
   children: ReactNode;
   className?: string;
 }
 
-function FieldFrame({ id, label, helper, error, required, size, children, className }: FieldFrameProps) {
+function FieldFrame({ id, label, helper, error, required, counter, warning, size, children, className }: FieldFrameProps) {
   return (
     <div className={cx(styles.field, styles[size], !!error && styles.hasError, className)}>
-      {label && (
-        <label htmlFor={id} className={styles.label}>
-          {label}
-          {required && <span className={styles.required} aria-hidden="true">*</span>}
-        </label>
+      {(label || counter != null) && (
+        <div className={styles.labelRow}>
+          {label && (
+            <label htmlFor={id} className={styles.label}>
+              {label}
+              {required && <span className={styles.required} aria-hidden="true">*</span>}
+            </label>
+          )}
+          {counter != null && <span className={cx(styles.counter, warning && styles.counterWarning)}>{counter}</span>}
+        </div>
       )}
       {children}
       {(error || helper) && (
-        <span id={`${id}-help`} className={error ? styles.errorText : styles.helper}>{error || helper}</span>
+        <span id={`${id}-help`} className={error ? styles.errorText : warning ? styles.helperWarning : styles.helper}>{error || helper}</span>
       )}
     </div>
   );
@@ -40,6 +47,10 @@ function FieldFrame({ id, label, helper, error, required, size, children, classN
 export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   label?: ReactNode;
   helper?: ReactNode;
+  /** Compteur à droite du libellé (hasCounter), ex. « 94 / 280 ». */
+  counter?: ReactNode;
+  /** Longueur conseillée dépassée : compteur et aide en orange. */
+  warning?: boolean;
   /** Message d'erreur : passe le champ en état error. */
   error?: ReactNode;
   size?: FieldSize;
@@ -50,11 +61,11 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
 }
 
 /** Input (2932:184217) : champ de saisie avec libellé, aide et erreur. Construit sur _InputBase. */
-export function Input({ label, helper, error, required, size = 'md', appearance = 'default', iconLeft, trailing, id, className, disabled, ...rest }: InputProps) {
+export function Input({ label, helper, counter, warning, error, required, size = 'md', appearance = 'default', iconLeft, trailing, id, className, disabled, ...rest }: InputProps) {
   const auto = useId();
   const fid = id ?? auto;
   return (
-    <FieldFrame id={fid} label={label} helper={helper} error={error} required={required} size={size} className={className}>
+    <FieldFrame id={fid} label={label} helper={helper} counter={counter} warning={warning} error={error} required={required} size={size} className={className}>
       <div className={cx(styles.box, styles[appearance], disabled && styles.disabled)}>
         {iconLeft && <span className={styles.lead}><Icon name={iconLeft} size={16} /></span>}
         <input
@@ -96,6 +107,8 @@ export function SearchBar({ shortcut = true, placeholder = 'Rechercher', size = 
 export interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: ReactNode;
   helper?: ReactNode;
+  counter?: ReactNode;
+  warning?: boolean;
   error?: ReactNode;
   size?: FieldSize;
   /** brand = fond teinté de la marque (édition), neutral = fond neutre. */
@@ -103,11 +116,11 @@ export interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElemen
 }
 
 /** TextArea (543:14037) : zone de texte sur plusieurs lignes, poignée de redimensionnement. */
-export function TextArea({ label, helper, error, required, size = 'md', tone = 'brand', id, className, rows = 3, ...rest }: TextAreaProps) {
+export function TextArea({ label, helper, counter, warning, error, required, size = 'md', tone = 'brand', id, className, rows = 3, ...rest }: TextAreaProps) {
   const auto = useId();
   const fid = id ?? auto;
   return (
-    <FieldFrame id={fid} label={label} helper={helper} error={error} required={required} size={size} className={className}>
+    <FieldFrame id={fid} label={label} helper={helper} counter={counter} warning={warning} error={error} required={required} size={size} className={className}>
       <div className={cx(styles.box, styles.area, styles[`tone-${tone}`])}>
         <textarea
           id={fid}

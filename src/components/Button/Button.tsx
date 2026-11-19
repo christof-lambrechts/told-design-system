@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react';
 import { Icon, type IconName } from '../Icon/Icon';
 import styles from './Button.module.css';
 
-export type ButtonColor = 'brand' | 'neutral' | 'danger' | 'success' | 'warning' | 'purple';
+export type ButtonColor = 'brand' | 'neutral' | 'danger' | 'success' | 'warning' | 'purple' | 'ai' | 'rec';
 /** primary (plein) · primary-outline (contour de la couleur) · secondary-outline (contour gris clair, moins d'accent) · tertiary (fond teinté) · ghost.
  *  `secondary` reste accepté et vaut `primary-outline` (ancien nom). */
 export type ButtonType = 'primary' | 'primary-outline' | 'secondary-outline' | 'secondary' | 'tertiary' | 'ghost';
@@ -22,6 +22,7 @@ const iconSize: Record<ButtonSize, number> = { xs: 12, sm: 14, md: 16, lg: 18 };
 
 /** Variables CSS d'un bouton, construites depuis les jetons Button/Button<Couleur>/<style>/*. */
 export function buttonVars(color: ButtonColor, type: ButtonType): CSSProperties {
+  if (color === 'ai' || color === 'rec') return {};
   const s = styleOf[type];
   const p = `--button-button${color}-${s}`;
   return {
@@ -38,6 +39,7 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   /** Libellé du bouton (propriété Figma `label`). */
   children?: ReactNode;
   color?: ButtonColor;
+  /** ai : action IA (contour dégradé violet → bleu, texte et étoile violets ; `variant` ignoré). rec : démarrer un enregistrement (rouge, point blanc ; `variant` ignoré). */
   /** Une seule primary par vue. */
   variant?: ButtonType;
   size?: ButtonSize;
@@ -62,10 +64,13 @@ export function Button({
   style,
   ...rest
 }: ButtonProps) {
-  const cls = [styles.button, styles[size], fullWidth && styles.fullWidth, className].filter(Boolean).join(' ');
+  const special = color === 'ai' ? styles.ai : color === 'rec' ? styles.rec : undefined;
+  const cls = [styles.button, styles[size], special, fullWidth && styles.fullWidth, className].filter(Boolean).join(' ');
+  /* ai : étoile violette intégrée ; rec : point blanc intégré (icône dot). */
+  const lead: IconName | undefined = color === 'ai' ? 'ai-magic' : color === 'rec' ? 'dot' : iconLeft;
   return (
     <button type={htmlType} className={cls} style={{ ...buttonVars(color, variant), ...style }} {...rest}>
-      {iconLeft && <Icon name={iconLeft} size={iconSize[size]} className={styles.icon} />}
+      {lead && <Icon name={lead} size={iconSize[size]} variant={color === 'ai' || color === 'rec' ? 'solid' : undefined} className={styles.icon} />}
       {children != null && children !== '' && <span className={styles.label}>{children}</span>}
       {iconRight && <Icon name={iconRight} size={iconSize[size]} className={styles.icon} />}
     </button>
@@ -76,7 +81,7 @@ export interface ButtonIconProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
   icon: IconName;
   /** Texte lu par les lecteurs d'écran (le bouton n'a pas de libellé visible). */
   label: string;
-  color?: Exclude<ButtonColor, 'warning'>;
+  color?: Exclude<ButtonColor, 'warning' | 'ai' | 'rec'>;
   /** Style Figma : fill | outline | ghost | subtle. */
   appearance?: 'fill' | 'outline' | 'ghost' | 'subtle';
   size?: ButtonSize;

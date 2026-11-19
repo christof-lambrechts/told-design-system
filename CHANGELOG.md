@@ -3,6 +3,23 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.9.0 · 19/11/2026
+
+Composants validés dans Figma pour Told Record (page d'audit), codés d'après les pages Figma :
+- **Button** : `color="ai"` (action IA : contour en dégradé violet → bleu, texte et étoile violets) et `color="rec"` (démarrer un enregistrement : rouge, point blanc). Pour ces deux couleurs, `variant` est ignoré.
+- **Badge** : `dot` (point de la couleur du texte) et `secondDot` (second point orange, « Publiée · modifiée »).
+- **GroupTab** : `count` sur chaque segment. **Input** et **TextArea** : `counter` à droite du libellé (« 94 / 280 ») et `warning` quand la longueur conseillée est dépassée.
+- **Modal** : croix neutre à fond léger (`subtle`), option `centered`. Nouveau **ConfirmModal** : titre et description centrés, Annuler en neutre tertiaire, bouton rouge si `danger`, croix et illustration en option.
+- **Banner** : bandeau pleine largeur (brand, warning, error, success, neutral), lien d'action et croix en option.
+- **ColorField**, **ContrastBadge**, **ContrastMenu** : champ couleur avec contrôle de contraste AA ou AAA et « Corriger la couleur » (même teinte, clarté ajustée), annulable. Fonctions exportées : `contrastRatio`, `fixContrast`, `formatRatio`, `passes`.
+- **CopyField** (lien à copier, sm 32 ou md 40) et **CodeBlock** (code d'intégration coloré, « Copier le code » → « Copié »). Jetons `--neutral-surface-code` et `--neutral-border-code`.
+- **Breadcrumb** et **EditableTitle** : fil d'Ariane avec retour, titre renommable sur place et statut ; `theme="dark"` pour l'en-tête de l'éditeur.
+- **FloatingToolbar**, **ToolbarItem**, **ToolbarDivider** : barre d'outils flottante, clair ou sombre, outil actif en couleur de marque.
+- **AvatarGroup** et **PresenceAvatar** : pile de présence, « +N », liseré clair ou sombre. Jetons `--presence-*` (8 teintes) et `presenceColorFor(id)` pour garder la même couleur à une personne.
+- **IntentInput**, **PromptChip**, **QuickSuggestion**, **IntentPanel** : champ de consigne IA (Entrée envoie, micro, réglages), suggestions rapides en violet, bandeau avec l'action « Enregistrer ».
+- **ChoicePicker**, **ChoiceThumb**, **ChoiceIllustration** : choix visuel par vignettes illustrées (ratios, formats) et aperçu réel dessous.
+- **EditorHeader**, **EditorSaveState**, **EditorChanges** : en-tête sombre de l'éditeur Record (fil d'Ariane, présence, relecture, partage, aperçu, publier, sous-navigation et état).
+
 ## v0.8.3 · 19/11/2026
 
 - **Bordure grise plus contrastée** : `--neutral-border-default` (et ses équivalents inverses) passe du gris 40 (#e8ecf0) au gris 50 (#dfe5ea). Tous les champs, cartes, boutons à contour et séparateurs qui utilisent cette bordure gagnent un peu de contraste. Le survol reste au gris 100.

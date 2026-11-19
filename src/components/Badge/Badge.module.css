@@ -28,3 +28,9 @@
 /* Pro, nouveauté : dégradé violet → rose (pas de jeton dans Figma, couleurs du composant). */
 .badge[data-color='pink-gradient'] { --badge-subtle-c-background: color-mix(in srgb, #d05ac4 12%, transparent); --badge-subtle-c-content: #d05ac4; --badge-outline-c-content: #d05ac4; --badge-outline-c-border: #d05ac4; --badge-fill-c-content: var(--white-white-100); }
 .gradient.fill { background: linear-gradient(90deg, #aa62ff, #ff4f7c); }
+
+/* Points (hasDot, hasSecondDot) : 6 px, couleur du texte ; le second en Brand/warning/500. */
+.dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; margin: 0 1px; }
+.xs .dot { width: 5px; height: 5px; }
+.md .dot, .lg .dot { width: 7px; height: 7px; }
+.dot2 { background: var(--brand-warning-500); margin-left: -2px; }

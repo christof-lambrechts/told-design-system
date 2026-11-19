@@ -41,3 +41,11 @@
 .iconOnly.md { width: 34px; padding: 0; }
 .iconOnly.lg { width: 40px; padding: 0; }
 .fullWidth { width: 100%; }
+
+/* color=ai (Figma : secondary-outline ai) : fond blanc, contour en dégradé purple/400 → blue/400, texte et étoile Brand/color/purple ; survol violet pâle. */
+.ai { --fg: var(--brand-color-purple); --ai-bg: var(--neutral-surface-default); border-color: transparent;
+  background: linear-gradient(var(--ai-bg), var(--ai-bg)) padding-box, linear-gradient(90deg, var(--purple-400), var(--blue-400)) border-box; }
+.ai:hover { --ai-bg: var(--badge-subtle-purple-background); background: linear-gradient(var(--ai-bg), var(--ai-bg)) padding-box, linear-gradient(90deg, var(--purple-400), var(--blue-400)) border-box; }
+.ai:active { --ai-bg: var(--badge-subtle-purple-background); }
+/* color=rec : enregistrement, Brand/danger/500 (survol 600), point blanc. Rouge réservé à la capture. */
+.rec { --bg: var(--brand-danger-500); --bg-hover: var(--brand-danger-600); --bg-pressed: var(--brand-danger-600); --fg: var(--white-white-100); }

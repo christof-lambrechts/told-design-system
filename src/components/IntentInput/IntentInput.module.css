@@ -1,0 +1,46 @@
+/* IntentInput (7865:516) : rayon 12, contour gris comme TextArea (sans halo), marque au focus.
+   default : marges 12/14/9/17, écart 10, zone 72. compact : 40 de haut, marges 6/7/6/14. */
+.box { box-sizing: border-box; display: flex; border: 1px solid var(--neutral-border-default); border-radius: 12px; background: var(--neutral-surface-default); cursor: text;
+  font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); transition: border-color var(--duration-fast) var(--easing-standard); }
+.box:focus-within { border-color: var(--brand-primary-500); }
+.default { flex-direction: column; gap: 10px; padding: 12px 14px 9px 17px; }
+.compact { align-items: center; gap: 7px; height: 40px; padding: 6px 7px 6px 14px; }
+.ai { border-color: transparent; background: linear-gradient(var(--neutral-surface-default), var(--neutral-surface-default)) padding-box, linear-gradient(90deg, var(--purple-400), var(--blue-400)) border-box; }
+.ai:focus-within { border-color: transparent; }
+.listening { border-color: var(--brand-primary-500); }
+.disabled { opacity: 0.5; cursor: not-allowed; }
+.zone { flex: 1; display: flex; gap: 7px; min-width: 0; }
+.default .zone { min-height: 72px; padding-top: 3px; }
+.spark { flex: none; color: var(--content-default-default); margin-top: 3px; }
+.compact .spark { margin-top: 0; }
+.textarea { flex: 1; min-width: 0; border: 0; outline: 0; padding: 0; resize: none; background: transparent; color: var(--content-default-default);
+  font: var(--font-weight-medium) 15px / 22px var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.compact .textarea { line-height: 24px; height: 24px; overflow: hidden; white-space: nowrap; }
+.textarea::placeholder { color: var(--content-muted-default); }
+.foot { display: flex; align-items: center; gap: 7px; }
+.controls { display: flex; align-items: center; gap: 2px; }
+.hint { flex: 1; min-width: 0; text-align: right; font-size: 12px; line-height: 18px; color: var(--content-muted-default); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.controls + .hint { flex: 1; }
+
+/* _PromptChip (8715:100255) */
+.chip { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 6px 0 8px; border: 0; border-radius: 6px; background: transparent; color: var(--content-subtle-default);
+  font: var(--font-weight-medium) 12px / 18px var(--font-family-body); letter-spacing: var(--letter-spacing-tight); cursor: pointer; white-space: nowrap; }
+.chip:hover { background: var(--neutral-surface-muted); color: var(--content-default-default); }
+.chipOpen, .chipOpen:hover { background: var(--neutral-surface-muted); color: var(--content-default-default); }
+.chip:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+/* QuickSuggestion (7866:506) : pilule 32, marges 6/12/6/10, écart 6, Body/13. */
+.suggestion { box-sizing: border-box; display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 6px 12px 6px 10px; border: 1px solid var(--neutral-border-default); border-radius: 999px;
+  background: var(--neutral-surface-default); color: var(--content-default-default); font: var(--font-weight-medium) 13px / 18px var(--font-family-body); letter-spacing: var(--letter-spacing-tight); cursor: pointer; white-space: nowrap; }
+.suggestion:hover { background: var(--neutral-surface-muted); }
+.suggestion:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.suggestionIcon { color: var(--brand-color-purple); flex: none; }
+.suggestionSelected, .suggestionSelected:hover { background: var(--badge-subtle-purple-background); border-color: var(--purple-200); color: var(--brand-color-purple); }
+
+/* IntentPanel (8715:100435) : bandeau Neutral/surface/muted rayon 20, écart 16 avec les suggestions (écart 8). */
+.panel { display: flex; flex-direction: column; gap: 16px; min-width: 0; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.band { display: flex; flex-direction: column; border-radius: 20px; background: var(--neutral-surface-muted); }
+.band > :first-child { border-radius: 12px; }
+.secondary { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 10px 10px 20px; }
+.secondaryText { font-size: 13px; line-height: 18px; color: var(--content-subtle-default); }
+.suggestions { display: flex; flex-wrap: wrap; gap: 8px; }

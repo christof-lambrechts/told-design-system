@@ -117,3 +117,18 @@ export const BoutonIcone: StoryObj<typeof ButtonIcon> = {
     </div>
   ),
 };
+
+/** color=ai (action IA, contour dégradé) et color=rec (démarrer un enregistrement). */
+export const IaEtEnregistrement: StoryObj = {
+  name: 'IA et enregistrement',
+  render: () => (
+    <div style={{ display: 'grid', gap: 12 }}>
+      {(['xs', 'sm', 'md', 'lg'] as const).map((s) => (
+        <div key={s} style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+          <Button color="ai" size={s}>Générer avec l’IA</Button>
+          <Button color="rec" size={s}>Enregistrer</Button>
+        </div>
+      ))}
+    </div>
+  ),
+};

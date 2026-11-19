@@ -60,3 +60,14 @@ export const Zone: StoryObj = {
     </div>
   ),
 };
+
+export const Compteur: StoryObj = {
+  name: 'Avec compteur',
+  render: () => (
+    <div style={col}>
+      <Input label="Titre de l’étape" defaultValue="Clique sur Nouvelle facture" counter="27 / 60" />
+      <TextArea label="Texte de l’infobulle" defaultValue="Renseigne le client, puis ajoute une ligne par prestation." counter="94 / 280" />
+      <TextArea label="Texte de l’infobulle" defaultValue="Un texte trop long…" counter="312 / 280" warning helper="Au-delà de 280 caractères, l’infobulle devient difficile à lire." />
+    </div>
+  ),
+};

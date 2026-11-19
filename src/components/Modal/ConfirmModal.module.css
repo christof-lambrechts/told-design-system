@@ -1,0 +1,4 @@
+/* ConfirmModal (7950:1584) : contenu centré. Le titre et la description de Modal sont centrés via :has sur la fenêtre. */
+.titleWrap { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+.illu { display: flex; justify-content: center; }
+.actions { display: flex; justify-content: center; gap: 12px; width: 100%; }

@@ -1,0 +1,37 @@
+/* ContrastBadge (8715:98116) : 20 de haut, rayon 5, Body/12/Semibold. Vert si le seuil est atteint, rouge sinon. */
+.badge { box-sizing: border-box; display: inline-flex; align-items: center; gap: 3px; height: 20px; padding: 0 6px; border: 0; border-radius: var(--component-tag-badge-sm);
+  font: var(--font-weight-semibold) 12px / 13px var(--font-family-body); letter-spacing: var(--letter-spacing-tight); white-space: nowrap; flex: none; }
+.pass { background: var(--badge-subtle-green-background); color: var(--badge-subtle-green-content); }
+.fail { background: var(--badge-subtle-red-background); color: var(--badge-subtle-red-content); }
+.ratio { font-weight: var(--font-weight-medium); opacity: 0.85; font-variant-numeric: tabular-nums; }
+.clickable { cursor: pointer; }
+.clickable:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+/* ColorField (8734:504) */
+.field { position: relative; display: flex; flex-direction: column; gap: 4px; min-width: 0; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.label { padding: 0 8px; font-size: 12px; line-height: 18px; font-weight: var(--font-weight-semibold); color: var(--input-brand-content-label); }
+.box { box-sizing: border-box; display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 6px 0 8px; border: 1px solid var(--neutral-border-default); border-radius: var(--component-input-button-md); background: var(--neutral-surface-default); }
+.box:focus-within { border-color: var(--brand-primary-500); }
+.boxFail { border-color: var(--neutral-border-default); }
+.picker { position: relative; width: 20px; height: 20px; border-radius: 50%; flex: none; box-shadow: inset 0 0 0 1px var(--neutral-surface-black-alpha-10); cursor: pointer; overflow: hidden; }
+.picker input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.hex { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--content-default-default); font: var(--font-weight-medium) 12px / 18px var(--font-family-mono, ui-monospace, monospace); text-transform: uppercase; }
+.note { padding: 0 8px; font-size: 12px; line-height: 18px; color: var(--content-subtle-default); }
+.undo { border: 0; padding: 0; background: none; color: var(--content-brand-default-on-light); font: inherit; font-weight: var(--font-weight-semibold); cursor: pointer; }
+.mono { font-family: var(--font-family-mono, ui-monospace, monospace); }
+.pop { position: absolute; top: calc(100% + 4px); right: 0; z-index: 20; }
+
+/* _ContrastMenu (8734:563) */
+.menu { box-sizing: border-box; width: 260px; padding: 6px; border-radius: 10px; background: var(--neutral-surface-default); border: 1px solid var(--neutral-border-default); box-shadow: var(--shadow-flat-8);
+  font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.menuTitle { padding: 6px 8px 4px; font-size: 11px; line-height: 16px; font-weight: var(--font-weight-semibold); color: var(--content-muted-default); }
+.menuItem { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; min-height: 32px; padding: 6px 8px; border: 0; border-radius: 6px; background: transparent;
+  color: var(--content-default-default); font: var(--font-weight-medium) 13px / 18px var(--font-family-body); text-align: left; cursor: pointer; }
+.menuItem:hover { background: var(--neutral-surface-muted); }
+.menuItem:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.menuLabel { display: inline-flex; align-items: center; gap: 6px; }
+.menuHint { color: var(--content-muted-default); font-size: 12px; }
+.menuCheck { color: var(--content-brand-default-on-light); }
+.menuSep { height: 1px; margin: 4px 0; background: var(--neutral-border-subtle); }
+.preview { display: inline-flex; align-items: center; gap: 4px; color: var(--content-muted-default); font-size: 11px; }
+.swatch { width: 12px; height: 12px; border-radius: 50%; box-shadow: inset 0 0 0 1px var(--neutral-surface-black-alpha-10); }

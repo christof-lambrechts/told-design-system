@@ -49,6 +49,15 @@
   --gray-10: #f9fafb;
   --gray-20: #f2f4f6;
   --gray-30: #f2f2f3;
+  /* Teintes de présence (avatars et curseurs des collaborateurs), Figma presence/*. */
+  --presence-teal: #14b8a6;
+  --presence-pink: #ec4899;
+  --presence-orange: #f97316;
+  --presence-purple: #a855f7;
+  --presence-lime: #84cc16;
+  --presence-green: #22c55e;
+  --presence-yellow: #eab308;
+  --presence-slate: #64748b;
   --gray-40: #e8ecf0;
   --gray-50: #dfe5ea;
   --gray-100: #ccd5dd;
@@ -460,6 +469,8 @@
   --neutral-surface-white-alpha-5: var(--white-alpha-5);
   --neutral-surface-white-alpha-0: var(--white-alpha-0);
   --neutral-border-default: var(--gray-50);
+  --neutral-surface-code: var(--neutral-surface-black-alpha-5);
+  --neutral-border-code: var(--neutral-surface-black-alpha-10);
   --neutral-border-hover: var(--brand-neutral-100);
   --neutral-border-pressed: var(--brand-primary-50);
   --neutral-border-subtle: var(--brand-neutral-20);
@@ -1120,6 +1131,8 @@
   --neutral-surface-white-alpha-5: var(--black-alpha-5);
   --neutral-surface-white-alpha-0: var(--black-alpha-0);
   --neutral-border-default: var(--white-alpha-20);
+  --neutral-surface-code: var(--neutral-surface-white-alpha-5);
+  --neutral-border-code: var(--neutral-surface-white-alpha-10);
   --neutral-border-hover: var(--white-alpha-40);
   --neutral-border-pressed: var(--white-alpha-60);
   --neutral-border-subtle: var(--white-alpha-12);

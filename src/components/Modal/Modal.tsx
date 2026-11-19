@@ -18,10 +18,12 @@ export interface ModalProps {
   hasClose?: boolean;
   width?: number;
   closeLabel?: string;
+  /** Titre, description et pied centrés (confirmation). */
+  centered?: boolean;
 }
 
 /** Modal (ModalBase 6234:9287) : fenêtre de 500, rayon 12, en-tête 40/40/20, contenu 12/40, pied 20/40/40. Échap et clic sur le voile ferment. */
-export function Modal({ open, onClose, title, description, children, footer, divider, hasClose = true, width = 500, closeLabel = 'Fermer' }: ModalProps) {
+export function Modal({ open, onClose, title, description, children, footer, divider, hasClose = true, width = 500, closeLabel = 'Fermer', centered }: ModalProps) {
   const tid = useId();
   const panel = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -35,8 +37,8 @@ export function Modal({ open, onClose, title, description, children, footer, div
   if (!open) return null;
   return (
     <div className={styles.overlay} onMouseDown={(e) => { if (e.target === e.currentTarget) onClose?.(); }}>
-      <div ref={panel} role="dialog" aria-modal="true" aria-labelledby={tid} tabIndex={-1} className={[styles.modal, divider && styles.divider].filter(Boolean).join(' ')} style={{ width }}>
-        {hasClose && <ButtonIcon icon="cancel-01" label={closeLabel} appearance="ghost" color="neutral" size="md" className={styles.close} onClick={onClose} />}
+      <div ref={panel} role="dialog" aria-modal="true" aria-labelledby={tid} tabIndex={-1} className={[styles.modal, divider && styles.divider, centered && styles.centered].filter(Boolean).join(' ')} style={{ width }}>
+        {hasClose && <ButtonIcon icon="cancel-01" label={closeLabel} appearance="subtle" color="neutral" size="md" className={styles.close} onClick={onClose} />}
         <div className={styles.head}>
           <h2 id={tid} className={styles.title}>{title}</h2>
           {description && <p className={styles.desc}>{description}</p>}

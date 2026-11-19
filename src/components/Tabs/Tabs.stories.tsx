@@ -52,3 +52,11 @@ export const Groupe: StoryObj = {
     );
   },
 };
+
+export const GroupTabCompteur: StoryObj = {
+  name: 'GroupTab avec compteur',
+  render: () => {
+    const [v, setV] = useState('all');
+    return <GroupTab value={v} onChange={setV} items={[{ value: 'all', label: 'Toutes', count: 24 }, { value: 'draft', label: 'Brouillons', count: 6 }, { value: 'pub', label: 'Publiées', count: 18 }]} />;
+  },
+};

@@ -61,3 +61,28 @@ export { OptionToggle, FormatCard, LogicRule } from './components/OptionPanel/Op
 export type { OptionToggleProps, FormatCardProps, LogicRuleProps } from './components/OptionPanel/OptionDetails';
 export { TranslationTable, LanguageItem } from './components/Languages/Languages';
 export type { TranslationTableProps, TranslationGroup, TranslationRow, Language, LanguageItemProps } from './components/Languages/Languages';
+// v0.9.0 : composants validés pour Told Record
+export { ContrastBadge, ContrastMenu, ColorField } from './components/Contrast/Contrast';
+export type { ContrastBadgeProps, ContrastMenuProps, ColorFieldProps } from './components/Contrast/Contrast';
+export { contrastRatio, fixContrast, formatRatio, passes, contrastThreshold } from './components/Contrast/contrast';
+export type { ContrastLevel } from './components/Contrast/contrast';
+export { CopyField, CodeBlock } from './components/CopyField/CopyField';
+export type { CopyFieldProps, CodeBlockProps } from './components/CopyField/CopyField';
+export { Breadcrumb, EditableTitle } from './components/Breadcrumb/Breadcrumb';
+export type { BreadcrumbProps, BreadcrumbItem, EditableTitleProps } from './components/Breadcrumb/Breadcrumb';
+export { FloatingToolbar, ToolbarItem, ToolbarDivider } from './components/FloatingToolbar/FloatingToolbar';
+export type { FloatingToolbarProps, ToolbarItemProps } from './components/FloatingToolbar/FloatingToolbar';
+export { AvatarGroup, PresenceAvatar, presenceColors, presenceColorFor } from './components/Avatar/AvatarGroup';
+export type { AvatarGroupProps, PresenceAvatarProps, PresenceColor } from './components/Avatar/AvatarGroup';
+export { Banner } from './components/Banner/Banner';
+export type { BannerProps, BannerType } from './components/Banner/Banner';
+export { ConfirmModal } from './components/Modal/ConfirmModal';
+export type { ConfirmModalProps } from './components/Modal/ConfirmModal';
+export { IntentInput, PromptChip, QuickSuggestion, IntentPanel } from './components/IntentInput/IntentInput';
+export type { IntentInputProps, PromptChipProps, QuickSuggestionProps, IntentPanelProps } from './components/IntentInput/IntentInput';
+export { ChoicePicker, ChoiceThumb } from './components/ChoicePicker/ChoicePicker';
+export type { ChoicePickerProps, ChoiceThumbProps } from './components/ChoicePicker/ChoicePicker';
+export { ChoiceIllustration } from './components/ChoicePicker/illustrations';
+export type { ChoiceIllustrationName } from './components/ChoicePicker/illustrations';
+export { EditorHeader, EditorSaveState, EditorChanges, editorHeaderGhostButton } from './components/EditorHeader/EditorHeader';
+export type { EditorHeaderProps } from './components/EditorHeader/EditorHeader';

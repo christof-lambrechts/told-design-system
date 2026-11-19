@@ -1,0 +1,11 @@
+/* FloatingToolbar (8742:1646) : marge 4, rayon 12, ombre flat-8 ; élément rayon 8 (12 − 4). Sombre via data-theme. */
+.bar { box-sizing: border-box; display: inline-flex; align-items: center; gap: 2px; padding: 4px; border-radius: 12px; border: 1px solid var(--neutral-border-default);
+  background: var(--neutral-surface-default); box-shadow: var(--shadow-flat-8); font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.item { box-sizing: border-box; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-width: 36px; height: 36px; padding: 0 8px; border: 0; border-radius: 8px;
+  background: transparent; color: var(--content-subtle-default); cursor: pointer; transition: background-color var(--duration-fast) var(--easing-standard); }
+.withLabel { height: 48px; min-width: 56px; }
+.item:hover { background: var(--neutral-surface-muted); color: var(--content-default-default); }
+.item:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.active, .active:hover { background: var(--button-buttonbrand-fill-background-default); color: var(--button-buttonbrand-fill-content-default); }
+.label { font-size: 11px; line-height: 14px; font-weight: var(--font-weight-medium); white-space: nowrap; }
+.divider { width: 1px; align-self: stretch; margin: 6px 4px; background: var(--neutral-border-default); }
