@@ -20,11 +20,14 @@ export interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'name'> {
   variant?: IconVariant;
 }
 
+/** Épaisseur du contour : 1,5 sur la grille de 24, épaissie aux petites tailles pour garder au moins 1,25 px à l'écran. */
+const strokeFor = (size: number) => Math.max(1.5, (1.25 * 24) / size);
+
 export function Icon({ name, size = 20, variant = 'stroke', ...rest }: IconProps) {
   const outline = variant === 'stroke' ? iconsStroke[name] : undefined;
   if (outline) {
     return (
-      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeFor(size)}
         strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false" {...rest}>
         {outline.map(([Tag, a], i) => {
           const T = Tag as 'path';
