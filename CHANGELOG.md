@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.9.1 · 19/11/2026
+
+- **Icon** : contour plus épais. Le trait fait maintenant **1,5 px à l'écran** aux petites tailles (14, 16, 20), au lieu de 1,25 px, et 1,75 sur la grille de 24 au-delà. Rien à changer dans le code qui utilise `Icon`.
+
 ## v0.9.0 · 19/11/2026
 
 Composants validés dans Figma pour Told Record (page d'audit), codés d'après les pages Figma :

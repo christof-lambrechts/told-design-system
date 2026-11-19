@@ -4,7 +4,7 @@ import { iconsStroke } from './iconsStroke';
 
 /**
  * Icônes HugeIcons, 24 × 24, couleur du texte.
- * - `stroke` (par défaut) : contour arrondi, trait de 1,5.
+ * - `stroke` (par défaut) : contour arrondi, trait de 1,5 px à l'écran.
  * - `solid` : version pleine du fichier Figma (page « Atomes / Icons »), pour l'état actif (entrée de menu ou onglet sélectionné).
  */
 export type IconName = keyof typeof icons;
@@ -20,8 +20,8 @@ export interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'name'> {
   variant?: IconVariant;
 }
 
-/** Épaisseur du contour : 1,5 sur la grille de 24, épaissie aux petites tailles pour garder au moins 1,25 px à l'écran. */
-const strokeFor = (size: number) => Math.max(1.5, (1.25 * 24) / size);
+/** Épaisseur du contour : 1,75 sur la grille de 24, épaissie aux petites tailles pour garder 1,5 px à l'écran (14, 16, 20). */
+const strokeFor = (size: number) => Math.max(1.75, (1.5 * 24) / size);
 
 export function Icon({ name, size = 20, variant = 'stroke', ...rest }: IconProps) {
   const outline = variant === 'stroke' ? iconsStroke[name] : undefined;
