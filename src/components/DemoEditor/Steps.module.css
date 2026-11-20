@@ -43,3 +43,17 @@
 .add { display: grid; place-items: center; border-style: dashed; background: transparent; color: var(--content-muted-default); cursor: pointer; }
 .add:hover { border-color: var(--neutral-border-hover); color: var(--content-default-default); }
 .section { display: flex; flex-direction: column; gap: 6px; }
+
+/* D-020 : sélection multiple, glisser-déposer */
+.multi, .multi:hover { background: var(--brand-surface-tint); border-color: var(--brand-border-selected); }
+.multi .number { border-color: transparent; background: var(--button-buttonbrand-fill-background-default); color: var(--white-white-100); }
+.check { position: absolute; top: 6px; left: 6px; z-index: 1; display: grid; place-items: center; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--brand-color-brand); color: var(--white-white-100); box-shadow: 0 0 0 1.5px var(--neutral-surface-default); }
+.dragging { opacity: .4; }
+.dropLine { position: absolute; top: 0; bottom: 0; width: 8px; z-index: 2; pointer-events: none; }
+.dropLine::before { content: ''; position: absolute; left: 3px; top: 4px; bottom: 4px; width: 2px; border-radius: 1px; background: var(--brand-color-brand); }
+.dropLine > span { position: absolute; left: 0; width: 8px; height: 8px; box-sizing: border-box; border-radius: 50%; background: var(--neutral-surface-default); border: 2px solid var(--brand-color-brand); }
+.dropLine > span:first-child { top: 0; }
+.dropLine > span:last-child { bottom: 0; }
+.dropBefore { left: -8px; }
+.dropAfter { right: -8px; }

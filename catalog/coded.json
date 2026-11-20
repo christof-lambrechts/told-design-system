@@ -124,5 +124,6 @@
   "_FilterLogic": "composants-données-filter--docs",
   "_FilterSearchField": "composants-données-filter--docs",
   "_FilterMenuItem": "composants-données-filter--docs",
-  "_FilterMenuTitle": "composants-données-filter--docs"
+  "_FilterMenuTitle": "composants-données-filter--docs",
+  "_StepDropLine": "composants-éditeur-de-démo-étapes--selection-et-glisser"
 }

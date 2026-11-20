@@ -12,6 +12,12 @@ export interface StepThumbProps extends Omit<ButtonHTMLAttributes<HTMLButtonElem
   src?: string;
   /** D-020 : contenu de la vignette à la place d'une capture (ex. vignette d'un intertitre : fond et texte du kit). */
   preview?: ReactNode;
+  /** D-020 : étape cochée dans une sélection multiple (⌘ ou Maj + clic) : fond bleu pâle, contour fin, coche. Distincte de `selected` (étape en cours). */
+  multiSelected?: boolean;
+  /** D-020 : ligne de dépôt pendant un glisser, avant ou après la vignette (StepDropLine). */
+  drop?: 'before' | 'after';
+  /** D-020 : vignette en cours de glisser (estompée). */
+  dragging?: boolean;
   selected?: boolean;
   /** Textes écrits par l'IA, pas encore relus (hasAi). */
   ai?: boolean;
@@ -27,10 +33,13 @@ export interface StepThumbProps extends Omit<ButtonHTMLAttributes<HTMLButtonElem
 
 /** StepThumb (8829:480), un `li` à poser dans StepGroup ou une liste `ol`. : vignette 16:10 dans un cadre blanc à bordure (marge 4, rayon 8, capture rayon 4, numéro rayon 3). */
 /** Les autres attributs (draggable, onDragStart…, onKeyDown, data-*, aria-*) vont au bouton (D-020). */
-export function StepThumb({ number, src, preview, selected, ai, warning, presence, menu, label, onSelect, className, ...rest }: StepThumbProps) {
+export function StepThumb({ number, src, preview, selected, multiSelected, drop, dragging, ai, warning, presence, menu, label, onSelect, className, ...rest }: StepThumbProps) {
   return (
-    <li className={styles.thumbWrap}>
-      <button type="button" aria-label={label} aria-current={selected ? 'step' : undefined} {...rest} className={cx(styles.thumb, selected && styles.selected, className)} onClick={onSelect}>
+    <li className={cx(styles.thumbWrap, dragging && styles.dragging)}>
+      {drop && <StepDropLine className={drop === 'before' ? styles.dropBefore : styles.dropAfter} />}
+      <button type="button" aria-label={label} aria-current={selected ? 'step' : undefined} aria-pressed={multiSelected ? true : undefined} {...rest}
+        className={cx(styles.thumb, selected && styles.selected, multiSelected && !selected && styles.multi, className)} onClick={onSelect}>
+        {multiSelected && <span className={styles.check} aria-hidden="true"><Icon name="tick-02" size={10} /></span>}
         <span className={cx(styles.frame, !src && !preview && styles.empty)}>{preview ?? (src && <img src={src} alt="" draggable={false} />)}</span>
         <span className={styles.number}>{number}</span>
         {warning && <span className={styles.warning} title={warning} />}
@@ -54,6 +63,11 @@ export interface StepGroupProps {
   onExpandedChange?: (expanded: boolean) => void;
   /** Nombre d'étapes, affiché quand le groupe est replié. */
   count?: number;
+}
+
+/** StepDropLine (_StepDropLine 9129:2511) : ligne bleue verticale avec deux pastilles, où l'étape glissée va tomber. Posée par StepThumb `drop`, ou seule. */
+export function StepDropLine({ className }: { className?: string }) {
+  return <span className={cx(styles.dropLine, className)} aria-hidden="true"><span /><span /></span>;
 }
 
 /** StepAddThumb (StepThumb `state=add`, 20/11) : dernière case de la grille, pointillés et « + », pour ajouter un enregistrement d'écran. */

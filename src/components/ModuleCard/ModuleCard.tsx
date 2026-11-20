@@ -91,10 +91,11 @@ export function FlowDivider({ kind, label }: { kind: 'start' | 'end' | 'content'
 }
 
 /** InsertBar (8199:6014) : « + » et trait fin entre deux blocs. */
-export function InsertBar({ onInsert, dropTarget }: { onInsert?: () => void; dropTarget?: boolean }) {
+/** Entre deux slides de StepList (D-020) : `label="Insérer une slide"` ; `dropTarget` pendant un glisser. */
+export function InsertBar({ onInsert, dropTarget, label = 'Insérer un bloc' }: { onInsert?: () => void; dropTarget?: boolean; label?: string }) {
   return (
     <div className={cx(styles.insert, dropTarget && styles.insertActive)}>
-      <button type="button" className={styles.insertBtn} onClick={onInsert} aria-label="Insérer un bloc"><Icon name="add-01" size={10} /></button>
+      <button type="button" className={styles.insertBtn} onClick={onInsert} aria-label={label} title={label}><Icon name="add-01" size={10} /></button>
       <span className={styles.insertLine} />
     </div>
   );

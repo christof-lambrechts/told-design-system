@@ -91,7 +91,7 @@ export { AiTag, AiNotice } from './components/Ai/Ai';
 export type { AiTagProps, AiNoticeProps } from './components/Ai/Ai';
 export { ButtonGroup } from './components/Button/ButtonGroup';
 export type { ButtonGroupProps } from './components/Button/ButtonGroup';
-export { StepThumb, StepAddThumb, StepGroup, StepList } from './components/DemoEditor/Steps';
+export { StepThumb, StepAddThumb, StepDropLine, StepGroup, StepList } from './components/DemoEditor/Steps';
 export type { StepThumbProps, StepGroupProps, StepListProps } from './components/DemoEditor/Steps';
 // Alias : noms Figma des composants renommés dans le code (docs/NOMMAGE.md § 2).
 export { Modal as ModalBase } from './components/Modal/Modal';

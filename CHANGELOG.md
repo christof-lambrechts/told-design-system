@@ -3,6 +3,15 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.19.0 · 21/11/2026
+
+D-020 terminé (Figma validé le 21/11).
+
+- **StepThumb** : `multiSelected` (sélection multiple : fond bleu pâle, contour fin, coche bleue en haut à gauche ; `selected` reste l'étape en cours), `drop="before" | "after"` (ligne de dépôt pendant un glisser), `dragging` (vignette glissée estompée).
+- **StepDropLine** (nouveau, _StepDropLine) : ligne bleue verticale avec deux pastilles.
+- **InsertBar** : `label` (ex. « Insérer une slide » entre deux slides) ; `dropTarget` pendant un glisser.
+- Story « Sélection multiple et glisser ».
+
 ## v0.18.0 · 21/11/2026
 
 - **GroupTab** : `label` (libellé en petit au-dessus, comme les panneaux de Figma, relié par `aria-labelledby`) et `fullWidth` (vrai par défaut avec `label`) : le contrôle prend toute la largeur du panneau. Règle des panneaux d'options (Taille, Forme…).

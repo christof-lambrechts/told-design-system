@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { StepGroup, StepList, StepThumb } from './Steps';
+import { StepAddThumb, StepGroup, StepList, StepThumb } from './Steps';
+import { InsertBar } from '../ModuleCard/ModuleCard';
 import { Button } from '../Button/Button';
 
 const meta = { title: 'Composants/Éditeur de démo/Étapes', component: StepList } satisfies Meta<typeof StepList>;
@@ -32,6 +33,33 @@ export const Colonne: StoryObj = {
           </StepGroup>
           <StepGroup badge="Slide 2" title="Exporte en CSV" defaultExpanded={false} count={3}>{thumb(10)}</StepGroup>
         </StepList>
+      </div>
+    );
+  },
+};
+
+/** D-020 : sélection multiple, glisser-déposer, insertion entre deux slides. */
+export const SelectionEtGlisser: StoryObj = {
+  name: 'Sélection multiple et glisser',
+  render: () => {
+    const thumb = (n: number, extra: Partial<Parameters<typeof StepThumb>[0]> = {}) => (
+      <StepThumb key={n} number={n} label={`Étape ${n}`} src={shot(220 + n * 8)} {...extra} />
+    );
+    return (
+      <div style={{ display: 'flex', gap: 40, alignItems: 'flex-start' }}>
+        <div style={{ width: 234 }}>
+          <StepGroup badge="Slide 1">{thumb(1, { selected: true })}{thumb(2, { ai: true })}{thumb(3, { multiSelected: true })}{thumb(4, { multiSelected: true })}{thumb(5)}<StepAddThumb /></StepGroup>
+        </div>
+        <div style={{ width: 234 }}>
+          <StepGroup badge="Slide 1">{thumb(1, { selected: true })}{thumb(2, { drop: 'before' })}{thumb(3)}{thumb(4)}{thumb(5, { dragging: true })}<StepAddThumb /></StepGroup>
+        </div>
+        <div style={{ width: 234, display: 'grid', gap: 8 }}>
+          <StepGroup badge="Slide 1" defaultExpanded={false} count={4}>{thumb(1)}</StepGroup>
+          <InsertBar label="Insérer une slide" />
+          <StepGroup badge="Slide 2" defaultExpanded={false} count={3}>{thumb(2)}</StepGroup>
+          <InsertBar label="Insérer une slide" dropTarget />
+          <StepGroup badge="Slide 3" defaultExpanded={false} count={2}>{thumb(3)}</StepGroup>
+        </div>
       </div>
     );
   },
