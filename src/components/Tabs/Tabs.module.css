@@ -51,3 +51,10 @@
 /* GroupTab hasCounter : nombre après le libellé, Body/12/Medium, muted (subtle sur l'onglet actif). */
 .segCount { font-size: 12px; line-height: 18px; font-weight: var(--font-weight-medium); color: var(--content-muted-default); }
 .segActive .segCount { color: var(--content-subtle-default); }
+
+/* color=inverse : en-tête sombre de l'éditeur (le parent porte data-theme="dark", donc Ink = blanc). */
+.buttonTab.inverse { --bt-fg: var(--ink-default); --bt-fg-sel: var(--ink-default); --bt-bg-hover: var(--ink-alpha-5); --bt-hover-a: 100%;
+  --bt-bg-sel: var(--ink-alpha-12); --bt-sel-a: 100%; border-color: transparent; }
+.btDot { width: 6px; height: 6px; border-radius: 50%; flex: none; margin-left: 2px; }
+.dot-success { background: var(--content-success-strong-on-dark, #22c55e); }
+.dot-danger { background: var(--content-danger-strong-on-dark, #f87171); }

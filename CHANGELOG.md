@@ -3,6 +3,15 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.15.0 · 21/11/2026
+
+Pièces de l'en-tête de l'éditeur (EditorHeaderRecord / EditorHeaderTold).
+
+- **ButtonEditionMenu** (nouveau, 1018:49167) : bouton du menu de l'éditeur, logo Told mini + chevron, blanc 5 % et filet 10 %, `open`.
+- **EditorSteps** (nouveau) : Construire › Diffuser › Analyser au centre de l'en-tête ; icône pleine sur l'étape en cours ; point vert (en ligne) ou rouge (brouillon) sur Diffuser ; Analyser désactivé tant que rien n'est publié.
+- **ButtonTab** : `color="inverse"` (en-tête sombre : texte blanc, sélection blanc 12 %), `dot` + `dotLabel` (point d'état).
+- **EditorHeader** : avec `center`, trois colonnes et centre vraiment centré ; sous-navigation de 44 (au lieu de 54). Stories « V1 · brouillon » et « V1 · en ligne » conformes à Figma.
+
 ## v0.14.0 · 20/11/2026
 
 Demandes de Told Record D-016 à D-018, D-020 (en partie) et D-021.

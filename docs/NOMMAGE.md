@@ -32,6 +32,8 @@ Figma a été renommé ; les instances des maquettes restent liées. Dans le cod
 | `UserStory` | User story | | |
 | `OptionItem` | ex-OptionPanelItem et PanelSection | `OptionPanelItem` | nom à utiliser dans le code |
 | `OptionSidebar` | ex-OptionPanel et StepOptionsPanel | `OptionPanel` | variante `contentType=record` pour Told Record |
+| `ButtonEditionMenu` | ButtonEditionMenu | | bouton du menu de l'éditeur |
+| `EditorSteps` (code) | cadre « Étapes » d'EditorHeaderTold / EditorHeaderRecord | | Construire › Diffuser › Analyser, ButtonTab `color="inverse"` |
 | `EditorHeader` (code) | EditorHeaderTold (ex-EditionNav), EditorHeaderRecord (ex-EditionNavRecord) | | le code est un seul gabarit à emplacements (+ `EditorSaveState`, `EditorChanges`) pour les deux produits ; Figma garde un composant par produit |
 | `ChecklistItem` | WidgetChecklist / ChecklistItem | | la liste complète n'est pas codée |
 | `CodeInput` | CodeDigit intégré | | |

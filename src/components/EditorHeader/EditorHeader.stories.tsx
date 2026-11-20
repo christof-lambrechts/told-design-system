@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { EditorChanges, EditorHeader, EditorSaveState, editorHeaderGhostButton } from './EditorHeader';
+import { EditorChanges, EditorHeader, EditorSaveState, editorHeaderGhostButton, ButtonEditionMenu, EditorSteps, type EditorStep } from './EditorHeader';
+import { ButtonGroup } from '../Button/ButtonGroup';
 import { Breadcrumb } from '../Breadcrumb/Breadcrumb';
 import { AvatarGroup } from '../Avatar/AvatarGroup';
 import { Button, ButtonIcon } from '../Button/Button';
@@ -39,3 +40,28 @@ const Header = ({ status }: { status: 'brouillon' | 'relecture' | 'publiee' }) =
 export const Brouillon: StoryObj = { render: () => <Header status="brouillon" /> };
 export const Relecture: StoryObj = { render: () => <Header status="relecture" /> };
 export const Publiee: StoryObj = { name: 'Publiée', render: () => <Header status="publiee" /> };
+
+/** EditorHeaderRecord V1 (Figma 8749:4650) : barre noire seule, étapes au centre, présence, Aperçu, Publier. */
+const V1 = ({ published }: { published: boolean }) => {
+  const [t, setT] = useState('Nom de la démo');
+  const [step, setStep] = useState<EditorStep>('build');
+  const action = !published ? <Button size="sm" iconLeft="play">Publier</Button>
+    : step === 'build' ? <Button size="sm" iconLeft="play">Publier les modifications</Button>
+    : step === 'publish' ? <Button size="sm" color="danger" iconLeft="pause">Mettre en pause</Button> : null;
+  return (
+    <EditorHeader
+      start={<><ButtonEditionMenu /><Breadcrumb theme="dark" items={[{ label: 'Mon projet' }]} current={t} onRename={setT} /></>}
+      center={<EditorSteps value={step} onChange={setStep} published={published} />}
+      end={<>
+        <AvatarGroup surface="dark" people={[{ name: 'Claire Lemaire', color: 'teal' }, { name: 'Marc André', color: 'pink' }, { name: 'Jonathan S', color: 'orange' }]} />
+        <ButtonGroup appearance="inverse">
+          {step === 'analyze' && <Button size="sm" color="neutral" iconLeft="share-03">Partager</Button>}
+          <Button size="sm" color="neutral" iconLeft="view">Aperçu</Button>
+        </ButtonGroup>
+        {action}
+      </>}
+    />
+  );
+};
+export const V1Brouillon: StoryObj = { name: 'V1 · brouillon', render: () => <V1 published={false} /> };
+export const V1EnLigne: StoryObj = { name: 'V1 · en ligne', render: () => <V1 published /> };

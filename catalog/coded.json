@@ -116,5 +116,6 @@
   "CheckList": "composants-retours-checklist--docs",
   "CheckRow": "composants-retours-checklist--docs",
   "EmptyState": "composants-retours-emptystate--docs",
-  "EditorLayout": "gabarits-editorlayout--docs"
+  "EditorLayout": "gabarits-editorlayout--docs",
+  "ButtonEditionMenu": "composants-navigation-en-tête-éditeur-record--v-1-brouillon"
 }

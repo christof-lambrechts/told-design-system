@@ -5,7 +5,7 @@
 .start { padding: 0 14px; }
 .end { justify-content: flex-end; padding: 0 14px; }
 .center { justify-content: center; }
-.sub { display: flex; align-items: center; justify-content: space-between; gap: 10px; height: 54px; padding: 0 14px; background: var(--white-alpha-10); }
+.sub { display: flex; align-items: center; justify-content: space-between; gap: 10px; height: 44px; padding: 0 14px; background: var(--white-alpha-10); }
 .tabs { display: flex; align-items: center; gap: 4px; }
 .status { display: flex; align-items: center; gap: 7px; }
 .pill { display: inline-flex; align-items: center; gap: 6px; height: 22px; padding: 0 8px; border: 0; border-radius: 6px; background: var(--white-alpha-5);
@@ -17,3 +17,15 @@
 .dotSaving { background: var(--white-alpha-60, rgba(255,255,255,.6)); }
 .dotChanges { background: currentColor; }
 .lightButton { --bg: var(--white-alpha-12) !important; --bg-hover: var(--white-alpha-20, rgba(255,255,255,.2)) !important; --bg-pressed: var(--white-alpha-20, rgba(255,255,255,.2)) !important; --fg: var(--white-white-100) !important; --border: transparent !important; --border-hover: transparent !important; }
+
+.editionMenu { all: unset; box-sizing: border-box; display: inline-flex; align-items: center; gap: 4px; height: 28px; padding: 0 5px 0 9px; border-radius: 8px;
+  background: var(--ink-alpha-5); box-shadow: inset 0 0 0 1px var(--ink-alpha-10); color: var(--ink-default); cursor: pointer; }
+.editionMenu:hover, .editionMenuOpen { background: var(--ink-alpha-10); }
+.editionMenu:focus-visible { box-shadow: inset 0 0 0 1px var(--ink-alpha-10), var(--focus-ring); }
+.steps { display: flex; align-items: center; gap: 4px; }
+.stepItem { display: inline-flex; align-items: center; gap: 4px; }
+.stepChevron { color: var(--ink-alpha-40, rgba(255,255,255,.4)); }
+
+/* Avec des étapes au centre : trois colonnes, centre vraiment centré (Figma). */
+.main.withCenter { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+.main.withCenter > :last-child { justify-self: end; }

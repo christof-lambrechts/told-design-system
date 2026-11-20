@@ -38,20 +38,27 @@ export interface ButtonTabProps extends Omit<ButtonHTMLAttributes<HTMLButtonElem
   icon?: IconName;
   /** Poids du libellé (propriété Figma `font`). */
   weight?: 'medium' | 'semibold';
+  /** color=inverse : sur l'en-tête sombre de l'éditeur (texte blanc, sélection blanc 12 %). */
+  color?: 'default' | 'inverse';
+  /** Point d'état après le libellé (ex. Diffuser : vert en ligne, rouge brouillon). */
+  dot?: 'success' | 'danger';
+  /** Libellé du point, lu par les lecteurs d'écran (« En ligne », « Brouillon »). */
+  dotLabel?: string;
 }
 
-/** ButtonTab (3594:233176) : onglet bouton de l'éditeur (EditionNav, Langues). */
-export function ButtonTab({ children, appearance = 'fill', size = 'md', selected, icon, weight = 'medium', className, ...rest }: ButtonTabProps) {
+/** ButtonTab (3594:233176) : onglet bouton de l'éditeur (EditorHeader, Langues). */
+export function ButtonTab({ children, appearance = 'fill', size = 'md', selected, icon, weight = 'medium', color = 'default', dot, dotLabel, className, ...rest }: ButtonTabProps) {
   return (
     <button
       type="button"
       role="tab"
       aria-selected={!!selected}
-      className={cx(styles.buttonTab, styles[appearance], styles[size], selected && styles.selected, weight === 'semibold' && styles.semibold, className)}
+      className={cx(styles.buttonTab, styles[appearance], color === 'inverse' && styles.inverse, styles[size], selected && styles.selected, weight === 'semibold' && styles.semibold, className)}
       {...rest}
     >
       {icon && <Icon name={icon} size={size === 'lg' ? 16 : 14} variant={selected ? 'solid' : 'stroke'} />}
       {children != null && <span className={styles.btLabel}>{children}</span>}
+      {dot && <span className={cx(styles.btDot, styles[`dot-${dot}`])} role="img" aria-label={dotLabel} />}
     </button>
   );
 }

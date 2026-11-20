@@ -84,8 +84,8 @@ export { ChoicePicker, ChoiceThumb } from './components/ChoicePicker/ChoicePicke
 export type { ChoicePickerProps, ChoiceThumbProps } from './components/ChoicePicker/ChoicePicker';
 export { ChoiceIllustration } from './components/ChoicePicker/illustrations';
 export type { ChoiceIllustrationName } from './components/ChoicePicker/illustrations';
-export { EditorHeader, EditorSaveState, EditorChanges, editorHeaderGhostButton } from './components/EditorHeader/EditorHeader';
-export type { EditorHeaderProps } from './components/EditorHeader/EditorHeader';
+export { EditorHeader, EditorSaveState, EditorChanges, editorHeaderGhostButton, ButtonEditionMenu, EditorSteps } from './components/EditorHeader/EditorHeader';
+export type { EditorHeaderProps, ButtonEditionMenuProps, EditorStepsProps, EditorStep } from './components/EditorHeader/EditorHeader';
 // v0.10.0
 export { AiTag, AiNotice } from './components/Ai/Ai';
 export type { AiTagProps, AiNoticeProps } from './components/Ai/Ai';
