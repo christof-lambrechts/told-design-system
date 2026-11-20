@@ -117,5 +117,12 @@
   "CheckRow": "composants-retours-checklist--docs",
   "EmptyState": "composants-retours-emptystate--docs",
   "EditorLayout": "gabarits-editorlayout--docs",
-  "ButtonEditionMenu": "composants-navigation-en-tête-éditeur-record--v-1-brouillon"
+  "ButtonEditionMenu": "composants-navigation-en-tête-éditeur-record--v-1-brouillon",
+  "FilterBar": "composants-données-filter--docs",
+  "FilterMenu": "composants-données-filter--docs",
+  "_FilterChip": "composants-données-filter--docs",
+  "_FilterLogic": "composants-données-filter--docs",
+  "_FilterSearchField": "composants-données-filter--docs",
+  "_FilterMenuItem": "composants-données-filter--docs",
+  "_FilterMenuTitle": "composants-données-filter--docs"
 }

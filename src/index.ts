@@ -115,3 +115,5 @@ export { EmptyState } from './components/EmptyState/EmptyState';
 export type { EmptyStateProps } from './components/EmptyState/EmptyState';
 export { EditorLayout } from './components/EditorLayout/EditorLayout';
 export type { EditorLayoutProps } from './components/EditorLayout/EditorLayout';
+export { FilterBar, FilterChip, FilterLogic, FilterMenu } from './components/Filter/Filter';
+export type { FilterBarProps, FilterChipProps, FilterLogicProps, FilterMenuProps, FilterMenuItemData } from './components/Filter/Filter';

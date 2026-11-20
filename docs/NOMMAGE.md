@@ -38,6 +38,7 @@ Figma a été renommé ; les instances des maquettes restent liées. Dans le cod
 | `ChecklistItem` | WidgetChecklist / ChecklistItem | | la liste complète n'est pas codée |
 | `CodeInput` | CodeDigit intégré | | |
 | `PresenceAvatar`, `PromptChip`, `ToolbarItem`, `ChoiceThumb`, `ChoiceIllustration`, `ContrastMenu` | `_PresenceAvatar`, `_PromptChip`… | | règle 3 |
+| `FilterBar`, `FilterMenu`, `FilterChip`, `FilterLogic` | FilterBar, FilterMenu, _FilterChip, _FilterLogic | | règle 3 pour les pièces |
 | `IconBoxed` | | | pas de composant Figma du même nom : pastille d'icône simple |
 
 Tous les autres composants codés portent **exactement** le nom Figma : Button, ButtonIcon, ButtonGroup, ButtonGradient, ButtonDropdown, ButtonLink, Badge, Avatar, AvatarGroup, AiTag, AiNotice, Banner, Toast, Tooltip, Kbd, KbdCombo, Input, SearchBar, TextArea, Checkbox, Radio, Switch, TextTab, ButtonTab, GroupTab, Pagination, PaginationButton, NavButtonItem, Divider, FileUploader, Calendar, IconBoxedColor, ColorField, ContrastBadge, CopyField, CodeBlock, Breadcrumb, EditableTitle, FloatingToolbar, IntentInput, IntentPanel, QuickSuggestion, ChoicePicker, StepThumb, StepGroup, StepList, GettingStarted, GettingStartedStep, ModuleCard, SubStepItem, MessageCard, FlowDivider, InsertBar, DropZone, AddBlockModal, BlockTypeItem, OptionItem, OptionSidebar, PanelHeader, FormatCard, LogicRule, NotificationCenter, NotificationItem, AppLayout, AuthPanel, CodeInput, PasswordStrength, DividerLabel, SocialButton, TranslationTable, LanguageItem, Widget, WidgetButton, WidgetChoice, WidgetConsent.
