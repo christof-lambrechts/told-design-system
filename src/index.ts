@@ -99,3 +99,6 @@ export { Select as DropdownField } from './components/Select/Select';
 export { Flag as FlagCountry } from './components/Flag/Flag';
 export { TourStep as TourItemBase } from './components/Tour/Tour';
 export { ProgressSteps as ProgressBarWidget } from './components/Progress/Progress';
+// Noms Figma du 20/11 : OptionItem (ex-OptionPanelItem + PanelSection) et OptionSidebar (ex-OptionPanel + StepOptionsPanel).
+export { OptionPanelItem as OptionItem, OptionPanel as OptionSidebar } from './components/OptionPanel/OptionPanel';
+export type { OptionPanelItemProps as OptionItemProps, OptionPanelProps as OptionSidebarProps } from './components/OptionPanel/OptionPanel';

@@ -35,6 +35,8 @@
 | _PresenceAvatar | `PresenceAvatar` | | |
 | _PromptChip, _ToolbarItem, _ChoiceThumb, _ChoiceIllustration, _ContrastMenu | `PromptChip`, `ToolbarItem`, `ChoiceThumb`, `ChoiceIllustration`, `ContrastMenu` | | règle 3 |
 | `IconBoxed` | `IconBoxed` | | pas de composant Figma du même nom : pastille d'icône simple |
+| OptionItem (ex-OptionPanelItem et PanelSection) | `OptionPanelItem` | `OptionItem` | fusion du 20/11 ; utiliser `OptionItem` dans le nouveau code |
+| OptionSidebar (ex-OptionPanel et StepOptionsPanel) | `OptionPanel` | `OptionSidebar` | fusion du 20/11 ; variante `contentType=record` pour Told Record |
 
 Tous les autres composants codés portent **exactement** le nom Figma : Button, ButtonIcon, ButtonGroup, ButtonGradient, ButtonDropdown, ButtonLink, Badge, Avatar, AvatarGroup, AiTag, AiNotice, Banner, Toast, Tooltip, Kbd, KbdCombo, Input, SearchBar, TextArea, Checkbox, Radio, Switch, TextTab, ButtonTab, GroupTab, Pagination, PaginationButton, NavButtonItem, Divider, FileUploader, Calendar, IconBoxedColor, ColorField, ContrastBadge, CopyField, CodeBlock, Breadcrumb, EditableTitle, FloatingToolbar, IntentInput, IntentPanel, QuickSuggestion, ChoicePicker, StepThumb, StepGroup, StepList, GettingStarted, GettingStartedStep, ModuleCard, SubStepItem, MessageCard, FlowDivider, InsertBar, DropZone, AddBlockModal, BlockTypeItem, OptionPanel, OptionPanelItem, PanelHeader, FormatCard, LogicRule, NotificationCenter, NotificationItem, AppLayout, AuthPanel, CodeInput, PasswordStrength, DividerLabel, SocialButton, TranslationTable, LanguageItem, Widget, WidgetButton, WidgetChoice, WidgetConsent.
 
@@ -80,7 +82,7 @@ Tous les autres composants codés portent **exactement** le nom Figma : Button, 
 | StepGroup | `title`, `expanded`, `hasStepN`, badge « Groupe », vignette « + » en dernier (20/11) | `title`, `defaultExpanded`, enfants, `badge`, `count` |
 | StepList | depuis le 20/11 : `hasIntro` (section Début, MessageCard welcome), `hasEnd` (section Fin, MessageCard thanks) ; `label`, `warning`, `hasWarning` **supprimés** | `label`, `warning`, `onWarning`, `footer` ; **à aligner** : `intro`, `end`, retirer l'en-tête |
 | PanelHeader | `hasIcon`, `hasDescription` (20/11), `hasChangeType`, `hasMenu`, `hasBack` | à aligner : `icon`, `description` optionnels |
-| PanelSection | `content` (INSTANCE_SWAP, 20/11) pour poser un réglage dans la section ouverte | contenu = `children` |
+| OptionItem `type=generic` | `content` (INSTANCE_SWAP) pour poser un réglage dans la ligne ouverte | contenu = `children` |
 | ProgressBarWidget | `theme=light / dark` (20/11, barre blanche sur fond couleur) | `ProgressSteps` : à aligner (`theme`) |
 | label tour | propriété `label` (20/11) | pas codé (voir TourStep) |
 | EditionNavRecord | `hasSubnav` (20/11, faux en V1 : barre noire seule), Partager seulement dans `step=analyser`, icônes pleines, onglet Langues | `EditorHeader` : à aligner |
@@ -96,7 +98,7 @@ Tous les autres composants codés portent **exactement** le nom Figma : Button, 
 
 | Constat | Proposition |
 | --- | --- |
-| **PanelSection** (page PanelSection) et **OptionPanelItem** du code font la même chose : section générique de panneau. **StepOptionsPanel** (Record) et **OptionPanel** (Told) font aussi la même chose | Proposé le 20/11, en attente de l'accord de Christof : une seule ligne générique **OptionItem** (API de PanelSection, faite dans OptionPanelItem pour garder les instances) et un seul panneau **OptionSidebar** qui cumule toutes les options, avec des variantes par contexte (questionnaire, tour, annonce, Record × étape, bloc). Alias `OptionPanelItem`, `OptionPanel` gardés dans le code |
+| ~~PanelSection / OptionPanelItem, StepOptionsPanel / OptionPanel~~ | **Fait le 20/11** : une ligne **OptionItem** (`type=generic` + préréglages Told) et un panneau **OptionSidebar** (variantes par contexte, dont `contentType=record, scope=step`). PanelSection supprimé, StepOptionsPanel devenu une variante d'OptionSidebar |
 | **CodeBlock** existe deux fois (page CopyField, validé ; page Diffuser, ancien) | Remplacer les instances de l'ancien par celui de CopyField, puis le supprimer |
 | **Toldies** existe deux fois (Icons, Modals) | Garder celui d'Icons |
 | **TextEditorControls** existe deux fois (AudioInput, TextArea) | Un seul, axe `position` |
@@ -113,7 +115,7 @@ Tous les autres composants codés portent **exactement** le nom Figma : Button, 
 | --- | --- | --- | --- |
 | `AiBadge` | editor/copywriter.tsx | `AiTag` | remplacer |
 | `CopywriterCard` (attente, retour) | editor/copywriter.tsx | `AiNotice` | remplacer |
-| `PanelSection` | editor/fields.tsx | `OptionPanelItem` (générique) | remplacer (voir § 5) |
+| `PanelSection` | editor/fields.tsx | `OptionItem` (générique) | remplacer |
 | colonne Étapes (`renderStep`, groupes de slides) | editor/editor.tsx | `StepList`, `StepGroup`, `StepThumb` | remplacer |
 | `InterludeThumb` | editor/interlude-editor.tsx | `StepThumb` (`src` = rendu de l'écran) | à voir |
 | `ShareButton` + Aperçu | editor/share-panel.tsx | `ButtonGroup` | remplacer |
@@ -146,7 +148,7 @@ Ces noms sont réservés : le code les reprendra tels quels (règle 1). Statut d
 | FormatModal, _FormatRow | modale de choix du format (Tour : Standard, Vitrine, Compact, Vidéo, Démo ; Record : Démo guidée, Annonce, Animation in-app) | `product` ; ligne : `state`, `label`, `hasBadge` |
 | ZoomSlider | zoom d'une étape Record : barre ×1 à ×3, repère par défaut ×1,6, boutons − et + | `state=default / custom / none` |
 | StepThumbMenu | menu ⋯ d'une vignette (Monter, Descendre, Nouvelle slide, Ajouter un écran, Supprimer) | aucune |
-| StepOptionsPanel | panneau d'options d'une étape Record | (voir § 5, futur OptionSidebar) |
+| OptionSidebar `contentType=record` | panneau d'options d'une étape Record (ex-StepOptionsPanel) | `contentType`, `scope`, `hasIA` |
 | AnnouncementSlide | annonce vue du public, modèle étape de tour | `orientation=landscape / vertical`, `hasHeader`, `hasEyebrow`, `hasText`, `hasList`, `hasHighlight`, `hasCta`, `hasNav`, `hasLogo` |
 | _SlideHeader | en-tête de lecture au-dessus de l'annonce (absent de la vidéo exportée) | `theme`, `counter`, `hasCounter`, `hasPlay`, `hasClose` |
 | MediaFrame | média au format standard avec cadre d'appareil | `ratio=16:9 / 9:16`, `frame=none / browser / laptop / phone` |
@@ -154,7 +156,7 @@ Ces noms sont réservés : le code les reprendra tels quels (règle 1). Statut d
 | GuidedPlayer, InappAnimation, _PlayerBar, _PlayerTooltip, _ClickPoint, _CaptureMock | démo guidée et animation in-app vues du public | voir Figma |
 | CommentCard, _CommentPin, CommentComposer | commentaires de relecture | `state=open / hover / resolved` |
 | CheckList, CheckRow | liste « Avant de publier » | `hasAction` |
-| PanelSection | section de panneau générique (Record) | `state`, `label`, `hasValue`, `hasInfo`, `hasAction`, `hasToggle`, `hasChevron`, `content` |
+| OptionItem `type=generic` | ligne d'option générique (ex-PanelSection) | `state`, `label`, `hasValue`, `hasInfo`, `hasAction`, `hasToggle`, `hasChevron`, `content` |
 
 Nouveau jeton : `Neutral/border/divider` (gray/40 en clair) pour les séparations de grandes zones. Modifiés le 20/11 : `Neutral/surface/canvas` (gray/10) et `Neutral/surface/pattern` (gray/40), trame DotGrid tous les 8.
 
