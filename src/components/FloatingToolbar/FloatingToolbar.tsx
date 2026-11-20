@@ -18,7 +18,7 @@ export function ToolbarItem({ icon, label, showLabel = true, active, className, 
   return (
     <button type="button" aria-pressed={!!active} aria-label={showLabel ? undefined : label} title={showLabel ? undefined : label}
       className={cx(styles.item, active && styles.active, showLabel && styles.withLabel, className)} {...rest}>
-      <Icon name={icon} size={18} variant={active ? 'solid' : 'stroke'} />
+      <Icon name={icon} size={18} variant="solid" />
       {showLabel && <span className={styles.label}>{label}</span>}
     </button>
   );

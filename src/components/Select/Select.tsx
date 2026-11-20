@@ -38,7 +38,7 @@ export function DropdownItem({ children, description, icon, boxedIcon, selected,
     if (anchor.target === '_blank' && anchor.rel === undefined) anchor.rel = 'noopener noreferrer';
     return (
       <L {...anchor} href={disabled ? undefined : href} role="menuitem" tabIndex={kind === 'menu' ? -1 : undefined} aria-disabled={disabled || undefined} className={cls} onClick={disabled ? (e: Event) => e.preventDefault() : onClick}>
-        {icon && <Icon name={icon} size={14} className={styles.itemIcon} />}
+        {icon && <Icon name={icon} size={14} variant="stroke" className={styles.itemIcon} />}
         <span className={styles.itemText}><span className={styles.itemLabel}>{children}</span>{description && <span className={styles.itemDesc}>{description}</span>}</span>
         {shortcut && <span className={styles.shortcut}>{shortcut}</span>}
       </L>
@@ -50,7 +50,7 @@ export function DropdownItem({ children, description, icon, boxedIcon, selected,
     return (
       <button type="button" role="menuitem" tabIndex={-1} aria-disabled={disabled || undefined} className={cls} onClick={disabled ? undefined : onClick} {...btn}>
         {boxedIcon && <IconBoxedColor icon={boxedIcon} size={20} />}
-        {icon && <Icon name={icon} size={14} className={styles.itemIcon} />}
+        {icon && <Icon name={icon} size={14} variant="stroke" className={styles.itemIcon} />}
         <span className={styles.itemText}>
           <span className={styles.itemLabel}>{children}</span>
           {description && <span className={styles.itemDesc}>{description}</span>}

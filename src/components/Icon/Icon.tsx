@@ -16,14 +16,18 @@ export interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'name'> {
   name: IconName;
   /** Taille en pixels : 12, 14, 16, 18, 20 ou 24. */
   size?: number;
-  /** Contour (par défaut) ou plein. */
+  /** Plein par défaut (21/11) ; contour au repos dans les menus (NavButtonItem, entrées de DropdownMenu). Les chevrons restent en trait par défaut. */
   variant?: IconVariant;
 }
 
 /** Épaisseur du contour : 1,75 sur la grille de 24, épaissie aux petites tailles pour garder 1,5 px à l'écran (14, 16, 20). */
 const strokeFor = (size: number) => Math.max(1.75, (1.5 * 24) / size);
 
-export function Icon({ name, size = 20, variant = 'stroke', ...rest }: IconProps) {
+/** Chevrons (arrow-up/down/left/right-01) : en trait par défaut, comme dans Figma (20/11). */
+const CHEVRON = /^arrow-(up|down|left|right)-01$/;
+
+export function Icon({ name, size = 20, variant: v, ...rest }: IconProps) {
+  const variant: IconVariant = v ?? (CHEVRON.test(name) ? 'stroke' : 'solid');
   const outline = variant === 'stroke' ? iconsStroke[name] : undefined;
   if (outline) {
     return (

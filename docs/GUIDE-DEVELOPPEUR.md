@@ -84,7 +84,7 @@ Le widget visiteur n'est pas concerné (il garde ses tailles).
 
 ## 7. Icônes et pictos
 
-- **Icônes** : `<Icon name="settings-02" />`. 165 icônes HugeIcons, en **contour par défaut**, et **pleines pour l'état actif** (`variant="solid"`), par exemple l'entrée de menu ou l'onglet sélectionné. La liste complète, avec recherche, est dans Storybook : Composants › Visuels › Icons.
+- **Icônes** : `<Icon name="settings-02" />`. 165 icônes HugeIcons, **pleines par défaut** (depuis v0.16.0). Le **contour** (`variant="stroke"`) ne sert qu'**au repos dans les menus** : entrée de menu de navigation (NavButtonItem) et entrées de DropdownMenu ; l'entrée sélectionnée repasse en plein. La liste complète, avec recherche, est dans Storybook : Composants › Visuels › Icons.
 - **Pictos de couleur** : `<IconBoxedColor icon="type-nps" size={24} />`. 93 pictos (types de question, types de contenu, formats, canaux, Told Record…), `appearance="filled"` ou `"subtle"`, tailles 24, 32, 40. Catalogue rangé par famille : Composants › Visuels › Pictos de couleur.
 - Correspondance des pictos Told Record : Textes = `text`, Durée = `time`, Cadrage = `crop`, Floutage = `blur`, Capture = `capture`, Infobulle = `tooltip`, Point cliqué = `click`, Zoom = `zoom`, Avatar = `avatar`, Lecture = `player`, Orientation = `orientation`, Bouton = `button`, En boucle = `loop`, Kit de marque = `brand-kit`.
 - Une icône manque : la demander, elle est ajoutée dans Figma depuis la banque HugeIcons puis dans le code (`npm run icons`).

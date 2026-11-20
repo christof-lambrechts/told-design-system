@@ -105,7 +105,7 @@ export function EditorSteps({ value, onChange, published, labels, analyzeAlwaysE
     <nav aria-label="Étapes" className={styles.steps}>
       {STEPS.map((s, i) => (
         <span key={s.id} className={styles.stepItem}>
-          {i > 0 && <Icon name="arrow-right-01" size={16} className={styles.stepChevron} aria-hidden="true" />}
+          {i > 0 && <Icon name="arrow-right-01" size={16} variant="stroke" className={styles.stepChevron} aria-hidden="true" />}
           <ButtonTab appearance="ghost" size="sm" weight="semibold" color="inverse" icon={s.icon}
             selected={value === s.id} aria-current={value === s.id ? 'page' : undefined}
             disabled={s.id === 'analyze' && !published && !analyzeAlwaysEnabled}

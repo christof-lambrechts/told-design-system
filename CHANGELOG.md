@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.16.0 · 21/11/2026
+
+- **Icônes pleines par défaut** (règle de Christof) : `Icon` passe en `variant="solid"` par défaut. Le contour ne reste qu'au repos dans les menus (NavButtonItem, entrées de DropdownMenu). ButtonTab, TextTab, GroupTab et FloatingToolbar sont toujours en plein. Une icône posée sans `variant` dans une app passe donc en plein. Les chevrons (`arrow-*-01`) restent en trait par défaut, comme dans Figma.
+
 ## v0.15.0 · 21/11/2026
 
 Pièces de l'en-tête de l'éditeur (EditorHeaderRecord / EditorHeaderTold).

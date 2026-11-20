@@ -18,10 +18,10 @@ export function TextTab({ children, selected, iconLeft, iconRight, count, classN
   return (
     <button type="button" role="tab" aria-selected={!!selected} className={cx(styles.textTab, selected && styles.selected, className)} {...rest}>
       <span className={styles.textContent}>
-        {iconLeft && <Icon name={iconLeft} size={16} variant={selected ? 'solid' : 'stroke'} />}
+        {iconLeft && <Icon name={iconLeft} size={16} variant="solid" />}
         {children}
         {count != null && <span className={styles.count}>{count}</span>}
-        {iconRight && <Icon name={iconRight} size={16} variant={selected ? 'solid' : 'stroke'} />}
+        {iconRight && <Icon name={iconRight} size={16} variant="solid" />}
       </span>
       <span className={styles.underline} aria-hidden="true" />
     </button>
@@ -56,7 +56,7 @@ export function ButtonTab({ children, appearance = 'fill', size = 'md', selected
       className={cx(styles.buttonTab, styles[appearance], color === 'inverse' && styles.inverse, styles[size], selected && styles.selected, weight === 'semibold' && styles.semibold, className)}
       {...rest}
     >
-      {icon && <Icon name={icon} size={size === 'lg' ? 16 : 14} variant={selected ? 'solid' : 'stroke'} />}
+      {icon && <Icon name={icon} size={size === 'lg' ? 16 : 14} variant="solid" />}
       {children != null && <span className={styles.btLabel}>{children}</span>}
       {dot && <span className={cx(styles.btDot, styles[`dot-${dot}`])} role="img" aria-label={dotLabel} />}
     </button>
@@ -85,7 +85,7 @@ export function GroupTab({ items, value, onChange, size = 'lg', ...rest }: Group
           className={cx(styles.segment, it.value === value && styles.segActive)}
           onClick={() => onChange?.(it.value)}
         >
-          {it.icon && <Icon name={it.icon} size={16} variant={it.value === value ? 'solid' : 'stroke'} />}
+          {it.icon && <Icon name={it.icon} size={16} variant="solid" />}
           {it.label}
           {it.count != null && <span className={styles.segCount}>{it.count}</span>}
         </button>
