@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, CSSProperties, ElementType, ReactNode } from 'react';
 import { Icon, type IconName } from '../Icon/Icon';
 import styles from './Button.module.css';
 
@@ -49,6 +49,10 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   iconRight?: IconName;
   fullWidth?: boolean;
   htmlType?: 'button' | 'submit' | 'reset';
+  /** D-006 : rend un lien avec l'apparence du bouton. */
+  href?: string;
+  /** Composant de lien du routeur (ex. Link de Next), sinon <a>. */
+  linkAs?: ElementType;
 }
 
 export function Button({
@@ -60,6 +64,8 @@ export function Button({
   iconRight,
   fullWidth,
   htmlType = 'button',
+  href,
+  linkAs,
   className,
   style,
   ...rest
@@ -68,11 +74,21 @@ export function Button({
   const cls = [styles.button, styles[size], special, fullWidth && styles.fullWidth, className].filter(Boolean).join(' ');
   /* ai : étoile violette intégrée ; rec : point blanc intégré (icône dot). */
   const lead: IconName | undefined = color === 'ai' ? 'ai-magic' : color === 'rec' ? 'dot' : iconLeft;
-  return (
-    <button type={htmlType} className={cls} style={{ ...buttonVars(color, variant), ...style }} {...rest}>
+  const inner = (
+    <>
       {lead && <Icon name={lead} size={iconSize[size]} variant={color === 'ai' || color === 'rec' ? 'solid' : undefined} className={styles.icon} />}
       {children != null && children !== '' && <span className={styles.label}>{children}</span>}
       {iconRight && <Icon name={iconRight} size={iconSize[size]} className={styles.icon} />}
+    </>
+  );
+  if (href) {
+    const L = linkAs ?? 'a';
+    const { onClick, title, id, 'aria-label': al } = rest as Record<string, never>;
+    return <L href={href} className={cls} style={{ ...buttonVars(color, variant), ...style }} onClick={onClick} title={title} id={id} aria-label={al}>{inner}</L>;
+  }
+  return (
+    <button type={htmlType} className={cls} style={{ ...buttonVars(color, variant), ...style }} {...rest}>
+      {inner}
     </button>
   );
 }
@@ -86,6 +102,9 @@ export interface ButtonIconProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
   appearance?: 'fill' | 'outline' | 'ghost' | 'subtle';
   size?: ButtonSize;
   htmlType?: 'button' | 'submit' | 'reset';
+  /** D-006 : rend un lien. */
+  href?: string;
+  linkAs?: ElementType;
 }
 
 const typeOf = { fill: 'primary', outline: 'primary-outline', subtle: 'tertiary', ghost: 'ghost' } as const;
@@ -98,10 +117,16 @@ export function ButtonIcon({
   appearance = 'ghost',
   size = 'md',
   htmlType = 'button',
+  href,
+  linkAs,
   className,
   ...rest
 }: ButtonIconProps) {
   const cls = [styles.button, styles[size], styles.iconOnly, className].filter(Boolean).join(' ');
+  if (href) {
+    const L = linkAs ?? 'a';
+    return <L href={href} aria-label={label} title={label} className={cls} style={buttonVars(color, typeOf[appearance])} onClick={rest.onClick}><Icon name={icon} size={iconSize[size]} /></L>;
+  }
   return (
     <button type={htmlType} aria-label={label} title={label} className={cls} style={buttonVars(color, typeOf[appearance])} {...rest}>
       <Icon name={icon} size={iconSize[size]} />

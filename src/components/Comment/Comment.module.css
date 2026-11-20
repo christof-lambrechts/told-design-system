@@ -1,0 +1,22 @@
+.card { display: flex; flex-direction: column; gap: 6px; padding: 11px 13px; border: 1px solid var(--neutral-border-default); border-radius: 12px; background: var(--neutral-surface-default);
+  font-family: var(--font-family-body); font-size: var(--body-14-size); line-height: var(--body-14-line-height); color: var(--content-default-default); }
+.card:hover { border-color: var(--neutral-border-hover); }
+.unread { background: var(--brand-surface-tint); }
+.unread .name { font-weight: var(--font-weight-semibold); }
+.resolved { opacity: 0.6; }
+.head { display: flex; align-items: center; gap: 8px; }
+.name { font-weight: var(--font-weight-medium); }
+.date { flex: 1; color: var(--content-muted-default); font-size: var(--body-12-size); }
+.status { display: inline-flex; align-items: center; gap: 3px; color: var(--content-success-default-on-light); font-size: var(--body-12-size); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand-color-brand); }
+.message { white-space: pre-wrap; }
+.mention { color: var(--content-brand-default-on-light); font-weight: var(--font-weight-medium); }
+.foot { display: flex; align-items: center; justify-content: space-between; }
+.actions { display: inline-flex; align-items: center; gap: 8px; }
+.menu { visibility: hidden; }
+.card:hover .menu, .card:focus-within .menu { visibility: visible; }
+.pin { padding: 3px; border: 0; border-radius: 999px 999px 999px 4px; background: var(--neutral-surface-default); box-shadow: var(--shadow-flat-8, 0 4px 12px rgb(0 0 0 / 0.12)); cursor: pointer; }
+.composer { display: flex; align-items: center; gap: 8px; padding: 6px 6px 6px 12px; border: 1px solid var(--neutral-border-default); border-radius: 12px; background: var(--neutral-surface-default); }
+.composer:focus-within { border-color: var(--input-brand-border-focus, var(--brand-color-brand)); }
+.field { flex: 1; min-width: 0; resize: none; border: 0; outline: none; background: none; font: inherit; font-family: var(--font-family-body); font-size: var(--body-14-size); line-height: var(--body-14-line-height); color: var(--content-default-default); }
+.field::placeholder { color: var(--content-muted-default); }

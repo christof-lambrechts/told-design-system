@@ -1,0 +1,8 @@
+.root { display: flex; flex-direction: column; height: 100%; min-height: 0; background: var(--neutral-surface-default); }
+.header { flex: none; }
+.cols { flex: 1; display: flex; min-height: 0; }
+.left, .right { flex: none; min-height: 0; overflow-y: auto; background: var(--neutral-surface-default); }
+.left { border-right: 1px solid var(--neutral-border-divider); }
+.right { border-left: 1px solid var(--neutral-border-divider); }
+.canvas { flex: 1; min-width: 0; min-height: 0; overflow: auto; display: grid; place-items: center; padding: 24px; background: var(--neutral-surface-canvas); }
+.dots { background-image: radial-gradient(var(--neutral-surface-pattern) 0.75px, transparent 0.75px); background-size: 8px 8px; }

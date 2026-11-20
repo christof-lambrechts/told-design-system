@@ -14,11 +14,13 @@ export interface EditableTitleProps {
   /** Sur fond sombre (en-tête de l'éditeur). */
   theme?: Theme;
   maxLength?: number;
+  /** Nom accessible du champ en édition (D-003). Défaut « Renommer ». */
+  inputLabel?: string;
   'aria-label'?: string;
 }
 
 /** EditableTitle (8739:53341) : titre qui se renomme sur place. Survol : fond léger et crayon ; clic : champ. Échap annule. */
-export function EditableTitle({ value, onChange, theme = 'light', maxLength = 120, ...rest }: EditableTitleProps) {
+export function EditableTitle({ value, onChange, theme = 'light', maxLength = 120, inputLabel, ...rest }: EditableTitleProps) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(value);
   const input = useRef<HTMLInputElement>(null);
@@ -33,7 +35,7 @@ export function EditableTitle({ value, onChange, theme = 'light', maxLength = 12
   if (editing) {
     return (
       <span className={cx(styles.title, styles.editing)} {...themeProps}>
-        <input ref={input} className={styles.input} value={draft} maxLength={maxLength} aria-label={rest['aria-label'] ?? 'Renommer'}
+        <input ref={input} className={styles.input} value={draft} maxLength={maxLength} aria-label={inputLabel ?? rest['aria-label'] ?? 'Renommer'}
           size={Math.max(4, draft.length)} onChange={(e) => setDraft(e.target.value)} onBlur={commit}
           onKeyDown={(e) => { if (e.key === 'Enter') commit(); if (e.key === 'Escape') { setDraft(value); setEditing(false); } }} />
       </span>
@@ -57,13 +59,14 @@ export interface BreadcrumbProps {
   onRename?: (v: string) => void;
   /** Flèche retour à gauche (hasBack). */
   onBack?: () => void;
-  /** Badge de statut après le titre (hasStatus). */
-  status?: ReactNode;
+  /** Nom accessible et longueur maximale du titre modifiable (D-003). */
+  titleLabel?: string;
+  titleMaxLength?: number;
   theme?: Theme;
 }
 
-/** Breadcrumb (8739:53399) : retour, niveaux parents séparés par « / », titre courant modifiable, statut. Clair ou sombre. */
-export function Breadcrumb({ items, current, onRename, onBack, status, theme = 'light' }: BreadcrumbProps) {
+/** Breadcrumb (8739:53399) : retour, niveaux parents séparés par « / », titre courant modifiable. Clair ou sombre. Pas de badge d'état (retiré le 20/11). */
+export function Breadcrumb({ items, current, onRename, onBack, titleLabel, titleMaxLength, theme = 'light' }: BreadcrumbProps) {
   return (
     <nav aria-label="Fil d'Ariane" className={styles.crumb} {...(theme === 'dark' ? { 'data-theme': 'dark' } : {})}>
       {onBack && <ButtonIcon icon="arrow-left-02" label="Retour" appearance="ghost" color="neutral" size="sm" onClick={onBack} />}
@@ -76,10 +79,9 @@ export function Breadcrumb({ items, current, onRename, onBack, status, theme = '
           </li>
         ))}
         <li className={styles.item} aria-current="page">
-          {onRename ? <EditableTitle value={current} onChange={onRename} theme={theme} /> : <span className={styles.current}>{current}</span>}
+          {onRename ? <EditableTitle value={current} onChange={onRename} theme={theme} inputLabel={titleLabel} maxLength={titleMaxLength} /> : <span className={styles.current}>{current}</span>}
         </li>
       </ol>
-      {status}
     </nav>
   );
 }

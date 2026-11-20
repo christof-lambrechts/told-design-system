@@ -72,7 +72,7 @@ Tous les autres composants codés portent **exactement** le nom Figma : Button, 
 | GroupTab | `hasCounter` (texte « Compteur ») | `items[].count` |
 | ButtonTab | `font=medium / semibold` | `weight` |
 | ButtonGroup | `style`, `size`, `count` | `appearance` ; taille et nombre = les boutons passés |
-| Breadcrumb | `levels=1 / 2`, `hasBack`, `hasStatus` | `items` (niveaux), `onBack`, `status` |
+| Breadcrumb | `levels=1 / 2`, `hasBack` (statut retiré le 20/11) | `items`, `onBack`, `titleLabel`, `titleMaxLength` (prop `status` supprimée en v0.12.0) |
 | ContrastBadge | `level`, `result`, `ratio`, `hasRatio`, `hasChevron` | `level`, `ratio` (le résultat est calculé), `showRatio`, `onClick` (chevron) |
 | ColorField | `state=fail / corrected / pass` | calculé depuis `value`, `background`, `level` |
 | CopyField, CodeBlock | `state=copied` | interne (2 s après le clic) |
@@ -80,10 +80,10 @@ Tous les autres composants codés portent **exactement** le nom Figma : Button, 
 | AiNotice | `state`, `hasAction`, `hasSecondaryAction` | `state`, `actionLabel`, `secondaryLabel` |
 | StepThumb | `hasAi`, `capture`, `state=empty`, `state=add` (20/11), bouton ⋯ au survol + `StepThumbMenu` (20/11) | `ai`, `src` (absent = vide), `warning`, `presence`, `menu` ; **à ajouter** : variante d'ajout (`onAdd`) |
 | StepGroup | `title`, `expanded`, `hasStepN`, badge « Groupe », vignette « + » en dernier (20/11) | `title`, `defaultExpanded`, enfants, `badge`, `count` |
-| StepList | depuis le 20/11 : `hasIntro` (section Début, MessageCard welcome), `hasEnd` (section Fin, MessageCard thanks) ; `label`, `warning`, `hasWarning` **supprimés** | `label`, `warning`, `onWarning`, `footer` ; **à aligner** : `intro`, `end`, retirer l'en-tête |
+| StepList | `hasIntro`, `hasEnd` ; en-tête supprimé | `intro`, `end` (v0.12.0) ; `label` et `warning` devenus facultatifs |
 | PanelHeader | `hasIcon`, `hasDescription` (20/11), `hasChangeType`, `hasMenu`, `hasBack` | à aligner : `icon`, `description` optionnels |
 | OptionItem `type=generic` | `content` (INSTANCE_SWAP) pour poser un réglage dans la ligne ouverte | contenu = `children` |
-| ProgressBarWidget | `theme=light / dark` (20/11, barre blanche sur fond couleur) | `ProgressSteps` : à aligner (`theme`) |
+| ProgressBarWidget | `theme=light / dark` | `ProgressSteps` `theme` (v0.12.0) |
 | label tour | propriété `label` (20/11) | pas codé (voir TourStep) |
 | EditionNavRecord | `hasSubnav` (20/11, faux en V1 : barre noire seule), Partager seulement dans `step=analyser`, icônes pleines, onglet Langues | `EditorHeader` : à aligner |
 | IntentInput | `state=filled / listening`, `hasMic`, `hasControls`, `hasHint` | `value` (rempli), `listening`, `onMic`, `controls`, `hint` |
@@ -138,7 +138,9 @@ Tous les autres composants codés portent **exactement** le nom Figma : Button, 
 | `Canvas`, `CropTool`, `RedactLayer`, `FormatCanvas` | editor/ | aucun (FloatingToolbar pour les outils) | propres à Record |
 | `Checkbox`, `Radio`, `Switch`, `NavButtonItem` (ds.ts) | components/ds.ts | les mêmes, enveloppés | garder |
 
-## 7. Ajouts Figma pas encore codés (19 et 20/11)
+## 7. Ajouts Figma du 19 et 20/11
+
+**Codés en v0.12.0** : SliderCapsule, ChoiceChips (+ _ChoiceChip), CommentCard, CommentPin, CommentComposer, CheckList, CheckRow, EmptyState (illustration en `illustration`), EditorLayout, StepAddThumb (StepThumb `state=add`), OptionItem générique (`variant` row | collapsible | open, `onAction`, `toggle`, `info`). Le reste du tableau n'est pas encore codé.
 
 Ces noms sont réservés : le code les reprendra tels quels (règle 1). Statut dans `claude/V3-avancement-ds.md` du projet.
 
@@ -146,7 +148,11 @@ Ces noms sont réservés : le code les reprendra tels quels (règle 1). Statut d
 | --- | --- | --- |
 | EditorLayout | gabarit des écrans d'édition : en-tête puis 3 colonnes collées, canevas à points au centre | `product=told / record` |
 | FormatModal, _FormatRow | modale de choix du format (Tour : Standard, Vitrine, Compact, Vidéo, Démo ; Record : Démo guidée, Annonce, Animation in-app) | `product` ; ligne : `state`, `label`, `hasBadge` |
-| ZoomSlider | zoom d'une étape Record : barre ×1 à ×3, repère par défaut ×1,6, boutons − et + | `state=default / custom / none` |
+| SliderCapsule | curseur en capsule (zoom, opacité, durée), point de valeur par défaut | `state=empty / partial / full / range`, `label`, `value`, `hasDefault` → code `value`, `defaultValue`, `format`, `rangeEnd` |
+| ChoiceChips, _ChoiceChip | choix compact en pastilles (thème, apparition, type d'écran, avatar) | `lead=none / icon / color / thumb / avatar / glyph`, `state` → code `options[]` (`icon`, `color`, `thumb`, `avatar`, `glyph`, `onListen`) |
+| AvatarPicker, _AvatarOption | choix de l'avatar Record (photo, nom, voix, Écouter) | `state`, `name`, `voice` (pas encore codé) |
+| EndButtonSettings, KeyPointsField, _Record*Options | contenus d'options Record | à composer dans Record avec les composants du DS |
+| EmptyIllustration | illustrations des états vides (style Koovea, écrans de Told) | `context`, `tone` (à exporter en SVG) |
 | StepThumbMenu | menu ⋯ d'une vignette (Monter, Descendre, Nouvelle slide, Ajouter un écran, Supprimer) | aucune |
 | OptionSidebar `contentType=record` | panneau d'options d'une étape Record (ex-StepOptionsPanel) | `contentType`, `scope`, `hasIA` |
 | AnnouncementSlide | annonce vue du public, modèle étape de tour | `orientation=landscape / vertical`, `hasHeader`, `hasEyebrow`, `hasText`, `hasList`, `hasHighlight`, `hasCta`, `hasNav`, `hasLogo` |

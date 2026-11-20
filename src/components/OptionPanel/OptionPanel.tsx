@@ -5,6 +5,7 @@ import { ButtonLink } from '../Button/ButtonMisc';
 import { GroupTab } from '../Tabs/Tabs';
 import { Badge } from '../Badge/Badge';
 import { IconBoxedColor, type IconBoxedColorName } from '../IconBoxed/IconBoxedColor';
+import { Switch } from '../Choice/Choice';
 import styles from './OptionPanel.module.css';
 
 const cx = (...c: (string | false | null | undefined)[]) => c.filter(Boolean).join(' ');
@@ -57,7 +58,9 @@ export function PanelHeader({ icon, title, description, onChangeType, changeType
 /* ---------- OptionPanelItem ---------- */
 
 export interface OptionPanelItemProps {
-  icon: IconBoxedColorName;
+  /** Sorte de ligne (OptionItem type=generic, 20/11) : row = valeur et action ou interrupteur à droite, sans contenu ; collapsible = chevron ; open = contenu toujours visible. Absent : ancien comportement (bouton « Modifier »). */
+  variant?: 'row' | 'collapsible' | 'open';
+  icon?: IconBoxedColorName;
   label: ReactNode;
   /** Résumé du réglage en cours (badge gris à côté du libellé, ex. « Widget »). */
   value?: ReactNode;
@@ -71,21 +74,51 @@ export interface OptionPanelItemProps {
   onOpenChange?: (open: boolean) => void;
   /** Libellé du bouton quand l'option est fermée. */
   actionLabel?: string;
-  /** Réglages de l'option (FormatCard, champs, interrupteurs…). */
+  /** Réglages de l'option (FormatCard, champs, ChoiceChips, SliderCapsule…). */
   children?: ReactNode;
+  /** Lien d'action à droite (« Sélectionner », « Recadrer »). */
+  onAction?: () => void;
+  /** Interrupteur à droite (hasToggle). */
+  toggle?: { checked: boolean; onChange: (checked: boolean) => void; label?: string };
+  /** Aide au survol de l'icône (i) (hasInfo). */
+  info?: string;
 }
 
 /** OptionPanelItem (6031:85291) : une option repliable de la colonne de réglages. Marge 12/14, filet bas Neutral/border/default. */
-export function OptionPanelItem({ icon, label, value, required, pro, open, defaultOpen = false, onOpenChange, actionLabel = 'Modifier', children }: OptionPanelItemProps) {
+export function OptionPanelItem({ variant, icon, label, value, required, pro, open, defaultOpen = false, onOpenChange, actionLabel = 'Modifier', children, onAction, toggle: sw, info }: OptionPanelItemProps) {
   const [inner, setInner] = useState(defaultOpen);
-  const isOpen = open ?? inner;
+  const isOpen = variant === 'open' ? true : variant === 'row' ? false : (open ?? inner);
   const cid = useId();
   const toggle = () => { const n = !isOpen; if (open === undefined) setInner(n); onOpenChange?.(n); };
+  if (variant) {
+    const head = (
+      <>
+        {icon && <IconBoxedColor icon={icon} size={20} />}
+        <span className={styles.itemLabel}>{label}{required && <span className={styles.required} aria-label="obligatoire">*</span>}</span>
+        {pro && <Badge color="pink-gradient" appearance="fill" size="xs">Pro</Badge>}
+        {value && <Badge color="light-gray" size="xs">{value}</Badge>}
+      </>
+    );
+    return (
+      <section className={cx(styles.item, isOpen && styles.itemOpen)}>
+        <div className={styles.itemHead}>
+          {variant === 'collapsible'
+            ? <button type="button" className={styles.itemToggle} aria-expanded={isOpen} aria-controls={cid} onClick={toggle}>{head}</button>
+            : <div className={styles.itemToggle}>{head}</div>}
+          {info && <span className={styles.info} title={info} aria-label={info}><Icon name="information-circle" size={14} variant="solid" /></span>}
+          {onAction && <ButtonLink size="sm" padding={false} iconRight={null} onClick={onAction}>{actionLabel}</ButtonLink>}
+          {sw && <Switch size="sm" checked={sw.checked} onChange={(e) => sw.onChange(e.currentTarget.checked)} aria-label={sw.label ?? (typeof label === 'string' ? label : undefined)} />}
+          {variant === 'collapsible' && <Icon name={isOpen ? 'arrow-up-01' : 'arrow-down-01'} size={16} className={styles.chevron} aria-hidden="true" />}
+        </div>
+        {isOpen && children && <div id={cid} className={styles.itemBody}>{children}</div>}
+      </section>
+    );
+  }
   return (
     <section className={cx(styles.item, isOpen && styles.itemOpen)}>
       <div className={styles.itemHead}>
         <button type="button" className={styles.itemToggle} aria-expanded={isOpen} aria-controls={cid} onClick={toggle}>
-          <IconBoxedColor icon={icon} size={20} />
+          {icon && <IconBoxedColor icon={icon} size={20} />}
           <span className={styles.itemLabel}>{label}{required && <span className={styles.required} aria-label="obligatoire">*</span>}</span>
           {pro && <Badge color="pink-gradient" appearance="fill" size="xs">Pro</Badge>}
           {value && <Badge color="light-gray" size="xs">{value}</Badge>}

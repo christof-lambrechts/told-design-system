@@ -106,5 +106,17 @@
   "ButtonGroup": "composants-actions-buttongroup--docs",
   "StepThumb": "composants-éditeur-de-démo-étapes--docs",
   "StepGroup": "composants-éditeur-de-démo-étapes--docs",
-  "StepList": "composants-éditeur-de-démo-étapes--docs"
+  "StepList": "composants-éditeur-de-démo-étapes--docs",
+  "OptionItem": "composants-panneaux-optionpanel--panneau",
+  "OptionSidebar": "composants-panneaux-optionpanel--panneau",
+  "SliderCapsule": "composants-formulaires-slidercapsule--docs",
+  "ChoiceChips": "composants-formulaires-choicechips--docs",
+  "_ChoiceChip": "composants-formulaires-choicechips--docs",
+  "CommentCard": "composants-collaboration-comment--docs",
+  "_CommentPin": "composants-collaboration-comment--docs",
+  "CommentComposer": "composants-collaboration-comment--docs",
+  "CheckList": "composants-retours-checklist--docs",
+  "CheckRow": "composants-retours-checklist--docs",
+  "EmptyState": "composants-retours-emptystate--docs",
+  "EditorLayout": "gabarits-editorlayout--docs"
 }

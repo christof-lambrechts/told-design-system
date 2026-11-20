@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState, type ReactNode, type KeyboardEvent, type ButtonHTMLAttributes } from 'react';
+import { useEffect, useId, useRef, useState, type ReactNode, type KeyboardEvent, type ButtonHTMLAttributes, type ElementType } from 'react';
 import { Icon, type IconName } from '../Icon/Icon';
 import { IconBoxedColor, type IconBoxedColorName } from '../IconBoxed/IconBoxedColor';
 import styles from './Select.module.css';
@@ -19,12 +19,25 @@ export interface DropdownItemProps extends Omit<ButtonHTMLAttributes<HTMLButtonE
   tone?: 'default' | 'danger';
   /** Raccourci affiché à droite. */
   shortcut?: ReactNode;
+  /** D-007 : entrée qui est un lien. */
+  href?: string;
+  linkAs?: ElementType;
 }
 
 /** DropdownItem (4544:102435) : une ligne de menu ou d'option. Marge 6/9, rayon 8. */
-export function DropdownItem({ children, description, icon, boxedIcon, selected, tone = 'default', shortcut, className, ...rest }: DropdownItemProps) {
+export function DropdownItem({ children, description, icon, boxedIcon, selected, tone = 'default', shortcut, href, linkAs, className, ...rest }: DropdownItemProps) {
+  const cls = cx(styles.item, selected && styles.selected, tone === 'danger' && styles.danger, rest.disabled && styles.itemDisabled, className);
+  if (href) {
+    const L = linkAs ?? 'a';
+    return (
+      <L href={rest.disabled ? undefined : href} role="menuitem" aria-disabled={rest.disabled || undefined} className={cls} onClick={rest.onClick}>
+        {icon && <Icon name={icon} size={14} className={styles.itemIcon} />}
+        <span className={styles.itemText}><span className={styles.itemLabel}>{children}</span>{description && <span className={styles.itemDesc}>{description}</span>}</span>
+      </L>
+    );
+  }
   return (
-    <button type="button" role="option" aria-selected={selected} className={cx(styles.item, selected && styles.selected, tone === 'danger' && styles.danger, className)} {...rest}>
+    <button type="button" role="option" aria-selected={selected} className={cls} {...rest}>
       {boxedIcon && <IconBoxedColor icon={boxedIcon} size={20} />}
       {icon && <Icon name={icon} size={14} variant={selected ? 'solid' : 'stroke'} className={styles.itemIcon} />}
       <span className={styles.itemText}>

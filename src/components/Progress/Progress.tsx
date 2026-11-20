@@ -40,10 +40,12 @@ export interface ProgressStepsProps extends HTMLAttributes<HTMLDivElement> {
   /** multi : un segment par étape. single : une seule barre. */
   appearance?: 'multi' | 'single';
   size?: 'sm' | 'lg';
+  /** dark : blanc sur fond couleur (annonce Told Record, 20/11). */
+  theme?: 'light' | 'dark';
 }
 
 /** ProgressBarWidget (787:72909) : progression dans le widget visiteur ou une étape de tour (segments de 3 de haut, écart 8). */
-export function ProgressSteps({ total, current, appearance = 'multi', size = 'sm', className, style, ...rest }: ProgressStepsProps) {
+export function ProgressSteps({ total, current, appearance = 'multi', size = 'sm', theme = 'light', className, style, ...rest }: ProgressStepsProps) {
   const c = Math.max(0, Math.min(total, current));
   return (
     <div
@@ -52,7 +54,7 @@ export function ProgressSteps({ total, current, appearance = 'multi', size = 'sm
       aria-valuemax={total}
       aria-valuenow={c}
       aria-label={`Étape ${c} sur ${total}`}
-      className={cx(styles.steps, styles[`steps-${size}`], className)}
+      className={cx(styles.steps, styles[`steps-${size}`], theme === 'dark' && styles.stepsDark, className)}
       style={style}
       {...rest}
     >

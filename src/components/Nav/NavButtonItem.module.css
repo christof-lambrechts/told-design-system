@@ -6,7 +6,7 @@
 .item:hover:not(:disabled) { background: var(--neutral-surface-muted); color: var(--content-default-default); }
 .item:focus-visible { box-shadow: var(--focus-ring); }
 .item:disabled { opacity: 0.38; cursor: not-allowed; }
-.selected, .selected:hover:not(:disabled) { background: color-mix(in srgb, var(--selectionbox-background-checked) 10%, transparent); color: var(--content-default-selected); }
+.selected, .selected:hover:not(:disabled) { background: var(--selectionbox-background-checked); color: var(--content-default-selected); }
 .secondary { padding-left: 30px; min-height: 30px; padding-top: 6px; padding-bottom: 6px; }
 .icon { flex: none; }
 .label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

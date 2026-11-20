@@ -1,6 +1,6 @@
 /* EditionNavRecord (8749:4650) : fond Neutral/surface/inverse (gris 950), contenu en mode sombre. */
 .header { display: flex; flex-direction: column; width: 100%; background: var(--brand-neutral-950); color: var(--content-default-default); font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
-.main { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 60px; }
+.main { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; height: 60px; }
 .start, .end, .center { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .start { padding: 0 14px; }
 .end { justify-content: flex-end; padding: 0 14px; }

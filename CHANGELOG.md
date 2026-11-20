@@ -3,6 +3,20 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.12.0 · 20/11/2026
+
+Composants validés dans Figma le 20/11 et demandes de Told Record (D-00X).
+
+- **Nouveaux** : `SliderCapsule` (D-010 : libellé, barre, valeur en case, point de valeur par défaut cliquable, plage), `ChoiceChips` (D-008 : pastilles à icône, couleur, vignette, avatar + Écouter, glyphe « Aa »), `CommentCard` (open, unread, resolved), `CommentPin`, `CommentComposer`, `Mention`, `CheckList` + `CheckRow`, `EmptyState` (D-013, illustration en emplacement), `EditorLayout` (gabarit d'éditeur), `StepAddThumb` (vignette « + »).
+- **OptionItem / OptionPanelItem** (D-009) : `variant` row | collapsible | open, `onAction` (lien d'action), `toggle` (interrupteur), `info` ; icône facultative.
+- **StepList** : sections `intro` (Début) et `end` (Fin) ; en-tête facultatif.
+- **Breadcrumb** : prop `status` supprimée (badge retiré de Figma) ; `titleLabel`, `titleMaxLength` ; **EditableTitle** `inputLabel` ; le titre rétrécit (D-003).
+- **Button / ButtonIcon** : `href` + `linkAs` (D-006). **DropdownItem** : `href`, `linkAs`, `disabled` (D-007).
+- **Checkbox, Radio, Switch** : le vrai champ couvre tout le contrôle (D-004). **NavButtonItem** : fond sélectionné visible (D-005). **EditorHeader** : grille `minmax(0, 1fr) auto auto` (D-002).
+- **ProgressSteps** : `theme="dark"` (barre blanche sur fond couleur).
+- **Jetons** : `--neutral-border-divider` (nouveau) ; `--neutral-surface-canvas` gray-10, `--neutral-surface-pattern` gray-40.
+- docs/NOMMAGE.md et catalogue à jour.
+
 ## v0.11.0 · 20/11/2026
 
 - **OptionItem** et **OptionSidebar** : nouveaux noms exportés (alias de `OptionPanelItem` et `OptionPanel`), suite à la fusion Figma du 20/11 (PanelSection et OptionPanelItem deviennent OptionItem ; OptionPanel et StepOptionsPanel deviennent OptionSidebar). Les anciens noms restent exportés.

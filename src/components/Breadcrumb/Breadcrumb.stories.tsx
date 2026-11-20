@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Breadcrumb, EditableTitle } from './Breadcrumb';
-import { Badge } from '../Badge/Badge';
 
 const meta = { title: "Composants/Navigation/Fil d'Ariane", component: Breadcrumb } satisfies Meta<typeof Breadcrumb>;
 export default meta;
@@ -13,7 +12,7 @@ export const Clair: StoryObj = {
     return (
       <div style={{ display: 'grid', gap: 20 }}>
         <Breadcrumb items={[{ label: 'Inqom' }]} current={t} onRename={setT} />
-        <Breadcrumb items={[{ label: 'Inqom' }, { label: 'Onboarding' }]} current={t} onRename={setT} onBack={() => {}} status={<Badge dot color="light-gray">Brouillon</Badge>} />
+        <Breadcrumb items={[{ label: 'Inqom' }, { label: 'Onboarding' }]} current={t} onRename={setT} onBack={() => {}} />
       </div>
     );
   },

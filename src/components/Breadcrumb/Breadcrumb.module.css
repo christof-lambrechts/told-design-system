@@ -18,3 +18,7 @@
 .editing { border-color: var(--brand-primary-500); background: var(--neutral-surface-default); cursor: auto; }
 .editing:hover { background: var(--neutral-surface-default); }
 .input { border: 0; outline: 0; padding: 0; background: transparent; color: inherit; font: inherit; min-width: 40px; max-width: 340px; }
+
+/* D-003 : le titre rétrécit au lieu de pousser les actions de l'en-tête. */
+.list, .item:last-child, .title, .text { min-width: 0; }
+.text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

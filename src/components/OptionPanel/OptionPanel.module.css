@@ -25,3 +25,5 @@
 .itemOpen .itemLabel, .itemToggle:hover .itemLabel { color: var(--content-default-default); }
 .required { margin-left: 2px; color: var(--content-danger-default-on-light); }
 .itemBody { display: flex; flex-direction: column; gap: 8px; }
+.info { display: inline-flex; color: var(--content-muted-default); }
+.chevron { color: var(--content-muted-default); flex: none; }

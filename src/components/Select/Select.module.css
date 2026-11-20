@@ -43,7 +43,8 @@
 .item:hover, .active { background: var(--dropdown-background-hover); }
 .item:active { background: var(--dropdown-background-pressed); }
 .item:focus-visible { outline: 2px solid var(--brand-border-focus); outline-offset: -2px; }
-.item:disabled { opacity: 0.38; cursor: default; background: none; }
+.item:disabled, .itemDisabled { opacity: 0.38; cursor: default; background: none; pointer-events: none; }
+a.item { text-decoration: none; color: inherit; }
 .selected, .selected:hover { background: var(--dropdown-background-selected); }
 .danger { color: var(--content-danger-default-on-light); }
 .itemIcon { flex: none; color: var(--content-subtle-default); }

@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { Icon } from '../Icon/Icon';
 import { AiTag } from '../Ai/Ai';
+import { FlowDivider } from '../ModuleCard/ModuleCard';
 import styles from './Steps.module.css';
 
 const cx = (...c: (string | false | undefined)[]) => c.filter(Boolean).join(' ');
@@ -49,6 +50,17 @@ export interface StepGroupProps {
   count?: number;
 }
 
+/** StepAddThumb (StepThumb `state=add`, 20/11) : dernière case de la grille, pointillés et « + », pour ajouter un enregistrement d'écran. */
+export function StepAddThumb({ label = 'Ajouter un enregistrement', onClick }: { label?: string; onClick?: () => void }) {
+  return (
+    <li className={styles.thumbWrap}>
+      <button type="button" aria-label={label} title={label} className={cx(styles.thumb, styles.add)} onClick={onClick}>
+        <Icon name="add-01" size={20} />
+      </button>
+    </li>
+  );
+}
+
 /** StepGroup (8830:447) : slide repliable, fond Neutral/surface/subtle, rayon 12, marge 8. */
 export function StepGroup({ badge, title, children, defaultExpanded = true, count }: StepGroupProps) {
   const [open, setOpen] = useState(defaultExpanded);
@@ -66,25 +78,35 @@ export function StepGroup({ badge, title, children, defaultExpanded = true, coun
 }
 
 export interface StepListProps {
-  /** « Étapes · 9 ». */
-  label: ReactNode;
+  /** En-tête facultatif (retiré de Figma le 20/11). */
+  label?: ReactNode;
   /** « 1 étape à compléter », en orange et cliquable. */
   warning?: ReactNode;
   onWarning?: () => void;
   children: ReactNode;
-  /** Bas de colonne : Enregistrer la suite, Ajouter un écran, Écran de fin. */
+  /** Section « Début » : écran d'introduction en option (MessageCard welcome). */
+  intro?: ReactNode;
+  /** Section « Fin » : écran de fin (MessageCard thanks). */
+  end?: ReactNode;
+  /** Bas de colonne, si besoin. */
   footer?: ReactNode;
 }
 
-/** StepList (8830:556) : colonne Étapes de l'éditeur Record. */
-export function StepList({ label, warning, onWarning, children, footer }: StepListProps) {
+/** StepList (8830:556) : colonne Étapes de l'éditeur Record : Début (intro), slides, Fin (écran de fin). */
+export function StepList({ label, warning, onWarning, children, intro, end, footer }: StepListProps) {
   return (
     <nav aria-label="Étapes" className={styles.list}>
-      <div className={styles.listHead}>
-        <span className={styles.listLabel}>{label}</span>
-        {warning && <button type="button" className={styles.listWarning} onClick={onWarning}>{warning}</button>}
+      {(label || warning) && (
+        <div className={styles.listHead}>
+          {label && <span className={styles.listLabel}>{label}</span>}
+          {warning && <button type="button" className={styles.listWarning} onClick={onWarning}>{warning}</button>}
+        </div>
+      )}
+      <div className={styles.listBody}>
+        {intro && <div className={styles.section}><FlowDivider kind="start" />{intro}<FlowDivider kind="content" label="" /></div>}
+        {children}
+        {end && <div className={styles.section}><FlowDivider kind="end" />{end}</div>}
       </div>
-      <div className={styles.listBody}>{children}</div>
       {footer && <div className={styles.listFoot}>{footer}</div>}
     </nav>
   );

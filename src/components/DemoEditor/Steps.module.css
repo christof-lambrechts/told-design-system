@@ -40,3 +40,6 @@
 .listWarning:hover { text-decoration: underline; text-underline-offset: 2px; }
 .listBody { display: flex; flex-direction: column; gap: 10px; min-height: 0; overflow-y: auto; }
 .listFoot { display: flex; flex-direction: column; gap: 8px; padding-top: 12px; border-top: 1px solid var(--neutral-border-default); }
+.add { display: grid; place-items: center; border-style: dashed; background: transparent; color: var(--content-muted-default); cursor: pointer; }
+.add:hover { border-color: var(--neutral-border-hover); color: var(--content-default-default); }
+.section { display: flex; flex-direction: column; gap: 6px; }

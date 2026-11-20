@@ -91,7 +91,7 @@ export { AiTag, AiNotice } from './components/Ai/Ai';
 export type { AiTagProps, AiNoticeProps } from './components/Ai/Ai';
 export { ButtonGroup } from './components/Button/ButtonGroup';
 export type { ButtonGroupProps } from './components/Button/ButtonGroup';
-export { StepThumb, StepGroup, StepList } from './components/DemoEditor/Steps';
+export { StepThumb, StepAddThumb, StepGroup, StepList } from './components/DemoEditor/Steps';
 export type { StepThumbProps, StepGroupProps, StepListProps } from './components/DemoEditor/Steps';
 // Alias : noms Figma des composants renommés dans le code (docs/NOMMAGE.md § 2).
 export { Modal as ModalBase } from './components/Modal/Modal';
@@ -102,3 +102,16 @@ export { ProgressSteps as ProgressBarWidget } from './components/Progress/Progre
 // Noms Figma du 20/11 : OptionItem (ex-OptionPanelItem + PanelSection) et OptionSidebar (ex-OptionPanel + StepOptionsPanel).
 export { OptionPanelItem as OptionItem, OptionPanel as OptionSidebar } from './components/OptionPanel/OptionPanel';
 export type { OptionPanelItemProps as OptionItemProps, OptionPanelProps as OptionSidebarProps } from './components/OptionPanel/OptionPanel';
+// 20/11 : composants validés dans Figma (Slider, ChoiceChips, Comment, CheckList, EmptyState, EditorLayout).
+export { SliderCapsule } from './components/Slider/SliderCapsule';
+export type { SliderCapsuleProps } from './components/Slider/SliderCapsule';
+export { ChoiceChips } from './components/ChoiceChips/ChoiceChips';
+export type { ChoiceChipsProps, ChoiceChipOption } from './components/ChoiceChips/ChoiceChips';
+export { CommentCard, CommentPin, CommentComposer, Mention } from './components/Comment/Comment';
+export type { CommentCardProps } from './components/Comment/Comment';
+export { CheckList, CheckRow } from './components/CheckList/CheckList';
+export type { CheckRowProps, CheckState } from './components/CheckList/CheckList';
+export { EmptyState } from './components/EmptyState/EmptyState';
+export type { EmptyStateProps } from './components/EmptyState/EmptyState';
+export { EditorLayout } from './components/EditorLayout/EditorLayout';
+export type { EditorLayoutProps } from './components/EditorLayout/EditorLayout';

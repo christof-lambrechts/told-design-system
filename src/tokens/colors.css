@@ -441,9 +441,9 @@
   --neutral-surface-strong: var(--brand-neutral-50);
   --neutral-surface-inverse: var(--brand-neutral-950);
   --neutral-surface-page: var(--brand-neutral-10);
-  --neutral-surface-canvas: var(--gray-30);
+  --neutral-surface-canvas: var(--gray-10);
   --neutral-surface-sidebar: #fcfcfd;
-  --neutral-surface-pattern: var(--white-alpha-90);
+  --neutral-surface-pattern: var(--gray-40);
   --neutral-surface-overlay: var(--black-alpha-40);
   --neutral-surface-scroll-bar: var(--black-alpha-20);
   --neutral-surface-subtleinverse: var(--black-alpha-10);
@@ -469,6 +469,7 @@
   --neutral-surface-white-alpha-5: var(--white-alpha-5);
   --neutral-surface-white-alpha-0: var(--white-alpha-0);
   --neutral-border-default: var(--gray-50);
+  --neutral-border-divider: var(--gray-40);
   --neutral-surface-code: var(--neutral-surface-black-alpha-5);
   --neutral-border-code: var(--neutral-surface-black-alpha-10);
   --neutral-border-hover: var(--brand-neutral-100);
@@ -1131,6 +1132,7 @@
   --neutral-surface-white-alpha-5: var(--black-alpha-5);
   --neutral-surface-white-alpha-0: var(--black-alpha-0);
   --neutral-border-default: var(--white-alpha-20);
+  --neutral-border-divider: var(--white-alpha-20);
   --neutral-surface-code: var(--neutral-surface-white-alpha-5);
   --neutral-border-code: var(--neutral-surface-white-alpha-10);
   --neutral-border-hover: var(--white-alpha-40);
