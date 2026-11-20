@@ -1,7 +1,7 @@
 # Nommage : Figma ↔ code ↔ Told Record
 
 > À lire **avant de créer un composant**, dans le design system comme dans Told Record. Si ce que tu veux faire figure dans ce fichier, le composant existe déjà : on l'utilise ou on le fait évoluer, on n'en crée pas un second.
-> Analyse du 19/11/2026 : fichier Figma `UzceYU5fzcWKqlgISYpS8V` (≈ 330 composants), paquet `@told/design-system` v0.10.0 (98 composants avec leurs propriétés), dépôt `jscanzi/toldrecord`.
+> Analyse du 19/11/2026, mise à jour le 20/11 : fichier Figma `UzceYU5fzcWKqlgISYpS8V` (≈ 330 composants), paquet `@told/design-system` v0.10.0 (98 composants avec leurs propriétés), dépôt `jscanzi/toldrecord`.
 
 ## 1. La règle
 
@@ -76,9 +76,14 @@ Tous les autres composants codés portent **exactement** le nom Figma : Button, 
 | CopyField, CodeBlock | `state=copied` | interne (2 s après le clic) |
 | AiTag | `label`, `hasIcon` | `children`, `icon` |
 | AiNotice | `state`, `hasAction`, `hasSecondaryAction` | `state`, `actionLabel`, `secondaryLabel` |
-| StepThumb | `hasAi`, `capture`, `state=empty` | `ai`, `src` (absent = vide), `warning`, `presence`, `menu` |
-| StepGroup | `title`, `expanded`, `hasStepN`, badge « Groupe » | `title`, `defaultExpanded`, enfants, `badge`, `count` |
-| StepList | `label`, `warning`, `hasWarning` | `label`, `warning`, `onWarning`, `footer` |
+| StepThumb | `hasAi`, `capture`, `state=empty`, `state=add` (20/11), bouton ⋯ au survol + `StepThumbMenu` (20/11) | `ai`, `src` (absent = vide), `warning`, `presence`, `menu` ; **à ajouter** : variante d'ajout (`onAdd`) |
+| StepGroup | `title`, `expanded`, `hasStepN`, badge « Groupe », vignette « + » en dernier (20/11) | `title`, `defaultExpanded`, enfants, `badge`, `count` |
+| StepList | depuis le 20/11 : `hasIntro` (section Début, MessageCard welcome), `hasEnd` (section Fin, MessageCard thanks) ; `label`, `warning`, `hasWarning` **supprimés** | `label`, `warning`, `onWarning`, `footer` ; **à aligner** : `intro`, `end`, retirer l'en-tête |
+| PanelHeader | `hasIcon`, `hasDescription` (20/11), `hasChangeType`, `hasMenu`, `hasBack` | à aligner : `icon`, `description` optionnels |
+| PanelSection | `content` (INSTANCE_SWAP, 20/11) pour poser un réglage dans la section ouverte | contenu = `children` |
+| ProgressBarWidget | `theme=light / dark` (20/11, barre blanche sur fond couleur) | `ProgressSteps` : à aligner (`theme`) |
+| label tour | propriété `label` (20/11) | pas codé (voir TourStep) |
+| EditionNavRecord | `hasSubnav` (20/11, faux en V1 : barre noire seule), Partager seulement dans `step=analyser`, icônes pleines, onglet Langues | `EditorHeader` : à aligner |
 | IntentInput | `state=filled / listening`, `hasMic`, `hasControls`, `hasHint` | `value` (rempli), `listening`, `onMic`, `controls`, `hint` |
 | ChoicePicker | `kind=ratio / format` | `options` (libellés et illustrations libres) |
 | FloatingToolbar | `labels=true / false` | `showLabel` sur chaque `ToolbarItem` |
@@ -91,7 +96,7 @@ Tous les autres composants codés portent **exactement** le nom Figma : Button, 
 
 | Constat | Proposition |
 | --- | --- |
-| **PanelSection** (page PanelSection) et **OptionPanelItem** du code font la même chose : section générique de panneau | Fusionner : PanelSection devient la variante générique d'OptionPanelItem dans Figma, ou OptionPanelItem garde ses types Told et PanelSection est exporté en alias dans le code. À trancher |
+| **PanelSection** (page PanelSection) et **OptionPanelItem** du code font la même chose : section générique de panneau. **StepOptionsPanel** (Record) et **OptionPanel** (Told) font aussi la même chose | Proposé le 20/11, en attente de l'accord de Christof : une seule ligne générique **OptionItem** (API de PanelSection, faite dans OptionPanelItem pour garder les instances) et un seul panneau **OptionSidebar** qui cumule toutes les options, avec des variantes par contexte (questionnaire, tour, annonce, Record × étape, bloc). Alias `OptionPanelItem`, `OptionPanel` gardés dans le code |
 | **CodeBlock** existe deux fois (page CopyField, validé ; page Diffuser, ancien) | Remplacer les instances de l'ancien par celui de CopyField, puis le supprimer |
 | **Toldies** existe deux fois (Icons, Modals) | Garder celui d'Icons |
 | **TextEditorControls** existe deux fois (AudioInput, TextArea) | Un seul, axe `position` |
@@ -118,6 +123,10 @@ Tous les autres composants codés portent **exactement** le nom Figma : Button, 
 | `ColorCard`, `Colors` | reglages/marque/_kit/fields.tsx | `ColorField` (contraste AA / AAA) | remplacer |
 | `TextField`, `Label`, `Help` | editor/fields.tsx | `Input`, `TextArea` (label, helper, counter) | remplacer |
 | `TemplateCards` (cartes de format de l'accueil) | format-cards.tsx | `ChoicePicker` ou StarterCard (Figma, pas codé) | à dessiner |
+| menu déroulant de format de l'en-tête (Démo guidée, Annonce, Animation in-app) | editor/ | ligne « Format » de StepOptionsPanel + **FormatModal** `product=record` (Figma, 20/11) | remplacer après codage |
+| sélecteur de zoom (Comme la démo, Sans zoom, Personnalisé) | editor/ | **ZoomSlider** (Figma, 20/11) | remplacer après codage |
+| mise en page de l'éditeur (colonnes flottantes) | editor/editor.tsx | **EditorLayout** `product=record` (Figma, 20/11) | remplacer après codage |
+| player public, annonce, animation in-app | player/ | GuidedPlayer, **AnnouncementSlide**, InappAnimation, **MediaFrame**, **_SlideHeader**, **AnnouncementBlock** (Figma, 19 et 20/11) | à valider puis coder |
 | `EmptyState`, `PageHeader` | components/ui.tsx | EmptyState, PageHeader (Figma, pas codés) | coder dans le DS |
 | `Sidebar` | _shell/sidebar.tsx | AppSidebar (Figma, pas codé, entrées Told) | à dessiner pour Record |
 | `SectionTitle` | reglages/marque/_kit/fields.tsx | SectionTitle (Figma, pas codé) | coder dans le DS |
@@ -127,8 +136,31 @@ Tous les autres composants codés portent **exactement** le nom Figma : Button, 
 | `Canvas`, `CropTool`, `RedactLayer`, `FormatCanvas` | editor/ | aucun (FloatingToolbar pour les outils) | propres à Record |
 | `Checkbox`, `Radio`, `Switch`, `NavButtonItem` (ds.ts) | components/ds.ts | les mêmes, enveloppés | garder |
 
-## 7. Pour une IA (Claude Code ou autre)
+## 7. Ajouts Figma pas encore codés (19 et 20/11)
+
+Ces noms sont réservés : le code les reprendra tels quels (règle 1). Statut dans `claude/V3-avancement-ds.md` du projet.
+
+| Figma | Rôle | Propriétés principales |
+| --- | --- | --- |
+| EditorLayout | gabarit des écrans d'édition : en-tête puis 3 colonnes collées, canevas à points au centre | `product=told / record` |
+| FormatModal, _FormatRow | modale de choix du format (Tour : Standard, Vitrine, Compact, Vidéo, Démo ; Record : Démo guidée, Annonce, Animation in-app) | `product` ; ligne : `state`, `label`, `hasBadge` |
+| ZoomSlider | zoom d'une étape Record : barre ×1 à ×3, repère par défaut ×1,6, boutons − et + | `state=default / custom / none` |
+| StepThumbMenu | menu ⋯ d'une vignette (Monter, Descendre, Nouvelle slide, Ajouter un écran, Supprimer) | aucune |
+| StepOptionsPanel | panneau d'options d'une étape Record | (voir § 5, futur OptionSidebar) |
+| AnnouncementSlide | annonce vue du public, modèle étape de tour | `orientation=landscape / vertical`, `hasHeader`, `hasEyebrow`, `hasText`, `hasList`, `hasHighlight`, `hasCta`, `hasNav`, `hasLogo` |
+| _SlideHeader | en-tête de lecture au-dessus de l'annonce (absent de la vidéo exportée) | `theme`, `counter`, `hasCounter`, `hasPlay`, `hasClose` |
+| MediaFrame | média au format standard avec cadre d'appareil | `ratio=16:9 / 9:16`, `frame=none / browser / laptop / phone` |
+| AnnouncementBlock | blocs de contenu d'une annonce | `type=list / highlight`, `tone=glass / yellow / violet` |
+| GuidedPlayer, InappAnimation, _PlayerBar, _PlayerTooltip, _ClickPoint, _CaptureMock | démo guidée et animation in-app vues du public | voir Figma |
+| CommentCard, _CommentPin, CommentComposer | commentaires de relecture | `state=open / hover / resolved` |
+| CheckList, CheckRow | liste « Avant de publier » | `hasAction` |
+| PanelSection | section de panneau générique (Record) | `state`, `label`, `hasValue`, `hasInfo`, `hasAction`, `hasToggle`, `hasChevron`, `content` |
+
+Nouveau jeton : `Neutral/border/divider` (gray/40 en clair) pour les séparations de grandes zones. Modifiés le 20/11 : `Neutral/surface/canvas` (gray/10) et `Neutral/surface/pattern` (gray/40), trame DotGrid tous les 8.
+
+## 8. Pour une IA (Claude Code ou autre)
 
 - Avant de créer un composant : chercher son nom **et** son rôle dans ce fichier, dans `src/index.ts` du DS et dans le catalogue Storybook.
 - Dans Told Record, tout import du DS passe par `src/components/ds.ts`. Un composant DS absent de ce fichier n'est pas encore branché : l'y ajouter, ne pas le recoder.
 - Un écart de nom ou de propriété découvert en cours de route s'ajoute ici, dans la même pull request.
+- Dans Told Record, un besoin qui manque au DS se demande dans `claude/V3-demandes-ds-record.md` du projet, pas en recodant le composant.

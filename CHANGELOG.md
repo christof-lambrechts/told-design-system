@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.10.2 · 20/11/2026
+
+- **docs/NOMMAGE.md** mis à jour : ajouts Figma du 19 et 20/11 pas encore codés (EditorLayout, FormatModal, ZoomSlider, StepThumbMenu, AnnouncementSlide, MediaFrame, _SlideHeader, AnnouncementBlock…), propriétés changées (StepList, StepThumb, PanelHeader, PanelSection, ProgressBarWidget, EditionNavRecord), proposition OptionItem / OptionSidebar, jetons du canevas. Aucun changement de code.
+
 ## v0.10.1 · 19/11/2026
 
 - **docs/NOMMAGE.md** : correspondance des noms Figma, code et Told Record, des propriétés, doublons à régler.
