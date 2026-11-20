@@ -34,7 +34,7 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 
 > À reprendre une fois depuis le document de projet : les demandes encore ouvertes (D-001, D-011, D-012, et toute autre) avec leurs réponses.
 
-### D-014 · OptionItem et ChoiceChips : présence, conflit, désactivé
+### D-014 · OptionItem et ChoiceChips : présence, conflit, désactivé (traitée par le DS sous le numéro D-021, v0.14.0)
 - Date, écran Record concerné (fichier, route) : 20/11/2026, panneau de droite de l'éditeur, `src/app/(app)/[org]/demos/[id]/editor/fields.tsx` (PanelSection), `theme-field.tsx`, `entrance-field.tsx`, `interlude-editor.tsx` ; route `/[org]/demos/[id]`.
 - Besoin (ce que l'écran doit faire) : l'éditeur est collaboratif. Une section dont un collègue tient un réglage affiche « Léa modifie ce réglage » (texte bleu et point), une section en conflit affiche un point orange, et en lecture seule ou quand un collègue tient le réglage, l'interrupteur et les pastilles sont désactivés.
 - Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) :
@@ -106,6 +106,46 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
   - StepGroup n'a pas de place pour les « + » d'insertion entre deux slides ni d'état replié contrôlé.
 - Contournement provisoire dans Record : vignettes, slides et carte de fin restent dans l'app (cadre sans liseré blanc, d'où l'écart visible avec Figma).
 - Priorité : important
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
+### D-022 · AvatarGroup : personne inactive et couleur stable
+- Date, écran Record concerné (fichier, route) : 21/11/2026, en-tête de l'éditeur, présence, `src/app/(app)/[org]/demos/[id]/editor/editor.tsx` (Header) ; route `/[org]/demos/[id]`.
+- Besoin (ce que l'écran doit faire) : montrer qui est sur la démo ; une personne inactive (onglet en arrière-plan) est grisée ; au-delà de 4, « +n » ; chaque personne garde la même couleur partout (en-tête, vignettes, champs verrouillés).
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : AvatarGroup n'a pas d'état inactif par personne (`idle`), et `people` n'accepte pas d'identifiant pour `presenceColorFor` (la couleur dépend de l'ordre ou doit être calculée à part). Le libellé du groupe (« 3 personnes sur cette démo ») n'est pas réglable.
+- Contournement provisoire dans Record : PresenceAvatar du DS côte à côte, opacité 50 % pour une personne inactive, « +n » maison.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
+### D-023 · EditorHeaderRecord : bouton menu au logo mini
+- Date, écran Record concerné (fichier, route) : 21/11/2026, en-tête de l'éditeur (`start`), même fichier.
+- Besoin (ce que l'écran doit faire) : le bouton à gauche de la maquette EditorHeaderRecord (8749:4650), logo mini et flèche, avant le fil d'Ariane.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : le bouton n'existe pas dans le code, et ce qu'il ouvre n'est pas décrit (retour à la liste ? menu de l'organisation ?). Merci de préciser son contenu dans Figma.
+- Contournement provisoire dans Record : la flèche « Retour » du Breadcrumb (`onBack`) vers le projet.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
+### D-024 · EditorHeaderRecord : navigation Construire › Diffuser › Analyser
+- Date, écran Record concerné (fichier, route) : 21/11/2026, en-tête de l'éditeur (`center`).
+- Besoin (ce que l'écran doit faire) : les trois étapes au centre de la barre noire, l'étape courante en surbrillance, un point vert ou rouge sur Diffuser (publiée ou non), Analyser grisé tant que la démo n'est pas publiée.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : pas de composant d'onglets sombres avec icône, chevrons et point d'état (ButtonTab est clair). Côté Record, Diffuser et Analyser ne sont pas encore des écrans : rien à brancher en V1.
+- Contournement provisoire dans Record : `center` vide ; la diffusion reste le panneau Publier / Partager.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
+### D-025 · Carte de démo de la liste, avec son menu
+- Date, écran Record concerné (fichier, route) : 21/11/2026, page projet, `src/app/(app)/[org]/demo-cards.tsx` et `demo-list-client.tsx` (DemoCardMenu) ; route `/[org]/projets/[project]`.
+- Besoin (ce que l'écran doit faire) : la carte d'une démo (vignette, titre, auteur, date, nombre d'étapes, statut) et, pour qui peut la supprimer, un menu « ⋯ » sur la vignette avec « Supprimer la démo » (ConfirmModal danger). La carte entière est un lien ; le menu est un bouton à côté, pas dedans.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : pas de carte de démo de liste (la page Cards est ❌ dans Figma, voir D-011) ni d'emplacement prévu pour un menu sur une carte-lien.
+- Contournement provisoire dans Record : carte maison (`cardClass`), menu fait de ButtonIcon, DropdownMenu `kind="menu"` et ConfirmModal du DS, posé en haut à droite de la vignette.
+- Priorité : confort
 - Statut : à faire
 - Réponse DS :
 - Réponse Record :
