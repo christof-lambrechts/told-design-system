@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.20.0 · 21/11/2026
+
+- **AvatarGroup / PresenceAvatar** (D-026) : `id` / `personId` (teinte stable par personne, la même partout), `idle` (présent mais inactif : avatar estompé, « inactif » lu par les lecteurs d'écran).
+
 ## v0.19.0 · 21/11/2026
 
 D-020 terminé (Figma validé le 21/11).

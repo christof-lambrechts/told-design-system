@@ -8,3 +8,6 @@
 .onDark { outline-color: var(--brand-neutral-950); }
 .more { background: var(--brand-neutral-20); color: var(--content-default-default); }
 .more.onDark { background: var(--gray-800); color: var(--white-white-100); }
+
+/* D-026 : présent mais inactif */
+.idle { opacity: .45; filter: grayscale(.6); }

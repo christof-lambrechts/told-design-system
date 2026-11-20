@@ -20,13 +20,19 @@ export interface PresenceAvatarProps extends HTMLAttributes<HTMLSpanElement> {
   /** Fond sur lequel il est posé : le liseré prend la couleur du fond pour détacher les avatars qui se chevauchent. */
   surface?: 'light' | 'dark';
   src?: string;
+  /** Identifiant stable (id de l'utilisateur) : fixe la teinte, la même partout (avatar, curseur, présence). Sinon le nom. */
+  personId?: string;
+  /** D-026 : présent mais inactif (onglet en arrière-plan, absent depuis un moment) : avatar estompé. */
+  idle?: boolean;
+  idleLabel?: string;
 }
 
 /** _PresenceAvatar (8756:591) : rond de 28, initiales blanches sur la teinte de présence, liseré intérieur de 2 couleur du fond. */
-export function PresenceAvatar({ name, color, surface = 'light', src, className, style, ...rest }: PresenceAvatarProps) {
-  const c = color ?? presenceColorFor(name);
+export function PresenceAvatar({ name, color, surface = 'light', src, personId, idle, idleLabel = 'inactif', className, style, ...rest }: PresenceAvatarProps) {
+  const c = color ?? presenceColorFor(personId ?? name);
+  const label = idle ? `${name} (${idleLabel})` : name;
   return (
-    <span className={[styles.avatar, surface === 'dark' && styles.onDark, className].filter(Boolean).join(' ')} role="img" aria-label={name} title={name}
+    <span className={[styles.avatar, surface === 'dark' && styles.onDark, idle && styles.idle, className].filter(Boolean).join(' ')} role="img" aria-label={label} title={label}
       style={{ background: `var(--presence-${c})`, ...style }} {...rest}>
       {src ? <img src={src} alt="" /> : initials(name)}
     </span>
@@ -34,7 +40,8 @@ export function PresenceAvatar({ name, color, surface = 'light', src, className,
 }
 
 export interface AvatarGroupProps {
-  people: { name: string; color?: PresenceColor; src?: string }[];
+  /** `id` : identifiant stable (teinte fixe par personne) ; `idle` : présent mais inactif (D-026). */
+  people: { name: string; id?: string; color?: PresenceColor; src?: string; idle?: boolean }[];
   /** Nombre d'avatars visibles avant « +N ». */
   max?: number;
   surface?: 'light' | 'dark';
@@ -46,7 +53,7 @@ export function AvatarGroup({ people, max = 3, surface = 'light' }: AvatarGroupP
   const rest = people.length - shown.length;
   return (
     <div className={styles.group} aria-label={`${people.length} personne${people.length > 1 ? 's' : ''} sur cette démo`}>
-      {shown.map((p, i) => <PresenceAvatar key={p.name + i} name={p.name} color={p.color} src={p.src} surface={surface} />)}
+      {shown.map((p, i) => <PresenceAvatar key={(p.id ?? p.name) + i} name={p.name} personId={p.id} color={p.color} src={p.src} idle={p.idle} surface={surface} />)}
       {rest > 0 && (
         <span className={[styles.avatar, styles.more, surface === 'dark' && styles.onDark].filter(Boolean).join(' ')} title={people.slice(max).map((p) => p.name).join(', ')}>+{rest}</span>
       )}
