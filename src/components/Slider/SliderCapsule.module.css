@@ -14,4 +14,9 @@
   box-shadow: 0 0 0 1px var(--neutral-border-default), 0 1px 2px rgb(0 0 0 / 0.12); cursor: pointer; }
 .input::-moz-range-thumb { pointer-events: auto; width: 16px; height: 16px; border: none; border-radius: 50%; background: var(--paper-default); box-shadow: 0 0 0 1px var(--neutral-border-default); cursor: pointer; }
 .input:focus-visible::-webkit-slider-thumb { box-shadow: var(--focus-ring); }
-.mark { position: absolute; top: 4px; width: 4px; height: 4px; margin-left: -2px; padding: 0; border: 0; border-radius: 50%; background: var(--paper-alpha-40); cursor: pointer; z-index: 1; }
+.input.single { pointer-events: auto; cursor: pointer; }
+/* Repère de la valeur par défaut : point de 4 dans une cible de 16, focalisable. Sous le curseur pour la souris
+   (un clic dessus tombe sur la piste à la valeur par défaut), joignable au clavier (Tab puis Entrée). */
+.mark { position: absolute; top: -2px; width: 16px; height: 16px; margin-left: -8px; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; }
+.mark::before { content: ''; position: absolute; left: 6px; top: 6px; width: 4px; height: 4px; border-radius: 50%; background: var(--paper-alpha-40); }
+.mark:focus-visible { outline: none; box-shadow: var(--focus-ring); z-index: 2; }

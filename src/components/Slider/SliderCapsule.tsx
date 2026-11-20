@@ -12,7 +12,7 @@ export interface SliderCapsuleProps {
   step?: number;
   value: number;
   onChange: (value: number) => void;
-  /** Valeur par défaut : point blanc 40 % sur la barre, un clic dessus y ramène (hasDefault). */
+  /** Valeur par défaut : point blanc 40 % sur la barre (hasDefault). Un clic dessus y ramène ; au clavier, c'est le bouton qui suit le curseur (« Revenir à … »). */
   defaultValue?: number;
   /** Mise en forme de la valeur affichée à droite (« × 1,6 », « 40 % »). */
   format?: (value: number) => string;
@@ -41,9 +41,9 @@ export function SliderCapsule({ label, min = 0, max = 100, step = 1, value, onCh
           <div className={styles.bar} style={vars}>
             {!range && defaultValue !== undefined && (
               <button type="button" className={styles.mark} style={{ left: `${pct(defaultValue, min, max)}%` }} aria-label={`Revenir à ${format(defaultValue)}`} title={`Par défaut : ${format(defaultValue)}`}
-                onClick={() => onChange(defaultValue)} disabled={disabled} tabIndex={-1} />
+                onClick={() => onChange(defaultValue)} disabled={disabled} />
             )}
-            <input id={id} type="range" className={styles.input} min={min} max={max} step={step} value={value} disabled={disabled}
+            <input id={id} type="range" className={cx(styles.input, !range && styles.single)} min={min} max={max} step={step} value={value} disabled={disabled}
               aria-label={label ? undefined : rest['aria-label']} aria-valuetext={format(value)}
               onChange={(e) => { const v = Number(e.target.value); onChange(range ? Math.min(v, rangeEnd!) : v); }} />
             {range && (

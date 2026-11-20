@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { ChoiceChips } from '../ChoiceChips/ChoiceChips';
 import { useState } from 'react';
 import { OptionSidebar, OptionItem, PanelHeader } from './OptionSidebar';
 import { Switch } from '../Choice/Choice';
@@ -43,6 +44,23 @@ export const EnTete: StoryObj = {
     <div style={{ display: 'grid', gap: 24, width: 324 }}>
       <PanelHeader icon="questionnps" title="Question 1 · NPS" description="Bloc question · obligatoire ·" onChangeType={() => {}} onMenu={() => {}} />
       <PanelHeader icon="logo" title="Image" description="Bloc secondaire" backLabel="Question 1" onBack={() => {}} onMenu={() => {}} />
+    </div>
+  ),
+};
+
+/** D-021 : collaboration (présence, conflit), interrupteur désactivé, pastilles nommées par le titre de section. */
+export const Collaboration: StoryObj = {
+  name: 'Collaboration',
+  render: () => (
+    <div style={{ width: 356, background: 'var(--neutral-surface-default)' }}>
+      <OptionItem variant="row" icon="avatar" label="Avatar sur ce slide" holder="Léa" toggle={{ checked: true, onChange: () => {}, disabled: true }} info="L’avatar lit le texte de la slide." />
+      <OptionItem variant="open" icon="text" label="Apparition des textes" labelId="apparition" conflict>
+        <ChoiceChips aria-labelledby="apparition" value="fondu" onChange={() => {}} options={[
+          { value: 'fondu', label: 'Fondu', glyph: 'Aa' },
+          { value: 'glisse', label: 'Glissement', glyph: 'Aa', title: 'Différente du reste de la démo' },
+          { value: 'mot', label: 'Mot à mot', glyph: 'Aa', disabled: true }]} />
+      </OptionItem>
+      <OptionItem variant="collapsible" icon="time" label="Durée" value="Auto" defaultOpen><div>Contenu</div></OptionItem>
     </div>
   ),
 };

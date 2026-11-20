@@ -37,3 +37,15 @@ export const Liste: StoryObj = {
     </DropdownMenu>
   ),
 };
+
+/** D-017 : menu d'actions (role="menu", entrées menuitem, flèches au clavier). */
+export const MenuActions: StoryObj = {
+  name: 'Menu d’actions',
+  render: () => (
+    <DropdownMenu kind="menu" aria-label="Actions de la démo" style={{ width: 240 }}>
+      <DropdownItem icon="copy-01" onClick={() => {}}>Copier le lien</DropdownItem>
+      <DropdownItem icon="share-03" href="https://example.com" target="_blank">Exporter en vidéo</DropdownItem>
+      <DropdownItem icon="delete-02" tone="danger" disabled title="Seul le propriétaire peut supprimer">Supprimer</DropdownItem>
+    </DropdownMenu>
+  ),
+};

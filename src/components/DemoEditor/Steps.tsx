@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { useState, type ButtonHTMLAttributes, type ReactNode } from 'react';
 import { Icon } from '../Icon/Icon';
 import { AiTag } from '../Ai/Ai';
 import { FlowDivider } from '../ModuleCard/ModuleCard';
@@ -6,10 +6,12 @@ import styles from './Steps.module.css';
 
 const cx = (...c: (string | false | undefined)[]) => c.filter(Boolean).join(' ');
 
-export interface StepThumbProps {
+export interface StepThumbProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onSelect' | 'children'> {
   number: number | string;
   /** Miniature de la capture (URL). Absente : état vide en pointillés. */
   src?: string;
+  /** D-020 : contenu de la vignette à la place d'une capture (ex. vignette d'un intertitre : fond et texte du kit). */
+  preview?: ReactNode;
   selected?: boolean;
   /** Textes écrits par l'IA, pas encore relus (hasAi). */
   ai?: boolean;
@@ -24,11 +26,12 @@ export interface StepThumbProps {
 }
 
 /** StepThumb (8829:480), un `li` à poser dans StepGroup ou une liste `ol`. : vignette 16:10 dans un cadre blanc à bordure (marge 4, rayon 8, capture rayon 4, numéro rayon 3). */
-export function StepThumb({ number, src, selected, ai, warning, presence, menu, label, onSelect }: StepThumbProps) {
+/** Les autres attributs (draggable, onDragStart…, onKeyDown, data-*, aria-*) vont au bouton (D-020). */
+export function StepThumb({ number, src, preview, selected, ai, warning, presence, menu, label, onSelect, className, ...rest }: StepThumbProps) {
   return (
     <li className={styles.thumbWrap}>
-      <button type="button" aria-label={label} aria-current={selected ? 'step' : undefined} className={cx(styles.thumb, selected && styles.selected)} onClick={onSelect}>
-        <span className={cx(styles.frame, !src && styles.empty)}>{src && <img src={src} alt="" draggable={false} />}</span>
+      <button type="button" aria-label={label} aria-current={selected ? 'step' : undefined} {...rest} className={cx(styles.thumb, selected && styles.selected, className)} onClick={onSelect}>
+        <span className={cx(styles.frame, !src && !preview && styles.empty)}>{preview ?? (src && <img src={src} alt="" draggable={false} />)}</span>
         <span className={styles.number}>{number}</span>
         {warning && <span className={styles.warning} title={warning} />}
         {ai && <AiTag size="xs" className={styles.ai} />}
@@ -46,6 +49,9 @@ export interface StepGroupProps {
   /** Vignettes (StepThumb), en grille de 2 colonnes. */
   children: ReactNode;
   defaultExpanded?: boolean;
+  /** D-020 : état replié contrôlé. */
+  expanded?: boolean;
+  onExpandedChange?: (expanded: boolean) => void;
   /** Nombre d'étapes, affiché quand le groupe est replié. */
   count?: number;
 }
@@ -62,8 +68,10 @@ export function StepAddThumb({ label = 'Ajouter un enregistrement', onClick }: {
 }
 
 /** StepGroup (8830:447) : slide repliable, fond Neutral/surface/subtle, rayon 12, marge 8. */
-export function StepGroup({ badge, title, children, defaultExpanded = true, count }: StepGroupProps) {
-  const [open, setOpen] = useState(defaultExpanded);
+export function StepGroup({ badge, title, children, defaultExpanded = true, expanded, onExpandedChange, count }: StepGroupProps) {
+  const [inner, setInner] = useState(defaultExpanded);
+  const open = expanded ?? inner;
+  const setOpen = (v: boolean) => { if (expanded === undefined) setInner(v); onExpandedChange?.(v); };
   return (
     <section className={styles.group} aria-label={typeof badge === 'string' ? `${badge}${title ? ` · ${title}` : ''}` : title}>
       <button type="button" className={styles.groupHead} aria-expanded={open} onClick={() => setOpen(!open)}>

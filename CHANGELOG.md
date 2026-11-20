@@ -3,6 +3,17 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.14.0 · 20/11/2026
+
+Demandes de Told Record D-016 à D-018, D-020 (en partie) et D-021.
+
+- **OptionItem** (D-021) : collaboration avec `holder` (« Léa modifie ce réglage », texte bleu et point) et `conflict` (point orange, `conflictLabel` lu) ; `toggle.disabled` ; titre de section en `h3` (`headingLevel`, `false` pour aucun) ; `labelId` (id du libellé, pour `aria-labelledby` des champs) ; le chevron replie aussi au clic ; l'aide `info` devient un bouton focalisable.
+- **ChoiceChips** (D-021) : `disabled` pour le groupe et par option, `title` par option (aide lue), `aria-labelledby`, flèches, Début et Fin au clavier avec un seul arrêt de tabulation.
+- **Button / ButtonIcon en lien** (D-016) : tous les attributs d'ancre sont transmis (`target`, `rel`, `download`, `data-*`…) ; `rel="noopener noreferrer"` par défaut avec `target="_blank"` ; `disabled` rend le lien inactif.
+- **DropdownMenu** (D-017) : `kind="menu"` pour un menu d'actions (`role="menu"`, entrées `menuitem`, flèches, Début, Fin, Échap avec `onEscape`, `autoFocus`) ; entrée désactivée focalisable avec sa raison (`title`) ; liens avec `target`, `rel`, `title`. `kind="listbox"` reste le défaut (Select).
+- **SliderCapsule** (D-018) : un clic sur la piste place la valeur ; le repère de valeur par défaut est une cible de 16 joignable au clavier.
+- **StepThumb / StepGroup** (D-020, en partie) : StepThumb transmet ses attributs au bouton (`draggable`, événements de glisser, `onKeyDown`, `data-*`) et accepte `preview` (vignette d'un intertitre) ; StepGroup peut être contrôlé (`expanded`, `onExpandedChange`). Sélection multiple et « + » d'insertion : à dessiner dans Figma d'abord.
+
 ## v0.13.2 · 20/11/2026
 
 - `OptionPanel` et `OptionPanelItem` (anciens noms, déconseillés) sont exportés comme de vrais exports et plus comme alias, pour que l'outil de correspondance de Told Record (`ds:sync`) les reconnaisse.

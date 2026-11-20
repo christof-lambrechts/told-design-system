@@ -78,38 +78,53 @@ export interface OptionItemProps {
   children?: ReactNode;
   /** Lien d'action à droite (« Sélectionner », « Recadrer »). */
   onAction?: () => void;
-  /** Interrupteur à droite (hasToggle). */
-  toggle?: { checked: boolean; onChange: (checked: boolean) => void; label?: string };
-  /** Aide au survol de l'icône (i) (hasInfo). */
+  /** Interrupteur à droite (hasToggle). `disabled` : lecture seule ou réglage tenu par un collègue. */
+  toggle?: { checked: boolean; onChange: (checked: boolean) => void; label?: string; disabled?: boolean };
+  /** Aide de l'icône (i) (hasInfo) : bouton focalisable, lue par les lecteurs d'écran. */
   info?: string;
+  /** Collaboration : nom du collègue qui modifie ce réglage (« Léa modifie ce réglage », texte bleu et point). */
+  holder?: ReactNode;
+  /** Collaboration : réglage en conflit (point orange après le libellé). */
+  conflict?: boolean;
+  /** Texte du conflit, lu par les lecteurs d'écran. */
+  conflictLabel?: string;
+  /** Id du libellé, pour nommer les champs de la section (`aria-labelledby`). Généré si absent. */
+  labelId?: string;
+  /** Niveau du titre de section (défaut 3). `false` : pas de titre. */
+  headingLevel?: 2 | 3 | 4 | false;
 }
 
 /** OptionItem (6031:85291) : une option repliable de la colonne de réglages. Marge 12/14, filet bas Neutral/border/default. */
-export function OptionItem({ variant, icon, label, value, required, pro, open, defaultOpen = false, onOpenChange, actionLabel = 'Modifier', children, onAction, toggle: sw, info }: OptionItemProps) {
+export function OptionItem({ variant, icon, label, value, required, pro, open, defaultOpen = false, onOpenChange, actionLabel = 'Modifier', children, onAction, toggle: sw, info, holder, conflict, conflictLabel = 'Réglage en conflit', labelId, headingLevel = 3 }: OptionItemProps) {
   const [inner, setInner] = useState(defaultOpen);
   const isOpen = variant === 'open' ? true : variant === 'row' ? false : (open ?? inner);
   const cid = useId();
+  const lid = labelId ?? `${cid}-label`;
   const toggle = () => { const n = !isOpen; if (open === undefined) setInner(n); onOpenChange?.(n); };
   if (variant) {
     const head = (
       <>
         {icon && <IconBoxedColor icon={icon} size={20} />}
-        <span className={styles.itemLabel}>{label}{required && <span className={styles.required} aria-label="obligatoire">*</span>}</span>
+        <span id={lid} className={styles.itemLabel}>{label}{required && <span className={styles.required} aria-label="obligatoire">*</span>}</span>
+        {conflict && <span className={styles.conflict} role="img" aria-label={conflictLabel} />}
         {pro && <Badge color="pink-gradient" appearance="fill" size="xs">Pro</Badge>}
         {value && <Badge color="light-gray" size="xs">{value}</Badge>}
       </>
     );
+    const control = variant === 'collapsible'
+      ? <button type="button" className={styles.itemToggle} aria-expanded={isOpen} aria-controls={cid} onClick={toggle}>{head}</button>
+      : <div className={styles.itemToggle}>{head}</div>;
+    const H = headingLevel ? (`h${headingLevel}` as 'h2' | 'h3' | 'h4') : null;
     return (
-      <section className={cx(styles.item, isOpen && styles.itemOpen)}>
+      <section className={cx(styles.item, isOpen && styles.itemOpen)} aria-labelledby={lid}>
         <div className={styles.itemHead}>
-          {variant === 'collapsible'
-            ? <button type="button" className={styles.itemToggle} aria-expanded={isOpen} aria-controls={cid} onClick={toggle}>{head}</button>
-            : <div className={styles.itemToggle}>{head}</div>}
-          {info && <span className={styles.info} title={info} aria-label={info}><Icon name="information-circle" size={14} variant="solid" /></span>}
+          {H ? <H className={styles.itemHeading}>{control}</H> : control}
+          {info && <button type="button" className={styles.info} aria-label={info} title={info}><Icon name="information-circle" size={14} variant="solid" /></button>}
           {onAction && <ButtonLink size="sm" padding={false} iconRight={null} onClick={onAction}>{actionLabel}</ButtonLink>}
-          {sw && <Switch size="sm" checked={sw.checked} onChange={(e) => sw.onChange(e.currentTarget.checked)} aria-label={sw.label ?? (typeof label === 'string' ? label : undefined)} />}
-          {variant === 'collapsible' && <Icon name={isOpen ? 'arrow-up-01' : 'arrow-down-01'} size={16} className={styles.chevron} aria-hidden="true" />}
+          {sw && <Switch size="sm" checked={sw.checked} disabled={sw.disabled} onChange={(e) => sw.onChange(e.currentTarget.checked)} aria-label={sw.label ?? (typeof label === 'string' ? label : undefined)} />}
+          {variant === 'collapsible' && <span className={styles.chevronHit} onClick={toggle} aria-hidden="true"><Icon name={isOpen ? 'arrow-up-01' : 'arrow-down-01'} size={16} className={styles.chevron} /></span>}
         </div>
+        {holder && <p className={styles.holder}><span className={styles.holderDot} aria-hidden="true" />{holder} modifie ce réglage</p>}
         {isOpen && children && <div id={cid} className={styles.itemBody}>{children}</div>}
       </section>
     );

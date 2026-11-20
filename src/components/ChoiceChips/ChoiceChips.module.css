@@ -12,3 +12,5 @@
 .glyph { font-weight: var(--font-weight-semibold); }
 .listen { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: 4px; border: 0; border-radius: 50%; background: none; color: var(--content-muted-default); cursor: pointer; }
 .listen:hover { color: var(--content-default-default); }
+.disabled { opacity: .45; cursor: not-allowed; }
+.disabled .hit { cursor: not-allowed; }

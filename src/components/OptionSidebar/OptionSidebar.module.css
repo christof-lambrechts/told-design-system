@@ -25,5 +25,12 @@
 .itemOpen .itemLabel, .itemToggle:hover .itemLabel { color: var(--content-default-default); }
 .required { margin-left: 2px; color: var(--content-danger-default-on-light); }
 .itemBody { display: flex; flex-direction: column; gap: 8px; }
-.info { display: inline-flex; color: var(--content-muted-default); }
+.info { all: unset; display: inline-flex; color: var(--content-muted-default); cursor: help; border-radius: 50%; }
+.info:hover { color: var(--content-default-default); }
+.info:focus-visible { outline: 2px solid var(--brand-border-focus); outline-offset: 2px; }
+.itemHeading { flex: 1; min-width: 0; display: flex; margin: 0; font: inherit; }
+.chevronHit { display: inline-flex; cursor: pointer; }
+.conflict { flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--brand-color-orange); }
+.holder { display: flex; align-items: center; gap: 6px; margin: 4px 0 0; font-size: 12px; line-height: 16px; color: var(--brand-color-brand); }
+.holderDot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }
 .chevron { color: var(--content-muted-default); flex: none; }

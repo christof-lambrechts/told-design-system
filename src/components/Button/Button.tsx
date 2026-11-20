@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, CSSProperties, ElementType, ReactNode } from 'react';
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, CSSProperties, ElementType, ReactNode } from 'react';
 import { Icon, type IconName } from '../Icon/Icon';
 import styles from './Button.module.css';
 
@@ -35,7 +35,19 @@ export function buttonVars(color: ButtonColor, type: ButtonType): CSSProperties 
   } as CSSProperties;
 }
 
-export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'color'> {
+/** D-016 : attributs d'ancre transmis quand le bouton est un lien (`href`). */
+type AnchorProps = Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'rel' | 'download' | 'hrefLang' | 'referrerPolicy' | 'ping'>;
+const BUTTON_ONLY = ['disabled', 'form', 'formAction', 'formEncType', 'formMethod', 'formNoValidate', 'formTarget', 'name', 'value'];
+/** Props d'un lien : tout sauf les attributs propres au <button> ; rel sûr par défaut pour un nouvel onglet. */
+function linkProps(rest: Record<string, unknown>) {
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(rest)) if (!BUTTON_ONLY.includes(k)) out[k] = v;
+  if (out.target === '_blank' && out.rel === undefined) out.rel = 'noopener noreferrer';
+  if (rest.disabled) { out['aria-disabled'] = true; out.tabIndex = -1; out.onClick = (e: Event) => e.preventDefault(); }
+  return out;
+}
+
+export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'color'>, AnchorProps {
   /** Libellé du bouton (propriété Figma `label`). */
   children?: ReactNode;
   color?: ButtonColor;
@@ -83,8 +95,7 @@ export function Button({
   );
   if (href) {
     const L = linkAs ?? 'a';
-    const { onClick, title, id, 'aria-label': al } = rest as Record<string, never>;
-    return <L href={href} className={cls} style={{ ...buttonVars(color, variant), ...style }} onClick={onClick} title={title} id={id} aria-label={al}>{inner}</L>;
+    return <L href={href} {...linkProps(rest)} className={cls} style={{ ...buttonVars(color, variant), ...style }}>{inner}</L>;
   }
   return (
     <button type={htmlType} className={cls} style={{ ...buttonVars(color, variant), ...style }} {...rest}>
@@ -93,7 +104,7 @@ export function Button({
   );
 }
 
-export interface ButtonIconProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'color' | 'style'> {
+export interface ButtonIconProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'color' | 'style'>, AnchorProps {
   icon: IconName;
   /** Texte lu par les lecteurs d'écran (le bouton n'a pas de libellé visible). */
   label: string;
@@ -125,7 +136,7 @@ export function ButtonIcon({
   const cls = [styles.button, styles[size], styles.iconOnly, className].filter(Boolean).join(' ');
   if (href) {
     const L = linkAs ?? 'a';
-    return <L href={href} aria-label={label} title={label} className={cls} style={buttonVars(color, typeOf[appearance])} onClick={rest.onClick}><Icon name={icon} size={iconSize[size]} /></L>;
+    return <L href={href} title={label} {...linkProps(rest)} aria-label={label} className={cls} style={buttonVars(color, typeOf[appearance])}><Icon name={icon} size={iconSize[size]} /></L>;
   }
   return (
     <button type={htmlType} aria-label={label} title={label} className={cls} style={buttonVars(color, typeOf[appearance])} {...rest}>

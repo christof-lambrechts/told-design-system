@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState, type ReactNode, type KeyboardEvent, type ButtonHTMLAttributes, type ElementType } from 'react';
+import { createContext, useContext, useEffect, useId, useRef, useState, type ReactNode, type KeyboardEvent, type ButtonHTMLAttributes, type AnchorHTMLAttributes, type ElementType } from 'react';
 import { Icon, type IconName } from '../Icon/Icon';
 import { IconBoxedColor, type IconBoxedColorName } from '../IconBoxed/IconBoxedColor';
 import styles from './Select.module.css';
@@ -7,7 +7,11 @@ const cx = (...c: (string | false | null | undefined)[]) => c.filter(Boolean).jo
 
 /* ---------- DropdownItem ---------- */
 
-export interface DropdownItemProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
+/** D-017 : sorte de liste. listbox = liste de choix (Select) ; menu = menu d'actions (⋯). */
+type MenuKind = 'listbox' | 'menu';
+const KindContext = createContext<MenuKind>('listbox');
+
+export interface DropdownItemProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'>, Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'rel' | 'download' | 'hrefLang' | 'referrerPolicy'> {
   children: ReactNode;
   description?: ReactNode;
   icon?: IconName;
@@ -26,14 +30,33 @@ export interface DropdownItemProps extends Omit<ButtonHTMLAttributes<HTMLButtonE
 
 /** DropdownItem (4544:102435) : une ligne de menu ou d'option. Marge 6/9, rayon 8. */
 export function DropdownItem({ children, description, icon, boxedIcon, selected, tone = 'default', shortcut, href, linkAs, className, ...rest }: DropdownItemProps) {
+  const kind = useContext(KindContext);
   const cls = cx(styles.item, selected && styles.selected, tone === 'danger' && styles.danger, rest.disabled && styles.itemDisabled, className);
   if (href) {
     const L = linkAs ?? 'a';
+    const { disabled, onClick, ...anchor } = rest;
+    if (anchor.target === '_blank' && anchor.rel === undefined) anchor.rel = 'noopener noreferrer';
     return (
-      <L href={rest.disabled ? undefined : href} role="menuitem" aria-disabled={rest.disabled || undefined} className={cls} onClick={rest.onClick}>
+      <L {...anchor} href={disabled ? undefined : href} role="menuitem" tabIndex={kind === 'menu' ? -1 : undefined} aria-disabled={disabled || undefined} className={cls} onClick={disabled ? (e: Event) => e.preventDefault() : onClick}>
         {icon && <Icon name={icon} size={14} className={styles.itemIcon} />}
         <span className={styles.itemText}><span className={styles.itemLabel}>{children}</span>{description && <span className={styles.itemDesc}>{description}</span>}</span>
+        {shortcut && <span className={styles.shortcut}>{shortcut}</span>}
       </L>
+    );
+  }
+  if (kind === 'menu') {
+    /* Une entrée désactivée reste focalisable (aria-disabled) pour que sa raison (title) soit lue. */
+    const { disabled, onClick, ...btn } = rest;
+    return (
+      <button type="button" role="menuitem" tabIndex={-1} aria-disabled={disabled || undefined} className={cls} onClick={disabled ? undefined : onClick} {...btn}>
+        {boxedIcon && <IconBoxedColor icon={boxedIcon} size={20} />}
+        {icon && <Icon name={icon} size={14} className={styles.itemIcon} />}
+        <span className={styles.itemText}>
+          <span className={styles.itemLabel}>{children}</span>
+          {description && <span className={styles.itemDesc}>{description}</span>}
+        </span>
+        {shortcut && <span className={styles.shortcut}>{shortcut}</span>}
+      </button>
     );
   }
   return (
@@ -50,9 +73,29 @@ export function DropdownItem({ children, description, icon, boxedIcon, selected,
   );
 }
 
-/** Panneau flottant de la liste (fond Dropdown, ombre shadow-flat-8). */
-export function DropdownMenu({ children, className, ...rest }: { children: ReactNode; className?: string } & React.HTMLAttributes<HTMLDivElement>) {
-  return <div role="listbox" className={cx(styles.menu, className)} {...rest}>{children}</div>;
+/** Panneau flottant de la liste (fond Dropdown, ombre shadow-flat-8).
+ *  kind="listbox" (défaut) : liste de choix d'un Select. kind="menu" (D-017) : menu d'actions, role="menu",
+ *  entrées menuitem, flèches ↑ ↓, Début, Fin et Échap (`onEscape`) au clavier ; focus sur la première entrée à l'ouverture (`autoFocus`). */
+export function DropdownMenu({ children, className, kind = 'listbox', autoFocus, onEscape, onKeyDown, ...rest }: { children: ReactNode; className?: string; kind?: MenuKind; autoFocus?: boolean; onEscape?: () => void } & React.HTMLAttributes<HTMLDivElement>) {
+  const ref = useRef<HTMLDivElement>(null);
+  const items = () => Array.from(ref.current?.querySelectorAll<HTMLElement>('[role="menuitem"]') ?? []);
+  useEffect(() => { if (kind === 'menu' && autoFocus) items()[0]?.focus(); }, [kind, autoFocus]);
+  const onKey = (e: KeyboardEvent<HTMLDivElement>) => {
+    onKeyDown?.(e);
+    if (kind !== 'menu' || e.defaultPrevented) return;
+    const list = items(); const i = list.indexOf(document.activeElement as HTMLElement);
+    const go = (n: number) => { e.preventDefault(); list[(n + list.length) % list.length]?.focus(); };
+    if (e.key === 'ArrowDown') go(i + 1);
+    else if (e.key === 'ArrowUp') go(i < 0 ? list.length - 1 : i - 1);
+    else if (e.key === 'Home') go(0);
+    else if (e.key === 'End') go(list.length - 1);
+    else if (e.key === 'Escape' && onEscape) { e.preventDefault(); onEscape(); }
+  };
+  return (
+    <KindContext.Provider value={kind}>
+      <div ref={ref} role={kind} className={cx(styles.menu, className)} onKeyDown={onKey} {...rest}>{children}</div>
+    </KindContext.Provider>
+  );
 }
 
 /* ---------- Select ---------- */
