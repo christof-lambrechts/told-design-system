@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.13.2 · 20/11/2026
+
+- `OptionPanel` et `OptionPanelItem` (anciens noms, déconseillés) sont exportés comme de vrais exports et plus comme alias, pour que l'outil de correspondance de Told Record (`ds:sync`) les reconnaisse.
+
 ## v0.13.1 · 20/11/2026
 
 - **Jetons de l'avatar Told Record** (RecordAvatar, Figma) : `--component-record-avatar-frame`, `--component-record-avatar-media`, `--component-record-avatar-border`, avec les trois modes d'arrondi par `data-radius` (default = carré arrondi 24, roundy = rond, sharp = carré).

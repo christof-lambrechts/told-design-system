@@ -100,9 +100,8 @@ export { Flag as FlagCountry } from './components/Flag/Flag';
 export { TourStep as TourItemBase } from './components/Tour/Tour';
 export { ProgressSteps as ProgressBarWidget } from './components/Progress/Progress';
 // Anciens noms (avant le 20/11), gardés pour le code existant : utiliser OptionItem et OptionSidebar.
-/** @deprecated Utiliser OptionItem. */
-export { OptionItem as OptionPanelItem, OptionSidebar as OptionPanel } from './components/OptionSidebar/OptionSidebar';
-export type { OptionItemProps as OptionPanelItemProps, OptionSidebarProps as OptionPanelProps } from './components/OptionSidebar/OptionSidebar';
+export { OptionPanel, OptionPanelItem } from './components/OptionSidebar/OptionSidebar';
+export type { OptionPanelProps, OptionPanelItemProps } from './components/OptionSidebar/OptionSidebar';
 // 20/11 : composants validés dans Figma (Slider, ChoiceChips, Comment, CheckList, EmptyState, EditorLayout).
 export { SliderCapsule } from './components/Slider/SliderCapsule';
 export type { SliderCapsuleProps } from './components/Slider/SliderCapsule';

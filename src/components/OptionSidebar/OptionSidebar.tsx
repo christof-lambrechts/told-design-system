@@ -162,3 +162,12 @@ export function OptionSidebar({ header, scopes, scope, onScopeChange, assist, ch
     </aside>
   );
 }
+
+/** @deprecated Ancien nom (avant le 20/11) : utiliser OptionSidebar. */
+export const OptionPanel = OptionSidebar;
+/** @deprecated Ancien nom (avant le 20/11) : utiliser OptionItem. */
+export const OptionPanelItem = OptionItem;
+/** @deprecated Ancien nom : utiliser OptionSidebarProps. */
+export type OptionPanelProps = OptionSidebarProps;
+/** @deprecated Ancien nom : utiliser OptionItemProps. */
+export type OptionPanelItemProps = OptionItemProps;
