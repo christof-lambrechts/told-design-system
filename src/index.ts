@@ -43,8 +43,8 @@ export { Select, DropdownMenu, DropdownItem } from './components/Select/Select';
 export type { SelectProps, SelectOption, DropdownItemProps } from './components/Select/Select';
 export { Modal } from './components/Modal/Modal';
 export type { ModalProps } from './components/Modal/Modal';
-export { OptionPanel, OptionPanelItem, PanelHeader } from './components/OptionPanel/OptionPanel';
-export type { OptionPanelProps, OptionPanelItemProps, PanelHeaderProps } from './components/OptionPanel/OptionPanel';
+export { OptionSidebar, OptionItem, PanelHeader } from './components/OptionSidebar/OptionSidebar';
+export type { OptionSidebarProps, OptionItemProps, PanelHeaderProps } from './components/OptionSidebar/OptionSidebar';
 export { ProgressBar, ProgressSteps, Loader, SkeletonLine, SkeletonCard } from './components/Progress/Progress';
 export type { ProgressBarProps, ProgressStepsProps, LoaderProps, LoaderSize } from './components/Progress/Progress';
 export { NotificationCenter, NotificationItem } from './components/Notifications/Notifications';
@@ -57,8 +57,8 @@ export { TourStep, TourBubble, TourWelcome } from './components/Tour/Tour';
 export type { TourStepProps, TourBubbleProps, TourWelcomeProps, TourArrow } from './components/Tour/Tour';
 export { LinkSurvey, ScaleAnswer, NpsAnswer } from './components/Survey/Survey';
 export type { LinkSurveyProps, ScaleAnswerProps, NpsAnswerProps, AnswerSize } from './components/Survey/Survey';
-export { OptionToggle, FormatCard, LogicRule } from './components/OptionPanel/OptionDetails';
-export type { OptionToggleProps, FormatCardProps, LogicRuleProps } from './components/OptionPanel/OptionDetails';
+export { OptionToggle, FormatCard, LogicRule } from './components/OptionSidebar/OptionDetails';
+export type { OptionToggleProps, FormatCardProps, LogicRuleProps } from './components/OptionSidebar/OptionDetails';
 export { TranslationTable, LanguageItem } from './components/Languages/Languages';
 export type { TranslationTableProps, TranslationGroup, TranslationRow, Language, LanguageItemProps } from './components/Languages/Languages';
 // v0.9.0 : composants validés pour Told Record
@@ -99,9 +99,10 @@ export { Select as DropdownField } from './components/Select/Select';
 export { Flag as FlagCountry } from './components/Flag/Flag';
 export { TourStep as TourItemBase } from './components/Tour/Tour';
 export { ProgressSteps as ProgressBarWidget } from './components/Progress/Progress';
-// Noms Figma du 20/11 : OptionItem (ex-OptionPanelItem + PanelSection) et OptionSidebar (ex-OptionPanel + StepOptionsPanel).
-export { OptionPanelItem as OptionItem, OptionPanel as OptionSidebar } from './components/OptionPanel/OptionPanel';
-export type { OptionPanelItemProps as OptionItemProps, OptionPanelProps as OptionSidebarProps } from './components/OptionPanel/OptionPanel';
+// Anciens noms (avant le 20/11), gardés pour le code existant : utiliser OptionItem et OptionSidebar.
+/** @deprecated Utiliser OptionItem. */
+export { OptionItem as OptionPanelItem, OptionSidebar as OptionPanel } from './components/OptionSidebar/OptionSidebar';
+export type { OptionItemProps as OptionPanelItemProps, OptionSidebarProps as OptionPanelProps } from './components/OptionSidebar/OptionSidebar';
 // 20/11 : composants validés dans Figma (Slider, ChoiceChips, Comment, CheckList, EmptyState, EditorLayout).
 export { SliderCapsule } from './components/Slider/SliderCapsule';
 export type { SliderCapsuleProps } from './components/Slider/SliderCapsule';

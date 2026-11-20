@@ -85,8 +85,8 @@ OptionCustomisation|1043:135563|1060x5646|?hasPreferenceColor;type=bg-color-text
 CustomisationPanel|8172:103231|2812x912|section=color,radius,position,avatar,logo,footer,confetti|Colonne de droite de l'onglet Design.|8172:103231|0,0
 PositionPreview|8172:103367|1584x1044|position=top-left,top-center,top-right,middle-left,center,middle-right,…+3|Aperçu de la position du widget.|8172:103367|0,0
 CustomisationPopover|8208:237547|300x218||Carte flottante de réglage de l’onglet Design.|8208:237547|0,0
-#Organismes / OptionPanel ❌
-OptionPanel|6031:85898|1228x3040|?hasIA;contentType=survey,tour,announcement;scope=step,block,secondary|Colonne d'options de l'éditeur.|6031:87220|80,375
+#Organismes / OptionSidebar ✅
+OptionSidebar|6031:85898|1228x3040|?hasIA;contentType=survey,tour,announcement;scope=step,block,secondary|Colonne d'options de l'éditeur.|6031:87220|80,375
 PanelHeader|7851:8151|304x70|"title;"description;?hasChangeType;?hasMenu;?hasBack;"backLabel|En-tête du panneau d'édition d'un bloc.|7851:8151|0,0
 #Organismes / Report ❌
 NpsReport|29:20672|1110x3868|state=pie-chart,table,graph,column-chart;device=desktop,mobile|Rapport NPS.|38:27537|180,475

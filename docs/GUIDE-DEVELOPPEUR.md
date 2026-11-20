@@ -159,7 +159,7 @@ Statut : ✅ = page Figma validée, API stable. ⏳ = codé d'après Figma, page
 | `NotificationCenter`, `NotificationItem` | ✅ | Panneau de 400 ouvert depuis la cloche du menu, 4 px à droite du menu, aligné en bas ; onglets Toutes et Non lues ; groupes par période. |
 | `Modal` | ⏳ | Fenêtre de 500 ; Échap et clic sur le voile ferment ; `centered`. |
 | `ConfirmModal` | ✅ | Confirmation centrée : `confirmLabel` (le verbe), `danger`, `hasClose`, `illustration`. |
-| `OptionPanel`, `OptionPanelItem`, `PanelHeader` | ⏳ | Colonne de réglages de l'éditeur. |
+| `OptionSidebar`, `OptionItem`, `PanelHeader` | ⏳ | Colonne de réglages de l'éditeur. |
 
 ### Connexion (Auth)
 | Composant | Statut | Notes |
@@ -238,7 +238,7 @@ Après une mise à jour : `npm run typecheck` et `npm run build-storybook` doive
 
 - Numérotation `MAJEUR.MINEUR.CORRECTIF`. Tant qu'on est en `0.x`, une version mineure peut changer l'apparence : lire le `CHANGELOG.md`.
 - Quand le numéro change dans `package.json` sur `main`, le tag et la page de version GitHub sont créés automatiquement.
-- Historique : v0.3.0 densité compacte et icônes contour ; v0.4.0 OptionPanel, Select, Modal, Badge, Tag, Avatar ; v0.5.0 `secondary-outline` ; v0.5.1 Select validé ; v0.6.0 ProgressBar, Loader, Skeleton, Notifications ; v0.6.1 correction du Badge pour Next ; v0.7.0 AppLayout ; v0.8.0 Auth, Product Tour, Survey, réglages et langues ; v0.8.1 contour des petites icônes, jeton de fond teinté ; v0.8.2 Figtree variable, medium à 550, icônes du menu à 16 ; v0.8.3 bordure grise plus contrastée ; v0.9.0 composants de Told Record (champ IA, couleur et contraste, copie, fil d'Ariane, barre d'outils, présence, bandeau, confirmation, choix visuel, en-tête de l'éditeur) ; **v0.9.1 trait des icônes à 1,5 px à l'écran ; **v0.10.0 IA, ButtonGroup, colonne Étapes**.
+- Historique : v0.3.0 densité compacte et icônes contour ; v0.4.0 OptionSidebar, Select, Modal, Badge, Tag, Avatar ; v0.5.0 `secondary-outline` ; v0.5.1 Select validé ; v0.6.0 ProgressBar, Loader, Skeleton, Notifications ; v0.6.1 correction du Badge pour Next ; v0.7.0 AppLayout ; v0.8.0 Auth, Product Tour, Survey, réglages et langues ; v0.8.1 contour des petites icônes, jeton de fond teinté ; v0.8.2 Figtree variable, medium à 550, icônes du menu à 16 ; v0.8.3 bordure grise plus contrastée ; v0.9.0 composants de Told Record (champ IA, couleur et contraste, copie, fil d'Ariane, barre d'outils, présence, bandeau, confirmation, choix visuel, en-tête de l'éditeur) ; **v0.9.1 trait des icônes à 1,5 px à l'écran ; **v0.10.0 IA, ButtonGroup, colonne Étapes**.
 
 ## 13. Règles à garder en tête
 

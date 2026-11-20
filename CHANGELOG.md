@@ -3,6 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.13.0 · 20/11/2026
+
+- **OptionItem et OptionSidebar deviennent les vrais noms** : dossier `src/components/OptionSidebar/`, page Storybook « Panneaux/OptionSidebar », types `OptionItemProps` et `OptionSidebarProps`. `OptionPanel` et `OptionPanelItem` restent exportés comme anciens noms (déconseillés) : rien ne casse.
+- Catalogue, guide développeur et NOMMAGE à jour.
+
 ## v0.12.2 · 20/11/2026
 
 - **Noms alignés entre Figma et le code** (docs/NOMMAGE.md § 1 et 2) : Figma reprend les noms du code, plus clairs pour un développeur ou une IA. Select (ex-DropdownField), Modal (ex-ModalBase), Tag, Flag, Logo, ProgressSteps, TourStep, TourBubble, TourWelcome, LinkSurvey, NpsAnswer, ScaleAnswer ; EditorHeaderTold et EditorHeaderRecord dans Figma pour le gabarit EditorHeader. Utiliser OptionItem et OptionSidebar dans le nouveau code. Aucun changement d'API : les anciens alias restent exportés.

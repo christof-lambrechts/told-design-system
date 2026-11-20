@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import { OptionPanel, OptionPanelItem, PanelHeader } from './OptionPanel';
+import { OptionSidebar, OptionItem, PanelHeader } from './OptionSidebar';
 import { Switch } from '../Choice/Choice';
 import { Select } from '../Select/Select';
 
-const meta = { title: 'Composants/Panneaux/OptionPanel', component: OptionPanel, parameters: { layout: 'padded' } } satisfies Meta<typeof OptionPanel>;
+const meta = { title: 'Composants/Panneaux/OptionSidebar', component: OptionSidebar, parameters: { layout: 'padded' } } satisfies Meta<typeof OptionSidebar>;
 export default meta;
 
 function Demo() {
@@ -12,25 +12,25 @@ function Demo() {
   const [format, setFormat] = useState('widget');
   return (
     <div style={{ border: '1px solid var(--neutral-border-default)', borderRadius: 12, overflow: 'hidden', width: 356 }}>
-      <OptionPanel
+      <OptionSidebar
         header={<PanelHeader icon="questionscale" title="Échelle 1-5" description="Bloc question · obligatoire ·" onChangeType={() => {}} onMenu={() => {}} />}
         scopes={[{ value: 'step', label: 'Étape' }, { value: 'block', label: 'Bloc' }]}
         scope={scope}
         onScopeChange={setScope}
       >
-        <OptionPanelItem icon="layout" label="Format" value="Widget" defaultOpen>
+        <OptionItem icon="layout" label="Format" value="Widget" defaultOpen>
           <Select options={[{ value: 'widget', label: 'Widget' }, { value: 'modal', label: 'Modale' }, { value: 'banner', label: 'Bannière' }]} value={format} onChange={setFormat} aria-label="Format" />
-        </OptionPanelItem>
-        <OptionPanelItem icon="position" label="Position" value="Bas à droite">
+        </OptionItem>
+        <OptionItem icon="position" label="Position" value="Bas à droite">
           <Switch label="Masquer sur mobile" />
-        </OptionPanelItem>
-        <OptionPanelItem icon="time" label="Déclencheur" required>
+        </OptionItem>
+        <OptionItem icon="time" label="Déclencheur" required>
           <Switch label="Après 5 secondes" defaultChecked />
-        </OptionPanelItem>
-        <OptionPanelItem icon="party" label="Confettis" pro>
+        </OptionItem>
+        <OptionItem icon="party" label="Confettis" pro>
           <Switch label="Lancer à la fin" />
-        </OptionPanelItem>
-      </OptionPanel>
+        </OptionItem>
+      </OptionSidebar>
     </div>
   );
 }

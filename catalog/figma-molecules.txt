@@ -80,7 +80,7 @@ InsertBar|8199:6014|280x66|state=default,drop-target|Barre d’insertion entre d
 notificationItem|2794:198377|1011x1292|state=default,hover,pressed;notification=false,true;style=default,feature|Notification.|6210:39140|180,550
 Notification_sidebar|2795:214336|607x1102|device=desktop|Panneau des notifications.|6210:39140|1291,475
 #Molécules / OptionContent ✅
-OptionPanelItem|6031:85291|1234x5517|?hasMissingTranslation;?hasLanguage;?hasPro;type=format,position,trigger,textalign,buttonlink,buttoncustom,buttondefaut,buttonsurvey,…+8;state=closed,open|Ligne d'option du panneau de réglages.|6113:104097|80,375
+OptionItem|6031:85291|1234x5517|?hasMissingTranslation;?hasLanguage;?hasPro;type=format,position,trigger,textalign,buttonlink,buttoncustom,buttondefaut,buttonsurvey,…+8;state=closed,open|Ligne d'option du panneau de réglages.|6113:104097|80,375
 contrastCheck|4747:71663|85x96|checked=false,true|Contrôle de contraste.|6113:104097|80,5972
 OptionProgressbarItem|5395:21581|296x182|active=false,true|Option barre de progression.|6113:104097|80,6148
 OptionAvatarItem|5395:21734|276x400|active=false,true;avatarUpload=false,true|Option avatar.|6113:104097|80,6410

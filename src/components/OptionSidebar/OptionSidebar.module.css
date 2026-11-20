@@ -1,4 +1,4 @@
-/* Panneau d'options : PanelHeader (7851:8151), OptionPanelItem (6031:85291), OptionPanel (6031:85898). */
+/* Panneau d'options : PanelHeader (7851:8151), OptionItem (6031:85291), OptionSidebar (6031:85898). */
 .panel { box-sizing: border-box; display: flex; flex-direction: column; background: var(--neutral-surface-default); font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); color: var(--content-default-default); }
 .panelHead { padding: 16px 16px 12px; }
 .panelScope { padding: 4px 16px 12px; }

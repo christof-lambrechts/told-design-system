@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { LanguageItem, TranslationTable, type TranslationGroup } from './Languages';
-import { FormatCard, LogicRule, OptionToggle } from '../OptionPanel/OptionDetails';
+import { FormatCard, LogicRule, OptionToggle } from '../OptionSidebar/OptionDetails';
 import { Select } from '../Select/Select';
 import { Input } from '../Input/Input';
 

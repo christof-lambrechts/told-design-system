@@ -92,7 +92,7 @@ Tous les autres composants codés portent **exactement** le nom Figma : Button, 
 | ConfirmModal | `hasToldies`, `hasArchive` | `illustration`, `danger` |
 | Modal | `hasPrimaryButton`, `hasDangerButton`… | `footer` (les boutons passés) |
 | MessageCard | `hasDetail`, `kind=welcome / thanks` | `preview`, `kind` |
-| OptionPanelItem | un `type` par réglage Told (format, position…) | **générique** : `icon`, `label`, `value`, `actionLabel`, `open`, contenu libre |
+| OptionItem | un `type` par réglage Told (format, position…) | **générique** : `icon`, `label`, `value`, `actionLabel`, `open`, contenu libre |
 
 ## 5. Points à régler dans Figma
 
@@ -150,6 +150,7 @@ Ces noms sont réservés : le code les reprendra tels quels (règle 1). Statut d
 | FormatModal, _FormatRow | modale de choix du format (Tour : Standard, Vitrine, Compact, Vidéo, Démo ; Record : Démo guidée, Annonce, Animation in-app) | `product` ; ligne : `state`, `label`, `hasBadge` |
 | SliderCapsule | curseur en capsule (zoom, opacité, durée), point de valeur par défaut | `state=empty / partial / full / range`, `label`, `value`, `hasDefault` → code `value`, `defaultValue`, `format`, `rangeEnd` |
 | ChoiceChips, _ChoiceChip | choix compact en pastilles (thème, apparition, type d'écran, avatar) | `lead=none / icon / color / thumb / avatar / glyph`, `state` → code `options[]` (`icon`, `color`, `thumb`, `avatar`, `glyph`, `onListen`) |
+| RecordAvatar | avatar posé sur la slide Record quand il est activé | `state=filled / empty`, `size=sm / md / lg` (120, 160, 200), `hasAiTag`, `label` ; forme par le mode 03-radius de l'instance (Default carré arrondi, Roundy rond, Sharp carré), jetons `component/record-avatar/frame` et `/media` (pas encore codé) |
 | AvatarPicker, _AvatarOption | choix de l'avatar Record (photo, nom, voix, Écouter) | `state`, `name`, `voice` (pas encore codé) |
 | EndButtonSettings, KeyPointsField, _Record*Options | contenus d'options Record | à composer dans Record avec les composants du DS |
 | EmptyIllustration | illustrations des états vides (style Koovea, écrans de Told) | `context`, `tone` (à exporter en SVG) |

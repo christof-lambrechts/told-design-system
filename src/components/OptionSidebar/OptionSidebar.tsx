@@ -6,7 +6,7 @@ import { GroupTab } from '../Tabs/Tabs';
 import { Badge } from '../Badge/Badge';
 import { IconBoxedColor, type IconBoxedColorName } from '../IconBoxed/IconBoxedColor';
 import { Switch } from '../Choice/Choice';
-import styles from './OptionPanel.module.css';
+import styles from './OptionSidebar.module.css';
 
 const cx = (...c: (string | false | null | undefined)[]) => c.filter(Boolean).join(' ');
 
@@ -55,9 +55,9 @@ export function PanelHeader({ icon, title, description, onChangeType, changeType
   );
 }
 
-/* ---------- OptionPanelItem ---------- */
+/* ---------- OptionItem ---------- */
 
-export interface OptionPanelItemProps {
+export interface OptionItemProps {
   /** Sorte de ligne (OptionItem type=generic, 20/11) : row = valeur et action ou interrupteur à droite, sans contenu ; collapsible = chevron ; open = contenu toujours visible. Absent : ancien comportement (bouton « Modifier »). */
   variant?: 'row' | 'collapsible' | 'open';
   icon?: IconBoxedColorName;
@@ -84,8 +84,8 @@ export interface OptionPanelItemProps {
   info?: string;
 }
 
-/** OptionPanelItem (6031:85291) : une option repliable de la colonne de réglages. Marge 12/14, filet bas Neutral/border/default. */
-export function OptionPanelItem({ variant, icon, label, value, required, pro, open, defaultOpen = false, onOpenChange, actionLabel = 'Modifier', children, onAction, toggle: sw, info }: OptionPanelItemProps) {
+/** OptionItem (6031:85291) : une option repliable de la colonne de réglages. Marge 12/14, filet bas Neutral/border/default. */
+export function OptionItem({ variant, icon, label, value, required, pro, open, defaultOpen = false, onOpenChange, actionLabel = 'Modifier', children, onAction, toggle: sw, info }: OptionItemProps) {
   const [inner, setInner] = useState(defaultOpen);
   const isOpen = variant === 'open' ? true : variant === 'row' ? false : (open ?? inner);
   const cid = useId();
@@ -131,9 +131,9 @@ export function OptionPanelItem({ variant, icon, label, value, required, pro, op
   );
 }
 
-/* ---------- OptionPanel ---------- */
+/* ---------- OptionSidebar ---------- */
 
-export interface OptionPanelProps {
+export interface OptionSidebarProps {
   /** En-tête (PanelHeader). */
   header: ReactNode;
   /** Bascule Étape / Bloc (GroupTab sm). Absente si non fournie. */
@@ -142,13 +142,13 @@ export interface OptionPanelProps {
   onScopeChange?: (value: string) => void;
   /** Bloc « Demander à Told » ou autre, entre la bascule et les options. */
   assist?: ReactNode;
-  /** Les OptionPanelItem. */
+  /** Les OptionItem. */
   children: ReactNode;
   width?: number;
 }
 
-/** OptionPanel (6031:85898) : colonne d'options de l'éditeur. 356 de large, en-tête 16/16/12, bascule 4/16/12, puis les options. */
-export function OptionPanel({ header, scopes, scope, onScopeChange, assist, children, width = 356 }: OptionPanelProps) {
+/** OptionSidebar (6031:85898) : colonne d'options de l'éditeur. 356 de large, en-tête 16/16/12, bascule 4/16/12, puis les options. */
+export function OptionSidebar({ header, scopes, scope, onScopeChange, assist, children, width = 356 }: OptionSidebarProps) {
   return (
     <aside className={styles.panel} style={{ width }}>
       <div className={styles.panelHead}>{header}</div>
