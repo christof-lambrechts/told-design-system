@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.12.1 · 20/11/2026
+
+- **Breadcrumb** : la prop `status` revient, marquée déconseillée. Told Record s'en sert pour la lecture seule, la publication et l'état de sauvegarde ; la retirer cassait l'éditeur. Le badge reste retiré de Figma.
+
 ## v0.12.0 · 20/11/2026
 
 Composants validés dans Figma le 20/11 et demandes de Told Record (D-00X).

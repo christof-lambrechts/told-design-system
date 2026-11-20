@@ -72,7 +72,7 @@ Tous les autres composants codés portent **exactement** le nom Figma : Button, 
 | GroupTab | `hasCounter` (texte « Compteur ») | `items[].count` |
 | ButtonTab | `font=medium / semibold` | `weight` |
 | ButtonGroup | `style`, `size`, `count` | `appearance` ; taille et nombre = les boutons passés |
-| Breadcrumb | `levels=1 / 2`, `hasBack` (statut retiré le 20/11) | `items`, `onBack`, `titleLabel`, `titleMaxLength` (prop `status` supprimée en v0.12.0) |
+| Breadcrumb | `levels=1 / 2`, `hasBack` (statut retiré le 20/11) | `items`, `onBack`, `titleLabel`, `titleMaxLength` (prop `status` déconseillée, gardée pour Told Record) |
 | ContrastBadge | `level`, `result`, `ratio`, `hasRatio`, `hasChevron` | `level`, `ratio` (le résultat est calculé), `showRatio`, `onClick` (chevron) |
 | ColorField | `state=fail / corrected / pass` | calculé depuis `value`, `background`, `level` |
 | CopyField, CodeBlock | `state=copied` | interne (2 s après le clic) |

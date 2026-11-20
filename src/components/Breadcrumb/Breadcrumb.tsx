@@ -62,11 +62,13 @@ export interface BreadcrumbProps {
   /** Nom accessible et longueur maximale du titre modifiable (D-003). */
   titleLabel?: string;
   titleMaxLength?: number;
+  /** @deprecated Le badge d'état est retiré de Figma (20/11). Gardé pour ne pas casser Told Record : contenu libre affiché après le titre. Préférer placer ces indications dans l'en-tête (EditorHeader). */
+  status?: ReactNode;
   theme?: Theme;
 }
 
 /** Breadcrumb (8739:53399) : retour, niveaux parents séparés par « / », titre courant modifiable. Clair ou sombre. Pas de badge d'état (retiré le 20/11). */
-export function Breadcrumb({ items, current, onRename, onBack, titleLabel, titleMaxLength, theme = 'light' }: BreadcrumbProps) {
+export function Breadcrumb({ items, current, onRename, onBack, titleLabel, titleMaxLength, status, theme = 'light' }: BreadcrumbProps) {
   return (
     <nav aria-label="Fil d'Ariane" className={styles.crumb} {...(theme === 'dark' ? { 'data-theme': 'dark' } : {})}>
       {onBack && <ButtonIcon icon="arrow-left-02" label="Retour" appearance="ghost" color="neutral" size="sm" onClick={onBack} />}
@@ -82,6 +84,7 @@ export function Breadcrumb({ items, current, onRename, onBack, titleLabel, title
           {onRename ? <EditableTitle value={current} onChange={onRename} theme={theme} inputLabel={titleLabel} maxLength={titleMaxLength} /> : <span className={styles.current}>{current}</span>}
         </li>
       </ol>
+      {status}
     </nav>
   );
 }
