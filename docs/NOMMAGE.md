@@ -5,40 +5,40 @@
 
 ## 1. La règle
 
-1. **Figma donne le nom du composant.** Le code reprend le même nom, sauf la liste du § 2, figée pour ne pas casser Told Record. Les noms Figma de ces composants sont aussi exportés comme alias quand l'API est la même.
+1. **Un composant porte le même nom dans Figma et dans le code.** Depuis le 20/11, Figma a repris les noms du code quand ils étaient plus clairs pour un développeur ou une IA (`Select` plutôt que DropdownField, `Modal` plutôt que ModalBase…). Les anciens noms Figma restent exportés comme alias dans le code, pour ne rien casser.
 2. **Les propriétés suivent l'usage de React**, avec la correspondance du § 3, qui est la même partout. Un écart propre à un composant est écrit au § 4.
 3. **Les pièces internes de Figma** (nom en `_PascalCase`, par exemple `_ToolbarItem`) perdent le tiret bas dans le code (`ToolbarItem`) et ne s'utilisent qu'à l'intérieur de leur parent.
-4. **Un nouveau composant** est dessiné dans Figma d'abord. Il prend un nom anglais en PascalCase sans espace ni tiret, identique dans Figma et dans le code. On ajoute sa ligne ici en même temps.
+4. **Un nouveau composant** est dessiné dans Figma d'abord. Il prend un nom anglais en PascalCase, sans espace ni tiret, qui dit ce qu'est l'objet avec le mot le plus courant chez les développeurs (Select, Modal, Tag, Tooltip, Toast…). Pas de suffixe « Base », pas d'année, pas de français. Même nom dans Figma et dans le code. On ajoute sa ligne ici en même temps.
 
-## 2. Composants dont le nom diffère
+## 2. Noms alignés le 20/11 (anciens noms)
 
-| Figma | Code | Alias exporté | Remarque |
+Figma a été renommé ; les instances des maquettes restent liées. Dans le code, utiliser le nom de la colonne « Nom » ; les alias ne servent qu'au code existant.
+
+| Nom (Figma et code) | Ancien nom Figma | Alias encore exporté | Remarque |
 | --- | --- | --- | --- |
-| ModalBase | `Modal` | `ModalBase` | |
-| ConfirmModal | `ConfirmModal` | | même nom ; c'est un Modal centré |
-| DropdownField | `Select` | `DropdownField` | Select gère la liste ; DropdownField n'est que le champ |
-| LabelTag / LabelBase | `Tag` | | |
-| FlagCountry | `Flag` | `FlagCountry` | |
-| logoTold2025 | `Logo` | | `mini` = logo miniature |
-| ProgressBarWidget | `ProgressSteps` | `ProgressBarWidget` | |
-| Loader, SkeletonLine, SkeletonCard | idem | | |
-| TourItemBase | `TourStep` | `TourItemBase` | |
-| Widget-tour | `TourBubble` | | nom Figma avec tiret, pas d'alias possible |
-| welcome-modale-tour | `TourWelcome` | | |
-| Link-survey | `LinkSurvey` | | |
-| NPS Component | `NpsAnswer` | | |
-| Rating scale - Question | `ScaleAnswer` | | |
-| User story | `UserStory` | | |
-| EditionNavRecord | `EditorHeader` (+ `EditorSaveState`, `EditorChanges`) | | le code est un gabarit à emplacements ; l'en-tête Told (EditionNav) n'est pas codé |
-| WidgetChecklist / ChecklistItem | `ChecklistItem` | | la liste complète n'est pas codée |
-| CodeDigit | intégré à `CodeInput` | | |
-| _PresenceAvatar | `PresenceAvatar` | | |
-| _PromptChip, _ToolbarItem, _ChoiceThumb, _ChoiceIllustration, _ContrastMenu | `PromptChip`, `ToolbarItem`, `ChoiceThumb`, `ChoiceIllustration`, `ContrastMenu` | | règle 3 |
-| `IconBoxed` | `IconBoxed` | | pas de composant Figma du même nom : pastille d'icône simple |
-| OptionItem (ex-OptionPanelItem et PanelSection) | `OptionPanelItem` | `OptionItem` | fusion du 20/11 ; utiliser `OptionItem` dans le nouveau code |
-| OptionSidebar (ex-OptionPanel et StepOptionsPanel) | `OptionPanel` | `OptionSidebar` | fusion du 20/11 ; variante `contentType=record` pour Told Record |
+| `Modal` | ModalBase | `ModalBase` | l'ancienne modale sans instance s'appelle ModalLegacy |
+| `ConfirmModal` | | | un Modal centré |
+| `Select` | DropdownField | `DropdownField` | le champ et sa liste |
+| `Tag` | LabelTag (pièce `_TagBase`, ex-LabelBase) | | |
+| `Flag` | FlagCountry | `FlagCountry` | les pictos drapeau à tailles s'appellent FlagIcon |
+| `Logo` | logoTold2025 | | `mini` = logo miniature ; les logos Toldies s'appellent LogoToldies |
+| `ProgressSteps` | ProgressBarWidget | `ProgressBarWidget` | |
+| `TourStep` | TourItemBase | `TourItemBase` | |
+| `TourBubble` | Widget-tour | | |
+| `TourWelcome` | welcome-modale-tour | | |
+| `LinkSurvey` | Link-survey | | |
+| `NpsAnswer` | NPS Component | | |
+| `ScaleAnswer` | Rating scale - Question | | |
+| `UserStory` | User story | | |
+| `OptionItem` | ex-OptionPanelItem et PanelSection | `OptionPanelItem` | nom à utiliser dans le code |
+| `OptionSidebar` | ex-OptionPanel et StepOptionsPanel | `OptionPanel` | variante `contentType=record` pour Told Record |
+| `EditorHeader` (code) | EditorHeaderTold (ex-EditionNav), EditorHeaderRecord (ex-EditionNavRecord) | | le code est un seul gabarit à emplacements (+ `EditorSaveState`, `EditorChanges`) pour les deux produits ; Figma garde un composant par produit |
+| `ChecklistItem` | WidgetChecklist / ChecklistItem | | la liste complète n'est pas codée |
+| `CodeInput` | CodeDigit intégré | | |
+| `PresenceAvatar`, `PromptChip`, `ToolbarItem`, `ChoiceThumb`, `ChoiceIllustration`, `ContrastMenu` | `_PresenceAvatar`, `_PromptChip`… | | règle 3 |
+| `IconBoxed` | | | pas de composant Figma du même nom : pastille d'icône simple |
 
-Tous les autres composants codés portent **exactement** le nom Figma : Button, ButtonIcon, ButtonGroup, ButtonGradient, ButtonDropdown, ButtonLink, Badge, Avatar, AvatarGroup, AiTag, AiNotice, Banner, Toast, Tooltip, Kbd, KbdCombo, Input, SearchBar, TextArea, Checkbox, Radio, Switch, TextTab, ButtonTab, GroupTab, Pagination, PaginationButton, NavButtonItem, Divider, FileUploader, Calendar, IconBoxedColor, ColorField, ContrastBadge, CopyField, CodeBlock, Breadcrumb, EditableTitle, FloatingToolbar, IntentInput, IntentPanel, QuickSuggestion, ChoicePicker, StepThumb, StepGroup, StepList, GettingStarted, GettingStartedStep, ModuleCard, SubStepItem, MessageCard, FlowDivider, InsertBar, DropZone, AddBlockModal, BlockTypeItem, OptionPanel, OptionPanelItem, PanelHeader, FormatCard, LogicRule, NotificationCenter, NotificationItem, AppLayout, AuthPanel, CodeInput, PasswordStrength, DividerLabel, SocialButton, TranslationTable, LanguageItem, Widget, WidgetButton, WidgetChoice, WidgetConsent.
+Tous les autres composants codés portent **exactement** le nom Figma : Button, ButtonIcon, ButtonGroup, ButtonGradient, ButtonDropdown, ButtonLink, Badge, Avatar, AvatarGroup, AiTag, AiNotice, Banner, Toast, Tooltip, Kbd, KbdCombo, Input, SearchBar, TextArea, Checkbox, Radio, Switch, TextTab, ButtonTab, GroupTab, Pagination, PaginationButton, NavButtonItem, Divider, FileUploader, Calendar, IconBoxedColor, ColorField, ContrastBadge, CopyField, CodeBlock, Breadcrumb, EditableTitle, FloatingToolbar, IntentInput, IntentPanel, QuickSuggestion, ChoicePicker, StepThumb, StepGroup, StepList, GettingStarted, GettingStartedStep, ModuleCard, SubStepItem, MessageCard, FlowDivider, InsertBar, DropZone, AddBlockModal, BlockTypeItem, OptionItem, OptionSidebar, PanelHeader, FormatCard, LogicRule, NotificationCenter, NotificationItem, AppLayout, AuthPanel, CodeInput, PasswordStrength, DividerLabel, SocialButton, TranslationTable, LanguageItem, Widget, WidgetButton, WidgetChoice, WidgetConsent.
 
 ## 3. Correspondance des propriétés (vaut pour tous les composants)
 
@@ -83,9 +83,9 @@ Tous les autres composants codés portent **exactement** le nom Figma : Button, 
 | StepList | `hasIntro`, `hasEnd` ; en-tête supprimé | `intro`, `end` (v0.12.0) ; `label` et `warning` devenus facultatifs |
 | PanelHeader | `hasIcon`, `hasDescription` (20/11), `hasChangeType`, `hasMenu`, `hasBack` | à aligner : `icon`, `description` optionnels |
 | OptionItem `type=generic` | `content` (INSTANCE_SWAP) pour poser un réglage dans la ligne ouverte | contenu = `children` |
-| ProgressBarWidget | `theme=light / dark` | `ProgressSteps` `theme` (v0.12.0) |
+| ProgressSteps | `theme=light / dark` | `ProgressSteps` `theme` (v0.12.0) |
 | label tour | propriété `label` (20/11) | pas codé (voir TourStep) |
-| EditionNavRecord | `hasSubnav` (20/11, faux en V1 : barre noire seule), Partager seulement dans `step=analyser`, icônes pleines, onglet Langues | `EditorHeader` : à aligner |
+| EditorHeaderRecord | `hasSubnav` (20/11, faux en V1 : barre noire seule), Partager seulement dans `step=analyser`, icônes pleines, onglet Langues | `EditorHeader` : à aligner |
 | IntentInput | `state=filled / listening`, `hasMic`, `hasControls`, `hasHint` | `value` (rempli), `listening`, `onMic`, `controls`, `hint` |
 | ChoicePicker | `kind=ratio / format` | `options` (libellés et illustrations libres) |
 | FloatingToolbar | `labels=true / false` | `showLabel` sur chaque `ToolbarItem` |
@@ -104,10 +104,10 @@ Tous les autres composants codés portent **exactement** le nom Figma : Button, 
 | **TextEditorControls** existe deux fois (AudioInput, TextArea) | Un seul, axe `position` |
 | **Title** existe deux fois (Cards, Widget) | Renommer celui des cartes en `CardTitle` |
 | **notificationItem** (Molécules) et **NotificationItem** (Organismes) | Le premier est l'ancien : à archiver |
-| **Modal** (type default / danger) à côté de **ModalBase** et **ConfirmModal** | Modal est l'ancien : à archiver |
-| **Logo** (Toldies en couleur) à côté de **logoTold2025** | Renommer le premier `ToldiesLogo` |
-| Noms avec espace, tiret ou minuscule (Link-survey, Widget-tour, NPS Component, Rating scale - Question, welcome-modale-tour, tour-resume-list, label tour, User story, notificationItem) | Les renommer en PascalCase au fil des validations (LinkSurvey, TourBubble, NpsAnswer, ScaleAnswer, TourWelcome…). Les instances restent liées |
-| `EditionNav` (en-tête Told) | Pas codé : à faire après validation, sur le même modèle que `EditorHeader` |
+| **Modal** (type default / danger) à côté de **Modal** et **ConfirmModal** | Modal est l'ancien : à archiver |
+| **Logo** (Toldies en couleur) à côté de **Logo** | Renommer le premier `ToldiesLogo` |
+| Noms avec espace, tiret ou minuscule (LinkSurvey, TourBubble, NpsAnswer, ScaleAnswer, TourWelcome, tour-resume-list, label tour, User story, notificationItem) | Les renommer en PascalCase au fil des validations (LinkSurvey, TourBubble, NpsAnswer, ScaleAnswer, TourWelcome…). Les instances restent liées |
+| `EditorHeaderTold` (en-tête Told) | Pas codé : à faire après validation, sur le même modèle que `EditorHeader` |
 
 ## 6. Told Record : composants maison et leur équivalent
 

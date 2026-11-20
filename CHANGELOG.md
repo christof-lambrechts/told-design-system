@@ -3,6 +3,12 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.12.2 · 20/11/2026
+
+- **Noms alignés entre Figma et le code** (docs/NOMMAGE.md § 1 et 2) : Figma reprend les noms du code, plus clairs pour un développeur ou une IA. Select (ex-DropdownField), Modal (ex-ModalBase), Tag, Flag, Logo, ProgressSteps, TourStep, TourBubble, TourWelcome, LinkSurvey, NpsAnswer, ScaleAnswer ; EditorHeaderTold et EditorHeaderRecord dans Figma pour le gabarit EditorHeader. Utiliser OptionItem et OptionSidebar dans le nouveau code. Aucun changement d'API : les anciens alias restent exportés.
+- Règle de nommage d'un nouveau composant précisée (mot le plus courant chez les développeurs, pas de suffixe Base, pas d'année, pas de français).
+- Catalogue Figma regénéré avec les nouveaux noms.
+
 ## v0.12.1 · 20/11/2026
 
 - **Breadcrumb** : la prop `status` revient, marquée déconseillée. Told Record s'en sert pour la lecture seule, la publication et l'état de sauvegarde ; la retirer cassait l'éditeur. Le badge reste retiré de Figma.

@@ -36,8 +36,8 @@ StatusBanner|8253:2940|770x280|state=nowhere,test,live|Bandeau d’état de Diff
 ResponsesSummary|8253:2941|720x133||Résumé des réponses par canal sur 7 jours.|8253:2941|0,0
 DisplayRulesNote|8253:2973|720x49||Pied de Diffuser.|8253:2973|0,0
 #Organismes / Email ❌
-Rating scale - Question|791:89276|1991x425|?hasTextInput;type=meteo,emoji,star-lt5,number-lt5,thumb,star-5plus,number-5plus;size=sm,lg|Question à échelle, côté répondant.|787:66903|80,375
-NPS Component|787:69652|888x182|?hasCaption;circleNumber=true,false;size=lg,sm|Question NPS, côté répondant.|787:66903|80,880
+ScaleAnswer|791:89276|1991x425|?hasTextInput;type=meteo,emoji,star-lt5,number-lt5,thumb,star-5plus,number-5plus;size=sm,lg|Question à échelle, côté répondant.|787:66903|80,375
+NpsAnswer|787:69652|888x182|?hasCaption;circleNumber=true,false;size=lg,sm|Question NPS, côté répondant.|787:66903|80,880
 scale-bar|4103:115915|273x156|style=star,number|Barre d'échelle.|787:66903|80,1142
 Raking - Question|787:69219|324x1836|state=default,hover,pressed,selected;theme=light,dark;active=off,on;size=l,xl|Question de classement.|787:66903|80,1378
 ranking number|787:69338|181x64|active=off,on;theme=dark,light|Numéro de classement.|787:66903|444,1378
@@ -68,9 +68,9 @@ Toldies|26:19880|120x120||Illustration Toldies des modales.|26:13393|80,375
 ModalContent|36:17736|5188x488|type=invite,langue,radio-list|Contenus de modale.|26:13393|80,575
 footer|2939:186298|508x152|?hasOutlineButton;?hasPrimaryButton;?hasDeleteButton;?hasTextInfo;line=true,false|Pied de modale.|26:13393|80,1143
 modale- selection langue par default|5314:14347|524x470||Modale de langue par défaut.|26:13393|80,1375
-ModalBase|6234:9287|540x978|?hasDescription;"title;"description;?hasClose;?hasDangerButton;?hasPrimaryButton;?hasSecondaryButton;?hasContent;?hasToldies;divider=false,true|Base de modale.|26:13393|80,1925
+Modal|6234:9287|540x978|?hasDescription;"title;"description;?hasClose;?hasDangerButton;?hasPrimaryButton;?hasSecondaryButton;?hasContent;?hasToldies;divider=false,true|Base de modale.|26:13393|80,1925
 Upload media modale|3688:179398|1528x990||Modale d'envoi de média.|26:13393|80,2983
-Modal|29:13412|3068x998|type=default,danger|Modale.|26:13393|80,4053
+ModalLegacy|29:13412|3068x998|type=default,danger|Modale.|26:13393|80,4053
 CreateModal|7860:2051|1200x640|"note|Modale de création d'une expérience.|7860:2051|0,0
 TemplateRow|7855:3399|544x1024|"title;"description;@icon;?hasArrow;state=default,hover,selected;intention=neutral,demander,guider,recompenser|Ligne de modèle dans la modale de création.|7855:3399|0,0
 TemplatePreview|7855:3400|440x546|"result;"note;?hasNote;?hasChannel3|Colonne d'aperçu de la modale de création.|7855:3400|0,0
@@ -138,10 +138,10 @@ User story|7806:3673|2320x980|"ID;"Title;"As a;"I want;"So that;"Screens;"Person
 #Organismes / ProductTour ✅
 label tour|5361:41221|356x208|style=text,badge;size=sm,lg|Étiquette de visite guidée.|787:66903|1469,6544
 tour-resume-list|3738:45455|219x146|active=true,false;textColor=dark,white|Sommaire de visite guidée.|4093:16149|0,135
-welcome-modale-tour|3738:158203|5869x576|?hasLabel;?hasTitle;?hasMedia;text=white,black;miniature=false,true;summaryList=true,false;variant=minimal,extend,resume|Modale d'accueil de visite guidée.|4093:16149|0,381
-TourItemBase|3712:40132|5315x3343|?hasTitle;?hasImage;?hasWithFooter;?hasGlassShape;?hasLight;format=widget,modal,welcome;image=right,left,bottom,top;header=none,progress-bar,avatar;close=true,false|Étape de visite guidée.|3712:40132|0,0
-Widget-tour|3715:41441|2485x1623|arrow=top-left,top,bottom-left,bottom,left,right,bottom-right,top-right;text=white,black;format=widget,modal|Bulle de visite guidée avec flèche.|3715:41441|0,0
+TourWelcome|3738:158203|5869x576|?hasLabel;?hasTitle;?hasMedia;text=white,black;miniature=false,true;summaryList=true,false;variant=minimal,extend,resume|Modale d'accueil de visite guidée.|4093:16149|0,381
+TourStep|3712:40132|5315x3343|?hasTitle;?hasImage;?hasWithFooter;?hasGlassShape;?hasLight;format=widget,modal,welcome;image=right,left,bottom,top;header=none,progress-bar,avatar;close=true,false|Étape de visite guidée.|3712:40132|0,0
+TourBubble|3715:41441|2485x1623|arrow=top-left,top,bottom-left,bottom,left,right,bottom-right,top-right;text=white,black;format=widget,modal|Bulle de visite guidée avec flèche.|3715:41441|0,0
 #Organismes / Survey ✅
 🏞️ Image-survey-link|1588:169298|629x1700|?hasLogo;type=image,color;device=desktop,mobile|Fond d'un questionnaire par lien.|787:66903|80,7733
 📝 survey_content|4091:189506|5578x1429|type=text-field,message-field,calendar,forms,scale-meteo,scale-star-lt5,…+5;color=dark,light;device=lg,sm|Contenu d'un questionnaire.|787:66903|80,9513
-Link-survey|1588:169302|14862x3465|?hasGdprConsent;?hasConfetti;?hasLogo;device=desktop,mobile;shape=capsule,full-page;scroll=false,true;style=white,light,dark,glass-dark|Questionnaire par lien.|4093:16133|556,310
+LinkSurvey|1588:169302|14862x3465|?hasGdprConsent;?hasConfetti;?hasLogo;device=desktop,mobile;shape=capsule,full-page;scroll=false,true;style=white,light,dark,glass-dark|Questionnaire par lien.|4093:16133|556,310

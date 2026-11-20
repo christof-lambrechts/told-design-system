@@ -55,7 +55,7 @@ EnvironmentButton|7906:1349|779x88|?hasLabel;env=live,test,preprod|Bouton d'envi
 EnvironmentTag|7941:3994|248x56|env=production,preproduction|Tag d’environnement à côté du statut d’un scénario.|552:29771|80,1526
 EnvironmentMenu|7906:1431|1056x345|?hasAdvanced;env=live,test,preprod|Menu ouvert depuis EnvironmentButton.|552:29771|80,1662
 EnvironmentBanner|7906:1440|1488x136|env=test,preprod|Bandeau en haut de l'écran hors environnement en ligne.|552:29771|80,2087
-EditionNav|1018:36318|4696x810|?hasPreview;?hasPublish;?hasSaveStatus;"saveStatus;?hasChanges;"changesLabel;step=construire,diffuser,analyser;status=brouillon,en-ligne;tabStyle=square,icon,text|En-tête de l'éditeur d'un Told.|9:22187|80,375
+EditorHeaderTold|1018:36318|4696x810|?hasPreview;?hasPublish;?hasSaveStatus;"saveStatus;?hasChanges;"changesLabel;step=construire,diffuser,analyser;status=brouillon,en-ligne;tabStyle=square,icon,text|En-tête de l'éditeur d'un Told.|9:22187|80,375
 VersionItem|8088:223035|1496x100|"version;"detail;?hasStatus;state=default,hover;live=false,true|Une version publiée dans ChangeHistory.|9:22187|80,1265
 ChangeItem|8088:222948|784x252|"title;"detail;"time;?hasDetail;kind=added,edited,deleted;state=default,hover|Une ligne de l’historique des changements non publiés.|9:22187|80,1445
 ChangeHistory|8088:223036|376x503|?hasUnpublished;"sectionTitle|Historique des changements.|9:22187|80,1777

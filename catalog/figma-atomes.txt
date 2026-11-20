@@ -19,8 +19,8 @@ Avatar|1053:144214|741x358|"text;size=3xl,2xl,xl,lg,md,sm,xs;style=text,icon,ima
 #Atomes / Badge ❌
 Badge|2794:179295|368x1364|size=xs,sm,md,lg;color=blue,tree,green,orange,red,purple,light-gray,white,pink-gradient;style=outline,fill,subtle|Statut figé d’un objet, et aussi étiquette non cliquable (ancien Tag fusionné ici).|4:1683|80,565
 FloatBadge|3613:133857|273x42|size=lg,sm,md|Mini badge flottant (indicateur).|4:1683|80,2009
-LabelBase|4:1557|202x86|?hasClose;?hasIconLeft;size=m,l;rounded=false|Base des étiquettes.|569:59906|80,450
-LabelTag|569:60860|325x676|shape=default;color=apple,green,pink,peach,orange,mustard,yellow,tree,…+8;size=sm,lg|Étiquette de catégorie colorée.|569:59906|80,651
+_TagBase|4:1557|202x86|?hasClose;?hasIconLeft;size=m,l;rounded=false|Base des étiquettes.|569:59906|80,450
+Tag|569:60860|325x676|shape=default;color=apple,green,pink,peach,orange,mustard,yellow,tree,…+8;size=sm,lg|Étiquette de catégorie colorée.|569:59906|80,651
 NotificationDot — color=default|6057:105|8x8||Pastille de notification, neutre.|6057:102|0,28
 NotificationDot — color=danger|6057:107|8x8||Pastille de notification, danger.|6057:102|24,28
 NotificationDot — color=success|6057:109|8x8||Pastille de notification, succès.|6057:102|48,28
@@ -44,8 +44,8 @@ CheckboxItem|4554:110759|160x200|state=default,disabled,error;color=brand,neutra
 #Atomes / Divider ✅
 Divider|6055:89|1440x1||Séparateur horizontal.|6108:97170|80,375
 DividerVertical|6055:90|1x156||Séparateur vertical.|6108:97170|80,392
-#Atomes / DropdownField ✅
-DropdownField|4855:20599|1812x1600|style=default,flat,light;size=sm,md,lg;state=default,focus,error,disabled;placeholder=true,false|Champ de sélection.|5884:33181|90,385
+#Atomes / Select ✅
+Select|4855:20599|1812x1600|style=default,flat,light;size=sm,md,lg;state=default,focus,error,disabled;placeholder=true,false|Champ de sélection.|5884:33181|90,385
 #Atomes / Icons ✅
 Asterisk|787:72863|108x64|style=solid,stroke;type=standard|Astérisque d'obligation.|1:13141|90,455
 require|1:7628|224x72|state=default;size=xl,lg,md,sm,xs|Marque d'obligation.|1:13141|90,531
@@ -56,7 +56,7 @@ left-to-right-block-quote|2948:1904|64x108|outline=true,false|Icône citation.|1
 note|2960:45430|64x108|outline=true,false|Icône note.|1:13141|522,695
 IconColor|1442:141718|64x64|size=lg|Icône colorée.|1:13141|522,815
 Number icon|1410:135462|106x228|style=light,fill;size=xxl,xl,lg,md,sm,xs|Numéro en pastille.|1:13141|522,969
-Flag|1:8526|224x72|size=xl,lg,md,sm,xs|Icône drapeau.|1:13141|90,1347
+FlagIcon|1:8526|224x72|size=xl,lg,md,sm,xs|Icône drapeau.|1:13141|90,1347
 Apple|1:10558|64x228|state=default;size=xxl,xl,lg,md,sm,xs|Logo Apple.|1:13141|90,1569
 Hubspot|1262:135801|64x228|size=xxl,xl,lg,md,sm,xs|Logo HubSpot.|1:13141|174,1569
 Calendly|1262:135824|64x228|size=xxl,xl,lg,md,sm,xs|Logo Calendly.|1:13141|258,1569
@@ -73,7 +73,7 @@ Unsplash|1:10597|56x176|state=default;size=l,m,s,xs,xxs|Logo Unsplash.|1:13141|1
 microsoft|8182:1210|24x24||Logo Microsoft en couleurs d’origine (fixes), pour le bouton « Continuer avec Microsoft ».|1:13141|1258,1569
 TeamImg|20:14656|112x585|state=default,hover;image=off,on;type=default,image|Image d'équipe.|1:13141|1342,1606
 AvatarButton|20:14667|104x524|state=default,edit;content=icon,picture;size=m,max|Bouton avatar modifiable.|1:13141|1474,1606
-Logo|4:5105|64x231|type=toldies;color=orange,grey,pink,black|Logo Toldies.|1:13141|1598,1606
+LogoToldies|4:5105|64x231|type=toldies;color=orange,grey,pink,black|Logo Toldies.|1:13141|1598,1606
 Toldies|4:4993|757x216|name=told-white,toldie-masque,heart-pink,cross-error,check-success,circle-cyan,wave-apple,wave-german,…+13;shadow=true,false;background=without,square,rounded-square;color=light,full|Personnages Toldies.|1:13141|1682,1606
 icon_file_upload|2986:36367|88x359|type=drag,drop,default|Icône de dépôt de fichier.|1:13141|2459,1606
 IconBoxedColor|4:4197|40x3008|icon=excel,click,chart,iframe,mail,button,organization,end,…+81;style=filled,subtle|Icône dans une pastille colorée.|1:13141|2567,1606
@@ -91,7 +91,7 @@ privacyPolitieItem|6113:111395|342x144|withPolicy=default,true|Ligne de politiqu
 #Atomes / FileUploader ✅
 FileUploader|2547:103458|540x948|?hasRecommendedSize;?hasWeightFileTag;state=hover,fill,default,file-drop|Zone de dépôt de fichier.|1156:85204|90,385
 #Atomes / Flag ✅
-FlagCountry|567:57115|720x520|country=al-albania,dz-algeria,be-belgium,fr-france,es-spain,pt-portugal,de-germany,jp-japan,…+208|Drapeaux des pays et continents.|5872:64461|80,315
+Flag|567:57115|720x520|country=al-albania,dz-algeria,be-belgium,fr-france,es-spain,pt-portugal,de-germany,jp-japan,…+208|Drapeaux des pays et continents.|5872:64461|80,315
 #Atomes / Illustrations ❌
 Illu_Survey/Survey|4:12792|200x140||Illustration questionnaire.|5871:63488|180,375
 Illu_Survey/Illu_Grid_Qualif|4:12808|200x140||Illustration grille de qualification.|5871:63488|180,548
@@ -115,7 +115,7 @@ InputContactForm|6148:91504|1440x5448|state=default,hover,pressed,focus,error;in
 Contact info_input|8:13793|316x552|?hasRequired;?hasIconLeft;state=default,fill,hover,click,error;level=primary,secondary|Champ de coordonnées.|6148:59768|90,5913
 Contact Info_multiple inputs|8:14796|728x884|?hasRequired;state=default,hover;open=off,on|Formulaire de coordonnées complet.|6148:59768|90,6545
 #Atomes / Logos ✅
-logoTold2025|4:4766|160x646|theme=light,dark;size=lg,md,sm,xs;background=no;version=2025;mini=false,true|Logo Told 2025.|552:36171|80,375
+Logo|4:4766|160x646|theme=light,dark;size=lg,md,sm,xs;background=no;version=2025;mini=false,true|Logo Told 2025.|552:36171|80,375
 LogoPartner|4:13217|64x1280|company=tol,figma,marvel,jira,maze,notion,trello,drive,…+31|Logos de partenaires et d'outils.|552:36171|290,375
 #Atomes / NavButtonItem ✅
 NavButtonItem|1023:80470|1176x552|?hasIconLeft;?hasIconRight;?hasLabel;?hasTag;"label;@iconBoxed;@icon;@iconRight;?hasShortcut;state=default,hover,selected,disabled;level=primary,secondary;style=default,dropdown;iconType=default,boxed|Élément de navigation du menu latéral.|5978:16592|80,375
@@ -124,7 +124,7 @@ Avatar|541:9850|119x109|type=multi,single|Avatar de navigation.|5978:16592|80,12
 Profile|635:66174|284x168|state=default,hover,press-select|Accès au profil.|5978:16592|80,1404
 #Atomes / ProgressBar ✅
 ProgressBar|556:57661|421x2110|length=0,10,20,30,40,50,60,70,…+3;direction=horizontal,vertical;size=lg,sm|Barre de progression.|5922:65029|90,385
-ProgressBarWidget|787:72909|300x74|style=multi,single;size=sm,lg|Progression dans un widget.|5922:65029|591,385
+ProgressSteps|787:72909|300x74|style=multi,single;size=sm,lg|Progression dans un widget.|5922:65029|591,385
 Loader|1156:85211|1026x477|?hasLabel;style=line-simple,line-spinner,dot-circle;size=3xs,lg,md,sm,xl,xs,xxs|Indicateur de chargement.|5922:65029|971,385
 SkeletonLine|6057:97|200x12||Ligne fantôme de chargement.|6057:94|0,28
 SkeletonCard|6057:98|240x1||Carte fantôme de chargement.|6057:94|224,28
