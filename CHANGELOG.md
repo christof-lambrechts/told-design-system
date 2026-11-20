@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.18.0 · 21/11/2026
+
+- **GroupTab** : `label` (libellé en petit au-dessus, comme les panneaux de Figma, relié par `aria-labelledby`) et `fullWidth` (vrai par défaut avec `label`) : le contrôle prend toute la largeur du panneau. Règle des panneaux d'options (Taille, Forme…).
+
 ## v0.17.0 · 21/11/2026
 
 - **Filtres** (page Filter ✅, 19/11) : `FilterBar` (page ou flottante, puces qui passent à la ligne, « + Filtre », Effacer en rouge, Enregistrer la vue), `FilterChip` (champ, opérateur, valeur ; texte ou avec icône ; ouverte ; incomplète en pointillés ; croix), `FilterLogic` (Et / Ou), `FilterMenu` (recherche, types par famille ou suggestions, flèches, Entrée, Échap, raccourci F affiché).

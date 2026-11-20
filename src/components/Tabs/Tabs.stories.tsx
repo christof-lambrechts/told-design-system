@@ -60,3 +60,18 @@ export const GroupTabCompteur: StoryObj = {
     return <GroupTab value={v} onChange={setV} items={[{ value: 'all', label: 'Toutes', count: 24 }, { value: 'draft', label: 'Brouillons', count: 6 }, { value: 'pub', label: 'Publiées', count: 18 }]} />;
   },
 };
+
+/** Libellé en petit au-dessus et pleine largeur (panneaux d'options, 21/11). */
+export const GroupTabLibelle: StoryObj = {
+  name: 'GroupTab avec libellé',
+  render: () => {
+    const [t, setT] = useState('md');
+    const [f, setF] = useState('round');
+    return (
+      <div style={{ width: 328, display: 'grid', gap: 16 }}>
+        <GroupTab size="sm" label="Taille" value={t} onChange={setT} items={[{ value: 'sm', label: 'Petit' }, { value: 'md', label: 'Moyen' }, { value: 'lg', label: 'Grand' }]} />
+        <GroupTab size="sm" label="Forme" value={f} onChange={setF} items={[{ value: 'round', label: 'Rond' }, { value: 'rounded', label: 'Arrondi' }, { value: 'square', label: 'Carré' }]} />
+      </div>
+    );
+  },
+};

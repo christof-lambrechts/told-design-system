@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import { useId, type ButtonHTMLAttributes, type ReactNode } from 'react';
 import { Icon, type IconName } from '../Icon/Icon';
 import styles from './Tabs.module.css';
 
@@ -70,12 +70,18 @@ export interface GroupTabProps {
   onChange?: (value: string) => void;
   size?: 'sm' | 'lg';
   'aria-label'?: string;
+  /** Libellé en petit au-dessus (comme les panneaux de Figma) ; le contrôle prend alors toute la largeur. */
+  label?: ReactNode;
+  /** Toute la largeur du parent (vrai par défaut avec `label`). */
+  fullWidth?: boolean;
 }
 
-/** GroupTab (20:13981) : contrôle segmenté, un seul segment actif. */
-export function GroupTab({ items, value, onChange, size = 'lg', ...rest }: GroupTabProps) {
-  return (
-    <div role="tablist" className={cx(styles.group, styles[`g-${size}`])} {...rest}>
+/** GroupTab (20:13981) : contrôle segmenté, un seul segment actif. Avec `label`, libellé au-dessus et pleine largeur (règle des panneaux d'options, 21/11). */
+export function GroupTab({ items, value, onChange, size = 'lg', label, fullWidth, ...rest }: GroupTabProps) {
+  const lid = useId();
+  const full = fullWidth ?? label != null;
+  const group = (
+    <div role="tablist" aria-labelledby={label != null ? lid : undefined} className={cx(styles.group, styles[`g-${size}`], full && styles.groupFull)} {...rest}>
       {items.map((it) => (
         <button
           key={it.value}
@@ -92,4 +98,5 @@ export function GroupTab({ items, value, onChange, size = 'lg', ...rest }: Group
       ))}
     </div>
   );
+  return label != null ? <div className={styles.labelled}><span id={lid} className={styles.fieldLabel}>{label}</span>{group}</div> : group;
 }
