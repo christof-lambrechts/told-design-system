@@ -188,3 +188,20 @@ body {
   background: var(--neutral-surface-page);
   -webkit-font-smoothing: antialiased;
 }
+
+/* 03-radius : avatar Told Record (RecordAvatar, Figma 9102:2242).
+   Mode Default = carré arrondi, Roundy = rond, Sharp = carré. Le mode se choisit
+   avec data-radius sur un parent ; media = frame − bordure de 4 (arrondis concentriques). */
+:root, [data-radius="default"] {
+  --component-record-avatar-frame: 24px;
+  --component-record-avatar-media: 20px;
+  --component-record-avatar-border: 4px;
+}
+[data-radius="roundy"] {
+  --component-record-avatar-frame: 1000px;
+  --component-record-avatar-media: 1000px;
+}
+[data-radius="sharp"] {
+  --component-record-avatar-frame: 0px;
+  --component-record-avatar-media: 0px;
+}

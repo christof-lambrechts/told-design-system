@@ -3,6 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.13.1 · 20/11/2026
+
+- **Jetons de l'avatar Told Record** (RecordAvatar, Figma) : `--component-record-avatar-frame`, `--component-record-avatar-media`, `--component-record-avatar-border`, avec les trois modes d'arrondi par `data-radius` (default = carré arrondi 24, roundy = rond, sharp = carré).
+- Le lecteur public de Told Record reste dans le dépôt Record (paquet autonome) : l'Annonce et l'avatar y sont décrits par la demande D-015 (claude/V3-demandes-ds-record.md).
+
 ## v0.13.0 · 20/11/2026
 
 - **OptionItem et OptionSidebar deviennent les vrais noms** : dossier `src/components/OptionSidebar/`, page Storybook « Panneaux/OptionSidebar », types `OptionItemProps` et `OptionSidebarProps`. `OptionPanel` et `OptionPanelItem` restent exportés comme anciens noms (déconseillés) : rien ne casse.
