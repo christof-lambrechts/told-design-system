@@ -160,6 +160,16 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Réponse DS :
 - Réponse Record :
 
+### D-027 · OptionSidebar : pas de filet sous l'en-tête
+- Date, écran Record concerné (fichier, route) : 21/11/2026, panneau Options de l'éditeur, `src/app/(app)/[org]/demos/[id]/editor/editor.tsx` ; maquette 9020:101470.
+- Besoin (ce que l'écran doit faire) : sous le titre « Options », la première option suit directement, sans filet (comme dans la maquette).
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : `.options` d'OptionSidebar a un `border-top` que la maquette n'a pas. Soit le retirer, soit une propriété pour le masquer.
+- Contournement provisoire dans Record : filet retiré par une règle `!important` autour d'OptionSidebar (le CSS du DS est hors couche et l'emporte sur Tailwind).
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
 ## Fait côté DS
 
 > À reprendre une fois depuis le document de projet : D-002 à D-010, D-013, D-015 et les autres demandes déjà codées, avec leurs réponses.
