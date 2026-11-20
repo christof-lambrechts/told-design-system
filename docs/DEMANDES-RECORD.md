@@ -1,0 +1,129 @@
+# Demandes de Told Record au design system
+
+Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il remplace le document de projet `claude/V3-demandes-ds-record.md` depuis le 20/11/2026 : les deux conversations lisent et écrivent ici, sans copier-coller.
+
+## Qui écrit quoi
+
+| | Told Record | Design system |
+| --- | --- | --- |
+| Ajouter une demande | ✅ par pull request sur ce fichier | — |
+| Date, écran, Besoin, Ce qui manque, Contournement, Priorité | ✅ | ne pas modifier |
+| Statut, Réponse DS | — | ✅ commité sur `main` avec la version |
+| Réponse Record (reprise faite dans Record) | ✅ par pull request | ne pas modifier |
+| Déplacer dans « Fait côté DS » | — | ✅ |
+
+- Numéro unique : toujours le suivant du plus haut numéro du fichier (D-0XX), sections comprises.
+- Statut : `à faire`, `en cours`, `codé told-ds vX.Y.Z`, `refusé` (avec la raison dans la Réponse DS).
+- Told Record ne touche à rien d'autre dans ce dépôt : ni code, ni jetons, ni Figma.
+
+## Modèle
+
+```
+### D-0XX · Titre court
+- Date, écran Record concerné (fichier, route) :
+- Besoin (ce que l'écran doit faire) :
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) :
+- Contournement provisoire dans Record :
+- Priorité : bloquant | important | confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+```
+
+## Demandes ouvertes
+
+> À reprendre une fois depuis le document de projet : les demandes encore ouvertes (D-001, D-011, D-012, et toute autre) avec leurs réponses.
+
+### D-014 · OptionItem et ChoiceChips : présence, conflit, désactivé
+- Date, écran Record concerné (fichier, route) : 20/11/2026, panneau de droite de l'éditeur, `src/app/(app)/[org]/demos/[id]/editor/fields.tsx` (PanelSection), `theme-field.tsx`, `entrance-field.tsx`, `interlude-editor.tsx` ; route `/[org]/demos/[id]`.
+- Besoin (ce que l'écran doit faire) : l'éditeur est collaboratif. Une section dont un collègue tient un réglage affiche « Léa modifie ce réglage » (texte bleu et point), une section en conflit affiche un point orange, et en lecture seule ou quand un collègue tient le réglage, l'interrupteur et les pastilles sont désactivés.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) :
+  - OptionItem n'a ni état de présence (`holder`), ni état de conflit (`conflict`), ni `toggle.disabled`.
+  - Son titre n'est pas un titre de section (h3) : les lecteurs d'écran ne peuvent plus sauter de section en section.
+  - Pas d'`id` sur le libellé, que les champs de la section utilisent pour se nommer (`aria-labelledby`).
+  - Le chevron d'une ligne `collapsible` est hors du bouton et sans clic : cliqué, il ne replie rien.
+  - L'aide `info` est un `<span title>` non focalisable : inaccessible au clavier, souvent muette pour un lecteur d'écran.
+  - ChoiceChips n'a pas de `disabled`, ni par option ni pour le groupe, ni d'aide par option (`title`) : l'Apparition perd « Différente du reste de la démo ».
+- Contournement provisoire dans Record :
+  - le nom du collègue dans le badge de valeur, le point de conflit et un `<span id>` dans `label` ;
+  - `<fieldset disabled>` autour de l'OptionItem à interrupteur et autour des ChoiceChips.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
+### D-019 · AvatarPicker : coder le composant
+- Date, écran Record concerné (fichier, route) : 20/11/2026, panneau de l'Annonce, section Avatar, `src/app/(app)/[org]/demos/[id]/editor/presenter.tsx` (AvatarPicker).
+- Besoin (ce que l'écran doit faire) : choisir l'avatar et écouter sa voix. Le bouton passe de « Écouter » à « Chargement… » puis à « Arrêter », et devient « Voix indisponible » si l'extrait échoue. Sans photo, l'avatar montre son initiale. Aucun avatar n'est coché tant que rien n'est choisi. « Changer » met le focus sur l'avatar choisi.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : AvatarPicker et _AvatarOption sont dessinés dans Figma (20/11, `state`, `name`, `voice`) mais pas codés. ChoiceChips avec `avatar` + `onListen` ne suffit pas : pas d'état de lecture ni d'échec, pas d'initiale de remplacement, pas de focus de l'option choisie. Le nom Record est déjà AvatarPicker : on reprendra celui du DS tel quel.
+- Contournement provisoire dans Record : AvatarPicker reste dans l'app (lignes avec photo, nom, bouton Écouter et Radio du DS).
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
+### D-016 · Button et ButtonIcon en lien : target, rel et attributs
+- Date, écran Record concerné (fichier, route) : 20/11/2026, liens vers le Chrome Web Store (`extension-dialog.tsx`, `record-button.tsx`, `connect-extension.tsx`) ; `src/components/ui-classes.ts` (`buttonClass`).
+- Besoin (ce que l'écran doit faire) : un bouton qui ouvre une page dans un nouvel onglet (`target="_blank"`, `rel="noreferrer"`).
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : avec `href`, Button ne transmet que `onClick`, `title`, `id` et `aria-label` ; `target`, `rel`, `download` et les `data-*` sont perdus. Proposition : transmettre tous les attributs d'ancre.
+- Contournement provisoire dans Record : ces 3 liens gardent la classe `ui-btn` (`buttonClass`).
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
+### D-017 · DropdownMenu pour un menu d'actions
+- Date, écran Record concerné (fichier, route) : 20/11/2026, menus « ⋯ » de l'éditeur et des vignettes d'étape (`editor.tsx`), menus du kit de marque (`kits.tsx`) ; `ui-classes.ts` (`menuClass`, `menuItemClass`).
+- Besoin (ce que l'écran doit faire) : un menu d'actions (Copier le lien, Exporter en vidéo dans un nouvel onglet, Supprimer) au clavier et pour les lecteurs d'écran : `role="menu"` et des entrées `menuitem`, une entrée désactivée avec sa raison (title).
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) :
+  - DropdownMenu est un `listbox` et ses entrées-boutons des `option` (`aria-selected`) : c'est la sémantique d'une liste de choix, pas d'un menu.
+  - Les entrées-liens sont des `menuitem`, d'où un mélange dans le même composant.
+  - Les liens perdent `target`, `rel` et `title`.
+  - Proposition : `DropdownMenu role="menu"` (ou une prop `kind="menu" | "listbox"`), avec des entrées `menuitem` et des attributs d'ancre transmis.
+- Contournement provisoire dans Record : classes `ui-menu` / `ui-menu-item` sur les jetons de DropdownMenu. Le menu ⋯ d'une vignette correspond à StepThumbMenu (Figma, 20/11, pas codé) : à coder sur ce DropdownMenu corrigé.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
+### D-018 · SliderCapsule : clic sur la piste et repère au clavier
+- Date, écran Record concerné (fichier, route) : 20/11/2026, panneau de l'éditeur, zoom de l'étape et zoom par défaut, `src/app/(app)/[org]/demos/[id]/editor/panels.tsx`.
+- Besoin (ce que l'écran doit faire) : un clic sur la piste place la valeur (comme le curseur natif d'avant), et « Revenir à × 1,6 » est joignable au clavier, avec une cible assez grande.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : l'`<input type="range">` est en `pointer-events: none` hors de la poignée, donc seul le glisser marche ; le repère de valeur par défaut a `tabIndex={-1}` et fait 4 px.
+- Contournement provisoire dans Record : aucun (le clavier et le glisser fonctionnent) ; la valeur par défaut reste aussi accessible par la liste « Comme la démo ».
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
+### D-020 · StepThumb et StepGroup : glisser-déposer, sélection multiple, clavier, intertitre
+- Date, écran Record concerné (fichier, route) : 20/11/2026, colonne Étapes de l'éditeur, `src/app/(app)/[org]/demos/[id]/editor/editor.tsx` (`renderStep`, slides) ; route `/[org]/demos/[id]`.
+- Besoin (ce que l'écran doit faire) : réordonner les étapes en les glissant (avec la ligne d'insertion), en sélectionner plusieurs (⌘ ou Maj + clic) pour les supprimer d'un coup, les déplacer au clavier (Alt + ↑ / ↓) et les supprimer (Suppr), montrer qui est sur l'étape, et afficher la vignette d'un intertitre (fond et texte du kit, pas une capture). La section « Fin » montre l'écran de fin en MessageCard `thanks`.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) :
+  - StepThumb est un `button` qui ne transmet ni `draggable` ni les événements de glisser, ni `onKeyDown`, ni `data-*` ;
+  - pas d'état « sélection multiple » distinct de `selected` ;
+  - le contenu n'accepte qu'une image (`src`) : pas de place pour la vignette d'un intertitre (`children` ou `preview`) ;
+  - StepGroup n'a pas de place pour les « + » d'insertion entre deux slides ni d'état replié contrôlé.
+- Contournement provisoire dans Record : vignettes, slides et carte de fin restent dans l'app (cadre sans liseré blanc, d'où l'écart visible avec Figma).
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
+## Fait côté DS
+
+> À reprendre une fois depuis le document de projet : D-002 à D-010, D-013, D-015 et les autres demandes déjà codées, avec leurs réponses.
+
+Réponses Record à ajouter sous ces demandes à la reprise :
+
+- **D-002 EditorHeader** : repris (v0.12.1, branche christof).
+- **D-003 Breadcrumb** : repris ; `titleLabel`, `titleMaxLength={140}`, `status` gardé.
+- **D-004 Checkbox, Radio, Switch** : repris.
+- **D-005 NavButtonItem** : repris.
+- **D-006 Button en lien** : repris en partie ; les liens qui ouvrent un nouvel onglet attendent D-016.
+- **D-007 DropdownMenu** : pas repris ; voir D-017.
+- **D-008 ChoiceChips** : repris (Thème, Apparition, Type d'écran) ; l'avatar attend D-019.
+- **D-009 OptionItem / OptionSidebar** : repris dans tout le panneau ; manques en D-014.
+- **D-010 SliderCapsule** : repris pour le zoom ; manques en D-018.
+- **D-013 EmptyState** : repris (liste de démos vide).
+- **D-015 Annonce du lecteur public** : fait le 20/11/2026 sur la branche christof (commits 0721bb5 et dff9349), DS en v0.13.2. Sans Précédent / Suivant ; carte arrondie ; textes plus petits (titre 700, texte 300) ; fond du kit inchangé. Progression « En haut » (bandeau de 48 px, lecteur seulement) ou « En bas » (à droite du logo, vidéo comprise), dans Partager › Options. Avatar en trois formes (Rond = roundy, Arrondi = default, Carré = sharp) avec les jetons `--component-record-avatar-*`, valeurs du DS en secours car le lecteur ne charge pas le DS.
