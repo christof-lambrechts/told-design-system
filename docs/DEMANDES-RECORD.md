@@ -150,6 +150,16 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Réponse DS :
 - Réponse Record :
 
+### D-026 · OptionItem : ligne « Sélectionner » qui s'ouvre comme un accordéon
+- Date, écran Record concerné (fichier, route) : 21/11/2026, panneau Options de l'éditeur, ligne Format, `src/app/(app)/[org]/demos/[id]/editor/format-popover.tsx` (FormatOption) ; maquette 9020:101470.
+- Besoin (ce que l'écran doit faire) : la ligne « Format · Annonce · Sélectionner » ouvre les choix (vignettes des trois formats, orientation pour l'Annonce) juste dessous ; l'action devient « Fermer » ; la ligne et ses choix forment un seul bloc, sans filet entre eux.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : `variant="row"` n'a pas de contenu, `variant="collapsible"` n'a pas de lien d'action ; il manque une ligne à action qui contrôle un contenu (`open` + `onAction` + `children`), avec `aria-expanded` sur l'action.
+- Contournement provisoire dans Record : OptionItem `row` suivi des choix dans un bloc à part, filet bas de la ligne masqué quand c'est ouvert.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
 ## Fait côté DS
 
 > À reprendre une fois depuis le document de projet : D-002 à D-010, D-013, D-015 et les autres demandes déjà codées, avec leurs réponses.
