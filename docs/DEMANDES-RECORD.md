@@ -190,6 +190,16 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Réponse DS :
 - Réponse Record :
 
+### D-030 · ChoiceChips : marges égales sans élément de tête
+- Date, écran Record concerné (fichier, route) : 21/11/2026, ligne Apparition du panneau Options, `src/app/(app)/[org]/demos/[id]/editor/entrance-field.tsx`.
+- Besoin (ce que l'écran doit faire) : une puce avec un libellé seul (sans icône, couleur, vignette ni glyphe) a le texte centré, autant d'espace à gauche qu'à droite.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : `.hit` a `padding: 4px 10px 4px 6px` dans tous les cas ; sans élément de tête, le texte est collé à gauche. Attendu : 10 px à gauche quand il n'y a pas d'élément de tête.
+- Contournement provisoire dans Record : 4 px de marge à gauche du libellé.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
 ## Fait côté DS
 
 > À reprendre une fois depuis le document de projet : D-002 à D-010, D-013, D-015 et les autres demandes déjà codées, avec leurs réponses.
