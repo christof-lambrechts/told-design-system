@@ -180,6 +180,16 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Réponse DS :
 - Réponse Record :
 
+### D-029 · OptionItem : le « i » (`info`) avec la bulle Tooltip
+- Date, écran Record concerné (fichier, route) : 21/11/2026, ligne Format du panneau Options, `src/app/(app)/[org]/demos/[id]/editor/format-popover.tsx`.
+- Besoin (ce que l'écran doit faire) : au survol et au focus du « i », l'explication s'affiche dans la bulle Tooltip du DS (« Le contenu est gardé : tu peux revenir à un autre format à tout moment. »).
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : `info` ne pose qu'un `title` natif (lent, parfois absent, invisible au clavier) avec un curseur « ? ». Attendu : le Tooltip du DS sur survol et focus, relié par `aria-describedby`.
+- Contournement provisoire dans Record : `title` retiré du bouton du DS, Tooltip du DS posé à côté et affiché au survol et au focus.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
 ## Fait côté DS
 
 > À reprendre une fois depuis le document de projet : D-002 à D-010, D-013, D-015 et les autres demandes déjà codées, avec leurs réponses.
