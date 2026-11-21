@@ -14,10 +14,12 @@
 .sectionHead { display: flex; flex-direction: column; gap: 4px; }
 .sectionTitleRow { display: flex; align-items: center; gap: 8px; }
 .number { flex: none; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--brand-surface-tint); color: var(--content-brand-default-on-light); font-size: 11px; line-height: 14px; font-weight: var(--font-weight-semibold); }
+.sectionAside { margin-left: auto; flex: none; display: inline-flex; }
 .sectionTitle { margin: 0; font: var(--font-weight-semibold) var(--body-14-size) / var(--body-14-line-height) var(--font-family-body); color: var(--content-default-default); }
 .sectionDesc { margin: 0; font-size: 12px; line-height: 18px; color: var(--content-subtle-default); }
 .sectionBody { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 .sectionBody > :where(:not(button):not(a)) { align-self: stretch; }
+.sectionBody > .full, .sectionBody > [data-full] { align-self: stretch; }
 .srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 .selGroup { display: flex; flex-direction: column; gap: 8px; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }

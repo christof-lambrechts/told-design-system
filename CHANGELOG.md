@@ -3,6 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.28.0 · 21/11/2026
+
+- **Alert** (Figma 6259:87310, page Alert validée) : message dans le contenu (carte, panneau, sous un champ) : `type` brand, warning, error, success, neutral, neutral-light, neutral-dark ; `size` lg | sm ; titre, description, `actionText` + `onAction` (lien), `actions` (boutons), `onClose`. À ne pas confondre avec **Banner** (bandeau pleine largeur en haut d'une page).
+- **ChannelSection `aside`** (Figma `hasBadge`) : état à droite du titre, ex. Badge « En ligne · publiée par Léa le 21 nov. » ou « Brouillon ». L'action principale de la rubrique (Publier, Mettre en pause) prend toute la largeur (`Button fullWidth`).
+
 ## v0.27.2 · 21/11/2026
 
 - InfoCard : titre en Body/18/Semibold (comme Figma, était 16), marge gauche du texte 40 (était 24) pour équilibrer avec l'illustration, écart titre / texte 8.

@@ -5,6 +5,7 @@ import { Card, CardHeader, ChannelSection, SelectionCardGroup } from '../Card/Ca
 import { InfoCard } from '../Card/InfoCard';
 import { OptionCard } from '../OptionSidebar/OptionCard';
 import { Button } from '../Button/Button';
+import { Badge } from '../Badge/Badge';
 
 const meta = { title: 'Gabarits/EditorLayout', component: EditorLayout, parameters: { layout: 'fullscreen' } } satisfies Meta<typeof EditorLayout>;
 export default meta;
@@ -44,7 +45,7 @@ export const Diffuser: StoryObj = {
               ? <InfoCard type="video" title="Partage ta démo en vidéo" description="Exporte ta démo en MP4 pour l'envoyer ou la poster sur les réseaux." />
               : <InfoCard type="link" title="Partage ta démo grâce à un lien" description="Toute personne qui a le lien voit la démo, une fois publiée." />}
           <Card header={<CardHeader icon={v === 'iframe' ? 'iframe' : v === 'video' ? 'player' : 'link'} title={v === 'iframe' ? 'Intégrer dans une page' : v === 'video' ? 'Exporter en vidéo' : 'Partager par lien'} />}>
-            <ChannelSection number={1} title="Publie ta démo" description="Le lien ne montre la démo qu'une fois publiée."><Button size="lg">Publier la démo</Button></ChannelSection>
+            <ChannelSection number={1} title="Publie ta démo" description="Le lien ne montre la démo qu'une fois publiée." aside={<Badge color="light-gray" dot>Brouillon</Badge>}><Button size="lg" iconLeft="play" fullWidth>Publier</Button></ChannelSection>
             <ChannelSection number={2} title="Règle le lien"><OptionCard icon="repeat" title="En boucle" description="La démo recommence au début une fois finie." toggle={{ checked: true, onChange: () => {} }} /></ChannelSection>
           </Card>
         </EditorLayout>

@@ -125,3 +125,5 @@ export { Card, CardHeader, ChannelSection, SelectionCardGroup } from './componen
 export type { CardProps, CardHeaderProps, ChannelSectionProps, SelectionCardGroupProps, SelectionCardData } from './components/Card/Card';
 export { InfoCard } from './components/Card/InfoCard';
 export type { InfoCardProps, InfoCardType } from './components/Card/InfoCard';
+export { Alert } from './components/Alert/Alert';
+export type { AlertProps, AlertType } from './components/Alert/Alert';

@@ -8,6 +8,8 @@ import { CopyField } from '../CopyField/CopyField';
 import { GroupTab } from '../Tabs/Tabs';
 import { Switch } from '../Choice/Choice';
 import { InfoCard } from './InfoCard';
+import { Badge } from '../Badge/Badge';
+import { Alert } from '../Alert/Alert';
 
 const meta = { title: 'Composants/Cartes/Carte et en-tête', component: Card, parameters: { layout: 'padded' } } satisfies Meta<typeof Card>;
 export default meta;
@@ -33,8 +35,10 @@ export const CanalLien: StoryObj = {
     return (
       <div style={{ width: 720 }}>
         <Card header={<CardHeader icon="link" title="Partager par lien" />}>
-          <ChannelSection number={1} title="Publie ta démo" description="Le lien ne montre la démo qu'une fois publiée.">
-            <Button size="lg">Publier la démo</Button>
+          <ChannelSection number={1} title="Publie ta démo" description="Le lien ne montre la démo que tant qu'elle est en ligne."
+            aside={<Badge color="green" dot>En ligne · publiée par Léa le 21 nov.</Badge>}>
+            <Button size="lg" color="danger" iconLeft="pause" fullWidth>Mettre en pause</Button>
+            <Alert type="warning" size="sm" actionText="Publier les modifications" onAction={() => {}}>Modifications non publiées. Le lien et les intégrations restent les mêmes.</Alert>
           </ChannelSection>
           <ChannelSection number={2} title="Règle le lien">
             <OptionCard icon="repeat" title="En boucle" description="La démo recommence au début une fois finie." toggle={{ checked: loop, onChange: setLoop }} />

@@ -56,18 +56,21 @@ export interface ChannelSectionProps {
   number?: number;
   title: ReactNode;
   description?: ReactNode;
+  /** À droite du titre : état de la rubrique (ex. Badge « En ligne · publiée par Léa le 21 nov. »). Figma `hasBadge`. */
+  aside?: ReactNode;
   children?: ReactNode;
   className?: string;
 }
 
-/** ChannelSection (9155:3205) : rubrique numérotée d'une carte de canal (Diffuser). Marges 20, écart 12. Boutons en lg dans les rubriques, champs md ou lg. */
-export function ChannelSection({ number, title, description, children, className }: ChannelSectionProps) {
+/** ChannelSection (9155:3205) : rubrique numérotée d'une carte de canal (Diffuser). Marges 20, écart 12. Boutons en lg dans les rubriques, champs md ou lg. L'action principale d'une rubrique (Publier, Mettre en pause) prend toute la largeur (`fullWidth`). */
+export function ChannelSection({ number, title, description, aside, children, className }: ChannelSectionProps) {
   return (
     <div className={cx(styles.section, className)}>
       <div className={styles.sectionHead}>
         <div className={styles.sectionTitleRow}>
           {number != null && <span className={styles.number} aria-hidden="true">{number}</span>}
           <h4 className={styles.sectionTitle}>{number != null && <span className={styles.srOnly}>{number}. </span>}{title}</h4>
+          {aside && <span className={styles.sectionAside}>{aside}</span>}
         </div>
         {description && <p className={styles.sectionDesc}>{description}</p>}
       </div>

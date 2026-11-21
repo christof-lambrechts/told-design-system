@@ -1,0 +1,19 @@
+/* Alert (6259:87310) : fond teinté à 12 % du type, sans contour (sauf neutral-light), rayon 12 (lg) / 10 (sm). */
+.alert { display: flex; align-items: flex-start; gap: 10px; border-radius: 12px; background: var(--al-bg); color: var(--content-default-default); font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.lg { padding: 14px 12px 14px 16px; }
+.sm { padding: 10px 10px 10px 12px; border-radius: 10px; gap: 8px; }
+.icon { flex: none; display: flex; padding-top: 2px; color: var(--al-icon); }
+.body { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 7px; }
+.text { display: flex; flex-direction: column; gap: 4px; }
+.title { margin: 0; font: var(--font-weight-semibold) 13px / 18px var(--font-family-body); color: var(--al-title, var(--content-default-default)); }
+.desc { font-size: var(--body-14-size); line-height: var(--body-14-line-height); color: var(--al-desc); }
+.desc p { margin: 0; }
+.actions { display: flex; gap: 7px; flex-wrap: wrap; }
+.close { flex: none; margin: -4px -4px -4px 0; }
+.alert[data-type='brand'] { --al-bg: var(--brand-primary-alpha-12); --al-icon: var(--content-brand-default-on-light); --al-desc: var(--content-subtle-default); }
+.alert[data-type='warning'] { --al-bg: var(--brand-warning-alpha-12); --al-icon: var(--brand-warning-500); --al-desc: var(--content-subtle-default); }
+.alert[data-type='error'] { --al-bg: var(--brand-danger-alpha-12); --al-icon: var(--brand-danger-500); --al-desc: var(--content-subtle-default); }
+.alert[data-type='success'] { --al-bg: var(--brand-success-alpha-12); --al-icon: var(--content-success-default-on-light); --al-desc: var(--content-subtle-default); }
+.alert[data-type='neutral'] { --al-bg: var(--content-neutral-black-alpha-5); --al-icon: var(--content-subtle-default); --al-desc: var(--content-subtle-default); }
+.alert[data-type='neutral-light'] { --al-bg: var(--neutral-surface-default); --al-icon: var(--content-subtle-default); --al-desc: var(--content-subtle-default); box-shadow: inset 0 0 0 1px var(--neutral-border-default); }
+.alert[data-type='neutral-dark'] { --al-bg: var(--neutral-surface-inverse); --al-icon: var(--content-default-inverse); --al-title: var(--content-default-inverse); --al-desc: color-mix(in srgb, var(--content-default-inverse) 75%, transparent); color: var(--content-default-inverse); }

@@ -132,5 +132,6 @@
   "OptionChoice": "composants-cartes-carte-et-en-tête--choix-option",
   "SelectionCard": "composants-cartes-carte-et-en-tête--menu-canaux",
   "FormatOption": "composants-panneaux-optionsidebar--format-options",
-  "InfoCard": "composants-cartes-carte-et-en-tête--bandeaux"
+  "InfoCard": "composants-cartes-carte-et-en-tête--bandeaux",
+  "Alert": "composants-statut-et-aide-alert--types"
 }
