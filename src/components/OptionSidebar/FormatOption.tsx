@@ -1,6 +1,6 @@
 import { useRef, type KeyboardEvent, type ReactNode } from 'react';
 import { Icon } from '../Icon/Icon';
-import { ChoiceIllustration, type ChoiceIllustrationName } from './illustrations';
+import { ChoiceIllustration, type ChoiceIllustrationName } from '../ChoicePicker/illustrations';
 import styles from './FormatOption.module.css';
 
 const cx = (...c: (string | false | undefined)[]) => c.filter(Boolean).join(' ');
