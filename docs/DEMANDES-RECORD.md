@@ -211,6 +211,16 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Réponse DS :
 - Réponse Record :
 
+### D-032 · CopyField et CodeBlock : « Copié » seulement si la copie a réussi
+- Date, écran Record concerné (fichier, route) : 21/11/2026, étape Diffuser, `src/app/(app)/[org]/demos/[id]/editor/share-panel.tsx` (lien public, code d'intégration).
+- Besoin (ce que l'écran doit faire) : quand le navigateur refuse le presse-papiers, le bouton ne dit pas « Copié » ; il reste « Copier » (ou dit « Copie impossible ») pour qu'on ne colle pas un ancien lien.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : `useCopy` passe à « Copié » sans vérifier le résultat de `navigator.clipboard.writeText`. Remarque de la relecture sécurité de Record.
+- Contournement provisoire dans Record : aucun.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
 ## Fait côté DS
 
 > À reprendre une fois depuis le document de projet : D-002 à D-010, D-013, D-015 et les autres demandes déjà codées, avec leurs réponses.
