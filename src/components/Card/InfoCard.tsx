@@ -44,10 +44,13 @@ const illustrations: Record<InfoCardType, ReactNode> = {
   ),
   iframe: (
     <Window>
-      <rect x="30" y="32" width="100" height="62" rx="6" fill="var(--peach-50)" stroke="var(--orange-400)" strokeWidth="2" />
+      <rect x="30" y="32" width="100" height="62" rx="6" fill="var(--peach-50)" stroke="var(--mustard-400)" strokeWidth="3" />
       <path d="M82 33h41a6 6 0 0 1 6 6v48a6 6 0 0 1-6 6H82z" fill="#fff" />
       <rect x="90" y="44" width="30" height="3" rx="1.5" fill="#dfe5ea" /><rect x="90" y="52" width="22" height="3" rx="1.5" fill="#dfe5ea" />
-      <rect x="90" y="64" width="16" height="16" rx="4" fill="#1f2429" />
+      <rect x="90" y="63" width="18" height="18" rx="4" fill="#1f2429" />
+      <circle cx="99" cy="72" r="5" fill="none" stroke="#fff" strokeWidth="1.2" />
+      <circle cx="97.4" cy="70.8" r="0.8" fill="#fff" /><circle cx="100.6" cy="70.8" r="0.8" fill="#fff" />
+      <path d="M97 73.2c.6 1 3.4 1 4 0" stroke="#fff" strokeWidth="1.1" fill="none" strokeLinecap="round" />
       {cursor(116, 82)}
     </Window>
   ),

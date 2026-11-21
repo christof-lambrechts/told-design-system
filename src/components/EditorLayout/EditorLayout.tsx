@@ -12,7 +12,7 @@ export interface EditorLayoutProps {
   right?: ReactNode;
   /**
    * Placement de la zone d'édition : `center` (défaut, l'objet édité centré) ou `page` (colonne de lecture en haut,
-   * 760 de large au plus, écart 24 : Diffuser, réglages en cartes). Diffuser = `left` (SelectionCardGroup des canaux), `content="page"`, pas de `right`.
+   * 680 de large au plus, écart 24 : Diffuser, réglages en cartes). Diffuser = `left` (SelectionCardGroup des canaux), `content="page"`, pas de `right`.
    */
   content?: 'center' | 'page';
   leftWidth?: number;

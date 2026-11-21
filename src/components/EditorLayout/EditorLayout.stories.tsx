@@ -24,7 +24,7 @@ export const Record: StoryObj = {
 
 /**
  * Diffuser (Record) : même gabarit que l'éditeur. Colonne gauche = menu des canaux (SelectionCardGroup) collé à gauche,
- * fond blanc et filet ; centre sur le canevas, colonne de lecture (content="page", 760 max) : InfoCard du canal puis la Card. Pas de 3e colonne.
+ * fond blanc et filet ; centre sur le canevas, colonne de lecture (content="page", 680 max) : InfoCard du canal puis la Card. Pas de 3e colonne.
  */
 export const Diffuser: StoryObj = {
   name: 'Diffuser (Record)',

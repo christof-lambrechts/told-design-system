@@ -3,6 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.25.1 · 21/11/2026
+
+- InfoCard : 680 de large au plus, 180 de haut au moins ; illustration iframe avec le smiley et le cadre jaune orangé (mustard-400, 3 px), comme Figma et la production.
+- EditorLayout `content="page"` : colonne de 680 au plus (avant 760), comme Diffuser.
+
 ## v0.25.0 · 21/11/2026
 
 Demandes de Christof.
