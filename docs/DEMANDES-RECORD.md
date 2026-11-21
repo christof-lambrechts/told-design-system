@@ -209,7 +209,7 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Priorité : important
 - Statut : à faire
 - Réponse DS :
-- Réponse Record :
+- Réponse Record : 21/11/2026, repris de v0.23.0 : SelectionCardGroup (canaux), Card, CardHeader, ChannelSection et OptionCard, d'après les stories « Carte et en-tête ». Les cartes maison sont retirées. Reste en attente : le StatusBanner à trois états (brouillon, en pause, en ligne), pour l'instant une ligne avec un point vert ou rouge dans « Publie ta démo ».
 
 ### D-032 · CopyField et CodeBlock : « Copié » seulement si la copie a réussi
 - Date, écran Record concerné (fichier, route) : 21/11/2026, étape Diffuser, `src/app/(app)/[org]/demos/[id]/editor/share-panel.tsx` (lien public, code d'intégration).
@@ -249,6 +249,16 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
   - InsertBar est en `opacity: 0` hors de son propre survol : posée en `addAfter`, elle reste invisible au survol de la colonne alors que `revealAdd` montre déjà les autres ajouts. Attendu : visible dès que StepList révèle ses ajouts.
   - StepThumb : l'emplacement `menu` est un petit coin en haut à droite, affiché au survol ; rien pour une liste d'actions ancrée ni pour des éléments autour de la vignette (« + » entre deux étapes). `onClick` de l'app est écrasé par `onSelect`, qui ne passe pas l'événement (⇧ / ⌘ pour la sélection multiple).
 - Contournement provisoire dans Record : la colonne force `width: 100%` et l'opacité de la barre ; l'emplacement `menu` est étiré sur la vignette (le ⋯ en ButtonIcon, sa liste et les « + » dedans) ; la sélection lit `onClickCapture`.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
+### D-036 · OptionItem : contrôle court sur la ligne (sans badge ni dépli)
+- Date, écran Record concerné (fichier, route) : 21/11/2026, panneau droit de l'éditeur, `src/app/(app)/[org]/demos/[id]/editor/fields.tsx` (PanelSection) : « Durée », « Image sans animation », « Point cliqué », « Durée · Celle du slide · Régler ».
+- Besoin (ce que l'écran doit faire) : une option qui tient en un contrôle court (un menu md, un bouton d'action) le montre directement sur sa ligne, à droite, sans badge de valeur ni chevron : un clic au lieu de trois (ouvrir, choisir, refermer). Un collègue qui tient le réglage est nommé en texte simple avant le contrôle.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : OptionItem `variant="row"` n'a qu'un badge de valeur et `onAction` (un lien texte) ; pas d'emplacement pour un contrôle (Select md, Button) sur la ligne. Attendu : une prop `control` sur la variante `row` (comme OptionCard), et le texte de présence à côté.
+- Contournement provisoire dans Record : OptionItem `row` sans valeur, le contrôle posé par-dessus son côté droit (position absolue), Select du DS en md.
 - Priorité : important
 - Statut : à faire
 - Réponse DS :
