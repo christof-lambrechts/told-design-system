@@ -262,7 +262,7 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Priorité : important
 - Statut : à faire
 - Réponse DS :
-- Réponse Record :
+- Réponse Record : 21/11/2026, repris de v0.24.0 : OptionItem `control` avec un menu sur la ligne (Button neutre secondary-outline md + arrow-down-01, DropdownMenu) pour Durée, Image sans animation, Lecture, Position de l'infobulle et Progression (passée dans Construire, sous Thème) ; un Button md pour Point cliqué et « Régler ». Contournement retiré ; `holder` et `conflict` repris sur ces lignes.
 
 ### D-037 · GroupTab : rôle de choix (radio) dans une OptionCard
 - Date, écran Record concerné (fichier, route) : 21/11/2026, Diffuser, canal « Exporter en vidéo », OptionCard « Orientation », `src/app/(app)/[org]/demos/[id]/editor/share-panel.tsx` (VideoChannel).
