@@ -13,7 +13,7 @@ export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
   iconRight?: IconName;
 }
 
-/** Tooltip (20:9483) : bulle d'aide sombre avec un repère rond de 12. */
+/** Tooltip (20:9483) : bulle d'aide sombre avec un repère rond de 8, sans contour. */
 export function Tooltip({ children, direction = 'up', size = 'md', iconLeft, iconRight, className, ...rest }: TooltipProps) {
   const isz = size === 'md' ? 20 : 16;
   return (

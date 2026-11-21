@@ -1,4 +1,4 @@
-/* Tooltip (20:9483) : bulle Neutral/surface/inverse, repère de 12 cerclé de 2 px, ombre légère. */
+/* Tooltip (20:9483) : bulle Neutral/surface/inverse, repère plein de 8, sans contour, 4 d'air côté élément, ombre légère. */
 .tooltip { display: inline-flex; gap: 4px; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12)); }
 .bubble {
   display: inline-flex; align-items: center; gap: 10px; background: var(--neutral-surface-inverse); color: var(--content-default-inverse);
@@ -6,7 +6,12 @@
 }
 .md .bubble { padding: 6px 10px; border-radius: 12px; font-size: 15px; line-height: 22px; }
 .sm .bubble { padding: 6px 10px; border-radius: 10px; font-size: 12px; line-height: 18px; }
-.dot { flex: none; width: 12px; height: 12px; box-sizing: border-box; border-radius: 50%; background: var(--neutral-surface-inverse); border: 2px solid var(--content-default-inverse); }
+.dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--neutral-surface-inverse); }
+/* Air entre le repère et l'élément visé. */
+.up .dot, .upleft .dot, .upright .dot { margin-top: 4px; }
+.down .dot, .downleft .dot, .downright .dot { margin-bottom: 4px; }
+.left .dot { margin-left: 4px; }
+.right .dot { margin-right: 4px; }
 
 .up, .upleft, .upright { flex-direction: column; }
 .down, .downleft, .downright { flex-direction: column-reverse; }

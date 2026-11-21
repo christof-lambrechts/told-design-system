@@ -3,6 +3,12 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.21.2 · 21/11/2026
+
+Validé par Christof le 21/11.
+
+- Tooltip : repère plein de 8 (avant 12 cerclé de blanc), 4 px d'air entre le repère et l'élément visé.
+
 ## v0.21.1 · 21/11/2026
 
 Validé par Christof le 21/11.
