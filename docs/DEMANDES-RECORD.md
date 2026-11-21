@@ -241,6 +241,19 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Réponse DS :
 - Réponse Record :
 
+### D-035 · StepList : largeurs fixes, barre d'ajout au survol de la colonne, menu de StepThumb
+- Date, écran Record concerné (fichier, route) : 21/11/2026, colonne Étapes de l'éditeur, `src/app/(app)/[org]/demos/[id]/editor/editor.tsx` (StepColumn).
+- Besoin (ce que l'écran doit faire) : la colonne garde 16 px de marge et deux vignettes de 104 × 64 par slide ; les cartes Début et Fin et leurs séparations tiennent dans la colonne ; au survol de la colonne, la barre « + Ajouter une slide » se voit comme les autres ajouts ; le « ⋯ » d'une vignette ouvre une liste d'actions ancrée à la vignette, et des « + » se posent entre deux vignettes.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) :
+  - MessageCard (`.card`), FlowDivider et InsertBar (`.insert`) ont `width: 248px` : dans StepList (234 px dans la story, 232 en vrai), ils débordent et sont coupés à droite. Attendu : `width: 100%` dans StepList.
+  - InsertBar est en `opacity: 0` hors de son propre survol : posée en `addAfter`, elle reste invisible au survol de la colonne alors que `revealAdd` montre déjà les autres ajouts. Attendu : visible dès que StepList révèle ses ajouts.
+  - StepThumb : l'emplacement `menu` est un petit coin en haut à droite, affiché au survol ; rien pour une liste d'actions ancrée ni pour des éléments autour de la vignette (« + » entre deux étapes). `onClick` de l'app est écrasé par `onSelect`, qui ne passe pas l'événement (⇧ / ⌘ pour la sélection multiple).
+- Contournement provisoire dans Record : la colonne force `width: 100%` et l'opacité de la barre ; l'emplacement `menu` est étiré sur la vignette (le ⋯ en ButtonIcon, sa liste et les « + » dedans) ; la sélection lit `onClickCapture`.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
 ## Fait côté DS
 
 > À reprendre une fois depuis le document de projet : D-002 à D-010, D-013, D-015 et les autres demandes déjà codées, avec leurs réponses.
