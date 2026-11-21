@@ -264,6 +264,16 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Réponse DS :
 - Réponse Record :
 
+### D-037 · GroupTab : rôle de choix (radio) dans une OptionCard
+- Date, écran Record concerné (fichier, route) : 21/11/2026, Diffuser, canal « Exporter en vidéo », OptionCard « Orientation », `src/app/(app)/[org]/demos/[id]/editor/share-panel.tsx` (VideoChannel).
+- Besoin (ce que l'écran doit faire) : choisir l'orientation de la vidéo (Paysage 16:9, Carré 1:1, Vertical 9:16…) ; un lecteur d'écran l'annonce comme un choix parmi plusieurs, pas comme des onglets.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : GroupTab pose `role="tab"` sans `tabpanel` ; dans une OptionCard, c'est un choix de valeur. Attendu : une variante `kind="radio"` (radiogroup / radio, aria-checked), comme SelectionCardGroup. Remarque du testeur de Record.
+- Contournement provisoire dans Record : aucun (GroupTab tel quel, `aria-label="Orientation de la vidéo"`).
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
 ## Fait côté DS
 
 > À reprendre une fois depuis le document de projet : D-002 à D-010, D-013, D-015 et les autres demandes déjà codées, avec leurs réponses.
