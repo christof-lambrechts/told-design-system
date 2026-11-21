@@ -221,6 +221,16 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Réponse DS :
 - Réponse Record :
 
+### D-033 · EditorSteps : nom de la zone et point « En pause »
+- Date, écran Record concerné (fichier, route) : 21/11/2026, en-tête de l'éditeur (`center`), `src/app/(app)/[org]/demos/[id]/editor/editor.tsx` (HeaderSteps).
+- Besoin (ce que l'écran doit faire) : un lecteur d'écran distingue les étapes de l'en-tête (Construire › Diffuser › Analyser) de la colonne des étapes de la démo ; le point de Diffuser dit « En pause » pour une démo mise en pause, pas « Brouillon ».
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : EditorSteps et StepList posent tous deux `aria-label="Étapes"` en dur sur leur `nav` (deux repères du même nom dans l'éditeur). EditorSteps n'a pas de prop pour son nom (`aria-label`) ni pour le texte de son point (`dotLabel` vaut « En ligne » ou « Brouillon »). Attendu : `aria-label` (défaut « Étapes de publication » par exemple) et `dotLabel` réglables, ou un état `paused`.
+- Contournement provisoire dans Record : après le rendu, le nom de la `nav` devient « Construire, diffuser, analyser » et le point « En pause » quand il le faut.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
 ## Fait côté DS
 
 > À reprendre une fois depuis le document de projet : D-002 à D-010, D-013, D-015 et les autres demandes déjà codées, avec leurs réponses.
