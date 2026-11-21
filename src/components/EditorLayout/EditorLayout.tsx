@@ -12,12 +12,15 @@ export interface EditorLayoutProps {
   right?: ReactNode;
   leftWidth?: number;
   rightWidth?: number;
-  /** Trame de points sur le canevas (DotGrid). */
+  /**
+   * @deprecated Le fond à points (DotGrid) est réservé aux Scénarios (décision de Christof, 21/11) :
+   * la zone d'édition est un fond uni Neutral/surface/canvas. Faux par défaut.
+   */
   dots?: boolean;
 }
 
 /** EditorLayout (9020:101921) : en-tête puis trois colonnes collées, sans marge. Côtés blancs séparés par Neutral/border/divider, centre sur Neutral/surface/canvas à points. */
-export function EditorLayout({ header, left, children, right, leftWidth = 272, rightWidth = 356, dots = true }: EditorLayoutProps) {
+export function EditorLayout({ header, left, children, right, leftWidth = 272, rightWidth = 356, dots = false }: EditorLayoutProps) {
   return (
     <div className={styles.root}>
       <div className={styles.header}>{header}</div>

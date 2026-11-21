@@ -3,6 +3,13 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.22.1 · 21/11/2026
+
+Décision de Christof.
+
+- Fond à points (DotGrid) réservé aux Scénarios : `EditorLayout` n'a plus de points par défaut (`dots` déconseillée, `false`), la zone d'édition est un fond uni `--neutral-surface-canvas`.
+- `--neutral-surface-pattern` passe de gray-40 à **gray-30** en clair (comme Figma).
+
 ## v0.22.0 · 21/11/2026
 
 Validé par Christof le 21/11.
