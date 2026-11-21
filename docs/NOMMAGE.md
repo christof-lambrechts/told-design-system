@@ -32,6 +32,7 @@ Figma a été renommé ; les instances des maquettes restent liées. Dans le cod
 | `UserStory` | User story | | |
 | `OptionItem` | ex-OptionPanelItem et PanelSection | `OptionPanelItem` | nom à utiliser dans le code |
 | `OptionSidebar` | ex-OptionPanel et StepOptionsPanel | `OptionPanel` | variante `contentType=record` pour Told Record |
+| `CardHeader` (21/11) | EditionCardHeader | | en-tête de carte commun (édition, résultats, Diffuser) : picto, titre, description, interrupteurs à droite ; préréglages par type : `CardHeaderPreset` (ex-header-cards). L'ancien CardHeader sans instance est archivé (CardHeaderLegacy). Pas encore codé |
 | `OptionChoice` (21/11) | SelectionItem | | un choix (picto en petit carré, libellé, badge) dans la liste ouverte sous une OptionItem ; rangé page OptionContent. Pas encore codé |
 | `OptionCard` (21/11) | SwitchOptionCard | | ligne d'option à fond gris et interrupteur (Diffuser). Pas encore codé |
 | `ChannelSection` (21/11) | | | rubrique numérotée d'une carte de canal (Diffuser). Pas encore codé ; ChannelItem remplacé par `SelectionCard` |
