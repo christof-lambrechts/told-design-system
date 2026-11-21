@@ -3,6 +3,15 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.27.0 · 21/11/2026
+
+Décision de Christof : md à 36 (grille de 4, progression 28 / 36 / 44).
+
+- **md 36** (était 34) : Button, ButtonIcon, ButtonMisc, Input, SearchBar, Select, CopyField, SocialButton, ContrastBadge.
+- **GroupTab sur l'échelle** : `md` 36 (défaut, segments 28), `lg` 44 (segments 36) ; `sm` reste accepté comme ancien nom de md. Figma : variantes sm renommées md.
+- ButtonTab inchangé (22 / 28 / 34) : petit élément, hors échelle.
+- Story Hauteurs alignées avec GroupTab, mesurée 28 / 36 / 44.
+
 ## v0.26.0 · 21/11/2026
 
 Demande de Christof : tous les contrôles d'une même taille à la même hauteur (essai lg 44).

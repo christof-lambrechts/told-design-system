@@ -4,6 +4,7 @@ import { iconNames } from '../Icon/Icon';
 import { Input } from '../Input/Input';
 import { Select } from '../Select/Select';
 import { CopyField } from '../CopyField/CopyField';
+import { GroupTab } from '../Tabs/Tabs';
 
 const meta = {
   title: 'Composants/Actions/Button',
@@ -136,7 +137,7 @@ export const IaEtEnregistrement: StoryObj = {
   ),
 };
 
-/** Échelle des contrôles (21/11) : sm 28, md 34, lg 44. Bouton, bouton icône, champ, liste et champ à copier de même taille s'alignent au pixel. */
+/** Échelle des contrôles (21/11) : sm 28, md 36, lg 44. Bouton, bouton icône, champ, liste et champ à copier de même taille s'alignent au pixel. */
 export const HauteursAlignees: StoryObj = {
   name: 'Hauteurs alignées',
   render: () => (
@@ -148,6 +149,7 @@ export const HauteursAlignees: StoryObj = {
           {s !== 'sm' && <div style={{ width: 240 }}><CopyField size={s} value="https://told.club/s/avis" /></div>}
           <Button size={s}>Button {s}</Button>
           <ButtonIcon size={s} icon="add-01" label="Ajouter" />
+          {s !== 'sm' && <GroupTab size={s} value="a" onChange={() => {}} items={[{ value: 'a', label: 'Paysage' }, { value: 'b', label: 'Vertical' }]} />}
         </div>
       ))}
     </div>

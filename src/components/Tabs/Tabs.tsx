@@ -68,7 +68,8 @@ export interface GroupTabProps {
   items: { label?: ReactNode; icon?: IconName; value: string; /** Compteur après le libellé (hasCounter). */ count?: ReactNode }[];
   value: string;
   onChange?: (value: string) => void;
-  size?: 'sm' | 'lg';
+  /** md 36 (défaut), lg 44. `sm` : ancien nom de md. */
+  size?: 'sm' | 'md' | 'lg';
   'aria-label'?: string;
   /** Libellé en petit au-dessus (comme les panneaux de Figma) ; le contrôle prend alors toute la largeur. */
   label?: ReactNode;
@@ -77,7 +78,7 @@ export interface GroupTabProps {
 }
 
 /** GroupTab (20:13981) : contrôle segmenté, un seul segment actif. Avec `label`, libellé au-dessus et pleine largeur (règle des panneaux d'options, 21/11). */
-export function GroupTab({ items, value, onChange, size = 'lg', label, fullWidth, ...rest }: GroupTabProps) {
+export function GroupTab({ items, value, onChange, size = 'md', label, fullWidth, ...rest }: GroupTabProps) {
   const lid = useId();
   const full = fullWidth ?? label != null;
   const group = (

@@ -42,9 +42,10 @@
 .group { display: inline-flex; padding: 4px; border-radius: 10px; background: var(--neutral-surface-muted); }
 .segment { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 12px; border-radius: 6px;
   color: var(--content-subtle-default); font-size: 13px; line-height: 18px; white-space: nowrap; }
-.g-lg .segment { height: 28px; }
-.g-sm { padding: 2px; border-radius: 8px; }
-.g-sm .segment { height: 22px; padding: 0 10px; font-size: 12px; line-height: 18px; }
+/* GroupTab sur l'échelle des contrôles : md 36 (segments 28), lg 44 (segments 36). sm = ancien nom de md. */
+.g-md .segment, .g-sm .segment { height: 28px; }
+.g-lg { border-radius: 12px; }
+.g-lg .segment { height: 36px; }
 .segment:hover:not(.segActive) { color: var(--content-default-default); }
 .segActive { background: var(--neutral-surface-default); color: var(--content-default-default); box-shadow: var(--shadow-flat-1); }
 
