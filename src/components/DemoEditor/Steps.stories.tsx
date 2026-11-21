@@ -26,12 +26,12 @@ export const Colonne: StoryObj = {
             <Button color="neutral" variant="secondary-outline" size="sm" fullWidth iconLeft="add-01">Ajouter un écran</Button>
           </>}
         >
-          <StepGroup badge="Slide 1" count={9}>
+          <StepGroup badge="1" count={9}>
             {thumb(1)}{thumb(2, { ai: true })}
             <StepThumb number={3} label="Étape 3, à compléter" warning="À compléter" onSelect={() => setSel(3)} selected={sel === 3} />
             {thumb(4, { ai: true })}{thumb(5)}{thumb(6)}{thumb(7)}{thumb(8)}{thumb(9)}
           </StepGroup>
-          <StepGroup badge="Slide 2" title="Exporte en CSV" defaultExpanded={false} count={3}>{thumb(10)}</StepGroup>
+          <StepGroup badge="2" title="Exporte en CSV" defaultExpanded={false} count={3}>{thumb(10)}</StepGroup>
         </StepList>
       </div>
     );
@@ -48,17 +48,17 @@ export const SelectionEtGlisser: StoryObj = {
     return (
       <div style={{ display: 'flex', gap: 40, alignItems: 'flex-start' }}>
         <div style={{ width: 234 }}>
-          <StepGroup badge="Slide 1">{thumb(1, { selected: true })}{thumb(2, { ai: true })}{thumb(3, { multiSelected: true })}{thumb(4, { multiSelected: true })}{thumb(5)}<StepAddThumb /></StepGroup>
+          <StepGroup badge="1">{thumb(1, { selected: true })}{thumb(2, { ai: true })}{thumb(3, { multiSelected: true })}{thumb(4, { multiSelected: true })}{thumb(5)}<StepAddThumb /></StepGroup>
         </div>
         <div style={{ width: 234 }}>
-          <StepGroup badge="Slide 1">{thumb(1, { selected: true })}{thumb(2, { drop: 'before' })}{thumb(3)}{thumb(4)}{thumb(5, { dragging: true })}<StepAddThumb /></StepGroup>
+          <StepGroup badge="1">{thumb(1, { selected: true })}{thumb(2, { drop: 'before' })}{thumb(3)}{thumb(4)}{thumb(5, { dragging: true })}<StepAddThumb /></StepGroup>
         </div>
         <div style={{ width: 234, display: 'grid', gap: 8 }}>
-          <StepGroup badge="Slide 1" defaultExpanded={false} count={4}>{thumb(1)}</StepGroup>
+          <StepGroup badge="1" defaultExpanded={false} count={4}>{thumb(1)}</StepGroup>
           <InsertBar label="Insérer une slide" />
-          <StepGroup badge="Slide 2" defaultExpanded={false} count={3}>{thumb(2)}</StepGroup>
+          <StepGroup badge="2" defaultExpanded={false} count={3}>{thumb(2)}</StepGroup>
           <InsertBar label="Insérer une slide" dropTarget />
-          <StepGroup badge="Slide 3" defaultExpanded={false} count={2}>{thumb(3)}</StepGroup>
+          <StepGroup badge="3" defaultExpanded={false} count={2}>{thumb(3)}</StepGroup>
         </div>
       </div>
     );

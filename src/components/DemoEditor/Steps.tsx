@@ -52,8 +52,10 @@ export function StepThumb({ number, src, preview, selected, multiSelected, drop,
 }
 
 export interface StepGroupProps {
-  /** « Slide 1 », dans une pastille bleue. */
+  /** Numéro de la slide dans la pastille bleue (« 1 », depuis le 21/11 : plus de place pour le titre). Le groupe est lu « Slide 1 · titre » grâce à `badgeLabel`. */
   badge: ReactNode;
+  /** Nom lu de la pastille (par défaut « Slide » + badge). */
+  badgeLabel?: string;
   title?: string;
   /** Vignettes (StepThumb), en grille de 2 colonnes. */
   children: ReactNode;
@@ -82,17 +84,17 @@ export function StepAddThumb({ label = 'Ajouter un enregistrement', onClick }: {
 }
 
 /** StepGroup (8830:447) : slide repliable, fond Neutral/surface/subtle, rayon 12, marge 8. */
-export function StepGroup({ badge, title, children, defaultExpanded = true, expanded, onExpandedChange, count }: StepGroupProps) {
+export function StepGroup({ badge, badgeLabel, title, children, defaultExpanded = true, expanded, onExpandedChange, count }: StepGroupProps) {
   const [inner, setInner] = useState(defaultExpanded);
   const open = expanded ?? inner;
   const setOpen = (v: boolean) => { if (expanded === undefined) setInner(v); onExpandedChange?.(v); };
   return (
-    <section className={styles.group} aria-label={typeof badge === 'string' ? `${badge}${title ? ` · ${title}` : ''}` : title}>
+    <section className={styles.group} aria-label={`${badgeLabel ?? (typeof badge === 'string' || typeof badge === 'number' ? `Slide ${badge}` : '')}${title ? ` · ${title}` : ''}` || undefined}>
       <button type="button" className={styles.groupHead} aria-expanded={open} onClick={() => setOpen(!open)}>
-        <Icon name="arrow-down-01" size={16} className={cx(styles.chevron, !open && styles.folded)} />
         <span className={styles.badge}>{badge}</span>
         <span className={cx(styles.groupTitle, !title && styles.untitled)}>{title || 'Sans titre'}</span>
         {!open && count != null && <span className={styles.count}>{count}</span>}
+        <Icon name="arrow-down-01" size={16} className={cx(styles.chevron, !open && styles.folded)} />
       </button>
       {open && <ol className={styles.grid}>{children}</ol>}
     </section>

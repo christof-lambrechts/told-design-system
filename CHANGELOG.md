@@ -3,6 +3,14 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.21.0 · 21/11/2026
+
+Validé par Christof le 21/11.
+
+- **FormatOptionGroup** (nouveau, FormatOption) : choix du format dans le panneau Options. Lignes compactes : illustration 64 × 44, titre, phrase, coche ronde ; la ligne choisie (fond bleu pâle, contour bleu) porte ses réglages (`settings`, ex. Orientation en GroupTab avec `label`). Groupe radio, flèches au clavier.
+- **ChoiceIllustration** : trois illustrations des formats Told Record, `demo`, `announcement`, `inapp`.
+- **StepGroup** : la pastille ne porte plus que le numéro (« 1 », lu « Slide 1 » ; `badgeLabel` pour changer le mot), le chevron passe à droite : plus de place pour le titre.
+
 ## v0.20.0 · 21/11/2026
 
 - **AvatarGroup / PresenceAvatar** (D-026) : `id` / `personId` (teinte stable par personne, la même partout), `idle` (présent mais inactif : avatar estompé, « inactif » lu par les lecteurs d'écran).

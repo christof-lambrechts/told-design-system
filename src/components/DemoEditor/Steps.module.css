@@ -21,11 +21,11 @@
 /* StepGroup (8830:447) : fond subtle, bordure, rayon 12, marge 8, écart 8 ; grille 2 colonnes écart 8. */
 .group { box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; padding: 8px; border: 1px solid var(--neutral-border-default); border-radius: 12px; background: var(--neutral-surface-subtle);
   font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
-.groupHead { display: flex; align-items: center; gap: 4px; width: 100%; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; color: inherit; }
+.groupHead { display: flex; align-items: center; gap: 6px; width: 100%; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; color: inherit; }
 .groupHead:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: 6px; }
 .chevron { flex: none; color: var(--content-muted-default); transition: transform var(--duration-fast) var(--easing-standard); }
 .folded { transform: rotate(-90deg); }
-.badge { flex: none; height: 20px; padding: 0 6px; border-radius: var(--component-tag-badge-sm); background: var(--badge-subtle-blue-background); color: var(--badge-subtle-blue-content);
+.badge { flex: none; min-width: 20px; box-sizing: border-box; text-align: center; height: 20px; padding: 0 6px; border-radius: var(--component-tag-badge-sm); background: var(--badge-subtle-blue-background); color: var(--badge-subtle-blue-content);
   font-size: 12px; line-height: 20px; font-weight: var(--font-weight-semibold); }
 .groupTitle { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; line-height: 18px; font-weight: var(--font-weight-medium); color: var(--content-default-default); }
 .untitled { color: var(--content-muted-default); }

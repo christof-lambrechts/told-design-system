@@ -2,6 +2,8 @@ import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ChoicePicker } from './ChoicePicker';
 import { ChoiceIllustration, type ChoiceIllustrationName } from './illustrations';
+import { FormatOptionGroup } from './FormatOption';
+import { GroupTab } from '../Tabs/Tabs';
 
 const meta = { title: 'Composants/Saisie et choix/Choix visuel', component: ChoicePicker } satisfies Meta<typeof ChoicePicker>;
 export default meta;
@@ -44,4 +46,24 @@ export const Illustrations: StoryObj = {
       {(['ratio-16-9', 'ratio-4-3', 'ratio-1-1', 'ratio-3-4', 'widget', 'modale', 'banniere', 'infobulle'] as const).map((n) => <ChoiceIllustration key={n} name={n} />)}
     </div>
   ),
+};
+
+/** Choix du format dans le panneau Options (Record, 21/11) : FormatOptionGroup, réglages sous la ligne choisie. */
+export const FormatOptions: StoryObj = {
+  name: 'FormatOption',
+  render: () => {
+    const [f, setF] = useState('announcement');
+    const [o, setO] = useState('landscape');
+    return (
+      <div style={{ width: 328 }}>
+        <FormatOptionGroup aria-label="Format" value={f} onChange={setF}
+          options={[
+            { value: 'demo', title: 'Démo guidée', description: 'On clique, étape par étape.', illustration: 'demo' },
+            { value: 'announcement', title: 'Annonce', description: 'Vidéo courte à tes couleurs.', illustration: 'announcement' },
+            { value: 'inapp', title: 'Animation in-app', description: 'Boucle muette, sans texte.', illustration: 'inapp' },
+          ]}
+          settings={<GroupTab size="sm" label="Orientation" value={o} onChange={setO} items={[{ value: 'landscape', label: 'Paysage 16:9' }, { value: 'portrait', label: 'Vertical 9:16' }]} />} />
+      </div>
+    );
+  },
 };

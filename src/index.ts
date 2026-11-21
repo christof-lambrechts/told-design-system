@@ -117,3 +117,5 @@ export { EditorLayout } from './components/EditorLayout/EditorLayout';
 export type { EditorLayoutProps } from './components/EditorLayout/EditorLayout';
 export { FilterBar, FilterChip, FilterLogic, FilterMenu } from './components/Filter/Filter';
 export type { FilterBarProps, FilterChipProps, FilterLogicProps, FilterMenuProps, FilterMenuItemData } from './components/Filter/Filter';
+export { FormatOptionGroup } from './components/ChoicePicker/FormatOption';
+export type { FormatOptionGroupProps, FormatOptionData } from './components/ChoicePicker/FormatOption';
