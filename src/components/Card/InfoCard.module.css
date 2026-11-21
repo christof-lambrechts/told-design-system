@@ -1,7 +1,7 @@
 /* InfoCard (4782:14777) : 680 de large au plus, 180 de haut au moins, rayon 16, texte à gauche, illustration 176 × 132 à droite, fond teinté par canal. */
-.card { display: flex; align-items: center; gap: 24px; max-width: 680px; min-height: 180px; box-sizing: border-box; padding: 20px 24px; border-radius: 16px; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); overflow: hidden; }
-.text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
-.title { margin: 0; font: var(--font-weight-semibold) var(--body-16-size) / var(--body-16-line-height) var(--font-family-body); color: var(--content-default-default); }
+.card { display: flex; align-items: center; gap: 24px; max-width: 680px; min-height: 180px; box-sizing: border-box; padding: 24px 24px 24px 40px; border-radius: 16px; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); overflow: hidden; }
+.text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.title { margin: 0; font: var(--font-weight-semibold) var(--body-18-size) / var(--body-18-line-height) var(--font-family-body); color: var(--content-default-default); }
 .desc { margin: 0; font-size: var(--body-14-size); line-height: var(--body-14-line-height); color: var(--content-subtle-default); }
 .action { margin-top: 8px; }
 .illustration { flex: none; display: flex; }

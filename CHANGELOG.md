@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.27.2 · 21/11/2026
+
+- InfoCard : titre en Body/18/Semibold (comme Figma, était 16), marge gauche du texte 40 (était 24) pour équilibrer avec l'illustration, écart titre / texte 8.
+
 ## v0.27.1 · 21/11/2026
 
 - EditorLayout : trame de points (DotGrid) de retour en Construire (`content="center"`, par défaut), fond uni en `content="page"` (Diffuser, Analyser). Décision de Christof.

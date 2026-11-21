@@ -82,7 +82,7 @@ const illustrations: Record<InfoCardType, ReactNode> = {
 };
 
 /**
- * InfoCard (4782:14777) : bandeau en tête d'un canal (Diffuser) ou d'un réglage : titre Body/16/Semibold,
+ * InfoCard (4782:14777) : bandeau en tête d'un canal (Diffuser) ou d'un réglage : titre Body/18/Semibold, marge gauche 40,
  * description, illustration à droite, fond teinté par canal. `iframe` = bandeau jaune des intégrations.
  */
 export function InfoCard({ type, title, description, action, className }: InfoCardProps) {
