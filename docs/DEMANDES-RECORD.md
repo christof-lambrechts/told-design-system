@@ -118,7 +118,7 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Priorité : confort
 - Statut : à faire
 - Réponse DS :
-- Réponse Record :
+- Réponse Record : repris le 21/11/2026 (DS v0.21.3) : AvatarGroup avec `id` et `idle`, contournement retiré.
 
 ### D-023 · EditorHeaderRecord : bouton menu au logo mini
 - Date, écran Record concerné (fichier, route) : 21/11/2026, en-tête de l'éditeur (`start`), même fichier.
@@ -128,7 +128,7 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Priorité : confort
 - Statut : à faire
 - Réponse DS :
-- Réponse Record :
+- Réponse Record : repris le 21/11/2026 (DS v0.21.3) : ButtonEditionMenu ouvre un DropdownMenu « Retour au projet », « Tous les projets » ; la flèche du Breadcrumb est retirée.
 
 ### D-024 · EditorHeaderRecord : navigation Construire › Diffuser › Analyser
 - Date, écran Record concerné (fichier, route) : 21/11/2026, en-tête de l'éditeur (`center`).
@@ -138,7 +138,7 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Priorité : confort
 - Statut : à faire
 - Réponse DS :
-- Réponse Record :
+- Réponse Record : repris le 21/11/2026 (DS v0.21.3) : EditorSteps branché ; Diffuser est une page (ancien panneau Partager), Analyser un EmptyState en attendant les statistiques.
 
 ### D-025 · Carte de démo de la liste, avec son menu
 - Date, écran Record concerné (fichier, route) : 21/11/2026, page projet, `src/app/(app)/[org]/demo-cards.tsx` et `demo-list-client.tsx` (DemoCardMenu) ; route `/[org]/projets/[project]`.
@@ -197,6 +197,16 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Règle à généraliser (demande de Christof) : tout composant dont l'élément de tête est facultatif (icône, glyphe, pastille, vignette, avatar) garde un texte bien placé sans lui. Le padding réduit côté tête ne s'applique que quand la tête est là ; sans tête, le padding est le même des deux côtés. À vérifier sur les autres composants concernés (puces, tags, badges, boutons, items de menu), pour ne pas retrouver le problème ailleurs.
 - Contournement provisoire dans Record : 4 px de marge à gauche du libellé.
 - Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
+### D-031 · Diffuser Record : bandeau d'état et cartes de section
+- Date, écran Record concerné (fichier, route) : 21/11/2026, étape Diffuser de l'éditeur, `src/app/(app)/[org]/demos/[id]/editor/share-panel.tsx` (PublishStep) ; route `/[org]/demos/[id]?etape=diffuser`.
+- Besoin (ce que l'écran doit faire) : une page centrée (640 px) à la place du canevas, qui empile : l'état de la démo (Brouillon, En pause, En ligne, avec qui l'a publiée et quand), les vérifications avant publication, le lien public, le code d'intégration, les options de lecture, l'export MP4 et le lien de la page.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : la page « Organismes / Diffuser » de Figma (StatusBanner, ChannelCard) n'est ni validée ni codée, et elle est pensée pour les canaux de Told (web, mobile, e-mail). Il manque pour Record : un StatusBanner à trois états (brouillon, en pause, en ligne) et une carte de section (titre, contenu, sans réglage de canal). CheckList, CheckRow, CopyField, CodeBlock et Banner sont déjà repris.
+- Contournement provisoire dans Record : cartes maison (bordure, rayon 12, fond surface) et une ligne d'état avec un point vert ou rouge.
+- Priorité : important
 - Statut : à faire
 - Réponse DS :
 - Réponse Record :
