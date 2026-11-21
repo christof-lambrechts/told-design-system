@@ -154,7 +154,7 @@ Ces noms sont réservés : le code les reprendra tels quels (règle 1). Statut d
 
 | Figma | Rôle | Propriétés principales |
 | --- | --- | --- |
-| EditorLayout | gabarit des écrans d'édition : en-tête puis 3 colonnes collées, canevas uni au centre (pas de points : DotGrid est réservé aux Scénarios) | `product=told / record` |
+| EditorLayout | gabarit des écrans d'édition : en-tête puis 3 colonnes collées, canevas à points au centre en Construire, uni pour Diffuser et Analyser | `product=told / record` |
 | FormatModal, _FormatRow | modale de choix du format (Tour : Standard, Vitrine, Compact, Vidéo, Démo ; Record : Démo guidée, Annonce, Animation in-app) | `product` ; ligne : `state`, `label`, `hasBadge` |
 | SliderCapsule | curseur en capsule (zoom, opacité, durée), point de valeur par défaut | `state=empty / partial / full / range`, `label`, `value`, `hasDefault` → code `value`, `defaultValue`, `format`, `rangeEnd` |
 | ChoiceChips, _ChoiceChip | choix compact en pastilles (thème, apparition, type d'écran, avatar) | `lead=none / icon / color / thumb / avatar / glyph`, `state` → code `options[]` (`icon`, `color`, `thumb`, `avatar`, `glyph`, `onListen`) |
@@ -173,7 +173,7 @@ Ces noms sont réservés : le code les reprendra tels quels (règle 1). Statut d
 | CheckList, CheckRow | liste « Avant de publier » | `hasAction` |
 | OptionItem `type=generic` | ligne d'option générique (ex-PanelSection) | `state`, `label`, `hasValue`, `hasInfo`, `hasAction`, `hasToggle`, `hasChevron`, `content` |
 
-Nouveau jeton : `Neutral/border/divider` (gray/40 en clair) pour les séparations de grandes zones. Modifiés le 20/11 : `Neutral/surface/canvas` (gray/10) et `Neutral/surface/pattern` (gray/30 depuis le 21/11), trame DotGrid tous les 8, réservée aux Scénarios.
+Nouveau jeton : `Neutral/border/divider` (gray/40 en clair) pour les séparations de grandes zones. Modifiés le 20/11 : `Neutral/surface/canvas` (gray/10) et `Neutral/surface/pattern` (gray/30 depuis le 21/11), trame DotGrid tous les 8 : Scénarios et Construire.
 
 ## 8. Pour une IA (Claude Code ou autre)
 

@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.27.1 · 21/11/2026
+
+- EditorLayout : trame de points (DotGrid) de retour en Construire (`content="center"`, par défaut), fond uni en `content="page"` (Diffuser, Analyser). Décision de Christof.
+
 ## v0.27.0 · 21/11/2026
 
 Décision de Christof : md à 36 (grille de 4, progression 28 / 36 / 44).

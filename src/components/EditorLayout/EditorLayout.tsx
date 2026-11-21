@@ -18,20 +18,20 @@ export interface EditorLayoutProps {
   leftWidth?: number;
   rightWidth?: number;
   /**
-   * @deprecated Le fond à points (DotGrid) est réservé aux Scénarios (décision de Christof, 21/11) :
-   * la zone d'édition est un fond uni Neutral/surface/canvas. Faux par défaut.
+   * Trame de points (DotGrid) sur le canevas. Par défaut : oui en `content="center"` (Construire), non en `content="page"`
+   * (Diffuser, Analyser : fond uni). Décision de Christof, 21/11.
    */
   dots?: boolean;
 }
 
 /** EditorLayout (9020:101921) : en-tête puis trois colonnes collées, sans marge. Côtés blancs séparés par Neutral/border/divider, centre sur Neutral/surface/canvas à points. */
-export function EditorLayout({ header, left, children, right, content = 'center', leftWidth = 272, rightWidth = 356, dots = false }: EditorLayoutProps) {
+export function EditorLayout({ header, left, children, right, content = 'center', leftWidth = 272, rightWidth = 356, dots }: EditorLayoutProps) {
   return (
     <div className={styles.root}>
       <div className={styles.header}>{header}</div>
       <div className={styles.cols}>
         <aside className={styles.left} style={{ width: leftWidth }}>{left}</aside>
-        <main className={[styles.canvas, dots && styles.dots, content === 'page' && styles.page].filter(Boolean).join(' ')}>{content === 'page' ? <div className={styles.pageColumn}>{children}</div> : children}</main>
+        <main className={[styles.canvas, (dots ?? content === 'center') && styles.dots, content === 'page' && styles.page].filter(Boolean).join(' ')}>{content === 'page' ? <div className={styles.pageColumn}>{children}</div> : children}</main>
         {right && <aside className={styles.right} style={{ width: rightWidth }}>{right}</aside>}
       </div>
     </div>
