@@ -32,6 +32,9 @@ Figma a été renommé ; les instances des maquettes restent liées. Dans le cod
 | `UserStory` | User story | | |
 | `OptionItem` | ex-OptionPanelItem et PanelSection | `OptionPanelItem` | nom à utiliser dans le code |
 | `OptionSidebar` | ex-OptionPanel et StepOptionsPanel | `OptionPanel` | variante `contentType=record` pour Told Record |
+| `OptionChoice` (21/11) | SelectionItem | | un choix (picto en petit carré, libellé, badge) dans la liste ouverte sous une OptionItem ; rangé page OptionContent. Pas encore codé |
+| `OptionCard` (21/11) | SwitchOptionCard | | ligne d'option à fond gris et interrupteur (Diffuser). Pas encore codé |
+| `ChannelSection` (21/11) | | | rubrique numérotée d'une carte de canal (Diffuser). Pas encore codé ; ChannelItem remplacé par `SelectionCard` |
 | `ButtonEditionMenu` | ButtonEditionMenu | | bouton du menu de l'éditeur |
 | `EditorSteps` (code) | cadre « Étapes » d'EditorHeaderTold / EditorHeaderRecord | | Construire › Diffuser › Analyser, ButtonTab `color="inverse"` |
 | `EditorHeader` (code) | EditorHeaderTold (ex-EditionNav), EditorHeaderRecord (ex-EditionNavRecord) | | le code est un seul gabarit à emplacements (+ `EditorSaveState`, `EditorChanges`) pour les deux produits ; Figma garde un composant par produit |
