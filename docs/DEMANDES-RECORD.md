@@ -274,6 +274,16 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Réponse DS :
 - Réponse Record :
 
+### D-038 · Trame de points du canevas hors EditorLayout (Construire)
+- Date, écran Record concerné (fichier, route) : 21/11/2026, étape Construire de l'éditeur, `src/app/(app)/[org]/demos/[id]/editor/editor.tsx` (section « Canevas »).
+- Besoin (ce que l'écran doit faire) : le centre de Construire porte la trame de points d'EditorLayout (content="center"), Diffuser et Analyser un fond uni.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : Construire ne peut pas passer sur EditorLayout (panneau Options en surimpression sous 1180 px, canevas qui défile depuis le haut au lieu d'être centré en grille). La trame n'existe que dans le CSS d'EditorLayout. Attendu : la trame exportée seule (composant `CanvasBackground` / classe ou jeton), ou EditorLayout qui accepte un panneau droit en surimpression et un canevas aligné en haut.
+- Contournement provisoire dans Record : la même trame recopiée en classes Tailwind sur les jetons du DS (`--neutral-surface-canvas`, `--neutral-surface-pattern`, points de 0,75 px tous les 8 px).
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
 ## Fait côté DS
 
 > À reprendre une fois depuis le document de projet : D-002 à D-010, D-013, D-015 et les autres demandes déjà codées, avec leurs réponses.
