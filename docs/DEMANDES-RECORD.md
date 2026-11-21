@@ -199,7 +199,7 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Priorité : confort
 - Statut : à faire
 - Réponse DS :
-- Réponse Record :
+- Réponse Record : repris le 21/11/2026 (DS v0.22.1) : marge du libellé retirée dans Apparition.
 
 ### D-031 · Diffuser Record : bandeau d'état et cartes de section
 - Date, écran Record concerné (fichier, route) : 21/11/2026, étape Diffuser de l'éditeur, `src/app/(app)/[org]/demos/[id]/editor/share-panel.tsx` (PublishStep) ; route `/[org]/demos/[id]?etape=diffuser`.
@@ -227,6 +227,16 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : EditorSteps et StepList posent tous deux `aria-label="Étapes"` en dur sur leur `nav` (deux repères du même nom dans l'éditeur). EditorSteps n'a pas de prop pour son nom (`aria-label`) ni pour le texte de son point (`dotLabel` vaut « En ligne » ou « Brouillon »). Attendu : `aria-label` (défaut « Étapes de publication » par exemple) et `dotLabel` réglables, ou un état `paused`.
 - Contournement provisoire dans Record : après le rendu, le nom de la `nav` devient « Construire, diffuser, analyser » et le point « En pause » quand il le faut.
 - Priorité : important
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
+### D-034 · MessageCard : attributs passés au bouton (aria-current)
+- Date, écran Record concerné (fichier, route) : 21/11/2026, colonne Étapes de l'éditeur, carte « Écran de fin » (StepList `end`), `src/app/(app)/[org]/demos/[id]/editor/editor.tsx` (StepColumn).
+- Besoin (ce que l'écran doit faire) : l'écran de fin sélectionné s'annonce comme l'étape en cours (`aria-current="step"`), comme une vignette ; l'app peut aussi poser `data-*` (navigation au clavier) sur le bouton.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : MessageCard ne transmet aucun attribut à son `<button>` (seulement `disabled` et `onClick`) ; `selected` ne donne qu'un style, pas d'`aria-current`.
+- Contournement provisoire dans Record : un `<span class="contents" data-step="end" aria-current>` autour de la carte (mal exposé aux lecteurs d'écran).
+- Priorité : confort
 - Statut : à faire
 - Réponse DS :
 - Réponse Record :
