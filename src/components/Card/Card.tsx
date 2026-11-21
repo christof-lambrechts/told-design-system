@@ -60,7 +60,7 @@ export interface ChannelSectionProps {
   className?: string;
 }
 
-/** ChannelSection (9155:3205) : rubrique numérotée d'une carte de canal (Diffuser). Marges 20, écart 12. */
+/** ChannelSection (9155:3205) : rubrique numérotée d'une carte de canal (Diffuser). Marges 20, écart 12. Boutons en lg dans les rubriques, champs md ou lg. */
 export function ChannelSection({ number, title, description, children, className }: ChannelSectionProps) {
   return (
     <div className={cx(styles.section, className)}>

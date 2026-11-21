@@ -22,7 +22,7 @@ export const EnTete: StoryObj = {
   ),
 };
 
-/** Carte du canal Record · lien (Diffuser) : CardHeader, puis ChannelSection numérotées, OptionCard dans « Règle le lien ». */
+/** Carte du canal Record · lien (Diffuser) : CardHeader, puis ChannelSection numérotées, OptionCard dans « Règle le lien ». Boutons en lg dans les rubriques. */
 export const CanalLien: StoryObj = {
   name: 'Canal · Partager par lien',
   render: () => {
@@ -33,13 +33,13 @@ export const CanalLien: StoryObj = {
       <div style={{ width: 720 }}>
         <Card header={<CardHeader icon="link" title="Partager par lien" />}>
           <ChannelSection number={1} title="Publie ta démo" description="Le lien ne montre la démo qu'une fois publiée.">
-            <Button>Publier la démo</Button>
+            <Button size="lg">Publier la démo</Button>
           </ChannelSection>
           <ChannelSection number={2} title="Règle le lien">
             <OptionCard icon="repeat" title="En boucle" description="La démo recommence au début une fois finie." toggle={{ checked: loop, onChange: setLoop }} />
             <OptionCard icon="circle-lock-02" title="Protéger par un mot de passe" description="Le mot de passe est demandé avant la première étape." toggle={{ checked: pwd, onChange: setPwd }}>
               <Input placeholder="Mot de passe" type="password" aria-label="Mot de passe" />
-              <Button>Enregistrer</Button>
+              <Button size="lg">Enregistrer</Button>
             </OptionCard>
             <OptionCard icon="calendar-03" title="Faire expirer le lien" description="Le lien ne marche plus après cette date." toggle={{ checked: exp, onChange: setExp }} />
           </ChannelSection>
@@ -68,10 +68,10 @@ export const CanalVideo: StoryObj = {
               control={<GroupTab size="lg" value={o} onChange={setO} items={[{ value: 'landscape', label: 'Paysage 16:9' }, { value: 'portrait', label: 'Vertical 9:16' }]} />} />
           </ChannelSection>
           <ChannelSection number={2} title="Lance le rendu" description="Compte environ une minute pour une démo de 10 étapes.">
-            <Button iconLeft="film-01">Lancer le rendu</Button>
+            <Button size="lg" iconLeft="film-01">Lancer le rendu</Button>
           </ChannelSection>
           <ChannelSection number={3} title="Télécharge la vidéo" description="Le MP4 reste disponible 7 jours.">
-            <Button color="neutral" variant="secondary-outline" iconLeft="download-05">Télécharger le MP4</Button>
+            <Button color="neutral" variant="secondary-outline" size="lg" iconLeft="download-05">Télécharger le MP4</Button>
           </ChannelSection>
         </Card>
       </div>
