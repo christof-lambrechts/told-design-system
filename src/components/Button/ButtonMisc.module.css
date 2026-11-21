@@ -26,7 +26,7 @@
 .sm .label { padding: 0 6px; }
 .md { height: 34px; padding: 8px 10px; border-radius: var(--component-input-button-md); font-size: 13px; line-height: 18px; }
 .md .label { padding: 0 8px; }
-.lg { height: 40px; padding: 9px 14px; border-radius: var(--component-input-button-lg); font-size: 15px; line-height: 22px; }
+.lg { height: 44px; padding: 11px 14px; border-radius: var(--component-input-button-lg); font-size: 15px; line-height: 22px; }
 .lg .label { padding: 0 8px; }
 
 .link { gap: 8px; }

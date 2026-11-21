@@ -34,12 +34,12 @@
 .sm .label { padding: 0 6px; }
 .md { height: 34px; padding: 8px 10px; border-radius: var(--component-input-button-md); font-size: 13px; line-height: 18px; }
 .md .label { padding: 0 8px; }
-.lg { height: 40px; padding: 9px 14px; border-radius: var(--component-input-button-lg); font-size: 15px; line-height: 22px; }
+.lg { height: 44px; padding: 11px 14px; border-radius: var(--component-input-button-lg); font-size: 15px; line-height: 22px; }
 .lg .label { padding: 0 8px; }
 .iconOnly.xs { width: 22px; padding: 0; }
 .iconOnly.sm { width: 28px; padding: 0; }
 .iconOnly.md { width: 34px; padding: 0; }
-.iconOnly.lg { width: 40px; padding: 0; }
+.iconOnly.lg { width: 44px; padding: 0; }
 .fullWidth { width: 100%; }
 
 /* color=ai (Figma : secondary-outline ai) : fond blanc, contour en dégradé purple/400 → blue/400, texte et étoile Brand/color/purple ; survol violet pâle. */

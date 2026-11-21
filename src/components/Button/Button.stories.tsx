@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button, ButtonIcon, type ButtonColor, type ButtonSize, type ButtonType } from './Button';
 import { iconNames } from '../Icon/Icon';
+import { Input } from '../Input/Input';
+import { Select } from '../Select/Select';
+import { CopyField } from '../CopyField/CopyField';
 
 const meta = {
   title: 'Composants/Actions/Button',
@@ -127,6 +130,24 @@ export const IaEtEnregistrement: StoryObj = {
         <div key={s} style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
           <Button color="ai" size={s}>Générer avec l’IA</Button>
           <Button color="rec" size={s}>Enregistrer</Button>
+        </div>
+      ))}
+    </div>
+  ),
+};
+
+/** Échelle des contrôles (21/11) : sm 28, md 34, lg 44. Bouton, bouton icône, champ, liste et champ à copier de même taille s'alignent au pixel. */
+export const HauteursAlignees: StoryObj = {
+  name: 'Hauteurs alignées',
+  render: () => (
+    <div style={{ display: 'grid', gap: 16 }}>
+      {(['sm', 'md', 'lg'] as const).map((s) => (
+        <div key={s} style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <Input size={s} placeholder={`Input ${s}`} aria-label="Champ" />
+          <Select size={s} aria-label="Liste" options={[{ value: 'a', label: `Select ${s}` }]} value="a" onChange={() => {}} />
+          {s !== 'sm' && <div style={{ width: 240 }}><CopyField size={s} value="https://told.club/s/avis" /></div>}
+          <Button size={s}>Button {s}</Button>
+          <ButtonIcon size={s} icon="add-01" label="Ajouter" />
         </div>
       ))}
     </div>

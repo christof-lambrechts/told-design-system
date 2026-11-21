@@ -2,8 +2,8 @@
 .field { display: flex; flex-direction: column; gap: 4px; min-width: 0; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
 .label { padding: 0 8px; font-size: 12px; line-height: 18px; font-weight: var(--font-weight-semibold); color: var(--input-brand-content-label); }
 .box { box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 0 4px 0 12px; border: 1px solid var(--neutral-border-default); background: var(--neutral-surface-muted); }
-.sm { height: 32px; border-radius: var(--component-input-button-sm); }
-.md { height: 40px; border-radius: var(--component-input-button-md); }
+.md, .sm { height: 34px; border-radius: var(--component-input-button-md); }
+.lg { height: 44px; border-radius: var(--component-input-button-lg); }
 .value { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--content-subtle-default); font: var(--font-weight-medium) 13px / 18px var(--font-family-body); text-overflow: ellipsis; }
 .copy { display: inline-flex; align-items: center; gap: 4px; height: calc(100% - 8px); padding: 0 10px; border: 1px solid var(--neutral-border-default); border-radius: 6px; background: var(--neutral-surface-default);
   color: var(--content-default-default); font: var(--font-weight-medium) 12px / 18px var(--font-family-body); cursor: pointer; white-space: nowrap; }

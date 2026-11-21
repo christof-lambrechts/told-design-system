@@ -78,7 +78,7 @@ Règles :
 
 Le design system est en **densité compacte** depuis la v0.3.0 :
 - texte courant 13 px (interligne 18), grand texte 15 px ;
-- hauteurs des contrôles : **xs 22, sm 28, md 34, lg 40**. Bouton, champ, liste déroulante et onglet de même taille ont exactement la même hauteur : un champ `md` se pose à côté d'un bouton `md`.
+- hauteurs des contrôles : **xs 22, sm 28, md 34, lg 44 (lg passé de 40 à 44 le 21/11)**. Bouton, champ, liste déroulante et onglet de même taille ont exactement la même hauteur : un champ `md` se pose à côté d'un bouton `md`.
 
 Le widget visiteur n'est pas concerné (il garde ses tailles).
 
@@ -108,7 +108,7 @@ Statut : ✅ = page Figma validée, API stable. ⏳ = codé d'après Figma, page
 | Composant | Statut | Notes |
 | --- | --- | --- |
 | `Checkbox`, `Radio`, `Switch` | ✅ | |
-| `Input`, `SearchBar`, `TextArea` | ✅ | Hauteurs 28, 34, 40. `counter` (« 94 / 280 ») et `warning` depuis v0.9.0. |
+| `Input`, `SearchBar`, `TextArea` | ✅ | Hauteurs 28, 34, 44. `counter` (« 94 / 280 ») et `warning` depuis v0.9.0. |
 | `ColorField`, `ContrastBadge`, `ContrastMenu` | ✅ | Couleur avec contrôle de contraste AA ou AAA sur `background`, correction en un clic, annulable. Fonctions `contrastRatio`, `fixContrast`. |
 | `CopyField`, `CodeBlock` | ✅ | Lien à copier (sm, md) ; code d'intégration coloré avec « Copier le code ». |
 | `IntentInput`, `PromptChip`, `QuickSuggestion`, `IntentPanel` | ✅ | Consigne pour l'IA : Entrée envoie, Maj + Entrée va à la ligne ; `emphasis="ai"`, `size` default ou compact ; IA = violet. |

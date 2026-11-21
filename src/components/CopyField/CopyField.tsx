@@ -24,14 +24,15 @@ export interface CopyFieldProps {
   label?: ReactNode;
   /** Texte à copier (lien de partage, identifiant). Lecture seule. */
   value: string;
-  size?: 'sm' | 'md';
+  /** md 34, lg 44 (échelle des contrôles). `sm` : ancien nom de md. Défaut lg. */
+  size?: 'sm' | 'md' | 'lg';
   copyLabel?: string;
   copiedLabel?: string;
   onCopy?: () => void;
 }
 
 /** CopyField (8732:7906) : champ en lecture seule et bouton « Copier » qui devient « Copié ». sm 32, md 40. */
-export function CopyField({ label, value, size = 'md', copyLabel = 'Copier', copiedLabel = 'Copié', onCopy }: CopyFieldProps) {
+export function CopyField({ label, value, size = 'lg', copyLabel = 'Copier', copiedLabel = 'Copié', onCopy }: CopyFieldProps) {
   const { copied, copy } = useCopy(value, onCopy);
   return (
     <div className={styles.field}>

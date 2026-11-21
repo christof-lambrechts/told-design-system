@@ -25,7 +25,7 @@
 
 .sm .box { min-height: 28px; border-radius: 10px; padding: 0 6px 0 8px; font-size: 12px; line-height: 18px; }
 .md .box { min-height: 34px; border-radius: 12px; padding: 0 9px 0 10px; font-size: 13px; line-height: 18px; }
-.lg .box { min-height: 40px; border-radius: 14px; padding: 0 10px 0 12px; font-size: 15px; line-height: 22px; }
+.lg .box { min-height: 44px; border-radius: 14px; padding: 0 10px 0 12px; font-size: 15px; line-height: 22px; }
 
 /* Liste */
 .menu {

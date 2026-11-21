@@ -3,6 +3,16 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.26.0 · 21/11/2026
+
+Demande de Christof : tous les contrôles d'une même taille à la même hauteur (essai lg 44).
+
+- Échelle : **sm 28, md 34, lg 44** (lg était 40). Button, ButtonIcon, ButtonGradient, ButtonDropdown, Input, SearchBar, Select en lg : 44.
+- Input sm et md mesuraient 30 et 36 (contour en plus) : corrigés à 28 et 34.
+- CopyField : tailles `md` 34 et `lg` 44 (défaut lg ; `sm` reste accepté comme ancien nom de md). Avant : sm 32, md 40.
+- Story Composants › Actions › Button › Hauteurs alignées (mesurée : 28 / 34 / 44 partout).
+- Figma aligné (Button, ButtonIcon, ButtonGradient, ButtonDropdown lg 44 ; _InputBase, Input, SearchBar, Select, InputTag 28 / 34 / 44 ; CopyField md 34 / lg 44).
+
 ## v0.25.1 · 21/11/2026
 
 - InfoCard : 680 de large au plus, 180 de haut au moins ; illustration iframe avec le smiley et le cadre jaune orangé (mustard-400, 3 px), comme Figma et la production.

@@ -9,7 +9,7 @@ export const Champ: StoryObj = {
   render: () => (
     <div style={{ display: 'grid', gap: 16, width: 420 }}>
       <CopyField label="Lien de partage" value="https://record.told.club/d/onboarding-inqom" />
-      <CopyField size="sm" value="https://record.told.club/d/onboarding-inqom" />
+      <CopyField size="md" value="https://record.told.club/d/onboarding-inqom" />
     </div>
   ),
 };
