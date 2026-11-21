@@ -7,6 +7,7 @@ import { Input } from '../Input/Input';
 import { CopyField } from '../CopyField/CopyField';
 import { GroupTab } from '../Tabs/Tabs';
 import { Switch } from '../Choice/Choice';
+import { InfoCard } from './InfoCard';
 
 const meta = { title: 'Composants/Cartes/Carte et en-tête', component: Card, parameters: { layout: 'padded' } } satisfies Meta<typeof Card>;
 export default meta;
@@ -113,4 +114,18 @@ export const ChoixOption: StoryObj = {
       </div>
     );
   },
+};
+
+/** InfoCard : bandeau en tête d'un canal. iframe = bandeau jaune des intégrations. */
+export const Bandeaux: StoryObj = {
+  name: 'InfoCard',
+  render: () => (
+    <div style={{ width: 760, display: 'grid', gap: 16 }}>
+      <InfoCard type="iframe" title="Intégrez votre enquête dans une iframe" description="Insérez facilement votre enquête sur votre site web grâce à une iframe." />
+      <InfoCard type="link" title="Partagez votre questionnaire grâce à un lien" description="Diffusez votre enquête en utilisant un lien." />
+      <InfoCard type="video" title="Partage ta démo en vidéo" description="Exporte ta démo en MP4 pour l'envoyer ou la poster sur les réseaux." />
+      <InfoCard type="embed" title="Intégrez-le dans une page" description="Collez le code là où le questionnaire doit apparaître." />
+      <InfoCard type="email" title="Envoyez-le par e-mail" description="La première question est dans le mail." />
+    </div>
+  ),
 };

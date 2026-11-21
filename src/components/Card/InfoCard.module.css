@@ -1,0 +1,13 @@
+/* InfoCard (4782:14777) : rayon 16, texte à gauche, illustration 176 × 132 à droite, fond teinté par canal. */
+.card { display: flex; align-items: center; gap: 24px; padding: 20px 24px; border-radius: 16px; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); overflow: hidden; }
+.text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.title { margin: 0; font: var(--font-weight-semibold) var(--body-16-size) / var(--body-16-line-height) var(--font-family-body); color: var(--content-default-default); }
+.desc { margin: 0; font-size: var(--body-14-size); line-height: var(--body-14-line-height); color: var(--content-subtle-default); }
+.action { margin-top: 8px; }
+.illustration { flex: none; display: flex; }
+.svg { display: block; }
+.link, .video { background: var(--ocean-50); }
+.iframe { background: var(--mustard-50); }
+.embed { background: var(--orange-20); }
+.email { background: var(--green-20); }
+@media (max-width: 560px) { .illustration { display: none; } }

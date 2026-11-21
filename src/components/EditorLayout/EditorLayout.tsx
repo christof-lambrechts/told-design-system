@@ -10,6 +10,11 @@ export interface EditorLayoutProps {
   children: ReactNode;
   /** Colonne droite : OptionSidebar. */
   right?: ReactNode;
+  /**
+   * Placement de la zone d'édition : `center` (défaut, l'objet édité centré) ou `page` (colonne de lecture en haut,
+   * 760 de large au plus, écart 24 : Diffuser, réglages en cartes). Diffuser = `left` (SelectionCardGroup des canaux), `content="page"`, pas de `right`.
+   */
+  content?: 'center' | 'page';
   leftWidth?: number;
   rightWidth?: number;
   /**
@@ -20,13 +25,13 @@ export interface EditorLayoutProps {
 }
 
 /** EditorLayout (9020:101921) : en-tête puis trois colonnes collées, sans marge. Côtés blancs séparés par Neutral/border/divider, centre sur Neutral/surface/canvas à points. */
-export function EditorLayout({ header, left, children, right, leftWidth = 272, rightWidth = 356, dots = false }: EditorLayoutProps) {
+export function EditorLayout({ header, left, children, right, content = 'center', leftWidth = 272, rightWidth = 356, dots = false }: EditorLayoutProps) {
   return (
     <div className={styles.root}>
       <div className={styles.header}>{header}</div>
       <div className={styles.cols}>
         <aside className={styles.left} style={{ width: leftWidth }}>{left}</aside>
-        <main className={dots ? `${styles.canvas} ${styles.dots}` : styles.canvas}>{children}</main>
+        <main className={[styles.canvas, dots && styles.dots, content === 'page' && styles.page].filter(Boolean).join(' ')}>{content === 'page' ? <div className={styles.pageColumn}>{children}</div> : children}</main>
         {right && <aside className={styles.right} style={{ width: rightWidth }}>{right}</aside>}
       </div>
     </div>

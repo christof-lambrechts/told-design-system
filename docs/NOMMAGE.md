@@ -33,6 +33,7 @@ Figma a été renommé ; les instances des maquettes restent liées. Dans le cod
 | `OptionItem` | ex-OptionPanelItem et PanelSection | `OptionPanelItem` | nom à utiliser dans le code |
 | `OptionSidebar` | ex-OptionPanel et StepOptionsPanel | `OptionPanel` | variante `contentType=record` pour Told Record |
 | `CardHeader` (21/11) | EditionCardHeader | | en-tête de carte commun (édition, résultats, Diffuser) : picto, titre, description, interrupteurs à droite ; préréglages par type : `CardHeaderPreset` (ex-header-cards). L'ancien CardHeader sans instance est archivé (CardHeaderLegacy). Codé v0.23.0 (`actions` pour la droite) |
+| `InfoCard` (21/11, codé v0.25.0) | | | bandeau en tête d'un canal ; `type` link, iframe (jaune), video, embed, email. Figma : InfoCard `type=liens | iframe | video | integrer | email` |
 | `OptionChoice` (21/11) | SelectionItem | | un choix (picto en petit carré, libellé, badge) dans la liste ouverte sous une OptionItem ; rangé page OptionContent. Codé v0.23.0 : `OptionChoiceGroup` (radio, une liste) |
 | `OptionCard` (21/11) | SwitchOptionCard | | ligne d'option à fond gris et interrupteur (Diffuser). Codé v0.23.0 (`toggle` ou `control`, contenu en `children`) |
 | `ChannelSection` (21/11) | | | rubrique numérotée d'une carte de canal (Diffuser), avec `Card`. Codé v0.23.0 ; ChannelItem remplacé par `SelectionCard` (code : `SelectionCardGroup`) |

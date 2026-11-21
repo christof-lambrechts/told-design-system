@@ -116,7 +116,7 @@
   "CheckList": "composants-retours-checklist--docs",
   "CheckRow": "composants-retours-checklist--docs",
   "EmptyState": "composants-retours-emptystate--docs",
-  "EditorLayout": "gabarits-editorlayout--docs",
+  "EditorLayout": "gabarits-editorlayout--diffuser",
   "ButtonEditionMenu": "composants-navigation-en-tête-éditeur-record--v-1-brouillon",
   "FilterBar": "composants-données-filter--docs",
   "FilterMenu": "composants-données-filter--docs",
@@ -131,5 +131,6 @@
   "OptionCard": "composants-cartes-carte-et-en-tête--canal-lien",
   "OptionChoice": "composants-cartes-carte-et-en-tête--choix-option",
   "SelectionCard": "composants-cartes-carte-et-en-tête--menu-canaux",
-  "FormatOption": "composants-panneaux-optionsidebar--format-options"
+  "FormatOption": "composants-panneaux-optionsidebar--format-options",
+  "InfoCard": "composants-cartes-carte-et-en-tête--bandeaux"
 }

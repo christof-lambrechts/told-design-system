@@ -123,3 +123,5 @@ export { OptionCard, OptionChoiceGroup } from './components/OptionSidebar/Option
 export type { OptionCardProps, OptionChoiceGroupProps, OptionChoiceData } from './components/OptionSidebar/OptionCard';
 export { Card, CardHeader, ChannelSection, SelectionCardGroup } from './components/Card/Card';
 export type { CardProps, CardHeaderProps, ChannelSectionProps, SelectionCardGroupProps, SelectionCardData } from './components/Card/Card';
+export { InfoCard } from './components/Card/InfoCard';
+export type { InfoCardProps, InfoCardType } from './components/Card/InfoCard';

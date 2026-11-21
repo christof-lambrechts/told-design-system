@@ -3,6 +3,14 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.25.0 · 21/11/2026
+
+Demandes de Christof.
+
+- **InfoCard** (bandeau en tête d'un canal) : `type` link, iframe (bandeau jaune des intégrations, nouveau dans Figma), video, embed, email ; titre, description, action facultative, illustration à droite.
+- **EditorLayout `content="page"`** : colonne de lecture de 760 max, en haut, écart 24 (Diffuser, réglages en cartes). Story Gabarits › EditorLayout › Diffuser (Record).
+- Règle : Diffuser utilise le même gabarit que l'éditeur (menu des canaux collé à gauche, fond blanc et filet ; centre sur le canevas ; InfoCard puis Card ; pas de 3e colonne).
+
 ## v0.24.0 · 21/11/2026
 
 Demande de Christof.
