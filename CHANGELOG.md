@@ -3,6 +3,15 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.21.4 · 21/11/2026
+
+Règle de Christof : sans élément de tête, même marge des deux côtés.
+
+- ChoiceChips sans tête : 10 / 10 (avant 6 / 10).
+- QuickSuggestion sans icône : 12 / 12 (avant 10 / 12).
+- Tag sans icône : 12 / 12 comme dans Figma (avant 8 / 12).
+- Règle ajoutée au guide développeur.
+
 ## v0.21.3 · 21/11/2026
 
 - `FormatOptionGroup` rangé avec OptionItem (dossier OptionSidebar, story Panneaux › OptionSidebar › FormatOption), comme dans Figma (page OptionContent). Import inchangé depuis le paquet.

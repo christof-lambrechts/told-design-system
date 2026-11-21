@@ -80,7 +80,7 @@ export interface QuickSuggestionProps extends Omit<ButtonHTMLAttributes<HTMLButt
 /** QuickSuggestion (7866:506) : pilule de consigne prête à l'emploi sous le champ IA. Icône violette ; sélection en violet. */
 export function QuickSuggestion({ children, icon = 'ai-magic', selected, className, ...rest }: QuickSuggestionProps) {
   return (
-    <button type="button" aria-pressed={!!selected} className={cx(styles.suggestion, selected && styles.suggestionSelected, className)} {...rest}>
+    <button type="button" aria-pressed={!!selected} className={cx(styles.suggestion, !icon && styles.suggestionNoIcon, selected && styles.suggestionSelected, className)} {...rest}>
       {icon && <Icon name={icon} size={14} variant="solid" className={styles.suggestionIcon} />}
       <span>{children}</span>
     </button>

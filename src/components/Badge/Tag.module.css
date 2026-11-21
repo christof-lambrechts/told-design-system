@@ -10,7 +10,6 @@
 .main { background: var(--c50); }
 .value { background: var(--c200); }
 .text { padding: 0 4px; }
-.main .text:first-child { padding-left: 0; }
 .remove { all: unset; display: flex; cursor: pointer; border-radius: 4px; color: inherit; margin-right: -4px; }
 .remove:hover { background: var(--content-neutral-black-alpha-5); }
 .remove:focus-visible { outline: 2px solid var(--brand-border-focus); }

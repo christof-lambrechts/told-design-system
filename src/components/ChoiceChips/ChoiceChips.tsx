@@ -59,7 +59,7 @@ export function ChoiceChips({ options, value, onChange, disabled, className, sty
         const on = o.value === value;
         const off = disabled || o.disabled;
         return (
-          <span key={o.value} className={cx(styles.chip, on && styles.selected, o.avatar && styles.withAvatar, off && styles.disabled)} title={o.title}>
+          <span key={o.value} className={cx(styles.chip, on && styles.selected, o.avatar && styles.withAvatar, !(o.icon || o.color || o.thumb || o.avatar || o.glyph) && styles.noLead, off && styles.disabled)} title={o.title}>
             <button ref={(el) => { refs.current[i] = el; }} type="button" role="radio" aria-checked={on} disabled={off} tabIndex={i === tabbable ? 0 : -1} aria-description={o.title} className={styles.hit} onKeyDown={(e) => onKey(e, i)} onClick={() => onChange(o.value)}>
               {o.icon && <Icon name={o.icon} size={16} />}
               {o.color && <span className={styles.color} style={{ background: o.color }} />}
