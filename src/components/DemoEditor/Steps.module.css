@@ -39,6 +39,8 @@
 .listWarning { align-self: flex-start; border: 0; padding: 0; background: none; color: var(--content-warning-default-on-light); font: var(--font-weight-medium) 12px / 18px var(--font-family-body); cursor: pointer; text-align: left; }
 .listWarning:hover { text-decoration: underline; text-underline-offset: 2px; }
 .listBody { display: flex; flex-direction: column; gap: 10px; min-height: 0; overflow-y: auto; }
+/* Ajouts masqués au repos, visibles au survol ou dès que le focus est dans la colonne (Figma StepList state=hover). */
+.revealOnHover:not(:hover):not(:focus-within) [data-step-add] { display: none; }
 .listFoot { display: flex; flex-direction: column; gap: 8px; padding-top: 12px; border-top: 1px solid var(--neutral-border-default); }
 .add { display: grid; place-items: center; border-style: dashed; background: transparent; color: var(--content-muted-default); cursor: pointer; }
 .add:hover { border-color: var(--neutral-border-hover); color: var(--content-default-default); }

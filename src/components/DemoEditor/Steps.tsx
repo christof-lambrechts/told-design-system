@@ -75,7 +75,7 @@ export function StepDropLine({ className }: { className?: string }) {
 /** StepAddThumb (StepThumb `state=add`, 20/11) : dernière case de la grille, pointillés et « + », pour ajouter un enregistrement d'écran. */
 export function StepAddThumb({ label = 'Ajouter un enregistrement', onClick }: { label?: string; onClick?: () => void }) {
   return (
-    <li className={styles.thumbWrap}>
+    <li className={styles.thumbWrap} data-step-add="">
       <button type="button" aria-label={label} title={label} className={cx(styles.thumb, styles.add)} onClick={onClick}>
         <Icon name="add-01" size={20} />
       </button>
@@ -114,12 +114,19 @@ export interface StepListProps {
   end?: ReactNode;
   /** Bas de colonne, si besoin. */
   footer?: ReactNode;
+  /** Ajout après la dernière slide (InsertBar « Ajouter une slide »), montré au survol comme les autres ajouts. */
+  addAfter?: ReactNode;
+  /**
+   * Boutons d'ajout (StepAddThumb, addAfter et tout élément `data-step-add`) :
+   * `hover` (défaut, Figma state=hover) = visibles au survol ou au focus clavier de la colonne ; `always` = toujours visibles.
+   */
+  revealAdd?: 'hover' | 'always';
 }
 
 /** StepList (8830:556) : colonne Étapes de l'éditeur Record : Début (intro), slides, Fin (écran de fin). */
-export function StepList({ label, warning, onWarning, children, intro, end, footer }: StepListProps) {
+export function StepList({ label, warning, onWarning, children, intro, end, footer, addAfter, revealAdd = 'hover' }: StepListProps) {
   return (
-    <nav aria-label="Étapes" className={styles.list}>
+    <nav aria-label="Étapes" className={cx(styles.list, revealAdd === 'hover' && styles.revealOnHover)}>
       {(label || warning) && (
         <div className={styles.listHead}>
           {label && <span className={styles.listLabel}>{label}</span>}
@@ -129,6 +136,7 @@ export function StepList({ label, warning, onWarning, children, intro, end, foot
       <div className={styles.listBody}>
         {intro && <div className={styles.section}><FlowDivider kind="start" />{intro}<FlowDivider kind="content" label="" /></div>}
         {children}
+        {addAfter && <div data-step-add="">{addAfter}</div>}
         {end && <div className={styles.section}><FlowDivider kind="end" />{end}</div>}
       </div>
       {footer && <div className={styles.listFoot}>{footer}</div>}

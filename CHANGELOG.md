@@ -3,6 +3,13 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.22.0 · 21/11/2026
+
+Validé par Christof le 21/11.
+
+- StepList : les boutons d'ajout ne s'affichent qu'au survol de la colonne ou au clavier (`revealAdd`, `hover` par défaut, `always` pour l'ancien comportement). Concerne `StepAddThumb`, la nouvelle prop `addAfter` (barre « Ajouter une slide » après la dernière slide) et tout élément marqué `data-step-add`. Figma : StepList `state=default | hover`, StepGroup `hasAdd`.
+- Story StepList alignée sur Figma : Début, slides, Fin, sans en-tête « Étapes · n » ni boutons en bas.
+
 ## v0.21.4 · 21/11/2026
 
 Règle de Christof : sans élément de tête, même marge des deux côtés.
