@@ -170,6 +170,16 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Réponse DS :
 - Réponse Record :
 
+### D-028 · ToolbarItem : icône en contour quand l'outil n'est pas actif
+- Date, écran Record concerné (fichier, route) : 21/11/2026, barre sous la capture dans l'éditeur (Flouter, Recadrer, Réenregistrer, Importer une image, Revenir), `src/app/(app)/[org]/demos/[id]/editor/capture-actions.tsx`.
+- Besoin (ce que l'écran doit faire) : icône en contour au repos, pleine seulement quand l'outil est actif (demande de Christof).
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : le commentaire de `ToolbarItem` annonce « icône en contour, pleine quand l'outil est actif », mais le code pose toujours `variant="solid"`. Attendu : `variant={active ? 'solid' : 'stroke'}`.
+- Contournement provisoire dans Record : l'icône du DS est masquée et une `Icon variant="stroke"` est posée par-dessus, aux couleurs de l'item.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
 ## Fait côté DS
 
 > À reprendre une fois depuis le document de projet : D-002 à D-010, D-013, D-015 et les autres demandes déjà codées, avec leurs réponses.
