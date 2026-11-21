@@ -284,6 +284,16 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Réponse DS :
 - Réponse Record :
 
+### D-039 · Colonne `page` d'EditorLayout qui se rétrécit sur son contenu
+- Date, écran Record concerné (fichier, route) : 21/11/2026, étape Diffuser de l'éditeur, `src/app/(app)/[org]/demos/[id]/editor/share-panel.tsx`.
+- Besoin (ce que l'écran doit faire) : en `content="page"`, la colonne de lecture fait 680 px quelle que soit la carte affichée, et la largeur disponible en dessous.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : `.canvas` porte `place-items: center`, que Chrome applique aussi aux blocs (`justify-self`). `.page` repasse en `display: block` mais garde `place-items`, si bien que `.pageColumn` est centrée et prend la largeur de son contenu au lieu de s'étirer : 680 px pour « Partager par lien », 637 px pour « Exporter en vidéo » à 1280 px. Attendu : `.pageColumn { width: 100%; }` (ou `place-items: normal` sur `.page`).
+- Contournement provisoire dans Record : `[&_[class*=pageColumn]]:w-full` sur la section Diffuser, avec `TODO DS: D-039`.
+- Priorité : gênant
+- Statut : à faire
+- Réponse DS :
+- Réponse Record :
+
 ## Fait côté DS
 
 > À reprendre une fois depuis le document de projet : D-002 à D-010, D-013, D-015 et les autres demandes déjà codées, avec leurs réponses.
