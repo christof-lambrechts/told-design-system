@@ -194,6 +194,7 @@ Le lien entre Told Record (dépôt `jscanzi/toldrecord`) et le design system. Il
 - Date, écran Record concerné (fichier, route) : 21/11/2026, ligne Apparition du panneau Options, `src/app/(app)/[org]/demos/[id]/editor/entrance-field.tsx`.
 - Besoin (ce que l'écran doit faire) : une puce avec un libellé seul (sans icône, couleur, vignette ni glyphe) a le texte centré, autant d'espace à gauche qu'à droite.
 - Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : `.hit` a `padding: 4px 10px 4px 6px` dans tous les cas ; sans élément de tête, le texte est collé à gauche. Attendu : 10 px à gauche quand il n'y a pas d'élément de tête.
+- Règle à généraliser (demande de Christof) : tout composant dont l'élément de tête est facultatif (icône, glyphe, pastille, vignette, avatar) garde un texte bien placé sans lui. Le padding réduit côté tête ne s'applique que quand la tête est là ; sans tête, le padding est le même des deux côtés. À vérifier sur les autres composants concernés (puces, tags, badges, boutons, items de menu), pour ne pas retrouver le problème ailleurs.
 - Contournement provisoire dans Record : 4 px de marge à gauche du libellé.
 - Priorité : confort
 - Statut : à faire
