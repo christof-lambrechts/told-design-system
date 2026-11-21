@@ -119,3 +119,7 @@ export { FilterBar, FilterChip, FilterLogic, FilterMenu } from './components/Fil
 export type { FilterBarProps, FilterChipProps, FilterLogicProps, FilterMenuProps, FilterMenuItemData } from './components/Filter/Filter';
 export { FormatOptionGroup } from './components/OptionSidebar/FormatOption';
 export type { FormatOptionGroupProps, FormatOptionData } from './components/OptionSidebar/FormatOption';
+export { OptionCard, OptionChoiceGroup } from './components/OptionSidebar/OptionCard';
+export type { OptionCardProps, OptionChoiceGroupProps, OptionChoiceData } from './components/OptionSidebar/OptionCard';
+export { Card, CardHeader, ChannelSection, SelectionCardGroup } from './components/Card/Card';
+export type { CardProps, CardHeaderProps, ChannelSectionProps, SelectionCardGroupProps, SelectionCardData } from './components/Card/Card';

@@ -125,5 +125,11 @@
   "_FilterSearchField": "composants-données-filter--docs",
   "_FilterMenuItem": "composants-données-filter--docs",
   "_FilterMenuTitle": "composants-données-filter--docs",
-  "_StepDropLine": "composants-éditeur-de-démo-étapes--selection-et-glisser"
+  "_StepDropLine": "composants-éditeur-de-démo-étapes--selection-et-glisser",
+  "CardHeader": "composants-cartes-carte-et-en-tête--en-tete",
+  "ChannelSection": "composants-cartes-carte-et-en-tête--canal-lien",
+  "OptionCard": "composants-cartes-carte-et-en-tête--canal-lien",
+  "OptionChoice": "composants-cartes-carte-et-en-tête--choix-option",
+  "SelectionCard": "composants-cartes-carte-et-en-tête--menu-canaux",
+  "FormatOption": "composants-panneaux-optionsidebar--format-options"
 }

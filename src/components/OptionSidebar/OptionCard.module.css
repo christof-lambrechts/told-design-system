@@ -1,0 +1,23 @@
+/* OptionCard (9153:113883) : fond gris fixe, rayon 12, marges 16, picto 18 dans un carré blanc de 36 (rayon 8). */
+.card { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 12px; background: var(--neutral-surface-subtle); font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.row { display: flex; align-items: flex-start; gap: 12px; }
+.picto { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 8px; background: var(--neutral-surface-default); color: var(--content-default-default); }
+.switch { flex: 1; min-width: 0; }
+.text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding-top: 2px; }
+.title { font: var(--font-weight-medium) var(--body-14-size) / var(--body-14-line-height) var(--font-family-body); color: var(--content-default-default); }
+.desc { font-size: 12px; line-height: 18px; color: var(--content-subtle-default); }
+.control { flex: none; align-self: center; }
+.content { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.content > :where(:not(button)) { align-self: stretch; }
+
+/* OptionChoice (4722:47894) : lignes 36, picto 14 dans un carré 20 à contour, coché = fond bleu pâle, texte et picto bleus. */
+.choices { display: flex; flex-direction: column; gap: 4px; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.choice { all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 6px 10px; border-radius: 10px; cursor: pointer;
+  font: var(--font-weight-medium) var(--body-14-size) / var(--body-14-line-height) var(--font-family-body); color: var(--content-default-default); }
+.choice:hover:not(:disabled) { background: var(--neutral-surface-muted); }
+.choice:focus-visible { box-shadow: var(--focus-ring); }
+.choice:disabled { opacity: .45; cursor: default; }
+.choiceOn, .choiceOn:hover:not(:disabled) { background: var(--brand-surface-tint); color: var(--content-brand-default-on-light); }
+.choiceIcon { flex: none; display: grid; place-items: center; width: 20px; height: 20px; box-sizing: border-box; border-radius: 5px; box-shadow: inset 0 0 0 1px var(--neutral-border-default); background: var(--neutral-surface-default); }
+.choiceOn .choiceIcon { box-shadow: inset 0 0 0 1px var(--brand-border-selected); }
+.choiceLabel { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

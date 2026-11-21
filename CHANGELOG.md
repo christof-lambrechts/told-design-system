@@ -3,6 +3,14 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.23.0 · 21/11/2026
+
+Validé par Christof le 21/11 (Diffuser de Record, options).
+
+- Nouveaux : `Card` et `CardHeader` (ex-EditionCardHeader, en-tête commun à la plateforme), `ChannelSection` (rubrique numérotée d'une carte de canal), `OptionCard` (ex-SwitchOptionCard : fond gris fixe, picto en carré blanc, interrupteur ou contrôle à droite, contenu sous l'option active), `OptionChoiceGroup` (ex-SelectionItem : choix à picto et badge sous une option), `SelectionCardGroup` (menu à onglets avec description, canaux de Diffuser).
+- Icône `download-05` (plein et contour).
+- Stories : Composants › Cartes › Carte et en-tête (canal lien, canal vidéo, menu des canaux, OptionChoice).
+
 ## v0.22.1 · 21/11/2026
 
 Décision de Christof.

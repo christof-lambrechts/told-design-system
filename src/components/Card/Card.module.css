@@ -1,0 +1,35 @@
+/* Card, CardHeader (554:39303), ChannelSection (9155:3205), SelectionCard (4625:104218). */
+.card { display: flex; flex-direction: column; border: 1px solid var(--neutral-border-default); border-radius: 16px; background: var(--neutral-surface-default); overflow: hidden; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.card > .section + .section { border-top: 1px solid var(--neutral-border-default); }
+.divider { border-bottom: 1px solid var(--neutral-border-default); }
+
+.header { display: flex; align-items: center; gap: 16px; padding: 16px; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.headText { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.headTitleRow { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.headTitle { margin: 0; min-width: 0; font: var(--font-weight-semibold) var(--body-14-size) / var(--body-14-line-height) var(--font-family-body); color: var(--content-default-default); }
+.headDesc { margin: 0; font-size: 12px; line-height: 18px; color: var(--content-subtle-default); }
+.headActions { flex: none; display: flex; align-items: center; gap: 8px; }
+
+.section { display: flex; flex-direction: column; gap: 12px; padding: 20px; }
+.sectionHead { display: flex; flex-direction: column; gap: 4px; }
+.sectionTitleRow { display: flex; align-items: center; gap: 8px; }
+.number { flex: none; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--brand-surface-tint); color: var(--content-brand-default-on-light); font-size: 11px; line-height: 14px; font-weight: var(--font-weight-semibold); }
+.sectionTitle { margin: 0; font: var(--font-weight-semibold) var(--body-14-size) / var(--body-14-line-height) var(--font-family-body); color: var(--content-default-default); }
+.sectionDesc { margin: 0; font-size: 12px; line-height: 18px; color: var(--content-subtle-default); }
+.sectionBody { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.sectionBody > :where(:not(button):not(a)) { align-self: stretch; }
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.selGroup { display: flex; flex-direction: column; gap: 8px; font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
+.sel { all: unset; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px; width: 100%; border-radius: 12px; background: var(--neutral-surface-default); box-shadow: inset 0 0 0 1px var(--neutral-border-default); cursor: pointer; text-align: left; }
+.sel-md { padding: 12px 16px; }
+.sel-lg { padding: 16px; }
+.sel:hover:not(:disabled):not(.selOn) { box-shadow: inset 0 0 0 1px var(--neutral-border-hover); }
+.sel:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.sel:disabled { opacity: .45; cursor: default; }
+.selOn { background: var(--brand-surface-tint); box-shadow: inset 0 0 0 1.5px var(--brand-border-selected); color: var(--content-brand-default-on-light); }
+.selTitleRow { display: flex; align-items: center; gap: 8px; color: var(--content-default-default); }
+.selOn .selTitleRow { color: var(--content-brand-default-on-light); }
+.selTitle { flex: 1; min-width: 0; font: var(--font-weight-semibold) var(--body-14-size) / var(--body-14-line-height) var(--font-family-body); }
+.selBadge { flex: none; }
+.selDesc { font-size: 12px; line-height: 18px; color: var(--content-subtle-default); }
