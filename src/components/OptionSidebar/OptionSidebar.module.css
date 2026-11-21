@@ -34,3 +34,6 @@
 .holder { display: flex; align-items: center; gap: 6px; margin: 4px 0 0; font-size: 12px; line-height: 16px; color: var(--brand-color-brand); }
 .holderDot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }
 .chevron { color: var(--content-muted-default); flex: none; }
+
+/* hasControl : réglage court sur la ligne (ex. Durée), à droite. */
+.inlineControl { flex: none; position: relative; display: inline-flex; }

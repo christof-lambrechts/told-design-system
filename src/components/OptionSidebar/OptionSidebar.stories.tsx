@@ -3,7 +3,8 @@ import { ChoiceChips } from '../ChoiceChips/ChoiceChips';
 import { useState } from 'react';
 import { OptionSidebar, OptionItem, PanelHeader } from './OptionSidebar';
 import { Switch } from '../Choice/Choice';
-import { Select } from '../Select/Select';
+import { Select, DropdownMenu, DropdownItem } from '../Select/Select';
+import { Button } from '../Button/Button';
 import { FormatOptionGroup } from './FormatOption';
 import { GroupTab } from '../Tabs/Tabs';
 
@@ -82,6 +83,28 @@ export const FormatOptions: StoryObj = {
             { value: 'inapp', title: 'Animation in-app', description: 'Boucle muette, sans texte.', illustration: 'inapp' },
           ]}
           settings={<GroupTab size="sm" label="Orientation" value={o} onChange={setO} items={[{ value: 'landscape', label: 'Paysage 16:9' }, { value: 'portrait', label: 'Vertical 9:16' }]} />} />
+      </div>
+    );
+  },
+};
+
+/** Réglage court sur la ligne (hasControl, 21/11) : la liste s'ouvre en place, sans badge ni dépliage. */
+export const ReglageSurLaLigne: StoryObj = {
+  name: 'Réglage sur la ligne',
+  render: () => {
+    const [v, setV] = useState('Auto · 3 s');
+    const [open, setOpen] = useState(false);
+    const choices = ['Auto · 3 s', '2 s', '4 s', '6 s'];
+    return (
+      <div style={{ width: 328, minHeight: 240 }}>
+        <OptionItem variant="row" icon="time" label="Durée" control={<>
+          <Button color="neutral" variant="secondary-outline" size="md" iconRight="arrow-down-01" aria-haspopup="listbox" aria-expanded={open} onClick={() => setOpen(!open)}>{v}</Button>
+          {open && <div style={{ position: 'absolute', right: 0, top: 38, zIndex: 2 }}>
+            <DropdownMenu autoFocus onEscape={() => setOpen(false)}>
+              {choices.map((c) => <DropdownItem key={c} selected={c === v} onClick={() => { setV(c); setOpen(false); }}>{c}</DropdownItem>)}
+            </DropdownMenu>
+          </div>}
+        </>} />
       </div>
     );
   },

@@ -3,6 +3,12 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.24.0 · 21/11/2026
+
+Demande de Christof.
+
+- OptionItem `control` (Figma `hasControl`) : réglage court posé directement sur la ligne (Button neutre secondary-outline md + chevron qui ouvre un DropdownMenu), sans badge de valeur ni dépliage. Ex. Durée « Auto · 3 s » : un clic de moins. Story Panneaux › OptionSidebar › Réglage sur la ligne.
+
 ## v0.23.0 · 21/11/2026
 
 Validé par Christof le 21/11 (Diffuser de Record, options).

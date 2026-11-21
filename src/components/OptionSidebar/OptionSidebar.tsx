@@ -78,6 +78,12 @@ export interface OptionItemProps {
   children?: ReactNode;
   /** Lien d'action à droite (« Sélectionner », « Recadrer »). */
   onAction?: () => void;
+  /**
+   * Réglage court posé directement sur la ligne (hasControl, 21/11), ex. Durée « Auto · 3 s » :
+   * Button neutre secondary-outline md + chevron qui ouvre un DropdownMenu. Avec `variant="row"`, sans `value` :
+   * pas de badge ni de dépliage, on gagne un clic.
+   */
+  control?: ReactNode;
   /** Interrupteur à droite (hasToggle). `disabled` : lecture seule ou réglage tenu par un collègue. */
   toggle?: { checked: boolean; onChange: (checked: boolean) => void; label?: string; disabled?: boolean };
   /** Aide de l'icône (i) (hasInfo) : bouton focalisable, lue par les lecteurs d'écran. */
@@ -95,7 +101,7 @@ export interface OptionItemProps {
 }
 
 /** OptionItem (6031:85291) : une option repliable de la colonne de réglages. Marge 12/14, filet bas Neutral/border/default. */
-export function OptionItem({ variant, icon, label, value, required, pro, open, defaultOpen = false, onOpenChange, actionLabel = 'Modifier', children, onAction, toggle: sw, info, holder, conflict, conflictLabel = 'Réglage en conflit', labelId, headingLevel = 3 }: OptionItemProps) {
+export function OptionItem({ variant, icon, label, value, required, pro, open, defaultOpen = false, onOpenChange, actionLabel = 'Modifier', children, onAction, control: inline, toggle: sw, info, holder, conflict, conflictLabel = 'Réglage en conflit', labelId, headingLevel = 3 }: OptionItemProps) {
   const [inner, setInner] = useState(defaultOpen);
   const isOpen = variant === 'open' ? true : variant === 'row' ? false : (open ?? inner);
   const cid = useId();
@@ -121,6 +127,7 @@ export function OptionItem({ variant, icon, label, value, required, pro, open, d
           {H ? <H className={styles.itemHeading}>{control}</H> : control}
           {info && <button type="button" className={styles.info} aria-label={info} title={info}><Icon name="information-circle" size={14} variant="solid" /></button>}
           {onAction && <ButtonLink size="sm" padding={false} iconRight={null} onClick={onAction}>{actionLabel}</ButtonLink>}
+          {inline && <span className={styles.inlineControl}>{inline}</span>}
           {sw && <Switch size="sm" checked={sw.checked} disabled={sw.disabled} onChange={(e) => sw.onChange(e.currentTarget.checked)} aria-label={sw.label ?? (typeof label === 'string' ? label : undefined)} />}
           {variant === 'collapsible' && <span className={styles.chevronHit} onClick={toggle} aria-hidden="true"><Icon name={isOpen ? 'arrow-up-01' : 'arrow-down-01'} size={16} className={styles.chevron} /></span>}
         </div>
