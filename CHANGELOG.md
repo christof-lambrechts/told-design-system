@@ -3,6 +3,13 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.21.1 · 21/11/2026
+
+Validé par Christof le 21/11.
+
+- Libellé au-dessus des onglets (`GroupTab label`) : Medium 11/14, écart 4 avec les onglets (avant 12 px regular, écart 6).
+- Nouvelle classe `.text-label-option` (Figma : style `Other/Label option`) pour tout libellé de réglage dans un panneau Options.
+
 ## v0.21.0 · 21/11/2026
 
 Validé par Christof le 21/11.

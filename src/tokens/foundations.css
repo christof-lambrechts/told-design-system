@@ -175,6 +175,8 @@
 .text-h3 { font: var(--font-weight-bold) var(--heading-h3-size) / var(--heading-h3-line-height) var(--font-family-heading); letter-spacing: var(--letter-spacing-tight); }
 .text-h2 { font: var(--font-weight-bold) var(--heading-h2-size) / var(--heading-h2-line-height) var(--font-family-heading); letter-spacing: var(--letter-spacing-tight); }
 .text-h1 { font: var(--font-weight-bold) var(--heading-h1-size) / var(--heading-h1-line-height) var(--font-family-heading); letter-spacing: var(--letter-spacing-tight); }
+/* Libellé au-dessus d'un réglage dans un panneau Options (Figma : Other/Label option). Écart 4 avec le contrôle. */
+.text-label-option { font: var(--font-weight-medium) var(--body-10-size) / var(--body-10-line-height) var(--font-family-body); letter-spacing: var(--letter-spacing-tight); }
 .text-tag { font: var(--font-weight-medium) var(--other-tag-size) / var(--other-tag-line-height) var(--font-family-mono); }
 .text-tag-xs { font: var(--font-weight-medium) var(--other-tag-xs-size) / var(--other-tag-xs-line-height) var(--font-family-mono); }
 .medium { font-weight: var(--font-weight-medium); }

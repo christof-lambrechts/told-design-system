@@ -59,6 +59,6 @@
 .dot-success { background: var(--content-success-strong-on-dark, #22c55e); }
 .dot-danger { background: var(--content-danger-strong-on-dark, #f87171); }
 /* GroupTab avec libellé au-dessus (panneaux d'options) */
-.labelled { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-.fieldLabel { font-size: 12px; line-height: 16px; color: var(--content-muted-default); }
+.labelled { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.fieldLabel { font: var(--font-weight-medium) var(--body-10-size) / var(--body-10-line-height) var(--font-family-body); letter-spacing: var(--letter-spacing-tight); color: var(--content-muted-default); }
 .groupFull { display: flex; width: 100%; box-sizing: border-box; }
