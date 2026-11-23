@@ -555,6 +555,16 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Statut : à faire
 - Réponse DS :
 
+### D-044 · MessageCard « désactivée » mais sélectionnable (23/11, demandé par Christof)
+- Date, écran Record concerné : 23/11, éditeur, colonne Étapes (`editor/editor.tsx`, StepList `intro` et `end`).
+- Besoin : l'écran de début et l'écran de fin s'activent ou se désactivent dans leur panneau. Désactivés, leur carte doit avoir l'air éteinte (grisée, transparente), mais rester cliquable pour ouvrir le panneau et les rallumer.
+- Ce qui manque dans le DS : `MessageCard` n'a que `disabled`, qui pose l'attribut HTML `disabled` (opacité 0,38 et clic impossible).
+- Contournement provisoire dans Record : la carte reste active, et un enveloppe lui donne l'opacité 0,38 (0,6 au survol, 1 au focus clavier) (`// TODO DS: D-044`).
+- Proposition : une propriété `inactive` (ou `off`) : même rendu que `disabled`, la carte reste un bouton cliquable, l'état sélectionné reste visible ; aperçu « Désactivé » au choix de Record.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+
 ## Questions de Record (20/11)
 - **Annonce en Carré 1:1 ?**
   - Christof a retenu les formats 16:9 et 9:16.
