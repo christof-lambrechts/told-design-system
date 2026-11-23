@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.38.0 · 23/11/2026
+
+- **CodeInput** : à chaque nouvel `errorKey`, le message d'erreur est relu par les lecteurs d'écran (nouveau nœud `role="alert"`) et le focus revient sur la première case ; nouvelle prop `describedBy` pour relier un texte d'aide au groupe de cases.
+
 ## v0.37.0 · 23/11/2026
 
 - **CodeInput** : code incorrect, les 6 cases passent en rouge et **secouent** légèrement (± 8 px, 400 ms, amplitude qui décroît) ; `errorKey` rejoue la secousse quand le même message revient (nouvel essai faux). Pas de secousse en mouvement réduit. Figma : CodeInput `state=error-shake`, prototype filled → error-shake → error.
