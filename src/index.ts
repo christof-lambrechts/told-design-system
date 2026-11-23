@@ -132,5 +132,5 @@ export { PositionPicker, positionLabels } from './components/OptionSidebar/Posit
 export type { PositionPickerProps, Position } from './components/OptionSidebar/PositionPicker';
 export { AvatarSettings } from './components/OptionSidebar/AvatarSettings';
 export type { AvatarSettingsProps, AvatarSize as AvatarSettingsSize, AvatarShape, AvatarFrame } from './components/OptionSidebar/AvatarSettings';
-export { MediaFrameSettings, MediaCropSettings, mediaDevices, mediaShadows } from './components/OptionSidebar/MediaSettings';
+export { MediaFrameSettings, MediaCropSettings, mediaDevices, mediaShadows, allowedMediaFrames } from './components/OptionSidebar/MediaSettings';
 export type { MediaFrameSettingsProps, MediaCropSettingsProps, MediaFrameKind, MediaDeviceOption, MediaOrientation, MediaShadow } from './components/OptionSidebar/MediaSettings';

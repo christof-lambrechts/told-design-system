@@ -61,6 +61,13 @@ export interface MediaFrameSettingsProps {
   /** Ombre sous l'appareil (photos seulement) : rendu avec `mediaShadows`. */
   shadow?: MediaShadow;
   onShadowChange?: (s: MediaShadow) => void;
+  /** Orientation de l'Annonce. En `portrait` (9:16), l'ordinateur n'est pas proposé et la tablette est en portrait. */
+  slideOrientation?: MediaOrientation;
+  /** Zoom de la capture dans l'écran de l'appareil (1 à 2). Absent : réglage masqué. */
+  captureZoom?: number;
+  onCaptureZoomChange?: (z: number) => void;
+  /** Aide sous le zoom de la capture ; `false` pour la masquer. */
+  captureHelp?: ReactNode | false;
   /** Modèles proposés ; `mediaDevices` par défaut. */
   devices?: typeof mediaDevices;
   /** Phrase sous les réglages ; `false` pour la masquer. Par défaut, elle dit comment la capture est rognée. */
@@ -76,15 +83,16 @@ const NOTES: Record<MediaFrameKind, string> = {
 };
 
 /** MediaFrameSettings (Figma 9828:6305) : contenu du réglage « Cadre du média » de l'Annonce Record (OptionItem ouvert, picto `device`). Cadre Aucun | Mobile | Tablette | Ordinateur, puis Appareil (ou Orientation pour la tablette), Coloris et Ombre. */
-export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange, finish, onFinishChange, orientation = 'portrait', onOrientationChange, shadow = 'soft', onShadowChange, devices = mediaDevices, note, disabled }: MediaFrameSettingsProps) {
+export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange, finish, onFinishChange, orientation = 'portrait', onOrientationChange, shadow = 'soft', onShadowChange, slideOrientation = 'landscape', captureZoom, onCaptureZoomChange, captureHelp, devices = mediaDevices, note, disabled }: MediaFrameSettingsProps) {
+  const vertical = slideOrientation === 'portrait';
   const id = useId();
   const list = kind === 'none' ? [] : devices[kind];
   const current = list.find((d) => d.value === device) ?? list[0];
   return (
     <div className={styles.root}>
       <GroupTab label="Cadre" value={kind} onChange={(v) => onKindChange(v as MediaFrameKind)}
-        items={[{ value: 'none', label: 'Aucun' }, { value: 'mobile', label: 'Mobile' }, { value: 'tablet', label: 'Tablette' }, { value: 'desktop', label: 'Ordinateur' }]} />
-      {kind === 'tablet' && (
+        items={[{ value: 'none', label: 'Aucun' }, { value: 'mobile', label: 'Mobile' }, { value: 'tablet', label: 'Tablette' }, ...(vertical ? [] : [{ value: 'desktop', label: 'Ordinateur' }])]} />
+      {kind === 'tablet' && !vertical && (
         <GroupTab label="Orientation" value={orientation} onChange={(v) => onOrientationChange?.(v as MediaOrientation)}
           items={[{ value: 'portrait', label: 'Portrait' }, { value: 'landscape', label: 'Paysage' }]} />
       )}
@@ -109,9 +117,22 @@ export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange,
             options={[{ value: 'none', label: 'Aucune' }, { value: 'soft', label: 'Douce' }, { value: 'strong', label: 'Marquée' }]} />
         </div>
       )}
-      {note !== false && <p className={styles.note}>{note ?? NOTES[kind]}</p>}
+      {kind !== 'none' && captureZoom !== undefined && (
+        <div className={styles.field}>
+          <span className={styles.label}>Capture dans l’écran</span>
+          <SliderCapsule label="Zoom" min={1} max={2} step={0.05} value={captureZoom} onChange={(v) => onCaptureZoomChange?.(v)} defaultValue={1}
+            format={(v) => `× ${v.toFixed(2).replace(/0$/, '').replace('.', ',')}`} disabled={disabled} />
+          {captureHelp !== false && <p className={styles.note}>{captureHelp ?? 'Pour choisir la partie visible d’une étape : Recadrer (R).'}</p>}
+        </div>
+      )}
+      {note !== false && <p className={styles.note}>{note ?? (vertical && kind === 'mobile' ? 'Annonce verticale : ordinateur non proposé. Enregistre au format mobile pour un rendu net.' : vertical && kind === 'tablet' ? 'Annonce verticale : la tablette est en portrait. Une capture d’ordinateur est rognée sur les côtés.' : NOTES[kind])}</p>}
     </div>
   );
+}
+
+/** Cadres proposés selon l'orientation de l'Annonce (pour corriger un choix devenu impossible, ex. Ordinateur puis passage en vertical). */
+export function allowedMediaFrames(slideOrientation: MediaOrientation): MediaFrameKind[] {
+  return slideOrientation === 'portrait' ? ['none', 'mobile', 'tablet'] : ['none', 'mobile', 'tablet', 'desktop'];
 }
 
 export interface MediaCropSettingsProps {

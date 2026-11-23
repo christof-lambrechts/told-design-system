@@ -32,6 +32,7 @@ Il remplace le document de projet `claude/V3-demandes-ds-record.md` (23/11/2026)
 
 ## Version told-ds v0.27.0 (21/11) : ce qu'il faut reprendre dans Record
 
+- **23/11 (15 h) : told-ds v0.32.0** : MediaFrameSettings `slideOrientation` (vertical = pas d'ordinateur, tablette en portrait), `captureZoom` (zoom de la capture dans l'écran), `allowedMediaFrames` ; icône `tablet-01`. À appliquer : **D-036**, puis **D-037** (proposition, plan à valider par Jonathan).
 - **23/11 (après-midi) : told-ds v0.30.0** : `MediaFrameSettings`, `MediaCropSettings`, PositionPicker `item="media"`. À appliquer : **D-034**, **D-035**.
 - **23/11 : told-ds v0.29.0** (commit `5bf53a8`). Branche **christof** passée en v0.29.0 (f2ad57c, 688 tests OK) ; **PR n° 68** (chore/design-system, main fusionné, 698 tests OK) à fusionner par Jonathan. Nouveautés : `PositionPicker`, `AvatarSettings`, libellé de ColorField. À appliquer : **D-031**, **D-032**, **D-033**.
 - La **PR n° 60** (branche `chore/design-system`) passe main en told-ds **v0.28.0** (commit `5a67f8524af492d2972bbc00c92d6ae00baf8a9a`). Typecheck OK, 681 tests OK, aucun changement de code de l'app. À fusionner par Jonathan.
@@ -42,7 +43,7 @@ Il remplace le document de projet `claude/V3-demandes-ds-record.md` (23/11/2026)
   - `TODO DS: D-023` (bouton menu avec le logo) et `TODO DS: D-024` (étapes Construire › Diffuser › Analyser) : **déjà codés en v0.15.0** (`ButtonEditionMenu`, `EditorSteps`, voir D-022 ci-dessous) ; à brancher.
   - `TODO DS: D-022` (AvatarGroup sans état inactif ni teinte par personne) devient **D-026**, codée en v0.20.0.
   - `TODO DS: D-025` (pas de carte de démo dans le DS) rejoint **D-011** (Card).
-  - Prochain numéro libre : **D-036**.
+  - Prochain numéro libre : **D-038**.
 - **Icônes pleines par défaut depuis v0.16.0** : une icône posée sans `variant` passe en plein. Le contour ne reste qu'au repos dans les menus (menu de navigation, entrées de DropdownMenu) ; les chevrons restent en trait. Vérifier visuellement les écrans après la mise à jour.
 - **Noms** : depuis le 20/11, un composant porte le même nom dans Figma et dans le code (règle et anciens noms : `docs/NOMMAGE.md` du dépôt told-ds). Dans le nouveau code, utiliser `OptionItem` et `OptionSidebar` (plus OptionPanelItem / OptionPanel), `Select` (Figma ne dit plus DropdownField), `Modal`, `Tag`, `Flag`, `Logo`, `ProgressSteps`.
 
@@ -463,6 +464,33 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Lecteur : la zone média coupe son contenu (`overflow: hidden`) ; le média reçoit `transform: scale(zoom)` avec `transform-origin: focusX*100% focusY*100%` : le point choisi reste en place et le reste s'agrandit autour. Même rendu dans la vidéo exportée.
 - Priorité : important
 - Statut : **codé told-ds v0.30.0** (panneau), à appliquer dans Record
+- Réponse Record :
+
+### D-036 · Cadre du média selon l'orientation de l'Annonce, zoom de la capture (23/11, demandé par Christof)
+- Sens : demande du DS vers Record (panneau Options de l'Annonce, format, lecteur).
+- Référence Figma : **MediaFrameSettings** (`9828:6305`), nouvel axe `slide=landscape | portrait` et champ « Capture dans l'écran ».
+- **Choix selon l'orientation** (told-ds v0.32.0, `slideOrientation`) :
+  - Annonce **paysage 16:9** : Aucun | Mobile | Tablette (portrait ou paysage) | Ordinateur ;
+  - Annonce **verticale 9:16** : Aucun | Mobile | Tablette, **pas d'Ordinateur** (trop petit pour être lisible), tablette forcée en portrait ; une note conseille d'enregistrer au format mobile.
+  - En passant de paysage à vertical, un cadre devenu impossible (Ordinateur, tablette paysage) bascule sur Mobile, ou sur la tablette portrait : `allowedMediaFrames(orientation)` donne la liste. Le dire par un Toast (« Cadre passé en mobile pour l'Annonce verticale »).
+- **Zoom de la capture dans l'écran** (`captureZoom`, ×1 à ×2, point à ×1) : agrandit la capture à l'intérieur de l'écran de l'appareil, pour toute l'Annonce. La partie visible d'une étape se choisit avec l'outil **Recadrer (R)** existant, dont le cadre prend alors **le ratio de l'écran de l'appareil choisi** (téléphone ≈ 9:19,5, iPad 3:4 ou 4:3, iMac et Pro Display 16:9, MacBook 16:10) au lieu de celui de l'Annonce.
+- Format de démo : `media.frame.captureZoom` (défaut 1).
+- Priorité : important
+- Statut : **codé told-ds v0.32.0**, à appliquer dans Record
+- Réponse Record :
+
+### D-037 · Formats d'enregistrement adaptés au mockup (23/11, proposition de Christof, à valider par Jonathan)
+- Sens : demande du DS vers Record (extension, puis éditeur).
+- Besoin : être sûr que la capture rend bien dans le mockup, en enregistrant directement à la taille de l'appareil plutôt qu'en rognant une capture d'ordinateur.
+- Proposition : avant d'enregistrer, l'extension propose un **Format d'enregistrement** (Figma : exemple `9829:8573`, page RecordPlayer, fait de `SelectionCard` md) :
+  - **Ordinateur** · 1440 × 900 (Annonce paysage, MacBook, iMac, Écran) ;
+  - **Tablette** · 1024 × 1366, avec Orientation Portrait | Paysage (iPad) ;
+  - **Mobile** · 390 × 844 (Annonce verticale, iPhone, Android).
+- La page enregistrée s'affiche à cette taille : la mise en page responsive du site client est la vraie (menu mobile, colonnes), et la capture a le ratio de l'écran du mockup, sans rognage. Piste technique à confirmer par l'architecte : émulation de l'appareil par l'extension (largeur, hauteur, densité, `mobile`), puis retour à la normale à la fin.
+- Dans l'éditeur, le cadre du média par défaut suit le format enregistré (mobile → téléphone, tablette → iPad, ordinateur → MacBook) ; une Annonce verticale propose d'abord le format mobile.
+- Icônes : `computer`, `tablet-01` (ajoutée le 23/11), `smart-phone-01`.
+- Priorité : important
+- Statut : proposition, plan à présenter à Jonathan (règle « une fonctionnalité à la fois » de Record)
 - Réponse Record :
 
 ## Questions de Record (20/11)

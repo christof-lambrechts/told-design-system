@@ -163,17 +163,21 @@ export const ReglagesMedia: StoryObj = {
     const [kind, setKind] = useState<MediaFrameKind>('tablet');
     const [orientation, setOrientation] = useState<MediaOrientation>('portrait');
     const [shadow, setShadow] = useState<MediaShadow>('soft');
+    const [slide, setSlide] = useState<MediaOrientation>('landscape');
+    const [cz, setCz] = useState(1.2);
     const [device, setDevice] = useState('tablet');
     const [finish, setFinish] = useState('gray');
     const [zoom, setZoom] = useState(1.8);
     const [anchor, setAnchor] = useState<Position>('bottom-right');
     return (
       <div style={{ display: 'flex', gap: 24, alignItems: 'flex-start' }}>
-        <div style={{ width: 360 }}>
+        <div style={{ width: 360, display: 'grid', gap: 12 }}>
+          <GroupTab label="Orientation de l’Annonce (démo)" value={slide} onChange={(v) => { setSlide(v as MediaOrientation); if (v === 'portrait' && kind === 'desktop') { setKind('mobile'); setDevice('android'); } }} items={[{ value: 'landscape', label: 'Paysage 16:9' }, { value: 'portrait', label: 'Vertical 9:16' }]} />
           <OptionItem variant="open" icon="device" label="Cadre du média" value={device}>
             <MediaFrameSettings kind={kind} onKindChange={(k) => { setKind(k); setDevice(({ desktop: 'imac', tablet: 'tablet', mobile: 'android', none: '' } as const)[k]); setFinish(''); }}
               device={device} onDeviceChange={(d) => { setDevice(d); setFinish(''); }} finish={finish || undefined} onFinishChange={setFinish}
-              orientation={orientation} onOrientationChange={setOrientation} shadow={shadow} onShadowChange={setShadow} />
+              orientation={orientation} onOrientationChange={setOrientation} shadow={shadow} onShadowChange={setShadow}
+              slideOrientation={slide} captureZoom={cz} onCaptureZoomChange={setCz} />
           </OptionItem>
         </div>
         <div style={{ width: 360 }}>

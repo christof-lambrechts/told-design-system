@@ -3,6 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.32.0 · 23/11/2026
+
+- **MediaFrameSettings** : `slideOrientation` (Annonce verticale : pas d'Ordinateur, tablette en portrait), `captureZoom` (zoom de la capture dans l'écran de l'appareil, ×1 à ×2), `allowedMediaFrames(orientation)`.
+- Icône **tablet-01** (plein et contour).
+
 ## v0.31.0 · 23/11/2026
 
 - **MediaFrameSettings** : cadre **Tablette** (iPad gris ou noir, Orientation Portrait | Paysage) ; iMac en 7 coloris ; réglage **Ombre** Aucune | Douce | Marquée pour les appareils photo (les photos n'ont plus d'ombre) ; rendu de l'ombre : `mediaShadows` (filtre CSS `drop-shadow` sur l'image de l'appareil).
