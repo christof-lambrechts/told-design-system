@@ -32,6 +32,7 @@ Il remplace le document de projet `claude/V3-demandes-ds-record.md` (23/11/2026)
 
 ## Version told-ds v0.27.0 (21/11) : ce qu'il faut reprendre dans Record
 
+- **23/11 (15 h 30) : told-ds v0.33.0** : `ChoiceField`, `EyebrowSettings`, `LogoSettings`, `OptionContextHeader`. À appliquer : **D-038**, **D-039**, **D-040**.
 - **23/11 (15 h) : told-ds v0.32.0** : MediaFrameSettings `slideOrientation` (vertical = pas d'ordinateur, tablette en portrait), `captureZoom` (zoom de la capture dans l'écran), `allowedMediaFrames` ; icône `tablet-01`. À appliquer : **D-036**, puis **D-037** (proposition, plan à valider par Jonathan).
 - **23/11 (après-midi) : told-ds v0.30.0** : `MediaFrameSettings`, `MediaCropSettings`, PositionPicker `item="media"`. À appliquer : **D-034**, **D-035**.
 - **23/11 : told-ds v0.29.0** (commit `5bf53a8`). Branche **christof** passée en v0.29.0 (f2ad57c, 688 tests OK) ; **PR n° 68** (chore/design-system, main fusionné, 698 tests OK) à fusionner par Jonathan. Nouveautés : `PositionPicker`, `AvatarSettings`, libellé de ColorField. À appliquer : **D-031**, **D-032**, **D-033**.
@@ -43,7 +44,7 @@ Il remplace le document de projet `claude/V3-demandes-ds-record.md` (23/11/2026)
   - `TODO DS: D-023` (bouton menu avec le logo) et `TODO DS: D-024` (étapes Construire › Diffuser › Analyser) : **déjà codés en v0.15.0** (`ButtonEditionMenu`, `EditorSteps`, voir D-022 ci-dessous) ; à brancher.
   - `TODO DS: D-022` (AvatarGroup sans état inactif ni teinte par personne) devient **D-026**, codée en v0.20.0.
   - `TODO DS: D-025` (pas de carte de démo dans le DS) rejoint **D-011** (Card).
-  - Prochain numéro libre : **D-038**.
+  - Prochain numéro libre : **D-041**.
 - **Icônes pleines par défaut depuis v0.16.0** : une icône posée sans `variant` passe en plein. Le contour ne reste qu'au repos dans les menus (menu de navigation, entrées de DropdownMenu) ; les chevrons restent en trait. Vérifier visuellement les écrans après la mise à jour.
 - **Noms** : depuis le 20/11, un composant porte le même nom dans Figma et dans le code (règle et anciens noms : `docs/NOMMAGE.md` du dépôt told-ds). Dans le nouveau code, utiliser `OptionItem` et `OptionSidebar` (plus OptionPanelItem / OptionPanel), `Select` (Figma ne dit plus DropdownField), `Modal`, `Tag`, `Flag`, `Logo`, `ProgressSteps`.
 
@@ -491,6 +492,41 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Icônes : `computer`, `tablet-01` (ajoutée le 23/11), `smart-phone-01`.
 - Priorité : important
 - Statut : proposition, plan à présenter à Jonathan (règle « une fonctionnalité à la fois » de Record)
+- Réponse Record :
+
+### D-038 · Options selon l'élément sélectionné, et règle onglets / pastilles (23/11, demandé par Christof)
+- Sens : demande du DS vers Record (panneau Options de l'éditeur).
+- Constat : le panneau de l'Annonce empile beaucoup de réglages (format, thème, progression, cadre, textes, avatar, durée…) ; et Taille, Forme sont en pastilles alors que la règle du DS les met en onglets.
+- **Règle** (told-ds v0.33.0, `docs/GUIDE-DEVELOPPEUR.md`) : 3 choix ou moins en texte → `GroupTab` ; plus de 3, ou des choix avec couleur, avatar, vignette, icône → `ChoiceChips`. `ChoiceField` l'applique tout seul. À passer dans tout le panneau (Taille, Forme, Ombre, Appareil mobile, Progression « En haut / En bas / Aucune »…).
+- **Options selon la sélection** (Figma : exemple `9834:15434`, page Options) :
+  - rien de sélectionné : réglages de la slide (Format, Thème, Progression, Logo, Durée) ;
+  - clic sur un élément de la slide (média, avatar, surtitre, titre, texte, logo) : le panneau ne montre que ses réglages, sous `<OptionContextHeader title="Média" onBack>` ; Échap ou clic hors de la slide revient aux réglages de la slide ;
+  - Média : Cadre du média, Cadrage du média, Zoom de la capture ; Avatar : Avatar sur ce slide + AvatarSettings ; Surtitre : EyebrowSettings (D-040).
+- Priorité : important
+- Statut : **codé told-ds v0.33.0**, à appliquer dans Record
+- Réponse Record :
+
+### D-039 · Logo de la slide : Told en offre gratuite, le sien ou aucun en offre payante (23/11, demandé par Christof)
+- Sens : demande du DS vers Record (panneau Options, kit de marque, lecteur, offres).
+- Référence Figma : **LogoSettings** (`9832:22916`, page Options).
+- En code (told-ds v0.33.0) : `OptionItem icon="brand-kit" label="Logo" pro={plan === 'free'}` + `<LogoSettings plan value onChange customLogo onOpenBrandKit onUpgrade>` :
+  - **offre gratuite** : logo Told imposé, non désactivable ; encart « Avec l'offre Pro, retire le logo ou mets le tien » + « Voir les offres » ;
+  - **offre payante** : Told | Le mien (logo du kit de marque ; sans logo dans le kit : « Ajouter mon logo au kit ») | Aucun.
+- **Sécurité** : l'offre se vérifie côté serveur (et en base, RLS ou contrôle de l'API de publication) : une démo d'une organisation en offre gratuite garde toujours le logo Told dans le lecteur, l'embed et la vidéo, même si le réglage est modifié à la main. Le logo du client vient du stockage du kit de marque (privé, URL signée).
+- Format de démo : `settings.brandLogo = 'told' | 'custom' | 'none'` (défaut `told`).
+- Priorité : important
+- Statut : **codé told-ds v0.33.0** (panneau), à appliquer dans Record (offres à confirmer avec Jonathan)
+- Réponse Record :
+
+### D-040 · Surtitre « Nouveau » : avec ou sans fond, couleur au choix (23/11, demandé par Christof)
+- Sens : demande du DS vers Record (éditeur, format, lecteur).
+- Référence Figma : **EyebrowSettings** (`9832:22834`) ; label tour `style=badge | text` (page ProductTour).
+- En code (told-ds v0.33.0) : `<EyebrowSettings variant color onVariantChange onColorChange slideBackground>`, affiché quand on sélectionne le surtitre sur la slide (D-038).
+  - Avec fond : pastille de la couleur choisie (jaune par défaut), texte noir ou blanc selon le fond (contraste).
+  - Sans fond : texte de la couleur choisie (couleur du kit par défaut), contraste mesuré sur le fond de la slide.
+- Format de démo : `slide.eyebrow = { variant: 'badge' | 'text', color }`.
+- Priorité : confort
+- Statut : **codé told-ds v0.33.0**, à appliquer dans Record
 - Réponse Record :
 
 ## Questions de Record (20/11)

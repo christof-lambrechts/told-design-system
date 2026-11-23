@@ -1,5 +1,5 @@
-import { useId, type ReactNode } from 'react';
-import { ChoiceChips } from '../ChoiceChips/ChoiceChips';
+import type { ReactNode } from 'react';
+import { ChoiceField } from './ChoiceField';
 import { ColorField } from '../Contrast/Contrast';
 import { PositionPicker, type Position } from './PositionPicker';
 import styles from './AvatarSettings.module.css';
@@ -36,18 +36,14 @@ const FRAMES = [{ value: 'none', label: 'Aucun' }, { value: 'color', label: 'Cou
 
 /** AvatarSettings (Figma 9808:3487) : contenu du réglage Avatar de l'éditeur Record, à poser dans un OptionItem ouvert. Avatar, Position, Taille, Forme, Contour, Couleur du contour. */
 export function AvatarSettings(p: AvatarSettingsProps) {
-  const id = useId();
-  const field = (key: string, label: string, control: (lid: string) => ReactNode) => (
-    <div className={styles.field}><span id={`${id}-${key}`} className={styles.label}>{label}</span>{control(`${id}-${key}`)}</div>
-  );
   return (
     <div className={styles.root}>
       {p.avatar}
       <PositionPicker label="Position" item="avatar" positions={p.positions ?? 5} value={p.position} onChange={p.onPositionChange} disabled={p.disabled} />
-      {field('size', 'Taille', (l) => <ChoiceChips aria-labelledby={l} options={SIZES} value={p.size} onChange={(v) => p.onSizeChange(v as AvatarSize)} disabled={p.disabled} />)}
-      {field('shape', 'Forme', (l) => <ChoiceChips aria-labelledby={l} options={SHAPES} value={p.shape} onChange={(v) => p.onShapeChange(v as AvatarShape)} disabled={p.disabled} />)}
+      <ChoiceField label="Taille" options={SIZES} value={p.size} onChange={(v) => p.onSizeChange(v as AvatarSize)} disabled={p.disabled} />
+      <ChoiceField label="Forme" options={SHAPES} value={p.shape} onChange={(v) => p.onShapeChange(v as AvatarShape)} disabled={p.disabled} />
       <div className={styles.group}>
-        {field('frame', 'Contour', (l) => <ChoiceChips aria-labelledby={l} options={FRAMES} value={p.frame === 'border' ? 'color' : p.frame} onChange={(v) => p.onFrameChange(v as AvatarFrame)} disabled={p.disabled} />)}
+        <ChoiceField label="Contour" options={FRAMES} value={p.frame === 'border' ? 'color' : p.frame} onChange={(v) => p.onFrameChange(v as AvatarFrame)} disabled={p.disabled} />
         {(p.frame === 'color' || p.frame === 'border') && (
           <ColorField label="Couleur du contour" value={p.frameColor ?? '#FFFFFF'} onChange={p.onFrameColorChange} hideContrast />
         )}

@@ -1,6 +1,6 @@
-import { useId, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { GroupTab } from '../Tabs/Tabs';
-import { ChoiceChips } from '../ChoiceChips/ChoiceChips';
+import { ChoiceField } from './ChoiceField';
 import { SliderCapsule } from '../Slider/SliderCapsule';
 import { ButtonLink } from '../Button/ButtonMisc';
 import { PositionPicker, type Position } from './PositionPicker';
@@ -85,7 +85,6 @@ const NOTES: Record<MediaFrameKind, string> = {
 /** MediaFrameSettings (Figma 9828:6305) : contenu du réglage « Cadre du média » de l'Annonce Record (OptionItem ouvert, picto `device`). Cadre Aucun | Mobile | Tablette | Ordinateur, puis Appareil (ou Orientation pour la tablette), Coloris et Ombre. */
 export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange, finish, onFinishChange, orientation = 'portrait', onOrientationChange, shadow = 'soft', onShadowChange, slideOrientation = 'landscape', captureZoom, onCaptureZoomChange, captureHelp, devices = mediaDevices, note, disabled }: MediaFrameSettingsProps) {
   const vertical = slideOrientation === 'portrait';
-  const id = useId();
   const list = kind === 'none' ? [] : devices[kind];
   const current = list.find((d) => d.value === device) ?? list[0];
   return (
@@ -97,25 +96,16 @@ export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange,
           items={[{ value: 'portrait', label: 'Portrait' }, { value: 'landscape', label: 'Paysage' }]} />
       )}
       {kind !== 'none' && list.length > 1 && (
-        <div className={styles.field}>
-          <span id={`${id}-device`} className={styles.label}>Appareil</span>
-          <ChoiceChips aria-labelledby={`${id}-device`} disabled={disabled} value={current?.value ?? ''} onChange={(v) => onDeviceChange?.(v)}
-            options={list.map((d) => ({ value: d.value, label: d.label }))} />
-        </div>
+        <ChoiceField label="Appareil" disabled={disabled} value={current?.value ?? ''} onChange={(v) => onDeviceChange?.(v)}
+          options={list.map((d) => ({ value: d.value, label: d.label }))} />
       )}
       {current?.finishes && (
-        <div className={styles.field}>
-          <span id={`${id}-finish`} className={styles.label}>Coloris</span>
-          <ChoiceChips aria-labelledby={`${id}-finish`} disabled={disabled} value={finish ?? current.finishes[0].value} onChange={(v) => onFinishChange?.(v)}
-            options={current.finishes.map((f) => ({ value: f.value, label: f.label, color: f.color }))} />
-        </div>
+        <ChoiceField label="Coloris" disabled={disabled} value={finish ?? current.finishes[0].value} onChange={(v) => onFinishChange?.(v)}
+          options={current.finishes.map((f) => ({ value: f.value, label: f.label, color: f.color }))} />
       )}
       {current?.finishes && (
-        <div className={styles.field}>
-          <span id={`${id}-shadow`} className={styles.label}>Ombre</span>
-          <ChoiceChips aria-labelledby={`${id}-shadow`} disabled={disabled} value={shadow} onChange={(v) => onShadowChange?.(v as MediaShadow)}
-            options={[{ value: 'none', label: 'Aucune' }, { value: 'soft', label: 'Douce' }, { value: 'strong', label: 'Marquée' }]} />
-        </div>
+        <ChoiceField label="Ombre" disabled={disabled} value={shadow} onChange={(v) => onShadowChange?.(v as MediaShadow)}
+          options={[{ value: 'none', label: 'Aucune' }, { value: 'soft', label: 'Douce' }, { value: 'strong', label: 'Marquée' }]} />
       )}
       {kind !== 'none' && captureZoom !== undefined && (
         <div className={styles.field}>

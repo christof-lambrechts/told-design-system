@@ -254,3 +254,10 @@ Après une mise à jour : `npm run typecheck` et `npm run build-storybook` doive
 
 - **Christof** : Figma, validation ✅, relecture des pull requests, publication des versions.
 - **Développeurs** : code des composants validés, intégration dans Told et Told Record, signalement des écarts entre Figma et le code (ouvrir une issue GitHub avec la capture et le lien Figma).
+
+## Choix dans un panneau d'options (23/11)
+
+- **3 choix ou moins, en texte** : `GroupTab` (onglets pleine largeur, libellé au-dessus).
+- **Plus de 3 choix**, ou des choix avec couleur, avatar, vignette, icône ou glyphe : `ChoiceChips`.
+- `ChoiceField` applique la règle tout seul (même API que ChoiceChips, avec `label`).
+- **Options selon la sélection** : sans sélection, le panneau montre les réglages de la slide ; quand on sélectionne un élément de la slide (média, avatar, surtitre, titre, logo), il ne montre que ses réglages, sous un `OptionContextHeader` (retour, Échap).

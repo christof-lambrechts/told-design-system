@@ -9,6 +9,7 @@ import { FormatOptionGroup } from './FormatOption';
 import { GroupTab } from '../Tabs/Tabs';
 import { PositionPicker, type Position } from './PositionPicker';
 import { MediaFrameSettings, MediaCropSettings, type MediaFrameKind, type MediaOrientation, type MediaShadow } from './MediaSettings';
+import { EyebrowSettings, LogoSettings, OptionContextHeader, type EyebrowStyle, type BrandLogoChoice } from './BrandSettings';
 import { AvatarSettings, type AvatarFrame, type AvatarShape, type AvatarSize } from './AvatarSettings';
 
 const meta = { title: 'Composants/Panneaux/OptionSidebar', component: OptionSidebar, parameters: { layout: 'padded' } } satisfies Meta<typeof OptionSidebar>;
@@ -184,6 +185,37 @@ export const ReglagesMedia: StoryObj = {
           <OptionItem variant="open" icon="crop" label="Cadrage du média" value={`× ${zoom.toFixed(1).replace('.', ',')}`}>
             <MediaCropSettings zoom={zoom} onZoomChange={setZoom} anchor={anchor} onAnchorChange={setAnchor} onReset={() => { setZoom(1); setAnchor('center'); }} />
           </OptionItem>
+        </div>
+      </div>
+    );
+  },
+};
+
+export const SelonLaSelection: StoryObj = {
+  name: 'Options selon la sélection',
+  render: () => {
+    const [sel, setSel] = useState<'slide' | 'eyebrow'>('eyebrow');
+    const [st, setSt] = useState<EyebrowStyle>('badge');
+    const [c, setC] = useState('#FFE84F');
+    const [logo, setLogo] = useState<BrandLogoChoice>('told');
+    return (
+      <div style={{ display: 'flex', gap: 24, alignItems: 'flex-start' }}>
+        <div style={{ width: 360, border: '1px solid var(--neutral-border-divider)', borderRadius: 12, background: 'var(--neutral-surface-default)' }}>
+          {sel === 'eyebrow' ? (
+            <>
+              <OptionContextHeader title="Surtitre" onBack={() => setSel('slide')} />
+              <div style={{ padding: 16 }}><EyebrowSettings variant={st} onVariantChange={setSt} color={c} onColorChange={setC} slideBackground="#F4EEFF" /></div>
+            </>
+          ) : (
+            <div style={{ padding: 16, display: 'grid', gap: 12 }}>
+              <strong>Options · Slide</strong>
+              <button type="button" onClick={() => setSel('eyebrow')}>Sélectionner le surtitre</button>
+            </div>
+          )}
+        </div>
+        <div style={{ width: 360, display: 'grid', gap: 16 }}>
+          <OptionItem variant="open" icon="brand-kit" label="Logo · offre gratuite" pro><LogoSettings plan="free" value="told" onUpgrade={() => {}} /></OptionItem>
+          <OptionItem variant="open" icon="brand-kit" label="Logo · offre payante"><LogoSettings plan="paid" value={logo} onChange={setLogo} onOpenBrandKit={() => {}} /></OptionItem>
         </div>
       </div>
     );

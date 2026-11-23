@@ -3,6 +3,13 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.33.0 · 23/11/2026
+
+- **ChoiceField** : choix d'un réglage selon la règle des panneaux : 3 choix ou moins en texte → GroupTab, sinon ChoiceChips. Utilisé par AvatarSettings (Taille, Forme en onglets) et MediaFrameSettings (Appareil mobile, Ombre en onglets).
+- **EyebrowSettings** (Figma 9832:22834) : surtitre de l'Annonce avec ou sans fond, couleur (ColorField, contraste mesuré sur le fond de la slide sans fond).
+- **LogoSettings** (Figma 9832:22916) : logo en bas de la slide ; offre gratuite = logo Told imposé + encart « Voir les offres » ; offre payante = Told | Le mien (kit de marque) | Aucun.
+- **OptionContextHeader** (Figma 9834:15423) : en-tête du panneau quand un élément de la slide est sélectionné.
+
 ## v0.32.0 · 23/11/2026
 
 - **MediaFrameSettings** : `slideOrientation` (Annonce verticale : pas d'Ordinateur, tablette en portrait), `captureZoom` (zoom de la capture dans l'écran de l'appareil, ×1 à ×2), `allowedMediaFrames(orientation)`.
