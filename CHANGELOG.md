@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.44.0 · 23/11/2026
+
+- **SliderCapsule** : fond `Neutral/surface/muted`, le même que la piste de GroupTab (il était plus clair, en `subtle`). Figma aligné.
+
 ## v0.43.0 · 23/11/2026
 
 - **RewardBlock** : `surface` ; en couverture slide et vertical, ses boutons (Copier, Récupérer) passent en `dark` comme ceux de ScreenActions (suite 10, point 67).

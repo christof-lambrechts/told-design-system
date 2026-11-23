@@ -2,9 +2,9 @@
 .disabled { opacity: 0.38; }
 .label { flex: none; color: var(--content-subtle-default); font-size: var(--body-14-size); line-height: var(--body-14-line-height); }
 .control { flex: 1; min-width: 0; display: flex; gap: 1px; height: 34px; }
-.capsule { flex: 1; min-width: 0; display: flex; align-items: center; padding: 0 14px; background: var(--neutral-surface-subtle); border-radius: 10px 0 0 10px; }
+.capsule { flex: 1; min-width: 0; display: flex; align-items: center; padding: 0 14px; background: var(--neutral-surface-muted); border-radius: 10px 0 0 10px; }
 .control > .box:first-child + .capsule { border-radius: 0; }
-.box { flex: none; min-width: 52px; padding: 0 10px; display: grid; place-items: center; background: var(--neutral-surface-subtle); border-radius: 0 10px 10px 0;
+.box { flex: none; min-width: 52px; padding: 0 10px; display: grid; place-items: center; background: var(--neutral-surface-muted); border-radius: 0 10px 10px 0;
   color: var(--content-default-default); font-size: var(--body-14-size); font-variant-numeric: tabular-nums; }
 .control > .box:first-child { border-radius: 10px 0 0 10px; }
 .bar { position: relative; flex: 1; height: 12px; border-radius: 999px;
