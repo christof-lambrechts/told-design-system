@@ -12,12 +12,14 @@ export interface WidgetButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonE
   size?: 'sm' | 'md';
   iconLeft?: IconName;
   iconRight?: IconName;
+  /** `dark` : sur une photo ou un fond sombre (écran de couverture) ; principal blanc, secondaire à contour blanc, tertiaire texte blanc. */
+  surface?: 'default' | 'dark';
 }
 
 /** Boutons du widget côté répondant (noir sur clair, blanc sur sombre). */
-export function WidgetButton({ children, variant = 'primary', size = 'md', iconLeft, iconRight, className, ...rest }: WidgetButtonProps) {
+export function WidgetButton({ children, variant = 'primary', size = 'md', iconLeft, iconRight, surface = 'default', className, ...rest }: WidgetButtonProps) {
   return (
-    <button type="button" className={cx(styles.wbtn, styles[`wb-${variant}`], styles[`wb-${size}`], className)} {...rest}>
+    <button type="button" className={cx(styles.wbtn, styles[`wb-${variant}`], styles[`wb-${size}`], surface === 'dark' && styles.wbDark, className)} {...rest}>
       {iconLeft && <Icon name={iconLeft} variant="solid" size={16} />}
       {children}
       {iconRight && <Icon name={iconRight} variant="solid" size={16} />}

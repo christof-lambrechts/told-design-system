@@ -138,3 +138,6 @@ export { ChoiceField } from './components/OptionSidebar/ChoiceField';
 export type { ChoiceFieldProps } from './components/OptionSidebar/ChoiceField';
 export { EyebrowSettings, LogoSettings, OptionContextHeader, ProUpsellCard } from './components/OptionSidebar/BrandSettings';
 export type { EyebrowSettingsProps, EyebrowStyle, LogoSettingsProps, BrandLogoChoice, OptionContextHeaderProps, ProUpsellCardProps } from './components/OptionSidebar/BrandSettings';
+// 23/11 : écrans de début et de fin communs à tous les produits.
+export { StartScreen, EndScreen, ScreenActions, RewardBlock, Countdown, SocialLinks } from './components/StartEndScreen/StartEndScreen';
+export type { ScreenProps, EndScreenProps, ScreenAction, ScreenActionsProps, RewardBlockProps, CountdownProps, SocialLinksProps, ScreenLayout, ScreenContext } from './components/StartEndScreen/StartEndScreen';

@@ -32,6 +32,7 @@ Il remplace le document de projet `claude/V3-demandes-ds-record.md` (23/11/2026)
 
 ## Version told-ds v0.27.0 (21/11) : ce qu'il faut reprendre dans Record
 
+- **23/11 (16 h) : told-ds v0.36.0** : écrans de début et de fin communs (`StartScreen`, `EndScreen` et leurs pièces) ; v0.35.0 : animation de validation de `CodeInput`. À appliquer : **D-041**.
 - **23/11 (15 h 30) : told-ds v0.34.0** (ProUpsellCard) et **v0.33.0** : `ChoiceField`, `EyebrowSettings`, `LogoSettings`, `OptionContextHeader`. À appliquer : **D-038**, **D-039**, **D-040**.
 - **23/11 (15 h) : told-ds v0.32.0** : MediaFrameSettings `slideOrientation` (vertical = pas d'ordinateur, tablette en portrait), `captureZoom` (zoom de la capture dans l'écran), `allowedMediaFrames` ; icône `tablet-01`. À appliquer : **D-036**, puis **D-037** (proposition, plan à valider par Jonathan).
 - **23/11 (après-midi) : told-ds v0.30.0** : `MediaFrameSettings`, `MediaCropSettings`, PositionPicker `item="media"`. À appliquer : **D-034**, **D-035**.
@@ -44,7 +45,7 @@ Il remplace le document de projet `claude/V3-demandes-ds-record.md` (23/11/2026)
   - `TODO DS: D-023` (bouton menu avec le logo) et `TODO DS: D-024` (étapes Construire › Diffuser › Analyser) : **déjà codés en v0.15.0** (`ButtonEditionMenu`, `EditorSteps`, voir D-022 ci-dessous) ; à brancher.
   - `TODO DS: D-022` (AvatarGroup sans état inactif ni teinte par personne) devient **D-026**, codée en v0.20.0.
   - `TODO DS: D-025` (pas de carte de démo dans le DS) rejoint **D-011** (Card).
-  - Prochain numéro libre : **D-041**.
+  - Prochain numéro libre : **D-042**.
 - **Icônes pleines par défaut depuis v0.16.0** : une icône posée sans `variant` passe en plein. Le contour ne reste qu'au repos dans les menus (menu de navigation, entrées de DropdownMenu) ; les chevrons restent en trait. Vérifier visuellement les écrans après la mise à jour.
 - **Noms** : depuis le 20/11, un composant porte le même nom dans Figma et dans le code (règle et anciens noms : `docs/NOMMAGE.md` du dépôt told-ds). Dans le nouveau code, utiliser `OptionItem` et `OptionSidebar` (plus OptionPanelItem / OptionPanel), `Select` (Figma ne dit plus DropdownField), `Modal`, `Tag`, `Flag`, `Logo`, `ProgressSteps`.
 
@@ -527,6 +528,21 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Format de démo : `slide.eyebrow = { variant: 'badge' | 'text', color }`.
 - Priorité : confort
 - Statut : **codé told-ds v0.33.0**, à appliquer dans Record
+- Réponse Record :
+
+### D-041 · Écrans de début et de fin de l'Annonce et de la démo, communs à tous les produits (23/11, validé par Christof)
+- Sens : demande du DS vers Record (éditeur, format, lecteur, vidéo exportée).
+- Référence Figma : page `🧩 Organismes / StartEndScreen ✅` : **StartScreen**, **EndScreen** (layout centered | split | cover × context slide | vertical | widget), **RewardBlock**, **ScreenActions**, **Countdown**, **SocialLinks** ; planche Documentation · StartEndScreen.
+- En code (told-ds v0.36.0) : `<StartScreen>` et `<EndScreen>` à la taille logique de la slide (960 × 540 ou 540 × 960), mis à l'échelle par le lecteur comme les slides.
+  - Début : logo, média, titre, description, **un bouton qui lance** (« Lancer l'annonce », « Commencer la démo »).
+  - Fin : logo, média, titre, message, **1 à 3 boutons** (lien ou action : « Essayer gratuitement », « Revoir », « Réserver une démo »), **récompense** (code promo à copier, lien cadeau, points), points clés, compte à rebours, réseaux sociaux.
+  - Trois styles au choix de l'utilisateur : centré, partagé (texte à gauche, média à droite ; en vertical, média en haut), couverture (média en fond, voile, boutons `surface="dark"`).
+  - Couleurs : fond et boutons du kit de marque ; logo du kit (D-039) ; textes au tutoiement par défaut, modifiables.
+- Éditeur : l'introduction et l'écran de fin de la colonne Étapes (StepList, Début et Fin) ouvrent ces réglages dans le panneau Options (style, textes, média, boutons, récompense…), avec les composants du panneau (ChoiceField, MediaFrameSettings…). Une maquette d'éditeur est à faire côté Maquettes.
+- Format de démo, proposition : `intro` et `end` = `{ enabled, layout, logo, media, title, description, actions[], reward?, keyPoints?, countdownUntil?, social? }`.
+- Sécurité : liens des boutons et réseaux sociaux en `https` seulement, ouverts dans un nouvel onglet (`rel="noopener noreferrer"`) ; le code promo est un texte, jamais exécuté.
+- Priorité : important
+- Statut : **codé told-ds v0.36.0**, à appliquer dans Record (plan court à présenter à Jonathan : format, lecteur, éditeur)
 - Réponse Record :
 
 ## Questions de Record (20/11)

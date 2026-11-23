@@ -46,6 +46,8 @@ Figma a été renommé ; les instances des maquettes restent liées. Dans le cod
 | `LogoSettings` (23/11) | Logo de la slide | | offre gratuite / payante. Codé v0.33.0 |
 | `OptionContextHeader` (23/11) | | | en-tête du panneau quand un élément est sélectionné. Codé v0.33.0 |
 | `ProUpsellCard` (23/11) | carte « Marque blanche » d'OptionBadgeItem | | encart Told Pro. Codé v0.34.0 |
+| `StartScreen`, `EndScreen` (23/11) | Écran d'accueil, écran de fin, MessageCard welcome / thanks (côté éditeur) | | écrans communs à tous les produits. Codé v0.36.0 |
+| `RewardBlock`, `ScreenActions`, `Countdown`, `SocialLinks` (23/11) | Bloc récompense, boutons de fin | | pièces des écrans de fin. Codé v0.36.0 |
 | `DeviceMockup` (23/11) | | | appareils photoréalistes ; Figma seulement, le rendu est dans le lecteur Record (D-032) |
 | `ChannelSection` (21/11) | | | rubrique numérotée d'une carte de canal (Diffuser), avec `Card`. Codé v0.23.0 ; ChannelItem remplacé par `SelectionCard` (code : `SelectionCardGroup`) |
 | `ButtonEditionMenu` | ButtonEditionMenu | | bouton du menu de l'éditeur |

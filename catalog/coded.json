@@ -142,5 +142,11 @@
   "EyebrowSettings": "composants-panneaux-optionsidebar--selon-la-selection",
   "LogoSettings": "composants-panneaux-optionsidebar--selon-la-selection",
   "OptionContextHeader": "composants-panneaux-optionsidebar--selon-la-selection",
-  "ProUpsellCard": "composants-panneaux-optionsidebar--selon-la-selection"
+  "ProUpsellCard": "composants-panneaux-optionsidebar--selon-la-selection",
+  "StartScreen": "composants-écrans-de-début-et-de-fin--debut",
+  "EndScreen": "composants-écrans-de-début-et-de-fin--fin",
+  "RewardBlock": "composants-écrans-de-début-et-de-fin--pieces",
+  "ScreenActions": "composants-écrans-de-début-et-de-fin--fin",
+  "Countdown": "composants-écrans-de-début-et-de-fin--pieces",
+  "SocialLinks": "composants-écrans-de-début-et-de-fin--pieces"
 }
