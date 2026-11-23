@@ -133,7 +133,7 @@ export type { PositionPickerProps, Position } from './components/OptionSidebar/P
 export { AvatarSettings } from './components/OptionSidebar/AvatarSettings';
 export type { AvatarSettingsProps, AvatarSize as AvatarSettingsSize, AvatarShape, AvatarFrame } from './components/OptionSidebar/AvatarSettings';
 export { MediaFrameSettings, MediaCropSettings, mediaDevices, mediaShadows, allowedMediaFrames } from './components/OptionSidebar/MediaSettings';
-export type { MediaFrameSettingsProps, MediaCropSettingsProps, MediaFrameKind, MediaDeviceOption, MediaOrientation, MediaShadow } from './components/OptionSidebar/MediaSettings';
+export type { MediaFrameSettingsProps, MediaCropSettingsProps, MediaFrameKind, MediaDeviceOption, MediaOrientation, MediaShadow, MediaPlacement } from './components/OptionSidebar/MediaSettings';
 export { ChoiceField } from './components/OptionSidebar/ChoiceField';
 export type { ChoiceFieldProps } from './components/OptionSidebar/ChoiceField';
 export { EyebrowSettings, LogoSettings, OptionContextHeader, ProUpsellCard } from './components/OptionSidebar/BrandSettings';

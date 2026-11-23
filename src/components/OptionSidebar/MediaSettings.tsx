@@ -48,6 +48,8 @@ export const mediaDevices: Record<Exclude<MediaFrameKind, 'none'>, MediaDeviceOp
   ],
 };
 
+export type MediaPlacement = 'inset' | 'edge' | 'corner';
+
 export interface MediaFrameSettingsProps {
   kind: MediaFrameKind;
   onKindChange: (k: MediaFrameKind) => void;
@@ -63,6 +65,12 @@ export interface MediaFrameSettingsProps {
   onShadowChange?: (s: MediaShadow) => void;
   /** Orientation de l'Annonce. En `portrait` (9:16), l'ordinateur n'est pas proposé et la tablette est en portrait. */
   slideOrientation?: MediaOrientation;
+  /**
+   * Place du média sur la slide (AnnouncementSlide `media`) : `inset` avec la marge de la slide, `edge` collé au bord
+   * extérieur (droite en paysage, bas en vertical), `corner` collé dans le coin bas droit. Absent : réglage masqué.
+   */
+  placement?: MediaPlacement;
+  onPlacementChange?: (p: MediaPlacement) => void;
   /** Zoom de la capture dans l'écran de l'appareil (1 à 2). Absent : réglage masqué. */
   captureZoom?: number;
   onCaptureZoomChange?: (z: number) => void;
@@ -83,7 +91,7 @@ const NOTES: Record<MediaFrameKind, string> = {
 };
 
 /** MediaFrameSettings (Figma 9828:6305) : contenu du réglage « Cadre du média » de l'Annonce Record (OptionItem ouvert, picto `device`). Cadre Aucun | Mobile | Tablette | Ordinateur, puis Appareil (ou Orientation pour la tablette), Coloris et Ombre. */
-export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange, finish, onFinishChange, orientation = 'portrait', onOrientationChange, shadow = 'soft', onShadowChange, slideOrientation = 'landscape', captureZoom, onCaptureZoomChange, captureHelp, devices = mediaDevices, note, disabled }: MediaFrameSettingsProps) {
+export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange, finish, onFinishChange, orientation = 'portrait', onOrientationChange, shadow = 'soft', onShadowChange, slideOrientation = 'landscape', placement, onPlacementChange, captureZoom, onCaptureZoomChange, captureHelp, devices = mediaDevices, note, disabled }: MediaFrameSettingsProps) {
   const vertical = slideOrientation === 'portrait';
   const list = kind === 'none' ? [] : devices[kind];
   const current = list.find((d) => d.value === device) ?? list[0];
@@ -91,6 +99,10 @@ export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange,
     <div className={styles.root}>
       <GroupTab label="Cadre" value={kind} onChange={(v) => onKindChange(v as MediaFrameKind)}
         items={[{ value: 'none', label: 'Aucun' }, { value: 'mobile', label: 'Mobile' }, { value: 'tablet', label: 'Tablette' }, ...(vertical ? [] : [{ value: 'desktop', label: 'Ordinateur' }])]} />
+      {placement && (
+        <GroupTab label="Position" value={placement} onChange={(v) => onPlacementChange?.(v as MediaPlacement)}
+          items={[{ value: 'inset', label: 'Avec marge' }, { value: 'edge', label: vertical ? 'En bas' : 'À droite' }, { value: 'corner', label: 'Dans le coin' }]} />
+      )}
       {kind === 'tablet' && !vertical && (
         <GroupTab label="Orientation" value={orientation} onChange={(v) => onOrientationChange?.(v as MediaOrientation)}
           items={[{ value: 'portrait', label: 'Portrait' }, { value: 'landscape', label: 'Paysage' }]} />

@@ -3,6 +3,12 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.41.0 · 23/11/2026
+
+- **MediaFrameSettings** : réglage **Position** (`placement`, `onPlacementChange`) : Avec marge (`inset`) | À droite, ou En bas en Annonce verticale (`edge`) | Dans le coin (`corner`). Type `MediaPlacement`.
+- Figma **AnnouncementSlide** : la slide n'a plus de marge, c'est le bloc texte qui en a (40) ; nouvel axe `media` = inset | edge | corner (le média collé au bord ou dans le coin bas droit). À reprendre dans le player Record.
+- Figma : **MediaCapture** (capture seule, `crop` ×1,8 sur 9 points), exposée dans MediaFrame et DeviceMockup ; MediaFrame `frame=tablet` ; `MediaHandles` publié ; ScreenActions aux libellés parlants.
+
 ## v0.40.0 · 23/11/2026
 
 - **ColorPicker** (nouveau, Figma OptionCustomisation `type=bg-color-text-*`) : onglets Fond | Texte quand un texte est posé sur le fond (texte **Clair ou Sombre**, pas de couleur libre) ; Unie | Dégradé (deux couleurs, rotation, animation) ; zone saturation et luminosité, teinte (clavier : flèches, Maj pour aller plus vite) ; code hexa et pipette (navigateurs qui l'acceptent) ; vérification du contraste AA / AAA ; « Vos couleurs » et + ; contour glass Clair | Sombre.
