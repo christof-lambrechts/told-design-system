@@ -3,6 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.45.0 · 23/11/2026
+
+- **PositionPicker** `item="text"` : la case choisie montre deux lignes de texte de longueurs différentes, alignées à gauche, centrées ou à droite selon la colonne. Figma : `_PositionCell` item=text-left|center|right, PositionPicker item=text.
+- **StartScreen / EndScreen** : `textPosition` (9 places) : le bloc texte en haut, au milieu ou en bas, aligné à gauche, au centre ou à droite (titre, description, boutons). Story « Position du texte ».
+
 ## v0.44.0 · 23/11/2026
 
 - **SliderCapsule** : fond `Neutral/surface/muted`, le même que la piste de GroupTab (il était plus clair, en `subtle`). Figma aligné.

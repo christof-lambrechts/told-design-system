@@ -24,7 +24,8 @@ export interface PositionPickerProps {
   /** 9 : grille 3 × 3 ; 5 : les 4 coins et le bas au centre. Ou la liste exacte des places proposées. */
   positions?: 9 | 5 | Position[];
   /** Élément montré à la place choisie et en aperçu au survol. */
-  item?: 'widget' | 'avatar' | 'media';
+  /** `text` : deux lignes de texte, alignées comme le texte le sera (à gauche, centrées ou à droite selon la colonne). */
+  item?: 'widget' | 'avatar' | 'media' | 'text';
   /** Libellé au-dessus (style des options, Medium 11/14). */
   label?: string;
   'aria-label'?: string;
@@ -64,8 +65,8 @@ export function PositionPicker({ value, onChange, positions = 9, item = 'widget'
             tabIndex={on || (!offered.includes(value) && p === order[0]) ? 0 : -1} disabled={disabled}
             className={cx(styles.cell, on && styles.selected)} onClick={() => onChange(p)} onKeyDown={(e) => onKey(e, p)}>
             <span className={styles.dot} aria-hidden="true" />
-            <span className={cx(styles.item, styles[item])} aria-hidden="true">
-              {item === 'widget' ? <><span className={styles.bar} /><span className={styles.body} /></> : item === 'media' ? <span className={styles.mediaShape} /> : <span className={styles.face}><Icon name="user" size={16} /></span>}
+            <span className={cx(styles.item, styles[item], item === 'text' && styles[p.endsWith('left') ? 'tLeft' : p.endsWith('right') ? 'tRight' : 'tCenter'])} aria-hidden="true">
+              {item === 'widget' ? <><span className={styles.bar} /><span className={styles.body} /></> : item === 'text' ? <><span className={styles.line} /><span className={cx(styles.line, styles.short)} /></> : item === 'media' ? <span className={styles.mediaShape} /> : <span className={styles.face}><Icon name="user" size={16} /></span>}
             </span>
           </button>
         );
