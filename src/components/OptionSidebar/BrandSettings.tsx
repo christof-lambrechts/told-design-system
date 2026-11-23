@@ -1,8 +1,8 @@
-import type { ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { GroupTab } from '../Tabs/Tabs';
 import { ColorField } from '../Contrast/Contrast';
 import { ButtonLink, ButtonGradient } from '../Button/ButtonMisc';
-import { Logo } from '../Logo/Logo';
+import { Switch } from '../Choice/Choice';
 import { Icon } from '../Icon/Icon';
 import styles from './BrandSettings.module.css';
 
@@ -37,7 +37,7 @@ export function EyebrowSettings({ variant, onVariantChange, color, onColorChange
 export type BrandLogoChoice = 'told' | 'custom' | 'none';
 
 export interface LogoSettingsProps {
-  /** free : logo Told imposé (encart Offre Pro) ; paid : Told, le logo du kit ou aucun. */
+  /** free : logo Told toujours affiché (interrupteur bloqué, i et carte Marque blanche) ; paid : interrupteur, puis Told | Le mien. */
   plan: 'free' | 'paid';
   value: BrandLogoChoice;
   onChange?: (v: BrandLogoChoice) => void;
@@ -48,20 +48,61 @@ export interface LogoSettingsProps {
   onUpgrade?: () => void;
 }
 
-/** LogoSettings (Figma 9832:22916) : logo en bas de la slide. Offre gratuite : logo Told, non désactivable. Offre payante : Told | Le mien (kit de marque) | Aucun. L'offre est vérifiée côté serveur : ce composant ne fait que l'afficher. */
+/**
+ * LogoSettings (Figma 9832:22916) : logo en bas de la slide, sans aperçu.
+ * Offre gratuite : « Afficher le logo Told » toujours activé, suivi d'un i ; la carte « Marque blanche »
+ * s'ouvre en info-bulle au survol ou au focus du i, et au clic sur l'interrupteur (qui ne bouge pas).
+ * Offre payante : « Afficher un logo » ; activé, Told | Le mien (kit de marque) ; désactivé, aucun logo.
+ * L'offre est vérifiée côté serveur : ce composant ne fait que l'afficher.
+ */
 export function LogoSettings({ plan, value, onChange, customLogo, kitName = 'Kit principal', onOpenBrandKit, onUpgrade }: LogoSettingsProps) {
+  const [open, setOpen] = useState<false | 'hover' | 'click'>(false);
+  const box = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (open !== 'click') return;
+    const away = (e: Event) => { if (!box.current?.contains(e.target as Node)) setOpen(false); };
+    const esc = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    document.addEventListener('pointerdown', away);
+    document.addEventListener('keydown', esc);
+    return () => { document.removeEventListener('pointerdown', away); document.removeEventListener('keydown', esc); };
+  }, [open]);
+
   if (plan === 'free') {
     return (
       <div className={styles.root}>
-        <div className={styles.row}><Logo size="sm" aria-hidden="true" /><span>Logo Told affiché en bas de la slide</span></div>
-        <ProUpsellCard title="Marque blanche" description="✨ Retire le logo Told de tes démos et mets le tien avec Told Pro." onAction={onUpgrade} />
+        <div className={styles.logoBox} ref={box}>
+          <div className={styles.toggleRow}>
+            <span className={styles.toggleLabel}>
+              Afficher le logo Told
+              <button type="button" className={styles.info} aria-label="Marque blanche, avec Told Pro" aria-expanded={!!open} aria-controls="logo-upsell"
+                onMouseEnter={() => setOpen((o) => o || 'hover')} onMouseLeave={() => setOpen((o) => (o === 'hover' ? false : o))}
+                onFocus={() => setOpen((o) => o || 'hover')} onBlur={() => setOpen((o) => (o === 'hover' ? false : o))}>
+                <Icon name="information-circle" variant="stroke" size={16} aria-hidden="true" />
+              </button>
+            </span>
+            <Switch size="sm" checked readOnly aria-label="Afficher le logo Told (inclus dans l’offre gratuite)" onClick={(e) => { e.preventDefault(); setOpen('click'); }} />
+          </div>
+          {open && (
+            <div id="logo-upsell" className={styles.upsell} role="dialog" aria-label="Marque blanche"
+              onMouseEnter={() => setOpen((o) => o || 'hover')} onMouseLeave={() => setOpen((o) => (o === 'hover' ? false : o))}>
+              <ProUpsellCard title="Marque blanche" description="✨ Retire le logo Told de tes démos et mets le tien avec Told Pro." onAction={onUpgrade} />
+            </div>
+          )}
+        </div>
       </div>
     );
   }
+  const on = value !== 'none';
   return (
     <div className={styles.root}>
-      <GroupTab label="Logo" value={value} onChange={(v) => onChange?.(v as BrandLogoChoice)}
-        items={[{ value: 'told', label: 'Told' }, { value: 'custom', label: 'Le mien' }, { value: 'none', label: 'Aucun' }]} />
+      <div className={styles.toggleRow}>
+        <span className={styles.toggleLabel}>Afficher un logo</span>
+        <Switch size="sm" checked={on} aria-label="Afficher un logo" onChange={(e) => onChange?.(e.target.checked ? 'told' : 'none')} />
+      </div>
+      {on && (
+        <GroupTab label="Logo" value={value} onChange={(v) => onChange?.(v as BrandLogoChoice)}
+          items={[{ value: 'told', label: 'Told' }, { value: 'custom', label: 'Le mien' }]} />
+      )}
       {value === 'custom' && (
         <>
           <div className={styles.kit}>

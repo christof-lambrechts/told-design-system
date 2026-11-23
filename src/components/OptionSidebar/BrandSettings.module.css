@@ -17,3 +17,14 @@
 .proTitle { display: flex; align-items: center; gap: 8px; font-size: var(--body-14-size); line-height: var(--body-14-line-height); font-weight: var(--font-weight-semibold); }
 .pro p { margin: 0; font-size: var(--body-12-size); line-height: var(--body-12-line-height); color: var(--inverse-content-subtle-default, rgb(255 255 255 / 72%)); }
 .proButton { width: 100%; justify-content: center; margin-top: 4px; }
+
+/* LogoSettings : interrupteur en tête ; offre gratuite, carte Marque blanche en info-bulle. */
+.logoBox { position: relative; }
+.toggleRow { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.toggleLabel { display: inline-flex; align-items: center; gap: 4px; font-size: var(--body-13-size, 13px); line-height: var(--body-13-line-height, 20px); color: var(--content-default-default); }
+.info { all: unset; display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 999px; color: var(--content-muted-default); cursor: help; }
+.info:hover { color: var(--content-default-default); }
+.info:focus-visible { box-shadow: var(--focus-ring); }
+.upsell { position: absolute; z-index: 20; top: calc(100% + 8px); left: 0; right: 0; border-radius: 12px; box-shadow: 0 12px 32px rgba(15, 23, 41, .18); animation: upsellIn .16s ease-out both; }
+@keyframes upsellIn { from { opacity: 0; transform: translateY(-4px); } }
+@media (prefers-reduced-motion: reduce) { .upsell { animation: none; } }

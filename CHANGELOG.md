@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.39.0 · 23/11/2026
+
+- **LogoSettings** simplifié, sans aperçu du logo : un interrupteur en tête. Offre gratuite : « Afficher le logo Told » toujours activé, suivi d'un i ; la carte « Marque blanche » s'ouvre en info-bulle au survol ou au focus du i, et au clic sur l'interrupteur (qui ne bouge pas ; Échap ou clic ailleurs pour fermer). Offre payante : « Afficher un logo » ; activé, Told | Le mien ; désactivé, `none`. Figma : LogoSettings, propriété `hasUpsell`.
+
 ## v0.38.0 · 23/11/2026
 
 - **CodeInput** : à chaque nouvel `errorKey`, le message d'erreur est relu par les lecteurs d'écran (nouveau nœud `role="alert"`) et le focus revient sur la première case ; nouvelle prop `describedBy` pour relier un texte d'aide au groupe de cases.
