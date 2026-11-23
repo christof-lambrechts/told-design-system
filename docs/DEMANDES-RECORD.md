@@ -543,7 +543,17 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Sécurité : liens des boutons et réseaux sociaux en `https` seulement, ouverts dans un nouvel onglet (`rel="noopener noreferrer"`) ; le code promo est un texte, jamais exécuté.
 - Priorité : important
 - Statut : **codé told-ds v0.36.0**, à appliquer dans Record (plan court à présenter à Jonathan : format, lecteur, éditeur)
-- Réponse Record :
+- Réponse Record : appliqué sur la branche `christof` le 23/11 (décidé par Christof, pas encore dans `main`). Repris : les trois styles (centré, côte à côte, couverture), le média (une capture de la démo), jusqu'à 3 boutons en fin (liens https, plein puis contour puis sans fond), l'écran de début (titre, texte, bouton, affiché par défaut en démo guidée, masqué en Annonce). Dans l'éditeur : ChoiceField (Style) et les champs de l'app ; sur le canevas et dans le lecteur, les écrans sont dessinés par Record sur le modèle de Figma, car le lecteur ne charge pas React. Pas repris pour l'instant : récompense, points clés, compte à rebours, réseaux sociaux, contexte `widget`.
+
+### D-043 · « Ombre » du cadre du média pour tous les cadres (23/11, demandé par Christof)
+- Date, écran Record concerné : 23/11, éditeur de l'Annonce, réglage « Cadre du média » (`editor/media-frame-field.tsx`, `MediaFrameSettings`).
+- Besoin : choisir l'ombre (Aucune, Douce, Marquée) quel que soit le cadre : Ordinateur › Écran, Ordinateur › Navigateur, et Aucun (la capture seule), comme pour les mobiles, la tablette, l'iMac et le MacBook.
+- Ce qui manque dans le DS : `MediaFrameSettings` n'affiche « Ombre » que si l'appareil a des coloris (`current?.finishes`). L'Écran et le Navigateur n'en ont pas, et Aucun non plus : le réglage disparaît.
+- Contournement provisoire dans Record : un `ChoiceField` « Ombre » posé sous `MediaFrameSettings` quand celui-ci ne l'affiche pas (`// TODO DS: D-043`). Le lecteur applique `mediaShadows` au navigateur et à la capture seule.
+- Proposition : afficher « Ombre » pour tout cadre, juste après « Coloris » (ou après « Appareil » quand il n'y a pas de coloris), y compris pour Aucun.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
 
 ## Questions de Record (20/11)
 - **Annonce en Carré 1:1 ?**
