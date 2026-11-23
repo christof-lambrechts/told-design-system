@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.47.0 · 23/11/2026
+
+- **OptionSidebar** plus aéré : marges latérales de 20 (au lieu de 14 à 16) sur l'en-tête, la portée, chaque OptionItem et l'en-tête contextuel. Figma OptionItem aligné (34 variantes).
+
 ## v0.46.0 · 23/11/2026
 
 - **StartScreen / EndScreen** : `mediaSide`, le côté de l'image en style Partagé, séparé de la position du texte : à droite (par défaut) ou à gauche en slide, pour des écrans inversés ; en haut ou en bas en vertical. `textPosition` ne déplace que le texte et le logo.

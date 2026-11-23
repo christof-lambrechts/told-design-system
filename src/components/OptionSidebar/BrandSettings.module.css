@@ -6,7 +6,7 @@
 .kit { display: flex; align-items: center; gap: 12px; padding: 8px 12px; border: 1px solid var(--neutral-border-default); border-radius: 8px; background: var(--neutral-surface-default); font-size: var(--body-12-size); line-height: var(--body-12-line-height); color: var(--content-default-default); }
 .thumb { display: grid; place-items: center; width: 64px; height: 24px; border-radius: 4px; background: var(--neutral-surface-muted); overflow: hidden; }
 .thumb img { max-width: 100%; max-height: 100%; object-fit: contain; }
-.context { display: flex; align-items: center; gap: 8px; padding: 12px 16px 12px 12px; border-bottom: 1px solid var(--neutral-border-divider); font-family: var(--font-family-body); }
+.context { display: flex; align-items: center; gap: 8px; padding: 12px 20px 12px 16px; border-bottom: 1px solid var(--neutral-border-divider); font-family: var(--font-family-body); }
 .back { display: grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; border-radius: var(--component-input-button-sm, 8px); background: transparent; color: var(--content-default-default); cursor: pointer; }
 .back:hover { background: var(--neutral-surface-muted); }
 .back:focus-visible { outline: 2px solid var(--brand-color-brand); outline-offset: 2px; }

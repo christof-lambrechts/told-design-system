@@ -1,7 +1,7 @@
 /* Panneau d'options : PanelHeader (7851:8151), OptionItem (6031:85291), OptionSidebar (6031:85898). */
 .panel { box-sizing: border-box; display: flex; flex-direction: column; background: var(--neutral-surface-default); font-family: var(--font-family-body); letter-spacing: var(--letter-spacing-tight); color: var(--content-default-default); }
-.panelHead { padding: 16px 16px 12px; }
-.panelScope { padding: 4px 16px 12px; }
+.panelHead { padding: 16px 20px 12px; }
+.panelScope { padding: 4px 20px 12px; }
 .panelScope > * { width: 100%; }
 .options { display: flex; flex-direction: column; border-top: 1px solid var(--neutral-border-default); }
 
@@ -17,7 +17,7 @@
 .headDesc { font-size: 12px; line-height: 18px; color: var(--content-subtle-default); }
 
 /* Option */
-.item { display: flex; flex-direction: column; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--neutral-border-default); }
+.item { display: flex; flex-direction: column; gap: 10px; padding: 12px 20px; border-bottom: 1px solid var(--neutral-border-default); }
 .itemHead { display: flex; align-items: center; gap: 14px; min-height: 22px; }
 .itemToggle { all: unset; flex: 1; min-width: 0; display: flex; align-items: center; gap: 7px; cursor: pointer; border-radius: 6px; }
 .itemToggle:focus-visible { outline: 2px solid var(--brand-border-focus); outline-offset: 2px; }
