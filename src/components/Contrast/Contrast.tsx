@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState, type HTMLAttributes } from 'react';
 import { Icon } from '../Icon/Icon';
+import { ColorPicker, type TextTone } from '../ColorPicker/ColorPicker';
+import pickerStyles from '../ColorPicker/ColorPicker.module.css';
 import { contrastRatio, contrastThreshold, fixContrast, formatRatio, type ContrastLevel } from './contrast';
 import styles from './Contrast.module.css';
 
@@ -92,10 +94,17 @@ export interface ColorFieldProps {
   /** Masque le badge de contraste (couleur décorative). */
   hideContrast?: boolean;
   id?: string;
+  /** « Vos couleurs » dans le sélecteur. */
+  swatches?: string[];
+  onAddSwatch?: (hex: string) => void;
+  /** Texte posé sur cette couleur : le sélecteur montre Fond | Texte, le texte se choisit Clair ou Sombre. */
+  textTone?: TextTone;
+  onTextToneChange?: (t: TextTone) => void;
 }
 
 /** ColorField (8734:504) : pastille ronde, code hexa, badge de contraste qui ouvre le menu de niveau et de correction. Après correction, « Corrigée depuis #… · Annuler ». */
-export function ColorField({ label, value, onChange, background = '#FFFFFF', level: levelProp, onLevelChange, hideContrast, id }: ColorFieldProps) {
+export function ColorField({ label, value, onChange, background = '#FFFFFF', level: levelProp, onLevelChange, hideContrast, id, swatches, onAddSwatch, textTone, onTextToneChange }: ColorFieldProps) {
+  const [picking, setPicking] = useState(false);
   const [levelState, setLevelState] = useState<ContrastLevel>(levelProp ?? 'AA');
   const level = levelProp ?? levelState;
   const [open, setOpen] = useState(false);
@@ -104,13 +113,13 @@ export function ColorField({ label, value, onChange, background = '#FFFFFF', lev
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => setDraft(value), [value]);
   useEffect(() => {
-    if (!open) return;
-    const close = (e: MouseEvent) => { if (!root.current?.contains(e.target as Node)) setOpen(false); };
-    const esc = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    if (!open && !picking) return;
+    const close = (e: MouseEvent) => { if (!root.current?.contains(e.target as Node)) { setOpen(false); setPicking(false); } };
+    const esc = (e: KeyboardEvent) => { if (e.key === 'Escape') { setOpen(false); setPicking(false); } };
     document.addEventListener('mousedown', close);
     document.addEventListener('keydown', esc);
     return () => { document.removeEventListener('mousedown', close); document.removeEventListener('keydown', esc); };
-  }, [open]);
+  }, [open, picking]);
   const valid = /^#[0-9a-f]{6}$/i.test(value);
   const ratio = valid ? contrastRatio(value, background) : 1;
   const fid = id ?? `color-${label ?? 'field'}`;
@@ -122,9 +131,8 @@ export function ColorField({ label, value, onChange, background = '#FFFFFF', lev
     <div className={styles.field} ref={root}>
       {label && <label htmlFor={fid} className={styles.label}>{label}</label>}
       <div className={cx(styles.box, valid && !hideContrast && ratio < contrastThreshold[level] && styles.boxFail)}>
-        <label className={styles.picker} style={{ background: valid ? value : 'transparent' }}>
-          <input type="color" value={valid ? value : '#000000'} onChange={(e) => { setPrevious(null); onChange?.(e.target.value.toUpperCase()); }} aria-label={`${label ?? 'Couleur'} : nuancier`} />
-        </label>
+        <button type="button" className={styles.picker} style={{ background: valid ? value : 'transparent' }} aria-label={`${label ?? 'Couleur'} : ouvrir le sélecteur`}
+          aria-haspopup="dialog" aria-expanded={picking} onClick={() => { setOpen(false); setPicking((p) => !p); }} />
         <input id={fid} className={styles.hex} value={draft} maxLength={7} spellCheck={false}
           onChange={(e) => setDraft(e.target.value)} onBlur={(e) => commit(e.target.value)}
           onKeyDown={(e) => { if (e.key === 'Enter') commit((e.target as HTMLInputElement).value); }} />
@@ -135,6 +143,12 @@ export function ColorField({ label, value, onChange, background = '#FFFFFF', lev
           Corrigée depuis <span className={styles.mono}>{previous}</span> ·{' '}
           <button type="button" className={styles.undo} onClick={() => { onChange?.(previous); setPrevious(null); }}>Annuler</button>
         </span>
+      )}
+      {picking && (
+        <div className={cx(styles.pop, pickerStyles.popover)} role="dialog" aria-label={label ?? 'Couleur'}>
+          <ColorPicker value={{ type: 'solid', color: valid ? value : '#000000' }} onChange={(f) => { if (f.type === 'solid') { setPrevious(null); onChange?.(f.color); } }}
+            swatches={swatches} onAddSwatch={onAddSwatch} textTone={textTone} onTextToneChange={onTextToneChange} />
+        </div>
       )}
       {open && (
         <div className={styles.pop}>

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { GroupTab } from '../Tabs/Tabs';
 import { ColorField } from '../Contrast/Contrast';
+import { textToneColor, type TextTone } from '../ColorPicker/ColorPicker';
 import { ButtonLink, ButtonGradient } from '../Button/ButtonMisc';
 import { Switch } from '../Choice/Choice';
 import { Icon } from '../Icon/Icon';
@@ -17,18 +18,25 @@ export interface EyebrowSettingsProps {
   onColorChange: (hex: string) => void;
   /** Fond de la slide, pour mesurer le contraste du texte seul. */
   slideBackground?: string;
+  /** Avec fond : texte Clair ou Sombre, choisi dans l'onglet Texte du sélecteur. Sans ce réglage, il suit le fond. */
+  textTone?: TextTone;
+  onTextToneChange?: (t: TextTone) => void;
+  /** « Vos couleurs » du sélecteur. */
+  swatches?: string[];
 }
 
 /** EyebrowSettings (Figma 9832:22834) : réglages du surtitre (« Nouveau ») de l'Annonce : avec ou sans fond, couleur. */
-export function EyebrowSettings({ variant, onVariantChange, color, onColorChange, slideBackground = '#FFFFFF' }: EyebrowSettingsProps) {
+export function EyebrowSettings({ variant, onVariantChange, color, onColorChange, slideBackground = '#FFFFFF', textTone, onTextToneChange, swatches }: EyebrowSettingsProps) {
+  const badge = variant === 'badge';
   return (
     <div className={styles.root}>
       <GroupTab label="Style" value={variant} onChange={(v) => onVariantChange(v as EyebrowStyle)}
         items={[{ value: 'badge', label: 'Avec fond' }, { value: 'text', label: 'Sans fond' }]} />
-      <ColorField label={variant === 'badge' ? 'Couleur du fond' : 'Couleur du texte'} value={color} onChange={onColorChange}
-        background={variant === 'badge' ? '#0D0F11' : slideBackground} hideContrast={variant === 'badge'} />
-      <p className={styles.note}>{variant === 'badge'
-        ? 'Le texte passe en noir ou en blanc selon le fond, pour rester lisible.'
+      <ColorField label={badge ? 'Couleur du fond' : 'Couleur du texte'} value={color} onChange={onColorChange} swatches={swatches}
+        background={badge ? textToneColor[textTone ?? 'dark'] : slideBackground} hideContrast={badge && !onTextToneChange}
+        textTone={badge ? textTone : undefined} onTextToneChange={badge ? onTextToneChange : undefined} />
+      <p className={styles.note}>{badge
+        ? (onTextToneChange ? 'Le texte se règle Clair ou Sombre dans l’onglet Texte du sélecteur.' : 'Le texte passe en noir ou en blanc selon le fond, pour rester lisible.')
         : 'Sans fond, le surtitre prend la couleur choisie : vérifie le contraste avec le fond de la slide.'}</p>
     </div>
   );

@@ -3,6 +3,14 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.40.0 · 23/11/2026
+
+- **ColorPicker** (nouveau, Figma OptionCustomisation `type=bg-color-text-*`) : onglets Fond | Texte quand un texte est posé sur le fond (texte **Clair ou Sombre**, pas de couleur libre) ; Unie | Dégradé (deux couleurs, rotation, animation) ; zone saturation et luminosité, teinte (clavier : flèches, Maj pour aller plus vite) ; code hexa et pipette (navigateurs qui l'acceptent) ; vérification du contraste AA / AAA ; « Vos couleurs » et + ; contour glass Clair | Sombre.
+- **ColorField** : la pastille ouvre le ColorPicker du DS à la place du nuancier du navigateur. Nouvelles props `swatches`, `onAddSwatch`, `textTone`, `onTextToneChange`.
+- **EyebrowSettings** : avec fond, `textTone` / `onTextToneChange` (onglet Texte du sélecteur) ; `swatches`.
+- **OptionItem** : une action sur la ligne (Recadrer, Déplacer, Régler) en Button `primary-outline` `xs` ; Figma `hasButton`.
+- Icônes `color-picker` et `sun-03` (plein et contour).
+
 ## v0.39.0 · 23/11/2026
 
 - **LogoSettings** simplifié, sans aperçu du logo : un interrupteur en tête. Offre gratuite : « Afficher le logo Told » toujours activé, suivi d'un i ; la carte « Marque blanche » s'ouvre en info-bulle au survol ou au focus du i, et au clic sur l'interrupteur (qui ne bouge pas ; Échap ou clic ailleurs pour fermer). Offre payante : « Afficher un logo » ; activé, Told | Le mien ; désactivé, `none`. Figma : LogoSettings, propriété `hasUpsell`.
