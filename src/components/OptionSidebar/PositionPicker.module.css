@@ -1,0 +1,24 @@
+/* PositionPicker : carte blanche, places en points gris, élément visible à la place choisie */
+.labelled { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.label { font: var(--font-weight-medium) var(--body-10-size) / var(--body-10-line-height) var(--font-family-body); letter-spacing: var(--letter-spacing-tight); color: var(--content-muted-default); }
+.grid { box-sizing: border-box; display: inline-grid; grid-template-columns: repeat(3, 40px); grid-auto-rows: 40px; gap: 12px; padding: 12px; width: max-content;
+  border: 1px solid var(--neutral-border-default); border-radius: 12px; background: var(--neutral-surface-default); }
+.empty { width: 40px; height: 40px; }
+.cell { position: relative; display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 4px; background: transparent; cursor: pointer; }
+.cell:focus-visible { outline: 2px solid var(--brand-color-brand); outline-offset: 2px; }
+.dot { width: 16px; height: 16px; border-radius: 50%; background: var(--neutral-border-divider); transition: opacity .12s; }
+.item { position: absolute; inset: 0; display: none; box-sizing: border-box; align-items: center; justify-content: center; flex-direction: column; gap: 3px;
+  border: 1px solid color-mix(in srgb, var(--brand-color-brand) 40%, transparent); border-radius: 4px; background: var(--brand-surface-tint); --item: color-mix(in srgb, var(--brand-color-brand) 40%, transparent); }
+.avatar { border-radius: 50%; }
+.bar { width: 28px; height: 4px; border-radius: 1px; background: var(--item); }
+.body { width: 28px; height: 20px; border-radius: 1px; background: var(--item); }
+.face { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--item); color: var(--paper-default, #fff); }
+/* survol : aperçu pâle ; choisie : élément plein */
+.cell:hover .item, .cell:focus-visible .item { display: flex; }
+.cell:hover .dot, .cell:focus-visible .dot { opacity: 0; }
+.selected .item { display: flex; border-color: var(--brand-color-brand); --item: var(--brand-color-brand); }
+.selected .dot { opacity: 0; }
+.disabled { opacity: .5; }
+.disabled .cell { cursor: not-allowed; }
+.disabled .cell:hover:not(.selected) .item { display: none; }
+.disabled .cell:hover:not(.selected) .dot { opacity: 1; }

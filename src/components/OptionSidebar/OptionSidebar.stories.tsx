@@ -7,6 +7,8 @@ import { Select, DropdownMenu, DropdownItem } from '../Select/Select';
 import { Button } from '../Button/Button';
 import { FormatOptionGroup } from './FormatOption';
 import { GroupTab } from '../Tabs/Tabs';
+import { PositionPicker, type Position } from './PositionPicker';
+import { AvatarSettings, type AvatarFrame, type AvatarShape, type AvatarSize } from './AvatarSettings';
 
 const meta = { title: 'Composants/Panneaux/OptionSidebar', component: OptionSidebar, parameters: { layout: 'padded' } } satisfies Meta<typeof OptionSidebar>;
 export default meta;
@@ -105,6 +107,50 @@ export const ReglageSurLaLigne: StoryObj = {
             </DropdownMenu>
           </div>}
         </>} />
+      </div>
+    );
+  },
+};
+
+export const Positions: StoryObj = {
+  name: 'PositionPicker',
+  render: () => {
+    const [w, setW] = useState<Position>('bottom-right');
+    const [a, setA] = useState<Position>('bottom-left');
+    return (
+      <div style={{ display: 'flex', gap: 40, alignItems: 'flex-start' }}>
+        <PositionPicker label="Position du widget" value={w} onChange={setW} />
+        <PositionPicker label="Position de l’avatar" item="avatar" positions={5} value={a} onChange={setA} />
+      </div>
+    );
+  },
+};
+
+export const ReglagesAvatar: StoryObj = {
+  name: 'AvatarSettings',
+  render: () => {
+    const [on, setOn] = useState(true);
+    const [avatar, setAvatar] = useState('lea');
+    const [position, setPosition] = useState<Position>('bottom-left');
+    const [size, setSize] = useState<AvatarSize>('md');
+    const [shape, setShape] = useState<AvatarShape>('rounded');
+    const [frame, setFrame] = useState<AvatarFrame>('color');
+    const [color, setColor] = useState('#1A63FF');
+    return (
+      <div style={{ width: 360 }}>
+          <OptionItem variant="open" icon="avatar" label="Avatar sur ce slide" toggle={{ checked: on, onChange: setOn, label: 'Avatar sur ce slide' }}>
+            <AvatarSettings
+              avatar={<ChoiceChips aria-label="Avatar" value={avatar} onChange={setAvatar} options={[
+                { value: 'lea', label: 'Léa' },
+                { value: 'hugo', label: 'Hugo' },
+                { value: 'ines', label: 'Inès' }]} />}
+              position={position} onPositionChange={setPosition}
+              size={size} onSizeChange={setSize}
+              shape={shape} onShapeChange={setShape}
+              frame={frame} onFrameChange={setFrame}
+              frameColor={color} onFrameColorChange={setColor}
+            />
+          </OptionItem>
       </div>
     );
   },

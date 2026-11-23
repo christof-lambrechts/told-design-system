@@ -127,3 +127,8 @@ export { InfoCard } from './components/Card/InfoCard';
 export type { InfoCardProps, InfoCardType } from './components/Card/InfoCard';
 export { Alert } from './components/Alert/Alert';
 export type { AlertProps, AlertType } from './components/Alert/Alert';
+// 23/11 : position et réglages de l'avatar (Record), validés dans Figma.
+export { PositionPicker, positionLabels } from './components/OptionSidebar/PositionPicker';
+export type { PositionPickerProps, Position } from './components/OptionSidebar/PositionPicker';
+export { AvatarSettings } from './components/OptionSidebar/AvatarSettings';
+export type { AvatarSettingsProps, AvatarSize as AvatarSettingsSize, AvatarShape, AvatarFrame } from './components/OptionSidebar/AvatarSettings';

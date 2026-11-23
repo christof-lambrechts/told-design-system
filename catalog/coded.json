@@ -133,5 +133,8 @@
   "SelectionCard": "composants-cartes-carte-et-en-tête--menu-canaux",
   "FormatOption": "composants-panneaux-optionsidebar--format-options",
   "InfoCard": "composants-cartes-carte-et-en-tête--bandeaux",
-  "Alert": "composants-statut-et-aide-alert--types"
+  "Alert": "composants-statut-et-aide-alert--types",
+  "PositionPicker": "composants-panneaux-optionsidebar--positions",
+  "_PositionCell": "composants-panneaux-optionsidebar--positions",
+  "AvatarSettings": "composants-panneaux-optionsidebar--reglages-avatar"
 }

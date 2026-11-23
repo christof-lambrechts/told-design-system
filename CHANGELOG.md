@@ -3,6 +3,12 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.29.0 · 23/11/2026
+
+- **PositionPicker** (Figma 9807:117400, page Options) : choix d'une position sur l'écran, générique. Places libres en points gris, la place choisie montre l'élément en plein (contour de marque), le survol le montre en pâle. `positions` 9 (3 × 3) | 5 (4 coins et bas au centre) | liste ; `item` widget | avatar ; `label` au-dessus ; groupe radio, flèches au clavier. Libellés lus : `positionLabels`.
+- **AvatarSettings** (Figma 9808:3487) : contenu du réglage Avatar de l'éditeur Record (dans un `OptionItem variant="open"`) : `avatar` (emplacement pour AvatarPicker ou ChoiceChips), Position (PositionPicker 5, avatar), Taille, Forme, Contour (Aucun, Couleur, Verre clair, Verre sombre), Couleur du contour (ColorField sans contraste, visible avec « Couleur »), note « Ces réglages valent pour tous les slides. ».
+- **ColorField** : libellé au style des options (Medium 11/14, Content/muted), comme Figma.
+
 ## v0.28.0 · 21/11/2026
 
 - **Alert** (Figma 6259:87310, page Alert validée) : message dans le contenu (carte, panneau, sous un champ) : `type` brand, warning, error, success, neutral, neutral-light, neutral-dark ; `size` lg | sm ; titre, description, `actionText` + `onAction` (lien), `actions` (boutons), `onClose`. À ne pas confondre avec **Banner** (bandeau pleine largeur en haut d'une page).

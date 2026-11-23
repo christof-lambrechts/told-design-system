@@ -1,0 +1,5 @@
+.root { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.group { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.label { font: var(--font-weight-medium) var(--body-10-size) / var(--body-10-line-height) var(--font-family-body); letter-spacing: var(--letter-spacing-tight); color: var(--content-muted-default); }
+.note { margin: 0; font: var(--font-weight-regular, 400) var(--body-12-size, 12px) / var(--body-12-line-height, 18px) var(--font-family-body); color: var(--content-muted-default); }
