@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.34.0 · 23/11/2026
+
+- **ProUpsellCard** (Figma 9835:6785) : encart Told Pro (carte sombre, titre « Marque blanche » avec badge, phrase, ButtonGradient « Essayez Told Pro »), repris de la carte du widget Told. LogoSettings l'utilise en offre gratuite (`onUpgrade`).
+
 ## v0.33.0 · 23/11/2026
 
 - **ChoiceField** : choix d'un réglage selon la règle des panneaux : 3 choix ou moins en texte → GroupTab, sinon ChoiceChips. Utilisé par AvatarSettings (Taille, Forme en onglets) et MediaFrameSettings (Appareil mobile, Ombre en onglets).

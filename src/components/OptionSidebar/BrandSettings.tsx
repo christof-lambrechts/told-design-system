@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
 import { GroupTab } from '../Tabs/Tabs';
 import { ColorField } from '../Contrast/Contrast';
-import { ButtonLink } from '../Button/ButtonMisc';
+import { ButtonLink, ButtonGradient } from '../Button/ButtonMisc';
 import { Logo } from '../Logo/Logo';
+import { Icon } from '../Icon/Icon';
 import styles from './BrandSettings.module.css';
 
 export type EyebrowStyle = 'badge' | 'text';
@@ -53,10 +54,7 @@ export function LogoSettings({ plan, value, onChange, customLogo, kitName = 'Kit
     return (
       <div className={styles.root}>
         <div className={styles.row}><Logo size="sm" aria-hidden="true" /><span>Logo Told affiché en bas de la slide</span></div>
-        <div className={styles.upsell}>
-          <p>Avec l’offre Pro, retire le logo ou mets le tien (kit de marque).</p>
-          {onUpgrade && <ButtonLink iconRight={null} padding={false} onClick={onUpgrade}>Voir les offres</ButtonLink>}
-        </div>
+        <ProUpsellCard title="Marque blanche" description="✨ Retire le logo Told de tes démos et mets le tien avec Told Pro." onAction={onUpgrade} />
       </div>
     );
   }
@@ -93,6 +91,27 @@ export function OptionContextHeader({ title, hint = 'Sélectionné sur la slide 
         <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8.3 6.3a1 1 0 0 1 1.4 1.4L6.4 11H20a1 1 0 1 1 0 2H6.4l3.3 3.3a1 1 0 0 1-1.4 1.4l-5-5a1 1 0 0 1 0-1.4l5-5Z" /></svg>
       </button>
       <span className={styles.contextText}><strong>{title}</strong>{hint && <span>{hint}</span>}</span>
+    </div>
+  );
+}
+
+export interface ProUpsellCardProps {
+  title: ReactNode;
+  description: ReactNode;
+  actionLabel?: string;
+  onAction?: () => void;
+}
+
+/** ProUpsellCard (Figma 9835:6785) : encart de montée en offre Told Pro (carte sombre, titre avec badge, phrase, ButtonGradient). Repris de la carte « Marque blanche » du widget Told. */
+export function ProUpsellCard({ title, description, actionLabel = 'Essayez Told Pro', onAction }: ProUpsellCardProps) {
+  return (
+    <div className={styles.pro}>
+      <span className={styles.proTitle}>
+        <Icon name="new-releases" size={16} aria-hidden="true" />
+        {title}
+      </span>
+      <p>{description}</p>
+      {onAction && <ButtonGradient size="md" onClick={onAction} className={styles.proButton}>{actionLabel}</ButtonGradient>}
     </div>
   );
 }

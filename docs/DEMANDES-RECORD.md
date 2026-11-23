@@ -32,7 +32,7 @@ Il remplace le document de projet `claude/V3-demandes-ds-record.md` (23/11/2026)
 
 ## Version told-ds v0.27.0 (21/11) : ce qu'il faut reprendre dans Record
 
-- **23/11 (15 h 30) : told-ds v0.33.0** : `ChoiceField`, `EyebrowSettings`, `LogoSettings`, `OptionContextHeader`. À appliquer : **D-038**, **D-039**, **D-040**.
+- **23/11 (15 h 30) : told-ds v0.34.0** (ProUpsellCard) et **v0.33.0** : `ChoiceField`, `EyebrowSettings`, `LogoSettings`, `OptionContextHeader`. À appliquer : **D-038**, **D-039**, **D-040**.
 - **23/11 (15 h) : told-ds v0.32.0** : MediaFrameSettings `slideOrientation` (vertical = pas d'ordinateur, tablette en portrait), `captureZoom` (zoom de la capture dans l'écran), `allowedMediaFrames` ; icône `tablet-01`. À appliquer : **D-036**, puis **D-037** (proposition, plan à valider par Jonathan).
 - **23/11 (après-midi) : told-ds v0.30.0** : `MediaFrameSettings`, `MediaCropSettings`, PositionPicker `item="media"`. À appliquer : **D-034**, **D-035**.
 - **23/11 : told-ds v0.29.0** (commit `5bf53a8`). Branche **christof** passée en v0.29.0 (f2ad57c, 688 tests OK) ; **PR n° 68** (chore/design-system, main fusionné, 698 tests OK) à fusionner par Jonathan. Nouveautés : `PositionPicker`, `AvatarSettings`, libellé de ColorField. À appliquer : **D-031**, **D-032**, **D-033**.
@@ -510,7 +510,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Sens : demande du DS vers Record (panneau Options, kit de marque, lecteur, offres).
 - Référence Figma : **LogoSettings** (`9832:22916`, page Options).
 - En code (told-ds v0.33.0) : `OptionItem icon="brand-kit" label="Logo" pro={plan === 'free'}` + `<LogoSettings plan value onChange customLogo onOpenBrandKit onUpgrade>` :
-  - **offre gratuite** : logo Told imposé, non désactivable ; encart « Avec l'offre Pro, retire le logo ou mets le tien » + « Voir les offres » ;
+  - **offre gratuite** : logo Told imposé, non désactivable ; encart **ProUpsellCard** « Marque blanche » + « Essayez Told Pro » (v0.34.0, comme la carte du widget Told) ;
   - **offre payante** : Told | Le mien (logo du kit de marque ; sans logo dans le kit : « Ajouter mon logo au kit ») | Aucun.
 - **Sécurité** : l'offre se vérifie côté serveur (et en base, RLS ou contrôle de l'API de publication) : une démo d'une organisation en offre gratuite garde toujours le logo Told dans le lecteur, l'embed et la vidéo, même si le réglage est modifié à la main. Le logo du client vient du stockage du kit de marque (privé, URL signée).
 - Format de démo : `settings.brandLogo = 'told' | 'custom' | 'none'` (défaut `told`).

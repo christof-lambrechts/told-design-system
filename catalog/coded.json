@@ -141,5 +141,6 @@
   "MediaCropSettings": "composants-panneaux-optionsidebar--reglages-media",
   "EyebrowSettings": "composants-panneaux-optionsidebar--selon-la-selection",
   "LogoSettings": "composants-panneaux-optionsidebar--selon-la-selection",
-  "OptionContextHeader": "composants-panneaux-optionsidebar--selon-la-selection"
+  "OptionContextHeader": "composants-panneaux-optionsidebar--selon-la-selection",
+  "ProUpsellCard": "composants-panneaux-optionsidebar--selon-la-selection"
 }

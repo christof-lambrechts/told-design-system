@@ -136,5 +136,5 @@ export { MediaFrameSettings, MediaCropSettings, mediaDevices, mediaShadows, allo
 export type { MediaFrameSettingsProps, MediaCropSettingsProps, MediaFrameKind, MediaDeviceOption, MediaOrientation, MediaShadow } from './components/OptionSidebar/MediaSettings';
 export { ChoiceField } from './components/OptionSidebar/ChoiceField';
 export type { ChoiceFieldProps } from './components/OptionSidebar/ChoiceField';
-export { EyebrowSettings, LogoSettings, OptionContextHeader } from './components/OptionSidebar/BrandSettings';
-export type { EyebrowSettingsProps, EyebrowStyle, LogoSettingsProps, BrandLogoChoice, OptionContextHeaderProps } from './components/OptionSidebar/BrandSettings';
+export { EyebrowSettings, LogoSettings, OptionContextHeader, ProUpsellCard } from './components/OptionSidebar/BrandSettings';
+export type { EyebrowSettingsProps, EyebrowStyle, LogoSettingsProps, BrandLogoChoice, OptionContextHeaderProps, ProUpsellCardProps } from './components/OptionSidebar/BrandSettings';

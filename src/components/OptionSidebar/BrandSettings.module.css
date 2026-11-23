@@ -13,3 +13,7 @@
 .contextText { display: flex; flex-direction: column; min-width: 0; }
 .contextText strong { font-size: var(--body-14-size); line-height: var(--body-14-line-height); font-weight: var(--font-weight-semibold); color: var(--content-default-default); }
 .contextText span { font-size: var(--body-12-size); line-height: var(--body-12-line-height); color: var(--content-muted-default); }
+.pro { display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: 12px; background: var(--neutral-surface-inverse); color: var(--inverse-content-default-default, #fff); }
+.proTitle { display: flex; align-items: center; gap: 8px; font-size: var(--body-14-size); line-height: var(--body-14-line-height); font-weight: var(--font-weight-semibold); }
+.pro p { margin: 0; font-size: var(--body-12-size); line-height: var(--body-12-line-height); color: var(--inverse-content-subtle-default, rgb(255 255 255 / 72%)); }
+.proButton { width: 100%; justify-content: center; margin-top: 4px; }
