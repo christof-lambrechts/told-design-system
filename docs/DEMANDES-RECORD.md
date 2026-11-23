@@ -403,7 +403,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 
 ### D-032 · Mockups photoréalistes pour le média de l'Annonce (23/11, demandé par Christof)
 - Sens : demande du DS vers Record (lecteur `packages/player`, `frame.ts`, et choix du cadre dans l'éditeur).
-- Référence Figma : **DeviceMockup** (`9814:1408`, page RecordPlayer), photos Mockuuups Studio : `device=android` (pink, navy, silver, mint), `iphone` (black, silver, plum, blue), `imac`, `display` (Pro Display), `macbook` (space-gray, silver). Les cadres dessinés (MediaFrame : none, browser, laptop, phone) restent.
+- Référence Figma : **DeviceMockup** (`9814:1408`, page RecordPlayer), photos Mockuuups Studio sans ombre : `device=android` (pink, navy, silver, mint), `iphone` (black, silver, plum, blue), `tablet` (gray, black ; `orientation` portrait | landscape), `macbook` (space-gray, silver), `imac` (silver, yellow, blue, green, orange, purple, pink), `display` (Pro Display) ; `hasShadow` (ombre ajoutée en code, D-034). Les cadres dessinés (MediaFrame : none, browser, laptop, phone) restent.
 - Principe : la photo de l'appareil, puis l'écran (zone en %, coins arrondis, `overflow: hidden`) avec la capture ou la vidéo en `object-fit: cover`, puis **la même photo par-dessus en `mix-blend-mode: darken`** (`pointer-events: none`) : le blanc de l'écran laisse voir la vidéo, l'encoche, la caméra et le cadre restent visibles.
 - Zones d'écran (en % de l'image ; rayon en % de la largeur) :
 
@@ -411,10 +411,12 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
   | --- | --- | --- | --- | --- | --- |
   | android | 3,00 | 1,45 | 93,33 | 96,95 | 9,1 |
   | iphone | 4,33 | 1,78 | 91,33 | 96,45 | 14,8 |
-  | imac | 2,67 | 2,46 | 94,67 | 48,92 | 0 |
-  | display | 1,33 | 1,36 | 97,33 | 55,59 | 0 |
+  | imac (sans ombre, 23/11) | 2,50 | 2,97 | 95,00 | 63,50 | 0 |
+  | display (sans ombre, 23/11) | 1,50 | 2,02 | 97,00 | 73,40 | 0 |
+  | tablet gray (paysage) | 3,75 | 5,54 | 92,25 | 89,27 | 1,7 |
+  | tablet black (paysage) | 4,00 | 5,54 | 92,25 | 89,27 | 1,7 |
   | macbook | 9,00 | 2,19 | 81,67 | 86,34 | 1,1 |
-- Formats : téléphones ≈ 9:19,5 (une vidéo 9:16 est rognée en haut et en bas), iMac et Pro Display 16:9, MacBook 16:10.
+- Formats : téléphones ≈ 9:19,5 (une vidéo 9:16 est rognée en haut et en bas), iMac et Pro Display 16:9, MacBook 16:10, iPad ≈ 4:3 (tourné en portrait : rotate(-90deg) sur l'appareil, la capture reste droite).
 - Images : à exporter depuis Figma en WebP (fond transparent), largeur 1600 au plus ; à fournir par la conversation DS si besoin. Licence Mockuuups à vérifier par Christof avant diffusion publique.
 - Priorité : confort
 - Statut : validé Figma (à confirmer par Christof), à appliquer dans Record
@@ -438,14 +440,15 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 ### D-034 · Cadre du média : picto et choix Aucun / Mobile / Ordinateur (23/11, demandé par Christof)
 - Sens : demande du DS vers Record (panneau Options de l'Annonce, et format de démo).
 - Constat : la section « Cadre du média » n'a pas de picto, et propose 6 pastilles à plat (Cadre du kit, Android, iPhone, iMac, Écran, MacBook) puis les coloris.
-- Référence Figma : **MediaFrameSettings** (`9825:6304`, page `🧩 Molécules / Options`), `frame=none | mobile | desktop`.
+- Référence Figma : **MediaFrameSettings** (`9828:6305`, page `🧩 Molécules / Options`), `frame=none | mobile | tablet | desktop`.
 - En code (told-ds v0.30.0) :
   - `OptionItem variant="open" icon="device" label="Cadre du média"` (picto IconBoxedColor `device`) ;
-  - contenu `<MediaFrameSettings kind device finish …>` : Cadre **Aucun | Mobile | Ordinateur** (GroupTab avec libellé), puis Appareil, puis Coloris seulement pour les photos ; la liste par défaut est `mediaDevices` :
+  - contenu `<MediaFrameSettings kind device finish orientation shadow …>` (v0.31.0) : Cadre **Aucun | Mobile | Tablette | Ordinateur** (GroupTab avec libellé), puis Appareil (ou Orientation Portrait | Paysage pour la tablette), Coloris et **Ombre** (Aucune | Douce | Marquée) seulement pour les photos ; la liste par défaut est `mediaDevices` :
     - Mobile : Simple (cadre dessiné `phone`), Android (4 coloris), iPhone (4 coloris) ;
-    - Ordinateur : Navigateur (cadre `browser`), Portable (cadre `laptop`), iMac, Écran (Pro Display), MacBook (2 coloris) ;
+    - Tablette : iPad (gris, noir), portrait ou paysage (en portrait, l'image de l'appareil est tournée d'un quart de tour, la zone d'écran suit) ;
+    - Ordinateur : Navigateur (cadre `browser`), Portable (cadre `laptop`), iMac (7 coloris), Écran (Pro Display), MacBook (2 coloris) ;
   - « Aucun » = la capture seule, avec l'arrondi du kit (ex-« Cadre du kit »).
-- Format de démo : `media.frame = { kind: 'none' | 'mobile' | 'desktop', device?, finish? }`. Rendu des photos : D-032.
+- Format de démo : `media.frame = { kind: 'none' | 'mobile' | 'tablet' | 'desktop', device?, finish?, orientation?, shadow? }`. Rendu des photos : D-032 ; ombre : `filter` de `mediaShadows` sur l'image de l'appareil.
 - Priorité : important
 - Statut : **codé told-ds v0.30.0**, à appliquer dans Record
 - Réponse Record :

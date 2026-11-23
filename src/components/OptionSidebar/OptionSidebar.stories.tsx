@@ -8,7 +8,7 @@ import { Button } from '../Button/Button';
 import { FormatOptionGroup } from './FormatOption';
 import { GroupTab } from '../Tabs/Tabs';
 import { PositionPicker, type Position } from './PositionPicker';
-import { MediaFrameSettings, MediaCropSettings, type MediaFrameKind } from './MediaSettings';
+import { MediaFrameSettings, MediaCropSettings, type MediaFrameKind, type MediaOrientation, type MediaShadow } from './MediaSettings';
 import { AvatarSettings, type AvatarFrame, type AvatarShape, type AvatarSize } from './AvatarSettings';
 
 const meta = { title: 'Composants/Panneaux/OptionSidebar', component: OptionSidebar, parameters: { layout: 'padded' } } satisfies Meta<typeof OptionSidebar>;
@@ -160,16 +160,20 @@ export const ReglagesAvatar: StoryObj = {
 export const ReglagesMedia: StoryObj = {
   name: 'Cadre et cadrage du média',
   render: () => {
-    const [kind, setKind] = useState<MediaFrameKind>('mobile');
-    const [device, setDevice] = useState('android');
-    const [finish, setFinish] = useState('pink');
+    const [kind, setKind] = useState<MediaFrameKind>('tablet');
+    const [orientation, setOrientation] = useState<MediaOrientation>('portrait');
+    const [shadow, setShadow] = useState<MediaShadow>('soft');
+    const [device, setDevice] = useState('tablet');
+    const [finish, setFinish] = useState('gray');
     const [zoom, setZoom] = useState(1.8);
     const [anchor, setAnchor] = useState<Position>('bottom-right');
     return (
       <div style={{ display: 'flex', gap: 24, alignItems: 'flex-start' }}>
         <div style={{ width: 360 }}>
           <OptionItem variant="open" icon="device" label="Cadre du média" value={device}>
-            <MediaFrameSettings kind={kind} onKindChange={(k) => { setKind(k); setDevice(k === 'desktop' ? 'macbook' : 'android'); }} device={device} onDeviceChange={setDevice} finish={finish} onFinishChange={setFinish} />
+            <MediaFrameSettings kind={kind} onKindChange={(k) => { setKind(k); setDevice(({ desktop: 'imac', tablet: 'tablet', mobile: 'android', none: '' } as const)[k]); setFinish(''); }}
+              device={device} onDeviceChange={(d) => { setDevice(d); setFinish(''); }} finish={finish || undefined} onFinishChange={setFinish}
+              orientation={orientation} onOrientationChange={setOrientation} shadow={shadow} onShadowChange={setShadow} />
           </OptionItem>
         </div>
         <div style={{ width: 360 }}>

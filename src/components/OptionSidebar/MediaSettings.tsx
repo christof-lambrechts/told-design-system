@@ -6,7 +6,16 @@ import { ButtonLink } from '../Button/ButtonMisc';
 import { PositionPicker, type Position } from './PositionPicker';
 import styles from './AvatarSettings.module.css';
 
-export type MediaFrameKind = 'none' | 'mobile' | 'desktop';
+export type MediaFrameKind = 'none' | 'mobile' | 'tablet' | 'desktop';
+export type MediaOrientation = 'portrait' | 'landscape';
+export type MediaShadow = 'none' | 'soft' | 'strong';
+
+/** Ombre ajoutée en code sous la photo de l'appareil (les photos n'en ont pas) : `filter` CSS à poser sur l'image de l'appareil. */
+export const mediaShadows: Record<MediaShadow, string> = {
+  none: 'none',
+  soft: 'drop-shadow(0 0 40px rgb(15 20 31 / 22%))',
+  strong: 'drop-shadow(0 24px 48px rgb(15 20 31 / 35%))',
+};
 
 export interface MediaDeviceOption { value: string; label: string; /** Coloris proposés pour ce modèle (photos) ; absent = pas de coloris. */ finishes?: { value: string; label: string; color: string }[] }
 
@@ -21,10 +30,18 @@ export const mediaDevices: Record<Exclude<MediaFrameKind, 'none'>, MediaDeviceOp
       { value: 'black', label: 'Noir', color: '#35323A' }, { value: 'silver', label: 'Argent', color: '#D6D6D6' },
       { value: 'plum', label: 'Prune', color: '#7A4B52' }, { value: 'blue', label: 'Bleu', color: '#C9D3E2' }] },
   ],
+  tablet: [
+    { value: 'tablet', label: 'iPad', finishes: [
+      { value: 'gray', label: 'Gris', color: '#67676A' }, { value: 'black', label: 'Noir', color: '#262626' }] },
+  ],
   desktop: [
     { value: 'browser', label: 'Navigateur' },
     { value: 'laptop', label: 'Portable' },
-    { value: 'imac', label: 'iMac' },
+    { value: 'imac', label: 'iMac', finishes: [
+      { value: 'silver', label: 'Argent', color: '#BDBEC0' }, { value: 'yellow', label: 'Jaune', color: '#E3BC6E' },
+      { value: 'blue', label: 'Bleu', color: '#ABBFD2' }, { value: 'green', label: 'Vert', color: '#A6C6BA' },
+      { value: 'orange', label: 'Orange', color: '#F8B09A' }, { value: 'purple', label: 'Violet', color: '#BAB8E2' },
+      { value: 'pink', label: 'Rose', color: '#E3B3AB' }] },
     { value: 'display', label: 'Écran' },
     { value: 'macbook', label: 'MacBook', finishes: [
       { value: 'space-gray', label: 'Gris sidéral', color: '#3A3B3F' }, { value: 'silver', label: 'Argent', color: '#C8C9CC' }] },
@@ -38,6 +55,12 @@ export interface MediaFrameSettingsProps {
   onDeviceChange?: (d: string) => void;
   finish?: string;
   onFinishChange?: (f: string) => void;
+  /** Tablette : portrait ou paysage. */
+  orientation?: MediaOrientation;
+  onOrientationChange?: (o: MediaOrientation) => void;
+  /** Ombre sous l'appareil (photos seulement) : rendu avec `mediaShadows`. */
+  shadow?: MediaShadow;
+  onShadowChange?: (s: MediaShadow) => void;
   /** Modèles proposés ; `mediaDevices` par défaut. */
   devices?: typeof mediaDevices;
   /** Phrase sous les réglages ; `false` pour la masquer. Par défaut, elle dit comment la capture est rognée. */
@@ -48,19 +71,24 @@ export interface MediaFrameSettingsProps {
 const NOTES: Record<MediaFrameKind, string> = {
   none: 'La capture s’affiche seule, avec l’arrondi du kit.',
   mobile: 'La capture remplit l’écran : une capture d’ordinateur est rognée sur les côtés.',
+  tablet: 'En portrait, une capture d’ordinateur est rognée sur les côtés.',
   desktop: 'La capture remplit l’écran du modèle choisi.',
 };
 
-/** MediaFrameSettings (Figma 9825:6304) : contenu du réglage « Cadre du média » de l'Annonce Record (OptionItem ouvert, picto `device`). Cadre Aucun | Mobile | Ordinateur, puis Appareil et Coloris. */
-export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange, finish, onFinishChange, devices = mediaDevices, note, disabled }: MediaFrameSettingsProps) {
+/** MediaFrameSettings (Figma 9828:6305) : contenu du réglage « Cadre du média » de l'Annonce Record (OptionItem ouvert, picto `device`). Cadre Aucun | Mobile | Tablette | Ordinateur, puis Appareil (ou Orientation pour la tablette), Coloris et Ombre. */
+export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange, finish, onFinishChange, orientation = 'portrait', onOrientationChange, shadow = 'soft', onShadowChange, devices = mediaDevices, note, disabled }: MediaFrameSettingsProps) {
   const id = useId();
   const list = kind === 'none' ? [] : devices[kind];
   const current = list.find((d) => d.value === device) ?? list[0];
   return (
     <div className={styles.root}>
       <GroupTab label="Cadre" value={kind} onChange={(v) => onKindChange(v as MediaFrameKind)}
-        items={[{ value: 'none', label: 'Aucun' }, { value: 'mobile', label: 'Mobile' }, { value: 'desktop', label: 'Ordinateur' }]} />
-      {kind !== 'none' && (
+        items={[{ value: 'none', label: 'Aucun' }, { value: 'mobile', label: 'Mobile' }, { value: 'tablet', label: 'Tablette' }, { value: 'desktop', label: 'Ordinateur' }]} />
+      {kind === 'tablet' && (
+        <GroupTab label="Orientation" value={orientation} onChange={(v) => onOrientationChange?.(v as MediaOrientation)}
+          items={[{ value: 'portrait', label: 'Portrait' }, { value: 'landscape', label: 'Paysage' }]} />
+      )}
+      {kind !== 'none' && list.length > 1 && (
         <div className={styles.field}>
           <span id={`${id}-device`} className={styles.label}>Appareil</span>
           <ChoiceChips aria-labelledby={`${id}-device`} disabled={disabled} value={current?.value ?? ''} onChange={(v) => onDeviceChange?.(v)}
@@ -72,6 +100,13 @@ export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange,
           <span id={`${id}-finish`} className={styles.label}>Coloris</span>
           <ChoiceChips aria-labelledby={`${id}-finish`} disabled={disabled} value={finish ?? current.finishes[0].value} onChange={(v) => onFinishChange?.(v)}
             options={current.finishes.map((f) => ({ value: f.value, label: f.label, color: f.color }))} />
+        </div>
+      )}
+      {current?.finishes && (
+        <div className={styles.field}>
+          <span id={`${id}-shadow`} className={styles.label}>Ombre</span>
+          <ChoiceChips aria-labelledby={`${id}-shadow`} disabled={disabled} value={shadow} onChange={(v) => onShadowChange?.(v as MediaShadow)}
+            options={[{ value: 'none', label: 'Aucune' }, { value: 'soft', label: 'Douce' }, { value: 'strong', label: 'Marquée' }]} />
         </div>
       )}
       {note !== false && <p className={styles.note}>{note ?? NOTES[kind]}</p>}

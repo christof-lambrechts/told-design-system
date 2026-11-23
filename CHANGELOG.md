@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.31.0 · 23/11/2026
+
+- **MediaFrameSettings** : cadre **Tablette** (iPad gris ou noir, Orientation Portrait | Paysage) ; iMac en 7 coloris ; réglage **Ombre** Aucune | Douce | Marquée pour les appareils photo (les photos n'ont plus d'ombre) ; rendu de l'ombre : `mediaShadows` (filtre CSS `drop-shadow` sur l'image de l'appareil).
+
 ## v0.30.0 · 23/11/2026
 
 - **MediaFrameSettings** (Figma 9825:6304) : contenu du réglage « Cadre du média » de l'Annonce Record (OptionItem ouvert, picto `device`). Cadre Aucun | Mobile | Ordinateur (GroupTab), Appareil (Simple, Android, iPhone ; Navigateur, Portable, iMac, Écran, MacBook), Coloris pour les photos. Liste par défaut : `mediaDevices`.
