@@ -51,9 +51,11 @@ export interface RewardBlockProps {
   actionLabel?: string;
   onAction?: () => void;
   href?: string;
+  /** `dark` : boutons posés sur la photo (couverture en slide et en vertical). */
+  surface?: 'default' | 'dark';
 }
 
-export function RewardBlock({ type, title, description, code, condition, actionLabel = 'Récupérer mon cadeau', onAction, href }: RewardBlockProps) {
+export function RewardBlock({ type, title, description, code, condition, actionLabel = 'Récupérer mon cadeau', onAction, href, surface = 'default' }: RewardBlockProps) {
   const [copied, setCopied] = useState(false);
   const copy = async () => {
     if (!code) return;
@@ -68,13 +70,13 @@ export function RewardBlock({ type, title, description, code, condition, actionL
       {type === 'code' && code && (
         <div className={styles.codeRow}>
           <output className={styles.code} aria-label="Code de réduction">{code}</output>
-          <WidgetButton variant="secondary" iconLeft={copied ? 'tick-02' : undefined} onClick={copy} aria-live="polite">{copied ? 'Copié' : 'Copier'}</WidgetButton>
+          <WidgetButton variant="secondary" surface={surface} iconLeft={copied ? 'tick-02' : undefined} onClick={copy} aria-live="polite">{copied ? 'Copié' : 'Copier'}</WidgetButton>
         </div>
       )}
       {type === 'code' && condition && <span className={styles.condition}>{condition}</span>}
       {type === 'link' && (href
-        ? <a href={href} className={styles.actionLink}><WidgetButton tabIndex={-1} className={styles.actionBtn}>{actionLabel}</WidgetButton></a>
-        : <WidgetButton onClick={onAction} className={styles.actionBtn}>{actionLabel}</WidgetButton>)}
+        ? <a href={href} className={styles.actionLink}><WidgetButton tabIndex={-1} surface={surface} className={styles.actionBtn}>{actionLabel}</WidgetButton></a>
+        : <WidgetButton onClick={onAction} surface={surface} className={styles.actionBtn}>{actionLabel}</WidgetButton>)}
     </div>
   );
 }
@@ -172,12 +174,13 @@ export function StartScreen(props: ScreenProps) {
 
 /** EndScreen : écran de fin commun. Message, 1 à 3 boutons, récompense, points clés, compte à rebours, réseaux sociaux. */
 export function EndScreen({ reward, keyPoints, countdown, social, ...props }: EndScreenProps) {
+  const dark = props.layout === 'cover' && props.context !== 'widget';
   return (
     <Screen kind="end" {...props}>
       {keyPoints && keyPoints.length > 0 && (
         <ul className={styles.keyPoints}>{keyPoints.map((k, i) => <li key={i}><Icon name="tick-02" size={16} aria-hidden="true" />{k}</li>)}</ul>
       )}
-      {reward && <RewardBlock {...reward} />}
+      {reward && <RewardBlock surface={dark ? 'dark' : 'default'} {...reward} />}
       {countdown && <Countdown {...countdown} />}
       {social && social.length > 0 && <SocialLinks links={social} />}
     </Screen>
