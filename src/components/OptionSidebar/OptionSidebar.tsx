@@ -79,9 +79,10 @@ export interface OptionItemProps {
   /** Lien d'action à droite (« Sélectionner », « Recadrer »). */
   onAction?: () => void;
   /**
-   * Réglage court posé directement sur la ligne (hasControl, 21/11), ex. Durée « Auto · 3 s » :
-   * Button neutre secondary-outline md + chevron qui ouvre un DropdownMenu. Avec `variant="row"`, sans `value` :
+   * Réglage court posé directement sur la ligne (hasControl, 21/11). Avec `variant="row"`, sans `value` :
    * pas de badge ni de dépliage, on gagne un clic.
+   * - Une valeur à choisir (Durée « Auto · 3 s ») : Button neutre secondary-outline md + chevron, qui ouvre un DropdownMenu.
+   * - Une action (« Recadrer », « Déplacer », « Régler », « Changer de page ») : Button primary-outline xs (23/11), comme « Modifier ».
    */
   control?: ReactNode;
   /** Interrupteur à droite (hasToggle). `disabled` : lecture seule ou réglage tenu par un collègue. */

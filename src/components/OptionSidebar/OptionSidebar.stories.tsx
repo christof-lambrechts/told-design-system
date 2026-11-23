@@ -92,7 +92,7 @@ export const FormatOptions: StoryObj = {
   },
 };
 
-/** Réglage court sur la ligne (hasControl, 21/11) : la liste s'ouvre en place, sans badge ni dépliage. */
+/** Réglage court sur la ligne (hasControl, 21/11) : la liste s'ouvre en place, sans badge ni dépliage. Une action sur la ligne (Recadrer) : Button primary-outline xs. */
 export const ReglageSurLaLigne: StoryObj = {
   name: 'Réglage sur la ligne',
   render: () => {
@@ -109,6 +109,7 @@ export const ReglageSurLaLigne: StoryObj = {
             </DropdownMenu>
           </div>}
         </>} />
+        <OptionItem variant="row" icon="crop" label="Cadrage du média" control={<Button variant="primary-outline" size="xs">Recadrer</Button>} />
       </div>
     );
   },
