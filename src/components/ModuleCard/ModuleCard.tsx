@@ -90,12 +90,15 @@ export function FlowDivider({ kind, label }: { kind: 'start' | 'end' | 'content'
   );
 }
 
-/** InsertBar (8199:6014) : « + » et trait fin entre deux blocs. */
+/** InsertBar (8199:6014) : trait fin entre deux blocs et bouton d'ajout, contour gris et texte bleu (23/11). `compact` : le « + » seul. */
 /** Entre deux slides de StepList (D-020) : `label="Insérer une slide"` ; `dropTarget` pendant un glisser. */
-export function InsertBar({ onInsert, dropTarget, label = 'Insérer un bloc' }: { onInsert?: () => void; dropTarget?: boolean; label?: string }) {
+export function InsertBar({ onInsert, dropTarget, label = 'Insérer un bloc', compact }: { onInsert?: () => void; dropTarget?: boolean; label?: string; compact?: boolean }) {
   return (
     <div className={cx(styles.insert, dropTarget && styles.insertActive)}>
-      <button type="button" className={styles.insertBtn} onClick={onInsert} aria-label={label} title={label}><Icon name="add-01" size={10} /></button>
+      <span className={styles.insertLine} />
+      <button type="button" className={cx(styles.insertBtn, compact && styles.insertCompact)} onClick={onInsert} aria-label={compact ? label : undefined} title={compact ? label : undefined}>
+        <Icon name="add-01" size={12} aria-hidden="true" />{!compact && <span>{label}</span>}
+      </button>
       <span className={styles.insertLine} />
     </div>
   );

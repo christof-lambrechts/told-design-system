@@ -23,10 +23,14 @@
 .divider { display: flex; align-items: center; gap: 6px; width: 248px; padding: 4px 4px 0; color: var(--content-subtle-default); font-family: var(--font-family-body); font-size: 12px; line-height: 18px; font-weight: var(--font-weight-semibold); }
 .line { flex: 1; height: 1px; background: var(--neutral-border-default); }
 
-.insert { display: flex; align-items: center; width: 248px; height: 16px; --c: #3366ff; opacity: 0; transition: opacity var(--duration-fast); }
+.insert { display: flex; align-items: center; gap: 6px; width: 248px; height: 24px; --c: var(--content-brand-default-on-light, #3366ff); opacity: 0; transition: opacity var(--duration-fast); }
 .insert:hover, .insert:focus-within, .insertActive { opacity: 1; }
-.insertBtn { all: unset; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 8px; border: 1px solid var(--c); background: var(--neutral-surface-default); color: var(--c); cursor: pointer; }
-.insertLine { flex: 1; height: 1px; background: var(--c); }
+.insertBtn { all: unset; box-sizing: border-box; flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; height: 24px; padding: 0 8px; border-radius: 8px; border: 1px solid var(--neutral-border-default); background: var(--neutral-surface-default); color: var(--c); font: var(--font-weight-semibold) 12px / 16px var(--font-family-body); letter-spacing: var(--letter-spacing-tight); white-space: nowrap; cursor: pointer; }
+.insertBtn:hover { background: var(--neutral-surface-muted); }
+.insertBtn:focus-visible { box-shadow: var(--focus-ring); }
+.insertCompact { width: 24px; padding: 0; }
+.insertLine { flex: 1; height: 1px; background: var(--neutral-border-default); }
+.insert:hover .insertLine, .insert:focus-within .insertLine, .insertActive .insertLine { background: var(--c); }
 .insertActive .insertLine { height: 2px; }
 .drop { box-sizing: border-box; display: flex; align-items: center; justify-content: center; width: 248px; height: 60px; border-radius: 10px;
   background: var(--brand-surface-muted); border: 1.5px dashed var(--brand-border-selected); color: var(--content-brand-default-on-light); font-family: var(--font-family-body); font-size: 12px; line-height: 18px; font-weight: var(--font-weight-medium); }

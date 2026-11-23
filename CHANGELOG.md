@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.42.0 · 23/11/2026
+
+- **InsertBar** : bouton d'ajout au contour gris et texte bleu, avec son libellé visible (« + Ajouter une slide ») entre deux traits gris, bleus au survol ; `compact` pour le « + » seul. Figma : propriétés `label` et `hasLabel`.
+
 ## v0.41.0 · 23/11/2026
 
 - **MediaFrameSettings** : réglage **Position** (`placement`, `onPlacementChange`) : Avec marge (`inset`) | À droite, ou En bas en Annonce verticale (`edge`) | Dans le coin (`corner`). Type `MediaPlacement`.
