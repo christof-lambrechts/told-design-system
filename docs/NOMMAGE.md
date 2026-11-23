@@ -39,6 +39,9 @@ Figma a été renommé ; les instances des maquettes restent liées. Dans le cod
 | `OptionCard` (21/11) | SwitchOptionCard | | ligne d'option à fond gris et interrupteur (Diffuser). Codé v0.23.0 (`toggle` ou `control`, contenu en `children`) |
 | `PositionPicker` (23/11) | position (ancien composant de OptionItem type=position), Widget position | | choix de position, points gris ; `item` widget \| avatar, `positions` 9 \| 5. Codé v0.29.0 |
 | `AvatarSettings` (23/11) | Réglages de l'avatar (cadre monté à la main dans R-11) | | contenu du réglage Avatar de Record. Codé v0.29.0 |
+| `MediaFrameSettings` (23/11) | Cadre du média (Record) | | Aucun \| Mobile \| Ordinateur, appareil, coloris. Codé v0.30.0 |
+| `MediaCropSettings` (23/11) | Cadrage du média (Record) ; `_MediaHandles` (poignées sur la slide, Figma seulement) | | zoom et point de zoom. Codé v0.30.0 |
+| `DeviceMockup` (23/11) | | | appareils photoréalistes ; Figma seulement, le rendu est dans le lecteur Record (D-032) |
 | `ChannelSection` (21/11) | | | rubrique numérotée d'une carte de canal (Diffuser), avec `Card`. Codé v0.23.0 ; ChannelItem remplacé par `SelectionCard` (code : `SelectionCardGroup`) |
 | `ButtonEditionMenu` | ButtonEditionMenu | | bouton du menu de l'éditeur |
 | `EditorSteps` (code) | cadre « Étapes » d'EditorHeaderTold / EditorHeaderRecord | | Construire › Diffuser › Analyser, ButtonTab `color="inverse"` |

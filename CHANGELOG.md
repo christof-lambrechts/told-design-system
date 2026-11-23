@@ -3,6 +3,12 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.30.0 · 23/11/2026
+
+- **MediaFrameSettings** (Figma 9825:6304) : contenu du réglage « Cadre du média » de l'Annonce Record (OptionItem ouvert, picto `device`). Cadre Aucun | Mobile | Ordinateur (GroupTab), Appareil (Simple, Android, iPhone ; Navigateur, Portable, iMac, Écran, MacBook), Coloris pour les photos. Liste par défaut : `mediaDevices`.
+- **MediaCropSettings** (Figma 9825:6305) : contenu du réglage « Cadrage du média » : Zoom ×1 à ×3 (SliderCapsule, point à ×1), Point de zoom (PositionPicker `item="media"`), lien « Réinitialiser le cadrage ».
+- **PositionPicker** : `item="media"` (rectangle d'écran).
+
 ## v0.29.0 · 23/11/2026
 
 - **PositionPicker** (Figma 9807:117400, page Options) : choix d'une position sur l'écran, générique. Places libres en points gris, la place choisie montre l'élément en plein (contour de marque), le survol le montre en pâle. `positions` 9 (3 × 3) | 5 (4 coins et bas au centre) | liste ; `item` widget | avatar ; `label` au-dessus ; groupe radio, flèches au clavier. Libellés lus : `positionLabels`.

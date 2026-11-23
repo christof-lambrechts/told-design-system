@@ -136,5 +136,7 @@
   "Alert": "composants-statut-et-aide-alert--types",
   "PositionPicker": "composants-panneaux-optionsidebar--positions",
   "_PositionCell": "composants-panneaux-optionsidebar--positions",
-  "AvatarSettings": "composants-panneaux-optionsidebar--reglages-avatar"
+  "AvatarSettings": "composants-panneaux-optionsidebar--reglages-avatar",
+  "MediaFrameSettings": "composants-panneaux-optionsidebar--reglages-media",
+  "MediaCropSettings": "composants-panneaux-optionsidebar--reglages-media"
 }

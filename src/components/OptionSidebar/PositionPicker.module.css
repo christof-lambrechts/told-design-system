@@ -12,6 +12,7 @@
 .avatar { border-radius: 50%; }
 .bar { width: 28px; height: 4px; border-radius: 1px; background: var(--item); }
 .body { width: 28px; height: 20px; border-radius: 1px; background: var(--item); }
+.mediaShape { width: 30px; height: 20px; border-radius: 2px; background: var(--item); box-shadow: inset 0 3px 0 color-mix(in srgb, var(--paper-default) 50%, transparent); }
 .face { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--item); color: var(--paper-default, #fff); }
 /* survol : aperçu pâle ; choisie : élément plein */
 .cell:hover .item, .cell:focus-visible .item { display: flex; }
