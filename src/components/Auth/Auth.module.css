@@ -59,3 +59,16 @@
 .fadeOut { opacity: 0; transition: opacity .2s; }
 .srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 @media (prefers-reduced-motion: reduce) { .digitSuccess, .check { transition: none; } }
+
+/* Code incorrect (23/11) : les cases secouent légèrement */
+.shake { animation: codeShake .4s cubic-bezier(.36, .07, .19, .97) both; }
+@keyframes codeShake {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-8px); }
+  30% { transform: translateX(7px); }
+  45% { transform: translateX(-5px); }
+  60% { transform: translateX(4px); }
+  75% { transform: translateX(-2px); }
+  90% { transform: translateX(1px); }
+}
+@media (prefers-reduced-motion: reduce) { .shake { animation: none; } }

@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.37.0 · 23/11/2026
+
+- **CodeInput** : code incorrect, les 6 cases passent en rouge et **secouent** légèrement (± 8 px, 400 ms, amplitude qui décroît) ; `errorKey` rejoue la secousse quand le même message revient (nouvel essai faux). Pas de secousse en mouvement réduit. Figma : CodeInput `state=error-shake`, prototype filled → error-shake → error.
+
 ## v0.36.0 · 23/11/2026
 
 - **Écrans de début et de fin** (Figma page `🧩 Organismes / StartEndScreen ✅`), communs à tous les produits : **StartScreen**, **EndScreen** (`layout` centered | split | cover, `context` slide 960 × 540 | vertical 540 × 960 | widget 300 ; logo, média, titre, description, boutons), **ScreenActions** (1 à 3 boutons), **RewardBlock** (code promo à copier, lien cadeau, points), **Countdown** (compte à rebours), **SocialLinks** (LinkedIn, X, Facebook, Instagram, YouTube), points clés.

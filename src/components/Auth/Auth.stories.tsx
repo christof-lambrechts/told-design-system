@@ -83,3 +83,20 @@ export const CodeValide: StoryObj = {
     );
   },
 };
+
+export const CodeIncorrect: StoryObj = {
+  name: 'Code incorrect (secousse)',
+  render: () => {
+    const [v, setV] = useState('');
+    const [tries, setTries] = useState(0);
+    const wrong = v.length === 6 && v !== '481927';
+    useEffect(() => { if (wrong) setTries((t) => t + 1); }, [wrong, v]);
+    return (
+      <div style={{ display: 'grid', gap: 12 }}>
+        <p style={{ margin: 0 }}>Tape un code faux, par exemple 123456.</p>
+        <CodeInput value={v} onChange={setV} error={wrong ? 'Code incorrect. Vérifie le dernier e-mail reçu ou renvoie un code.' : undefined} errorKey={tries} countdown={30} onResend={() => {}} autoFocus />
+        <Button variant="secondary-outline" color="neutral" onClick={() => setV(v === '123456' ? '654321' : '123456')}>Saisir un code faux</Button>
+      </div>
+    );
+  },
+};
