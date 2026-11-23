@@ -45,7 +45,7 @@ Il remplace le document de projet `claude/V3-demandes-ds-record.md` (23/11/2026)
   - `TODO DS: D-023` (bouton menu avec le logo) et `TODO DS: D-024` (étapes Construire › Diffuser › Analyser) : **déjà codés en v0.15.0** (`ButtonEditionMenu`, `EditorSteps`, voir D-022 ci-dessous) ; à brancher.
   - `TODO DS: D-022` (AvatarGroup sans état inactif ni teinte par personne) devient **D-026**, codée en v0.20.0.
   - `TODO DS: D-025` (pas de carte de démo dans le DS) rejoint **D-011** (Card).
-  - Prochain numéro libre : **D-042**.
+  - Prochain numéro libre : **D-043**.
 - **Icônes pleines par défaut depuis v0.16.0** : une icône posée sans `variant` passe en plein. Le contour ne reste qu'au repos dans les menus (menu de navigation, entrées de DropdownMenu) ; les chevrons restent en trait. Vérifier visuellement les écrans après la mise à jour.
 - **Noms** : depuis le 20/11, un composant porte le même nom dans Figma et dans le code (règle et anciens noms : `docs/NOMMAGE.md` du dépôt told-ds). Dans le nouveau code, utiliser `OptionItem` et `OptionSidebar` (plus OptionPanelItem / OptionPanel), `Select` (Figma ne dit plus DropdownField), `Modal`, `Tag`, `Flag`, `Logo`, `ProgressSteps`.
 
@@ -402,7 +402,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Rien à coder dans told-ds (le lecteur ne charge pas le DS) ; valeurs ci-dessus à reprendre dans `announcement.css`.
 - Priorité : confort
 - Statut : validé Figma, à appliquer dans Record
-- Réponse Record :
+- Réponse Record (23/11) : fait sur la branche christof (1e49995). `settings.presenter.frame` : border (défaut, démos existantes), none, color, glass-light, glass-dark ; `frame_color` (null = couleur primaire du kit). Valeurs de verre reprises dans `announcement.css` (cadre en ::before flouté). « Avatar à choisir » garde ses pointillés. Statut : fait côté Record.
 
 ### D-032 · Mockups photoréalistes pour le média de l'Annonce (23/11, demandé par Christof)
 - Sens : demande du DS vers Record (lecteur `packages/player`, `frame.ts`, et choix du cadre dans l'éditeur).
@@ -423,7 +423,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Images : à exporter depuis Figma en WebP (fond transparent), largeur 1600 au plus ; à fournir par la conversation DS si besoin. Licence Mockuuups à vérifier par Christof avant diffusion publique.
 - Priorité : confort
 - Statut : validé Figma (à confirmer par Christof), à appliquer dans Record
-- Réponse Record :
+- Réponse Record (23/11) : fait sur la branche christof (2b3adaa, puis c0e6d4a pour l'iPad, les 7 iMac et les photos sans ombre). Photo, écran (zones du tableau, capture rognée au format de l'écran ; sans cadrage enregistré, la capture entière), même photo par-dessus en darken. 20 photos WebP exportées de Figma (800 de large pour les téléphones, 1600 pour les autres) dans `public/player/mockups`, autorisées sur le domaine du lecteur public. Licence : abonnement Mockuuups payant de Told Record (POC). Statut : fait côté Record.
 
 ### D-033 · Réglage Avatar : position, contour, couleur (23/11, validé par Christof)
 - Sens : demande du DS vers Record (éditeur et lecteur).
@@ -438,7 +438,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - **Lecteur** (`packages/player`, `announcement.ts` et `.css`) : placer l'avatar à la position choisie (marge 24 sur une slide de 960, à l'échelle), avec le cadre D-031.
 - Priorité : important
 - Statut : **codé told-ds v0.29.0**, à appliquer dans Record
-- Réponse Record :
+- Réponse Record (23/11) : fait sur la branche christof (1e49995). AvatarSettings dans « Avatar sur ce slide » ouvert, AvatarPicker maison dans `avatar` (D-019). Format : `presenter.position` (null = place historique : colonne de texte en paysage, bas à droite sinon), `presenter.frame`, `presenter.frame_color` (snake_case comme le reste du format) ; pas de nouveau schema_version (clés facultatives). Lecteur : marge 24 sur 960, positions du bas au-dessus du logo et de la pause. Tailles et formes traduites (sm/md/lg ↔ small/medium/large ; round/rounded/square ↔ round/square/sharp). Point ouvert : en paysage, « En haut à gauche » recouvre le titre. Manque → D-042.
 
 ### D-034 · Cadre du média : picto et choix Aucun / Mobile / Ordinateur (23/11, demandé par Christof)
 - Sens : demande du DS vers Record (panneau Options de l'Annonce, et format de démo).
@@ -454,7 +454,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Format de démo : `media.frame = { kind: 'none' | 'mobile' | 'tablet' | 'desktop', device?, finish?, orientation?, shadow? }`. Rendu des photos : D-032 ; ombre : `filter` de `mediaShadows` sur l'image de l'appareil.
 - Priorité : important
 - Statut : **codé told-ds v0.30.0**, à appliquer dans Record
-- Réponse Record :
+- Réponse Record (23/11) : fait sur la branche christof (c0e6d4a), sauf les cadres dessinés « Simple » (téléphone) et « Portable » : le lecteur ne les dessine pas encore, ils sont retirés de `mediaDevices` dans Record. Format : `settings.media_frame = { kind, device, finish, orientation, shadow, capture_zoom }` (snake_case ; null = cadre du kit, sa barre de navigateur ou rien). « Navigateur » = la barre de navigateur du kit. Ombre : valeurs de `mediaShadows` recopiées dans le lecteur (qui ne charge pas le DS). Statut : fait côté Record (sans Simple ni Portable).
 
 ### D-035 · Cadrage du média : agrandir et placer la capture dans sa zone (23/11, demandé par Christof)
 - Sens : demande du DS vers Record (éditeur, format, lecteur).
@@ -479,7 +479,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Format de démo : `media.frame.captureZoom` (défaut 1).
 - Priorité : important
 - Statut : **codé told-ds v0.32.0**, à appliquer dans Record
-- Réponse Record :
+- Réponse Record (23/11) : fait sur la branche christof (c0e6d4a). `slideOrientation` suit l'orientation de l'Annonce (le Carré compte comme paysage) ; en passant en vertical, Ordinateur devient Mobile et la tablette paysage passe en portrait, avec un Toast ; le lecteur n'affiche jamais d'ordinateur dans une Annonce verticale. `capture_zoom` (×1 à ×2) agrandit les étapes sans cadrage enregistré ; un cadrage fait avec Recadrer est exact (pas re-zoomé). Recadrer prend le ratio de l'écran de l'appareil. Manque : GroupTab sans état désactivé → D-042. Statut : fait côté Record.
 
 ### D-037 · Formats d'enregistrement adaptés au mockup (23/11, proposition de Christof, à valider par Jonathan)
 - Sens : demande du DS vers Record (extension, puis éditeur).
@@ -493,7 +493,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Icônes : `computer`, `tablet-01` (ajoutée le 23/11), `smart-phone-01`.
 - Priorité : important
 - Statut : proposition, plan à présenter à Jonathan (règle « une fonctionnalité à la fois » de Record)
-- Réponse Record :
+- Réponse Record (23/11) : plan de l'architecte présenté à Jonathan, pas encore codé. Piste : émulation par l'extension (Chrome DevTools Protocol, permission `debugger`, bandeau jaune de Chrome) pour Tablette et Mobile seulement ; Ordinateur inchangé. En attente de la validation de Jonathan.
 
 ### D-038 · Options selon l'élément sélectionné, et règle onglets / pastilles (23/11, demandé par Christof)
 - Sens : demande du DS vers Record (panneau Options de l'éditeur).
@@ -505,7 +505,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
   - Média : Cadre du média, Cadrage du média, Zoom de la capture ; Avatar : Avatar sur ce slide + AvatarSettings ; Surtitre : EyebrowSettings (D-040).
 - Priorité : important
 - Statut : **codé told-ds v0.33.0**, à appliquer dans Record
-- Réponse Record :
+- Réponse Record (23/11) : fait sur la branche christof (69bd3ab). Clic sur le média, l'avatar, le surtitre, le titre, le texte ou le logo : le panneau ne montre que ses réglages sous `OptionContextHeader`, l'élément est entouré dans l'aperçu ; Échap (hors champ texte), la flèche ou un clic à côté de la slide reviennent aux réglages de la slide (Thème, Progression, Logo, Durée ; « Avatar sur ce slide » seulement pour l'allumer). Média : Cadre du média (zoom compris) et « Cadrage du média » (Recadrer). Titre et Texte : Apparition. Surtitre : EyebrowSettings et « Même surtitre pour toutes les étapes ». Progression passée en `ChoiceField` (« En haut / En bas » : pas de valeur « Aucune » dans le format pour l'instant) ; Taille, Forme, Ombre, Appareil suivent la règle via AvatarSettings et MediaFrameSettings. Restent en menu sur la ligne les listes longues ou chiffrées : Durée, Image sans animation. Statut : fait côté Record.
 
 ### D-039 · Logo de la slide : Told en offre gratuite, le sien ou aucun en offre payante (23/11, demandé par Christof)
 - Sens : demande du DS vers Record (panneau Options, kit de marque, lecteur, offres).
@@ -517,7 +517,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Format de démo : `settings.brandLogo = 'told' | 'custom' | 'none'` (défaut `told`).
 - Priorité : important
 - Statut : **codé told-ds v0.33.0** (panneau), à appliquer dans Record (offres à confirmer avec Jonathan)
-- Réponse Record :
+- Réponse Record (23/11) : panneau fait sur la branche christof (69bd3ab), offres pas encore. `settings.brand_logo = 'told' | 'custom' | 'none'` (snake_case ; null = logo du kit, le comportement d'avant, donc « Le mien » par défaut et non « told »). LogoSettings dans les réglages de la slide et au clic sur le logo ; le lecteur dessine le logo Told depuis un fichier statique de l'app (tracés du Logo du DS, le lecteur ne chargeant pas le DS). Offres : `plan="paid"` pour toutes les organisations tant que le plan (décision Record 0050 : offre lue en base, règle appliquée côté serveur à la lecture de la démo publiée, ProUpsellCard en offre gratuite) n'est pas validé par Jonathan. Statut : en partie fait côté Record.
 
 ### D-040 · Surtitre « Nouveau » : avec ou sans fond, couleur au choix (23/11, demandé par Christof)
 - Sens : demande du DS vers Record (éditeur, format, lecteur).
@@ -528,7 +528,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Format de démo : `slide.eyebrow = { variant: 'badge' | 'text', color }`.
 - Priorité : confort
 - Statut : **codé told-ds v0.33.0**, à appliquer dans Record
-- Réponse Record :
+- Réponse Record (23/11) : fait sur la branche christof (69bd3ab). Réglage de toute la démo et non de chaque slide, comme le surtitre commun : `settings.eyebrow_style = { variant: 'badge' | 'text', color }` (null = pastille blanche, l'aspect d'avant ; couleur null = défaut de la variante : blanc pour la pastille, couleur du kit pour le texte seul). Pastille : texte noir ou blanc selon le contraste. EyebrowSettings ne se désactive pas (GroupTab, ColorField) : ignoré pendant un verrou, voir D-042. Statut : fait côté Record.
 
 ### D-041 · Écrans de début et de fin de l'Annonce et de la démo, communs à tous les produits (23/11, validé par Christof)
 - Sens : demande du DS vers Record (éditeur, format, lecteur, vidéo exportée).
@@ -544,6 +544,15 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Priorité : important
 - Statut : **codé told-ds v0.36.0**, à appliquer dans Record (plan court à présenter à Jonathan : format, lecteur, éditeur)
 - Réponse Record :
+
+### D-042 · AvatarSettings, MediaFrameSettings, EyebrowSettings, LogoSettings : tout le réglage désactivable (23/11, demandé par Record)
+- Date, écran Record concerné : éditeur, « Avatar sur ce slide » (`editor/presenter.tsx`) et « Cadre du média » (`editor/media-frame-field.tsx`). Aussi « Surtitre » et « Logo » (`editor/slide-style-fields.tsx`, D-039, D-040).
+- Besoin : en lecture seule, ou quand un collègue tient le réglage, tout le réglage est inactif.
+- Ce qui manque ou gêne dans le DS : `disabled` n'atteint ni le ColorField « Couleur du contour » d'AvatarSettings (ColorField n'a pas de `disabled`), ni les GroupTab « Cadre » et « Orientation » de MediaFrameSettings (GroupTab n'a pas de `disabled`) : ils ont l'air actifs. EyebrowSettings et LogoSettings n'ont pas de `disabled` non plus (leurs GroupTab et ColorField).
+- Contournement provisoire dans Record : les changements sont ignorés pendant le verrou (`TODO DS: D-042`).
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
 
 ## Questions de Record (20/11)
 - **Annonce en Carré 1:1 ?**
