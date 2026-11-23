@@ -1,4 +1,4 @@
-import { useRef, type ClipboardEvent, type KeyboardEvent, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type ClipboardEvent, type KeyboardEvent, type ReactNode } from 'react';
 import { Icon } from '../Icon/Icon';
 import { Logo } from '../Logo/Logo';
 import styles from './Auth.module.css';
@@ -18,11 +18,29 @@ export interface CodeInputProps {
   countdown?: number;
   onResend?: () => void;
   autoFocus?: boolean;
+  /** `success` : le code est bon. Les cases passent au vert une par une, se rejoignent au centre et laissent place à une coche ; puis `onVerified`. */
+  status?: 'success';
+  /** Appelé à la fin de l'animation de validation (~1,2 s, 0,4 s en mouvement réduit) : passer à la page suivante. */
+  onVerified?: () => void;
 }
 
+const STEP = 55; // largeur d'une case (48) + écart (7)
+
 /** Code de vérification : 6 cases de 48 × 56, rayon 12, écart 7 et un espace de 8 au milieu. Le collage répartit les chiffres. */
-export function CodeInput({ value, onChange, length = 6, error, countdown, onResend, autoFocus }: CodeInputProps) {
+export function CodeInput({ value, onChange, length = 6, error, countdown, onResend, autoFocus, status, onVerified }: CodeInputProps) {
   const refs = useRef<(HTMLInputElement | null)[]>([]);
+  const [phase, setPhase] = useState<'idle' | 'success' | 'merging' | 'verified'>('idle');
+  const done = useRef(onVerified); done.current = onVerified;
+  useEffect(() => {
+    if (status !== 'success') { setPhase('idle'); return; }
+    const reduce = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { setPhase('verified'); const t = setTimeout(() => done.current?.(), 400); return () => clearTimeout(t); }
+    setPhase('success');
+    const t1 = setTimeout(() => setPhase('merging'), length * 60 + 250);
+    const t2 = setTimeout(() => setPhase('verified'), length * 60 + 550);
+    const t3 = setTimeout(() => done.current?.(), length * 60 + 1150);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+  }, [status, length]);
   const digits = Array.from({ length }, (_, i) => value[i] ?? '');
   const set = (i: number, d: string) => {
     const next = digits.slice();
@@ -45,13 +63,15 @@ export function CodeInput({ value, onChange, length = 6, error, countdown, onRes
   const mm = countdown ? `${Math.floor(countdown / 60)}:${String(countdown % 60).padStart(2, '0')}` : '';
   return (
     <div className={styles.code}>
-      <div className={styles.cases} role="group" aria-label="Code de vérification">
+      <div className={cx(styles.cases, phase !== 'idle' && styles[phase])} role="group" aria-label="Code de vérification">
         {digits.map((d, i) => (
           <span key={i} style={{ display: 'contents' }}>
             {i === half && <span className={styles.gap} aria-hidden="true" />}
             <input
               ref={(el) => { refs.current[i] = el; }}
-              className={cx(styles.digit, !!error && styles.digitError)}
+              className={cx(styles.digit, !!error && styles.digitError, phase !== 'idle' && styles.digitSuccess)}
+              style={{ '--i': i, '--dx': `${((length - 1) / 2 - i) * STEP + (i < half ? 4 : -4)}px` } as CSSProperties}
+              readOnly={phase !== 'idle'}
               inputMode="numeric"
               autoComplete={i === 0 ? 'one-time-code' : 'off'}
               maxLength={1}
@@ -69,10 +89,12 @@ export function CodeInput({ value, onChange, length = 6, error, countdown, onRes
             />
           </span>
         ))}
+        {phase !== 'idle' && <span className={styles.check} aria-hidden="true"><Icon name="tick-02" size={28} /></span>}
       </div>
+      {phase !== 'idle' && <span className={styles.srOnly} role="status">Code vérifié</span>}
       {error && <p className={styles.error} role="alert">{error}</p>}
       {onResend && (
-        <p className={styles.resend}>
+        <p className={cx(styles.resend, phase !== 'idle' && styles.fadeOut)}>
           <button type="button" className={styles.link} disabled={!!countdown} onClick={onResend}>Renvoyer le code</button>
           {countdown ? <span className={styles.muted}>dans {mm}</span> : null}
         </p>

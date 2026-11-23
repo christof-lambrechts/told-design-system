@@ -3,6 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.35.0 · 23/11/2026
+
+- **CodeInput** `status="success"` + `onVerified` : animation de validation (Figma CodeInput state=success | merging | verified, CodeDigit state=success) : les cases passent au vert une par une (60 ms d'écart), glissent et se superposent au centre, puis une pastille verte avec une coche apparaît ; `onVerified` vient ~1,2 s après (0,4 s en mouvement réduit). « Code vérifié » annoncé aux lecteurs d'écran.
+- Icône **gift** (plein et contour).
+
 ## v0.34.0 · 23/11/2026
 
 - **ProUpsellCard** (Figma 9835:6785) : encart Told Pro (carte sombre, titre « Marque blanche » avec badge, phrase, ButtonGradient « Essayez Told Pro »), repris de la carte du widget Told. LogoSettings l'utilise en offre gratuite (`onUpgrade`).

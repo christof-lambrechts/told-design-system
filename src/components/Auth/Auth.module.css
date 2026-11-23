@@ -1,6 +1,6 @@
 /* CodeInput / CodeDigit */
 .code { display: flex; flex-direction: column; gap: 10px; }
-.cases { display: flex; gap: 7px; }
+.cases { position: relative; display: flex; gap: 7px; }
 .gap { width: 8px; flex: none; }
 .digit { box-sizing: border-box; width: 48px; height: 56px; border-radius: 12px; border: 1px solid var(--input-brand-border-default); background: var(--neutral-surface-default); text-align: center; font: 700 20px/28px var(--font-family-body); color: var(--content-default-default); caret-color: var(--input-brand-border-focus); outline: none; }
 .digit:hover { border-color: var(--input-brand-border-hover); }
@@ -47,3 +47,15 @@
 .subtitle { margin: 0; font: 400 15px/22px var(--font-family-body); color: #4a5560; }
 .illu { flex: 1; min-height: 0; display: flex; align-items: flex-end; }
 .illu > img { width: 100%; height: auto; display: block; }
+
+/* Validation du code (23/11) : vert case par case, fusion au centre, coche */
+.digitSuccess { transition: border-color .2s, background-color .2s, color .2s, transform .3s cubic-bezier(.4, 0, .2, 1), opacity .3s; transition-delay: calc(var(--i) * 60ms); }
+.success .digitSuccess, .merging .digitSuccess, .verified .digitSuccess { border-color: var(--input-success-border); background: var(--status-live-surface); color: var(--content-success-default-on-light); box-shadow: none; }
+.merging .digitSuccess, .verified .digitSuccess { transform: translateX(var(--dx)) scale(.92); transition-delay: 0s; }
+.merging .digitSuccess { opacity: .85; }
+.verified .digitSuccess { opacity: 0; }
+.check { position: absolute; left: 50%; top: 0; display: grid; place-items: center; width: 56px; height: 56px; margin-left: -28px; border-radius: 50%; background: var(--input-success-border); color: var(--paper-default, #fff); opacity: 0; transform: scale(.6); transition: opacity .25s, transform .35s cubic-bezier(.34, 1.56, .64, 1); pointer-events: none; }
+.verified > .check { opacity: 1; transform: scale(1); }
+.fadeOut { opacity: 0; transition: opacity .2s; }
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { .digitSuccess, .check { transition: none; } }

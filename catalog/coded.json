@@ -60,7 +60,7 @@
   "NotificationItem": "composants-panneaux-notifications--docs",
   "NotificationCenter": "composants-panneaux-notifications--docs",
   "CodeDigit": "composants-connexion-auth--code",
-  "CodeInput": "composants-connexion-auth--code",
+  "CodeInput": "composants-connexion-auth--code-valide",
   "PasswordStrength": "composants-connexion-auth--mot-de-passe",
   "DividerLabel": "composants-connexion-auth--connexion",
   "SocialButton": "composants-connexion-auth--connexion",

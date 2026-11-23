@@ -65,3 +65,21 @@ export const Panneaux: StoryObj = {
     </div>
   ),
 };
+
+export const CodeValide: StoryObj = {
+  name: 'Code validé (animation)',
+  render: () => {
+    const [v, setV] = useState('');
+    const [ok, setOk] = useState(false);
+    const [next, setNext] = useState(false);
+    useEffect(() => { if (v === '481927') setOk(true); }, [v]);
+    if (next) return <div style={{ display: 'grid', gap: 12 }}><p>Page suivante</p><Button onClick={() => { setNext(false); setOk(false); setV(''); }}>Rejouer</Button></div>;
+    return (
+      <div style={{ display: 'grid', gap: 12 }}>
+        <p style={{ margin: 0 }}>Tape 481927, ou colle-le.</p>
+        <CodeInput value={v} onChange={setV} status={ok ? 'success' : undefined} onVerified={() => setNext(true)} countdown={30} onResend={() => {}} autoFocus />
+        <Button variant="secondary-outline" color="neutral" onClick={() => setV('481927')}>Remplir avec le bon code</Button>
+      </div>
+    );
+  },
+};
