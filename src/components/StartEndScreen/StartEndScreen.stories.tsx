@@ -43,20 +43,22 @@ export const Pieces: StoryObj = {
   ),
 };
 
-/** Position du texte (PositionPicker item="text") : 9 places, le texte s'aligne comme les deux lignes de la case choisie. */
+/** Position du texte et du logo (PositionPicker item="text", 9 places) ; en Partagé, le côté de l'image se choisit à part (À gauche | À droite). */
 export const PositionDuTexte: StoryObj = {
   name: 'Position du texte',
   render: () => {
     const [pos, setPos] = useState<Position>('bottom-left');
     const [layout, setLayout] = useState<ScreenLayout>('split');
+    const [side, setSide] = useState<'left' | 'right'>('right');
     return (
       <div style={{ display: 'flex', gap: 32, alignItems: 'flex-start' }}>
         <div style={{ display: 'grid', gap: 16, width: 220 }}>
           <GroupTab label="Style" value={layout} onChange={(v) => setLayout(v as ScreenLayout)} items={[{ value: 'centered', label: 'Centré' }, { value: 'split', label: 'Partagé' }, { value: 'cover', label: 'Couverture' }]} />
+          {layout === 'split' && <GroupTab label="Image" value={side} onChange={(v) => setSide(v as 'left' | 'right')} items={[{ value: 'left', label: 'À gauche' }, { value: 'right', label: 'À droite' }]} />}
           <PositionPicker label="Position du texte" item="text" value={pos} onChange={setPos} />
         </div>
         <div style={{ zoom: 0.6 }}>
-          <StartScreen layout={layout} textPosition={pos} logo={<Logo size="sm" theme={layout === 'cover' ? 'dark' : 'light'} />} media={media} {...start} actions={[{ label: 'Lancer l’annonce' }]} />
+          <StartScreen layout={layout} textPosition={pos} mediaSide={side} logo={<Logo size="sm" theme={layout === 'cover' ? 'dark' : 'light'} />} media={media} {...start} actions={[{ label: 'Lancer l’annonce' }]} />
         </div>
       </div>
     );

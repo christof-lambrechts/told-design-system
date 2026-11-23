@@ -138,11 +138,16 @@ export interface ScreenProps {
   /** Fond de l'écran (couleur du kit ou du widget). */
   background?: string;
   /**
-   * Place du texte dans sa zone (PositionPicker `item="text"`) : en haut, au milieu ou en bas, et
+   * Place du texte et du logo dans leur zone (PositionPicker `item="text"`), sans bouger l'image : en haut, au milieu ou en bas, et
    * aligné à gauche, centré ou à droite selon la colonne. Par défaut : centré au milieu en `centered`,
    * à gauche au milieu en `split`, à gauche en bas en `cover`.
    */
   textPosition?: Position;
+  /**
+   * Côté de l'image en style `split`, séparé de la position du texte : `right` (par défaut) ou `left`
+   * en slide, pour alterner des écrans « inversés » ; `top` (par défaut) ou `bottom` en vertical.
+   */
+  mediaSide?: 'left' | 'right' | 'top' | 'bottom';
   className?: string;
 }
 
@@ -153,14 +158,14 @@ export interface EndScreenProps extends ScreenProps {
   social?: SocialLinksProps['links'];
 }
 
-function Screen({ kind, layout = 'centered', context = 'slide', logo, media, title, description, actions = [], background, textPosition, className, children }: ScreenProps & { kind: 'start' | 'end'; children?: ReactNode }) {
+function Screen({ kind, layout = 'centered', context = 'slide', logo, media, title, description, actions = [], background, textPosition, mediaSide, className, children }: ScreenProps & { kind: 'start' | 'end'; children?: ReactNode }) {
   const cover = layout === 'cover';
   const dark = cover && context !== 'widget';
   const Media = media && (media.type === 'video'
     ? <video className={styles.media} src={media.src} autoPlay muted loop playsInline aria-label={media.alt} />
     : <img className={styles.media} src={media.src} alt={media.alt ?? ''} />);
   return (
-    <section className={cx(styles.screen, styles[`l-${layout}`], styles[`c-${context}`], dark && styles.dark, textPosition && styles[`tv-${textPosition.split('-')[0] === 'center' ? 'middle' : textPosition.split('-')[0]}`], textPosition && styles[`th-${textPosition === 'center' ? 'center' : textPosition.split('-')[1]}`], className)} style={background ? { background } : undefined} aria-label={kind === 'start' ? 'Écran de début' : 'Écran de fin'}>
+    <section className={cx(styles.screen, styles[`l-${layout}`], styles[`c-${context}`], dark && styles.dark, textPosition && styles[`tv-${textPosition.split('-')[0] === 'center' ? 'middle' : textPosition.split('-')[0]}`], textPosition && styles[`th-${textPosition === 'center' ? 'center' : textPosition.split('-')[1]}`], layout === 'split' && (mediaSide === 'left' || mediaSide === 'bottom') && styles.mediaFlip, className)} style={background ? { background } : undefined} aria-label={kind === 'start' ? 'Écran de début' : 'Écran de fin'}>
       {Media && <div className={styles.mediaBox}>{Media}</div>}
       {dark && <span className={styles.veil} aria-hidden="true" />}
       <div className={styles.content}>

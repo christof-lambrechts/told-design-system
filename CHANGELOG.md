@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.46.0 · 23/11/2026
+
+- **StartScreen / EndScreen** : `mediaSide`, le côté de l'image en style Partagé, séparé de la position du texte : à droite (par défaut) ou à gauche en slide, pour des écrans inversés ; en haut ou en bas en vertical. `textPosition` ne déplace que le texte et le logo.
+
 ## v0.45.0 · 23/11/2026
 
 - **PositionPicker** `item="text"` : la case choisie montre deux lignes de texte de longueurs différentes, alignées à gauche, centrées ou à droite selon la colonne. Figma : `_PositionCell` item=text-left|center|right, PositionPicker item=text.

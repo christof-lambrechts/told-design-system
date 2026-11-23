@@ -75,3 +75,6 @@
 .l-centered.th-right, .l-cover.th-right { align-items: flex-end; }
 /* split (rangée) : la colonne texte se place en hauteur */
 .c-slide.l-split.tv-top .content { align-self: flex-start; } .c-slide.l-split.tv-middle .content { align-self: center; } .c-slide.l-split.tv-bottom .content { align-self: flex-end; }
+/* mediaSide : l'image de l'autre côté en split (slide : à gauche ; vertical : en bas). */
+.c-slide.l-split.mediaFlip { flex-direction: row; }
+.c-vertical.l-split.mediaFlip { flex-direction: column-reverse; }
