@@ -70,11 +70,21 @@ export interface MediaFrameSettingsProps {
   /** Orientation de l'Annonce. En `portrait` (9:16), l'ordinateur n'est pas proposé et la tablette est en portrait. */
   slideOrientation?: MediaOrientation;
   /**
+   * @deprecated 24/11 : remplacé par la position libre (`mediaScale`, `onRecenter`, glisser sur la slide).
    * Place du média sur la slide (AnnouncementSlide `media`) : `inset` avec la marge de la slide, `edge` collé au bord
    * extérieur (droite en paysage, bas en vertical), `corner` collé dans le coin bas droit. Absent : réglage masqué.
    */
   placement?: MediaPlacement;
   onPlacementChange?: (p: MediaPlacement) => void;
+  /**
+   * Position libre (24/11, remplace `placement` et MediaCropSettings) : taille du média (cadre + capture ensemble),
+   * de 0,5 à 3 (1 = le média tient dans sa zone). On le place en le glissant sur la slide ; ce qui dépasse la zone
+   * du média est coupé. Avec `mediaScale`, le réglage `placement` n'est plus montré.
+   */
+  mediaScale?: number;
+  onMediaScaleChange?: (s: number) => void;
+  /** Lien « Recentrer » : taille 1, média au centre de sa zone. */
+  onRecenter?: () => void;
   /** Zoom de la capture dans l'écran de l'appareil (1 à 2). Absent : réglage masqué. */
   captureZoom?: number;
   onCaptureZoomChange?: (z: number) => void;
@@ -103,7 +113,7 @@ const NOTES: Record<MediaFrameKind, string> = {
 };
 
 /** MediaFrameSettings (Figma 9828:6305) : contenu du réglage « Cadre du média » de l'Annonce Record (OptionItem ouvert, picto `device`). Cadre (champ + micro-modale illustrée, 24/11), Position, Orientation pour la tablette, Appareil et Coloris (un champ + micro-modale), Ombre. */
-export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange, finish, onFinishChange, orientation = 'portrait', onOrientationChange, shadow = 'soft', onShadowChange, slideOrientation = 'landscape', placement, onPlacementChange, captureZoom, onCaptureZoomChange, captureHelp, devices = mediaDevices, note, disabled }: MediaFrameSettingsProps) {
+export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange, finish, onFinishChange, orientation = 'portrait', onOrientationChange, shadow = 'soft', onShadowChange, slideOrientation = 'landscape', placement, onPlacementChange, mediaScale, onMediaScaleChange, onRecenter, captureZoom, onCaptureZoomChange, captureHelp, devices = mediaDevices, note, disabled }: MediaFrameSettingsProps) {
   const vertical = slideOrientation === 'portrait';
   const list = kind === 'none' ? [] : devices[kind];
   const current = list.find((d) => d.value === device) ?? list[0];
@@ -113,7 +123,15 @@ export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange,
         <FormatOptionGroup aria-label="Cadre" value={kind} onChange={(v) => onKindChange(v as MediaFrameKind)}
           options={(vertical ? (['none', 'mobile', 'tablet'] as const) : (['none', 'mobile', 'tablet', 'desktop'] as const)).map((k) => ({ value: k, ...FRAME_CHOICES[k] }))} />
       </PopoverField>
-      {placement && (
+      {mediaScale !== undefined && (
+        <div className={styles.field}>
+          <span className={styles.label}>Taille et place du média</span>
+          <SliderCapsule label="Taille" min={0.5} max={3} step={0.05} value={mediaScale} onChange={(v) => onMediaScaleChange?.(v)} defaultValue={1}
+            format={(v) => `× ${v.toFixed(2).replace(/0$/, '').replace(/\.0$/, '').replace('.', ',')}`} disabled={disabled} />
+          {onRecenter && <div><ButtonLink iconRight={null} padding={false} onClick={onRecenter} disabled={disabled}>Recentrer</ButtonLink></div>}
+        </div>
+      )}
+      {placement && mediaScale === undefined && (
         <GroupTab label="Position" value={placement} onChange={(v) => onPlacementChange?.(v as MediaPlacement)}
           items={[{ value: 'inset', label: 'Avec marge' }, { value: 'edge', label: vertical ? 'En bas' : 'À droite' }, { value: 'corner', label: 'Dans le coin' }]} />
       )}
@@ -172,7 +190,8 @@ export interface MediaCropSettingsProps {
   disabled?: boolean;
 }
 
-/** MediaCropSettings (Figma 9825:6305) : contenu du réglage « Cadrage du média ». Zoom ×1 à ×3, point de zoom (PositionPicker item=media), lien « Réinitialiser le cadrage ». Sur la slide, le média se glisse et s'agrandit aussi par ses poignées (_MediaHandles). */
+/** @deprecated 24/11 : remplacé par la position libre de MediaFrameSettings (`mediaScale`), qui agrandit et place le cadre et la capture ensemble.
+ * MediaCropSettings (Figma 9825:6305) : contenu du réglage « Cadrage du média ». Zoom ×1 à ×3, point de zoom (PositionPicker item=media), lien « Réinitialiser le cadrage ». Sur la slide, le média se glisse et s'agrandit aussi par ses poignées (_MediaHandles). */
 export function MediaCropSettings({ zoom, onZoomChange, anchor, onAnchorChange, onReset, help, disabled }: MediaCropSettingsProps) {
   const fmt = (v: number) => `× ${v.toFixed(1).replace('.', ',')}`;
   return (

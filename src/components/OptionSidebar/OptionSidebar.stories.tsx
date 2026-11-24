@@ -9,7 +9,7 @@ import { Button } from '../Button/Button';
 import { FormatOptionGroup } from './FormatOption';
 import { GroupTab } from '../Tabs/Tabs';
 import { PositionPicker, type Position } from './PositionPicker';
-import { MediaFrameSettings, MediaCropSettings, type MediaFrameKind, type MediaOrientation, type MediaShadow, type MediaPlacement } from './MediaSettings';
+import { MediaFrameSettings, MediaCropSettings, type MediaFrameKind, type MediaOrientation, type MediaShadow } from './MediaSettings';
 import { EyebrowSettings, LogoSettings, OptionContextHeader, type EyebrowStyle, type BrandLogoChoice } from './BrandSettings';
 import { AvatarSettings, type AvatarFrame, type AvatarShape, type AvatarSize } from './AvatarSettings';
 
@@ -168,7 +168,7 @@ export const ReglagesMedia: StoryObj = {
     const [shadow, setShadow] = useState<MediaShadow>('soft');
     const [slide, setSlide] = useState<MediaOrientation>('landscape');
     const [cz, setCz] = useState(1.2);
-    const [placement, setPlacement] = useState<MediaPlacement>('corner');
+    const [scale, setScale] = useState(1.6);
     const [device, setDevice] = useState('tablet');
     const [finish, setFinish] = useState('gray');
     const [zoom, setZoom] = useState(1.8);
@@ -181,7 +181,7 @@ export const ReglagesMedia: StoryObj = {
             <MediaFrameSettings kind={kind} onKindChange={(k) => { setKind(k); setDevice(({ desktop: 'imac', tablet: 'tablet', mobile: 'android', none: '' } as const)[k]); setFinish(''); }}
               device={device} onDeviceChange={(d) => { setDevice(d); setFinish(''); }} finish={finish || undefined} onFinishChange={setFinish}
               orientation={orientation} onOrientationChange={setOrientation} shadow={shadow} onShadowChange={setShadow}
-              slideOrientation={slide} placement={placement} onPlacementChange={setPlacement} captureZoom={cz} onCaptureZoomChange={setCz} />
+              slideOrientation={slide} mediaScale={scale} onMediaScaleChange={setScale} onRecenter={() => setScale(1)} captureZoom={cz} onCaptureZoomChange={setCz} />
           </OptionItem>
         </div>
         <div style={{ width: 360 }}>

@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.55.0 · 24/11/2026
+
+- **Position libre du média** (validée par Christof) : MediaFrameSettings reçoit `mediaScale` (0,5 à 3), `onMediaScaleChange` et `onRecenter` : « Taille et place du média » (curseur) et « Recentrer ». Le cadre et la capture se glissent ensemble n'importe où dans la zone du média, ce qui dépasse est coupé. Avec `mediaScale`, `placement` (Avec marge | À droite | Dans le coin) n'est plus montré ; `placement` et `MediaCropSettings` sont déconseillés.
+
 ## v0.54.2 · 24/11/2026
 
 - OptionPopover : largeur minimale 200 (au lieu de 220), la grille de position tient sans blanc à droite.
