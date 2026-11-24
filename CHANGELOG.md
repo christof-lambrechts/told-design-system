@@ -3,6 +3,23 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.50.0 · 24/11/2026
+
+- **Réglages d'apparence** (Figma OptionCustomisation, cadre « Réglages d'apparence Told ») codés, un composant par type, à poser dans une OptionItem ouverte :
+  - OverlaySettings (voile clair ou sombre, flou) ;
+  - ProgressSettings (barre de progression et style) ;
+  - FooterSettings (pied de page, badge Told verrouillé en offre gratuite avec la carte Marque blanche) ;
+  - WidgetAvatarSettings (photo et nom) ;
+  - LabelSettings (Badge | Texte) ;
+  - CloseSettings (croix claire ou sombre, « Passer le tour », alerte quand il n'y a plus de sortie) ;
+  - CoverSettings et WidgetLogoSettings (image à ajouter ou changer) ;
+  - SoundSettings (ambiances à écouter et choisir) ;
+  - RadiusSettings (4 arrondis) ;
+  - NavButtonsSettings (icône et libellé des boutons droit et gauche) ;
+  - ShadowSettings (intensité, opacité, couleur) ;
+  - GlassSettings (ombre, lumière animée).
+  Les couleurs restent ColorPicker et ToneChoice, la position PositionPicker. Story « Réglages d'apparence ».
+
 ## v0.49.0 · 24/11/2026
 
 - **ToneChoice** reprend le style des choix du DS : c'est un OptionChoiceGroup (picto dans un carré blanc à contour, fond bleu pâle sur le choix), soleil et lune pleins. Figma ToneChoice refait avec OptionChoice.

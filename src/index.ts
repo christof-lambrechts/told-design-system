@@ -143,3 +143,11 @@ export { StartScreen, EndScreen, ScreenActions, RewardBlock, Countdown, SocialLi
 export type { ScreenProps, EndScreenProps, ScreenAction, ScreenActionsProps, RewardBlockProps, CountdownProps, SocialLinksProps, ScreenLayout, ScreenContext } from './components/StartEndScreen/StartEndScreen';
 export { ColorPicker, ToneChoice, textToneColor } from './components/ColorPicker/ColorPicker';
 export type { ColorPickerProps, ToneChoiceProps, ColorFill, TextTone, GlassTone } from './components/ColorPicker/ColorPicker';
+export {
+  OverlaySettings, ProgressSettings, FooterSettings, WidgetAvatarSettings, LabelSettings, CloseSettings, CoverSettings,
+  WidgetLogoSettings, SoundSettings, RadiusSettings, NavButtonsSettings, ShadowSettings, GlassSettings,
+} from './components/Customisation/Customisation';
+export type {
+  OverlaySettingsProps, ProgressSettingsProps, FooterSettingsProps, WidgetAvatarSettingsProps, LabelSettingsProps, CloseSettingsProps,
+  ImageSettingsProps, SoundOption, SoundSettingsProps, RadiusChoice, NavButton, NavButtonsSettingsProps, ShadowSettingsProps, GlassSettingsProps,
+} from './components/Customisation/Customisation';
