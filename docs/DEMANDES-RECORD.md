@@ -570,7 +570,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Lecteur et vidéo : la zone du média coupe son contenu (`overflow: hidden`) ; le média reçoit `transform: translate(…) scale(scale)` depuis le centre. Même rendu dans la vidéo exportée.
 - Priorité : important
 - Statut : **codé told-ds v0.55.0** (panneau), à appliquer dans Record (plan court à présenter à Jonathan : format et migration, lecteur, éditeur)
-- Réponse Record :
+- Réponse Record : appliqué le 24/11 (branche christof), décision 0057 de Record. `media_frame.place` remplace `placement` ; les anciennes positions se traduisent exactement (inset {1, .5, .5}, edge {1, 1, .5} en paysage ou {1, .5, 1}, corner {1, 1, 1}). Les versions publiées ne sont pas réécrites et le lecteur lit toujours `placement`. Recadrer et Zoom restent, dans le bloc Cadre du média (la section Cadrage disparaît). Un manque : voir **D-049**.
 
 ### D-048 · LogoSettings sur une ligne à interrupteur, ToneChoice désactivé, focus de l'OptionPopover (24/11, demandé par Christof)
 - Date, écran Record concerné : 24/11, panneau Options de l'Annonce, lignes Logo et Format (`slide-style-fields.tsx`, `format-popover.tsx`).
@@ -584,6 +584,15 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
   3. `ToneChoice` n'a pas d'état `disabled`.
   4. `OptionPopover` pose le focus sur son premier contrôle avant d'avoir calculé sa position (ou sur « Fermer »), et ne garde pas le focus à l'intérieur (pas de piège à focus).
 - Contournement provisoire dans Record (`// TODO DS: D-048`) : le Switch et la note de LogoSettings masqués par une classe CSS ; ToneChoice dans un `fieldset disabled` à 38 % d'opacité ; le focus posé sur le choix coché au `requestAnimationFrame` suivant l'ouverture. Le libellé « Logo » répété et la sortie au Tab ne sont pas contournés.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+
+### D-049 · Zoom de la capture sans appareil dans MediaFrameSettings (24/11, demandé par Christof)
+- Date, écran Record concerné : 24/11, panneau Options de l'Annonce, bloc Cadre du média (`media-frame-field.tsx`).
+- Besoin : le Zoom de la capture (`captureZoom`) vaut pour tous les cadres de Record, y compris la capture seule (Cadre « Aucun ») ; D-044 range Recadrer et Zoom dans le bloc Cadre du média.
+- Ce qui manque ou gêne dans le DS : `MediaFrameSettings` n'affiche le curseur Zoom que si `kind !== 'none'`. Il faudrait le montrer aussi sans appareil (ou une propriété pour le forcer).
+- Contournement provisoire dans Record (`// TODO DS: D-049`) : avec le Cadre « Aucun », Record ajoute sous le composant le même `SliderCapsule` « Zoom » (× 1 à × 2).
 - Priorité : confort
 - Statut : à faire
 - Réponse DS :
