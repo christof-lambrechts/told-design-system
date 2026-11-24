@@ -545,6 +545,24 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Statut : **codé told-ds v0.36.0**, à appliquer dans Record (plan court à présenter à Jonathan : format, lecteur, éditeur)
 - Réponse Record :
 
+### D-045 · Colonne Étapes : « Ajouter une slide » toujours visible, ButtonIcon à bordure gris clair (24/11, demandé par Christof)
+- Date, écran Record concerné : 24/11, éditeur, colonne Étapes (`editor/editor.tsx`, StepList `addAfter` et StepThumb `menu`).
+- Besoin :
+  - « Ajouter une slide » (« Ajouter un écran » en démo guidée) reste visible en permanence, prend toute la largeur de la colonne, sans les traits de part et d'autre : moins de saut visuel quand le pointeur entre dans la colonne.
+  - Le « ⋯ » d'une vignette, au survol, a une bordure gris clair, comme le bouton `secondary-outline`, pas la bordure sombre.
+- Ce qui manque ou gêne dans le DS :
+  - `StepList` cache tout ce qui porte `data-step-add` hors survol (`revealAdd="hover"`), `addAfter` compris ; `revealAdd="always"` montrerait aussi les StepAddThumb de chaque slide. Et `InsertBar` dessine deux traits et fait 248 px.
+  - `ButtonIcon` n'a pas d'apparence à bordure gris clair : `appearance="outline"` prend `primary-outline` (bordure sombre en `neutral`).
+- Contournement provisoire dans Record (`// TODO DS: D-045`) :
+  - `addAfter` : un `Button` `secondary-outline`, `size="sm"`, `iconLeft="add-01"`, `fullWidth`, et une règle de la colonne qui garde le bloc `addAfter` affiché hors survol.
+  - « ⋯ » : `ButtonIcon` `outline` dont `--border` et `--border-hover` sont remplacés par ceux du `secondary-outline`.
+- Proposition :
+  - `StepList` : `addAfter` toujours visible (ou une propriété `revealAddAfter`), et un rendu « bouton pleine largeur » prévu dans Figma (StepList 9143:113854) à la place de l'InsertBar.
+  - `ButtonIcon` : une apparence `secondary-outline` (bordure `--button-buttonsecondaryoutline-border-*`), utilisée par défaut pour le menu de `StepThumb`.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+
 ## Questions de Record (20/11)
 - **Annonce en Carré 1:1 ?**
   - Christof a retenu les formats 16:9 et 9:16.
