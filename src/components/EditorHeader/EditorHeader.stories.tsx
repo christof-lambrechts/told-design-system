@@ -56,7 +56,9 @@ const V1 = ({ published }: { published: boolean }) => {
         <AvatarGroup surface="dark" people={[{ name: 'Claire Lemaire', color: 'teal' }, { name: 'Marc André', color: 'pink' }, { name: 'Jonathan S', color: 'orange' }]} />
         <ButtonGroup appearance="inverse">
           {step === 'analyze' && <Button size="sm" color="neutral" iconLeft="share-03">Partager</Button>}
-          <Button size="sm" color="neutral" iconLeft="view">Aperçu</Button>
+          {step === 'analyze'
+            ? <Button size="sm" color="neutral" iconLeft="download-05">Extraire</Button>
+            : <Button size="sm" color="neutral" iconLeft="view">Aperçu</Button>}
         </ButtonGroup>
         {action}
       </>}

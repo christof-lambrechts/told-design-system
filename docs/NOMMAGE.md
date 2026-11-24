@@ -36,7 +36,7 @@ Figma a été renommé ; les instances des maquettes restent liées. Dans le cod
 | `Alert` (codé v0.28.0) | | | message dans le contenu (carte, panneau) ; `Banner` = bandeau pleine largeur en haut de page |
 | `InfoCard` (21/11, codé v0.25.0) | | | bandeau en tête d'un canal ; `type` link, iframe (jaune), video, embed, email. Figma : InfoCard `type=liens | iframe | video | integrer | email` |
 | `OptionChoice` (21/11) | SelectionItem | | un choix (picto en petit carré, libellé, badge) dans la liste ouverte sous une OptionItem ; rangé page OptionContent. Codé v0.23.0 : `OptionChoiceGroup` (radio, une liste) |
-| `Layout` (Figma, 24/11) | Layout (`type`) | AppLayout + EditorLayout | un seul set Figma : `page` et `settings` = **AppLayout** ; `editor-told`, `editor-record`, `analyser` = **EditorLayout**. « Menu avec fond » (page-filled) archivé ; `AppLayout menu` déconseillé |
+| `Layout` (24/11) | Layout (`type`) | Layout | `type` page \| settings \| editor \| analyser (Figma editor-told et editor-record = `editor`). Assemble AppLayout et EditorLayout, qui restent les briques. « Menu avec fond » archivé ; `AppLayout menu` déconseillé. Codé v0.59.0 |
 | `AppSidebar` (24/11) | AppSidebar | AppSidebar | menu latéral commun Told + Told Record ; entrées en données (`sections`, `footer`), `linkAs`, `collapsed`. Codé v0.57.0 |
 | `ProjectSwitcher` (24/11) | ProjectSwitcher | ProjectSwitcher | `project`, `organization`, `appearance`, `compact`. Codé v0.57.0 |
 | `AccountCard` (24/11) | AccountCard | AccountCard | `name`, `email`, `avatar`, `notifications`, `compact`. Codé v0.57.0 |
