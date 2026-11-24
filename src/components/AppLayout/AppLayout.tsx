@@ -8,13 +8,16 @@ export interface AppLayoutProps {
   topbar?: ReactNode;
   /** En-tête de page (PageHeader) puis contenu. */
   children: ReactNode;
-  /** transparent : menu sans fond, contenu en carte blanche. filled : menu en bloc (fond et ombre intérieure) sur fond blanc, contenu sans carte. */
+  /**
+   * @deprecated 24/11 : seule la version transparente reste (Figma Layout type=page et type=settings) ; `filled` est archivée dans Figma.
+   */
   menu?: 'transparent' | 'filled';
   className?: string;
 }
 
 /**
- * AppLayout (set 8564:5514, page 📐 Templates / AppLayout) : gabarit de l'application, deux versions (menu transparent ou avec fond).
+ * AppLayout = Figma **Layout** `type=page` (Accueil, listes) et `type=settings` (réglages, AppSidebar en menu secondaire), page 📐 Templates / Layout.
+ * Menu transparent posé sur le fond de page ; l'ancienne version « menu avec fond » est archivée (24/11).
  * Un seul en-tête : TopBar (icône, titre, description, recherche, options, actions secondaire et principale).
  * Fond Neutral/surface/page ; menu à gauche ; contenu dans une carte blanche
  * (Neutral/surface/default, filet Neutral/border/subtle, rayon 16, ombre shadow-flat-1), marges 12 en haut, à droite, en bas.

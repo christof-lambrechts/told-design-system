@@ -3,6 +3,12 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.58.0 · 24/11/2026
+
+- **Gabarit Layout** (Figma, un seul set) : AppLayout = `type=page` et `type=settings`, EditorLayout = `editor-told`, `editor-record`, `analyser`. La version « menu avec fond » est archivée : `AppLayout menu` déconseillé, story retirée ; `AppSidebar surface` retiré (le menu est toujours transparent, menus secondaires compris).
+- Titres de groupe du menu (CRÉER, ANALYSER, MARQUE…) : 11, Medium, capitales espacées, teinte `content-muted` (plus discrets que les entrées, meilleure hiérarchie). Figma aligné (style Other/Label option).
+- Story Gabarits › AppSidebar › Réglages (menu secondaire) : « Retour aux projets », Organisation, Projet, Marque, IA, Mon compte, Se déconnecter.
+
 ## v0.57.0 · 24/11/2026
 
 - **AppSidebar** (D-012, lot 1 du gabarit) : menu latéral commun à Told et Told Record, piste B validée par Christof (Accueil ; CRÉER Scénarios, Told, Told Record ; ANALYSER Résultats, Audiences ; MARQUE Kit de marque, Ressources ; en bas Réglages et Aide). Entrées passées en données (`sections`, `footer` : libellé, icône, `href`, `selected`, `tag`, action « + » `onAdd`, sous-entrées), liens branchés sur le routeur par `linkAs` (TanStack Router, Next.js). Repliable (72 de large, icônes seules, séparateurs, libellés lus), `surface` transparent | filled. `nav` nommée, `aria-current="page"`, état replié annoncé.

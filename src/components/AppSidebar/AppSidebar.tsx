@@ -55,8 +55,6 @@ export interface AppSidebarProps {
   linkAs?: LinkAs;
   /** Nom de la navigation pour les lecteurs d'écran. */
   'aria-label'?: string;
-  /** transparent : posé sur le fond de page (AppLayout menu=transparent) ; filled : bloc avec fond et ombre intérieure. */
-  surface?: 'transparent' | 'filled';
   className?: string;
 }
 
@@ -102,17 +100,17 @@ function Entry({ item, collapsed, linkAs, level = 'primary' }: { item: AppSideba
 /**
  * AppSidebar (Figma 8:14681, type=main) : menu latéral de l'application, commun à Told et Told Record.
  * Sélecteur de projet en haut, groupes d'entrées (titres CRÉER, ANALYSER, MARQUE), entrées du bas (Réglages, Aide),
- * puis carte du compte. 264 de large, 72 replié (icônes seules, titres remplacés par des séparateurs, libellés en infobulle).
+ * puis carte du compte. Toujours transparent, posé sur le fond de page (menus principal et secondaires, 24/11). 264 de large, 72 replié (icônes seules, titres remplacés par des séparateurs, libellés en infobulle).
  */
 export function AppSidebar({
   sections, footer, switcher, promo, account, collapsed: collapsedProp, onCollapsedChange, collapsible = false,
-  linkAs, surface = 'transparent', className, ...rest
+  linkAs, className, ...rest
 }: AppSidebarProps) {
   const [inner, setInner] = useState(false);
   const collapsed = collapsedProp ?? inner;
   const toggle = () => { const n = !collapsed; if (collapsedProp === undefined) setInner(n); onCollapsedChange?.(n); };
   return (
-    <div className={cx(styles.sidebar, collapsed && styles.collapsed, surface === 'filled' && styles.filled, className)} data-collapsed={collapsed || undefined}>
+    <div className={cx(styles.sidebar, collapsed && styles.collapsed, className)} data-collapsed={collapsed || undefined}>
       {(switcher || collapsible) && (
         <div className={styles.head}>
           {switcher && <div className={styles.switcher}>{switcher}</div>}

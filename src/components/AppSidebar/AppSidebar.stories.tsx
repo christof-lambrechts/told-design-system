@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { AppSidebar, ProjectSwitcher, AccountCard, NotificationBell, type AppSidebarSection, type AppSidebarItem } from './AppSidebar';
 import { AppLayout } from '../AppLayout/AppLayout';
+import { NavButtonItem } from '../Nav/NavButtonItem';
 
 const meta = {
   title: 'Gabarits/AppSidebar',
@@ -40,11 +41,11 @@ const menuCommun = (current = 'told-record', onAdd?: (id: string) => void): { se
   ],
 });
 
-const Sidebar = ({ collapsed = false, current = 'told-record', surface }: { collapsed?: boolean; current?: string; surface?: 'transparent' | 'filled' }) => {
+const Sidebar = ({ collapsed = false, current = 'told-record' }: { collapsed?: boolean; current?: string }) => {
   const [c, setC] = useState(collapsed);
   const { sections, footer } = menuCommun(current);
   return (
-    <AppSidebar sections={sections} footer={footer} collapsed={c} onCollapsedChange={setC} collapsible surface={surface}
+    <AppSidebar sections={sections} footer={footer} collapsed={c} onCollapsedChange={setC} collapsible
       switcher={<ProjectSwitcher project="Mon premier projet" organization="Mon entreprise" appearance="outline" compact={c} />}
       account={<AccountCard name="Dylan Laborie" email="dylan.laborie@evolt.io" compact={c} notifications={<NotificationBell count={3} />} />} />
   );
@@ -54,7 +55,6 @@ const frame = (node: React.ReactNode) => <div style={{ height: '100vh', backgrou
 
 export const MenuCommun: StoryObj = { name: 'Menu commun (Told + Told Record)', render: () => frame(<Sidebar />) };
 export const Replie: StoryObj = { name: 'Replié', render: () => frame(<Sidebar collapsed />) };
-export const AvecFond: StoryObj = { name: 'Avec fond (menu filled)', render: () => <div style={{ height: '100vh', padding: 12, background: 'var(--neutral-surface-default)', display: 'flex', boxSizing: 'border-box' }}><Sidebar surface="filled" current="resultats" /></div> };
 export const DansAppLayout: StoryObj = {
   name: 'Dans AppLayout',
   render: () => (
@@ -63,5 +63,39 @@ export const DansAppLayout: StoryObj = {
         <div style={{ padding: 24 }}><h1 style={{ margin: 0, fontSize: 20 }}>Told Record</h1><p>Contenu de la page (TopBar à venir).</p></div>
       </AppLayout>
     </div>
+  ),
+};
+
+/** Menu secondaire des réglages (Layout type=settings) : même composant, transparent, « Retour aux projets » en tête. */
+export const Reglages: StoryObj = {
+  name: 'Réglages (menu secondaire)',
+  render: () => frame(
+    <AppSidebar aria-label="Réglages"
+      switcher={<NavButtonItem icon="arrow-left-02" href="#projets">Retour aux projets</NavButtonItem>}
+      sections={[
+        { id: 'org', title: 'Organisation', items: [
+          { id: 'membres', label: 'Membres', icon: 'user-multiple-02', href: '#membres', selected: true },
+          { id: 'plan', label: 'Plan et facturation', icon: 'invoice', href: '#plan' },
+          { id: 'integrations', label: 'Intégrations', icon: 'puzzle', href: '#integrations' },
+        ] },
+        { id: 'projet', title: 'Projet', items: [
+          { id: 'script', label: 'Installation du script', icon: 'source-code', href: '#script' },
+          { id: 'domaines', label: 'Domaines', icon: 'link-03', href: '#domaines' },
+        ] },
+        { id: 'marque', title: 'Marque', items: [
+          { id: 'kit', label: 'Kit de marque', icon: 'paint-brush-04', href: '#kit' },
+          { id: 'medias', label: 'Ressources & médias', icon: 'image-03', href: '#medias' },
+        ] },
+        { id: 'ia', title: 'IA', items: [
+          { id: 'agent', label: 'IA agent', icon: 'artificial-intelligence-02', href: '#agent' },
+          { id: 'mcp', label: 'Connexion MCP', icon: 'artificial-intelligence-04', href: '#mcp' },
+        ] },
+        { id: 'compte', title: 'Mon compte', items: [
+          { id: 'profil', label: 'Mon profil', icon: 'user', href: '#profil' },
+          { id: 'mails', label: 'Préférences email', icon: 'mail-02', href: '#mails' },
+          { id: 'extension', label: 'Extension Chrome', icon: 'plug-socket', href: '#extension' },
+        ] },
+      ]}
+      footer={[{ id: 'logout', label: 'Se déconnecter', icon: 'logout-02', onClick: () => {} }]} />,
   ),
 };
