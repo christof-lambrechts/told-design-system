@@ -22,7 +22,7 @@ export interface OptionPopoverProps {
    */
   placement?: PopoverPlacement;
   children: ReactNode;
-  /** Largeur (320 par défaut, comme Figma). */
+  /** Largeur fixe. Par défaut la micro-modale suit son contenu (Hug), entre 220 et 360. */
   width?: number;
 }
 
@@ -30,10 +30,10 @@ const GAP = 8;
 
 /**
  * OptionPopover (Figma 9928:10884) : micro-modale d'un réglage, ouverte par PopoverField.
- * 320 de large, rayon 12, ombre shadow-flat-8 ; titre + Fermer, contenu au choix (liste illustrée FormatOptionGroup,
+ * Largeur au contenu (Hug, 220 à 360), rayon 12, ombre shadow-flat-8 ; titre + Fermer, contenu au choix (liste illustrée FormatOptionGroup,
  * PositionPicker, ChoiceChips…). Échap, clic dehors ou Fermer la referment et rendent le focus au champ.
  */
-export function OptionPopover({ title, open, onClose, anchor, placement = 'left', children, width = 320 }: OptionPopoverProps) {
+export function OptionPopover({ title, open, onClose, anchor, placement = 'left', children, width }: OptionPopoverProps) {
   const box = useRef<HTMLDivElement>(null);
   const tid = useId();
   const [pos, setPos] = useState<{ top: number; left: number } | null>(null);
@@ -42,15 +42,16 @@ export function OptionPopover({ title, open, onClose, anchor, placement = 'left'
     if (!anchor || !box.current) return;
     const a = anchor.getBoundingClientRect();
     const h = box.current.offsetHeight;
+    const w = box.current.offsetWidth;
     const vw = window.innerWidth, vh = window.innerHeight;
     const panel = anchor.closest('[data-option-sidebar]')?.getBoundingClientRect() ?? a;
     let left: number, top: number;
-    if (placement === 'left' && panel.left - GAP - width >= 8) { left = panel.left - GAP - width; top = a.top; }
-    else if (placement === 'right' && panel.right + GAP + width <= vw - 8) { left = panel.right + GAP; top = a.top; }
-    else { left = Math.min(Math.max(8, a.left), vw - width - 8); top = a.bottom + 4; }
+    if (placement === 'left' && panel.left - GAP - w >= 8) { left = panel.left - GAP - w; top = a.top; }
+    else if (placement === 'right' && panel.right + GAP + w <= vw - 8) { left = panel.right + GAP; top = a.top; }
+    else { left = Math.min(Math.max(8, a.left), vw - w - 8); top = a.bottom + 4; }
     top = Math.max(8, Math.min(top, vh - h - 8));
     setPos({ top, left });
-  }, [anchor, placement, width]);
+  }, [anchor, placement]);
 
   useLayoutEffect(() => { if (open) place(); else setPos(null); }, [open, place]);
   useEffect(() => {
@@ -78,7 +79,7 @@ export function OptionPopover({ title, open, onClose, anchor, placement = 'left'
   if (!open || typeof document === 'undefined') return null;
   return createPortal(
     <div ref={box} role="dialog" aria-labelledby={tid} className={styles.popover}
-      style={{ width, top: pos?.top ?? -9999, left: pos?.left ?? -9999, visibility: pos ? 'visible' : 'hidden' }}>
+      style={{ width: width ?? 'max-content', top: pos?.top ?? -9999, left: pos?.left ?? -9999, visibility: pos ? 'visible' : 'hidden' }}>
       <div className={styles.head}>
         <span id={tid} className={styles.title}>{title}</span>
         <ButtonIcon icon="cancel-01" label="Fermer" appearance="ghost" color="neutral" size="sm" onClick={() => { onClose(); anchor?.focus(); }} />
