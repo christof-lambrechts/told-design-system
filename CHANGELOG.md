@@ -3,6 +3,12 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.57.0 · 24/11/2026
+
+- **AppSidebar** (D-012, lot 1 du gabarit) : menu latéral commun à Told et Told Record, piste B validée par Christof (Accueil ; CRÉER Scénarios, Told, Told Record ; ANALYSER Résultats, Audiences ; MARQUE Kit de marque, Ressources ; en bas Réglages et Aide). Entrées passées en données (`sections`, `footer` : libellé, icône, `href`, `selected`, `tag`, action « + » `onAdd`, sous-entrées), liens branchés sur le routeur par `linkAs` (TanStack Router, Next.js). Repliable (72 de large, icônes seules, séparateurs, libellés lus), `surface` transparent | filled. `nav` nommée, `aria-current="page"`, état replié annoncé.
+- Pièces : **ProjectSwitcher** (projet + organisation, `appearance` default | outline, `compact`), **AccountCard** (avatar, nom, e-mail, cloche), **NotificationBell** (pastille si non lues).
+- Stories Gabarits › AppSidebar (menu commun, replié, avec fond, dans AppLayout).
+
 ## v0.56.0 · 24/11/2026
 
 - **Réglages d'apparence Told en micro-modale** (même règle que Record) : `RadiusSettings` (4 arrondis) et `SoundSettings` (ambiances sonores + Écouter) passent en `PopoverField` + `OptionPopover`. Même API. La position du widget se pose de même côté app : `PopoverField` + `PositionPreview` + `PositionPicker`.

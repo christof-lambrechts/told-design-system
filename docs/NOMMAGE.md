@@ -36,6 +36,10 @@ Figma a été renommé ; les instances des maquettes restent liées. Dans le cod
 | `Alert` (codé v0.28.0) | | | message dans le contenu (carte, panneau) ; `Banner` = bandeau pleine largeur en haut de page |
 | `InfoCard` (21/11, codé v0.25.0) | | | bandeau en tête d'un canal ; `type` link, iframe (jaune), video, embed, email. Figma : InfoCard `type=liens | iframe | video | integrer | email` |
 | `OptionChoice` (21/11) | SelectionItem | | un choix (picto en petit carré, libellé, badge) dans la liste ouverte sous une OptionItem ; rangé page OptionContent. Codé v0.23.0 : `OptionChoiceGroup` (radio, une liste) |
+| `AppSidebar` (24/11) | AppSidebar | AppSidebar | menu latéral commun Told + Told Record ; entrées en données (`sections`, `footer`), `linkAs`, `collapsed`. Codé v0.57.0 |
+| `ProjectSwitcher` (24/11) | ProjectSwitcher | ProjectSwitcher | `project`, `organization`, `appearance`, `compact`. Codé v0.57.0 |
+| `AccountCard` (24/11) | AccountCard | AccountCard | `name`, `email`, `avatar`, `notifications`, `compact`. Codé v0.57.0 |
+| `NotificationBell` (24/11) | Notifications (dans AccountCard) | NotificationBell | `count`, `onClick`. Codé v0.57.0 |
 | `PopoverField` (24/11) | | | champ compact d'un réglage (aperçu, valeur, chevron) qui ouvre OptionPopover. Codé v0.53.0 |
 | `OptionPopover` (24/11) | | | micro-modale d’un réglage, largeur au contenu (200 à 360), titre + Fermer, contenu libre. Codé v0.53.0 |
 | `OptionCard` (21/11) | SwitchOptionCard | | ligne d'option à fond gris et interrupteur (Diffuser). Codé v0.23.0 (`toggle` ou `control`, contenu en `children`) |

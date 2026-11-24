@@ -153,3 +153,6 @@ export type {
   OverlaySettingsProps, ProgressSettingsProps, FooterSettingsProps, WidgetAvatarSettingsProps, LabelSettingsProps, CloseSettingsProps,
   ImageSettingsProps, SoundOption, SoundSettingsProps, RadiusChoice, NavButton, NavButtonsSettingsProps, ShadowSettingsProps, GlassSettingsProps,
 } from './components/Customisation/Customisation';
+
+export { AppSidebar, ProjectSwitcher, AccountCard, NotificationBell } from './components/AppSidebar/AppSidebar';
+export type { AppSidebarProps, AppSidebarItem, AppSidebarSection, ProjectSwitcherProps, AccountCardProps, NotificationBellProps } from './components/AppSidebar/AppSidebar';

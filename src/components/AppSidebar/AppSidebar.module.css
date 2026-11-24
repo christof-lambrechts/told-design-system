@@ -1,0 +1,61 @@
+/* AppSidebar (Figma 8:14681) : 264 de large, 72 replié. Marges du menu 15 / 17, écart 4 ; titres Body/12/Semibold. */
+.sidebar { box-sizing: border-box; display: flex; flex-direction: column; width: 264px; height: 100%; min-height: 0; font-family: var(--font-family-body); transition: width .16s ease; }
+.filled { background: var(--neutral-surface-sidebar); box-shadow: var(--shadow-inner-sidebar); border-radius: var(--radius-lg); }
+.collapsed { width: 72px; }
+
+.head { display: flex; align-items: center; gap: 4px; padding: 12px 8px; border-bottom: 1px solid var(--neutral-border-sidebar); }
+.collapsed .head { flex-direction: column; padding: 12px 0; }
+.switcher { flex: 1; min-width: 0; display: flex; }
+.collapsed .switcher { flex: none; }
+.toggle { flex: none; }
+.collapsed .toggle :is(svg) { transform: scaleX(-1); }
+
+.nav { flex: 1; min-height: 0; overflow-y: auto; padding: 15px 17px; display: flex; flex-direction: column; gap: 4px; }
+.collapsed .nav { padding: 15px 0; align-items: center; }
+.section { display: flex; flex-direction: column; gap: 4px; }
+.title { margin: 0; padding: 12px 8px 2px; font-size: var(--body-12-size); line-height: var(--body-12-line-height); font-weight: var(--font-weight-semibold); letter-spacing: -0.02em; color: var(--content-subtle-default); text-transform: uppercase; }
+.sep { width: 24px; margin: 8px auto; border: 0; border-top: 1px solid var(--neutral-border-sidebar); }
+.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.collapsed .list { align-items: center; }
+.entry { margin: 0; }
+.row { position: relative; display: flex; align-items: center; }
+.item { flex: 1; min-width: 0; }
+.itemCollapsed { flex: none; width: 34px; justify-content: center; padding-left: 0; padding-right: 0; }
+.add { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); opacity: 0; transition: opacity .12s; }
+.row:hover .add, .row:focus-within .add { opacity: 1; }
+.sub { list-style: none; margin: 4px 0 0; padding: 0 0 0 12px; display: flex; flex-direction: column; gap: 2px; }
+
+.bottom { display: flex; flex-direction: column; }
+.footerNav { padding: 15px 17px; }
+.collapsed .footerNav { padding: 15px 0; }
+.promo { padding: 0 12px 8px; }
+.account { padding: 8px 12px 12px; }
+.collapsed .account { padding: 8px 0 12px; display: flex; justify-content: center; }
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ProjectSwitcher (8575:1848) : initiale 32 en Brand/surface/tint, nom Body/14 Semibold, organisation Body/12. */
+.ps { all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 9px; width: 100%; min-width: 0; padding: 6px 10px; border-radius: var(--component-cards-md); cursor: pointer; }
+.ps:hover { background: var(--neutral-surface-muted); }
+.ps:focus-visible { box-shadow: var(--focus-ring); }
+.psOutline { box-shadow: inset 0 0 0 1px var(--neutral-border-default); background: var(--paper-alpha-5); border-radius: var(--component-cards-xl); }
+.psCompact { width: auto; padding: 4px; }
+.psIni { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: var(--component-cards-sm); background: var(--brand-surface-tint); color: var(--content-brand-default-on-light); font-size: var(--body-12-size); font-weight: 600; overflow: hidden; }
+.psText { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.psName { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--body-14-size); line-height: var(--body-14-line-height); font-weight: 600; color: var(--content-default-default); }
+.psOrg { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--body-12-size); line-height: var(--body-12-line-height); color: var(--content-subtle-default); }
+.psChevron { flex: none; color: var(--content-muted-default); }
+
+/* AccountCard : avatar 32 en Brand/primary/600, nom et e-mail, cloche à droite. */
+.ac { display: flex; align-items: center; gap: 4px; min-width: 0; }
+.acCompact { flex-direction: column; }
+.acBtn { all: unset; box-sizing: border-box; flex: 1; min-width: 0; display: flex; align-items: center; gap: 9px; padding: 8px 9px; border-radius: var(--component-cards-md); cursor: pointer; }
+.acCompact .acBtn { flex: none; padding: 4px; }
+.acBtn:hover { background: var(--neutral-surface-muted); }
+.acBtn:focus-visible { box-shadow: var(--focus-ring); }
+.acAvatar { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 10px; background: var(--brand-primary-600); color: var(--white-white-100); font-size: var(--body-14-size); font-weight: 600; overflow: hidden; }
+.acText { min-width: 0; display: flex; flex-direction: column; }
+.acName { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--body-14-size); line-height: var(--body-14-line-height); font-weight: 600; color: var(--content-default-default); }
+.acMail { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--body-12-size); line-height: var(--body-12-line-height); color: var(--content-subtle-default); }
+
+.bell { position: relative; display: inline-flex; flex: none; }
+.dot { position: absolute; top: 5px; right: 5px; width: 7px; height: 7px; border-radius: 50%; background: var(--brand-danger-500); box-shadow: 0 0 0 1.5px var(--neutral-surface-page); pointer-events: none; }
