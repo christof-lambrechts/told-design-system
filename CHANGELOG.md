@@ -3,6 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.52.1 · 24/11/2026
+
+- **Correctif macOS** : `src/components/Contrast/contrast.ts` devient `contrastMath.ts`. Sur un disque insensible à la casse (macOS, Windows), il entrait en collision avec `Contrast.tsx` : l'import `../Contrast/Contrast` tombait sur le mauvais fichier et `tsc` échouait (12 erreurs dans Record). Les noms exportés ne changent pas.
+- `npm run check:case` (scripts/check-case.mjs) refuse deux fichiers d'un même dossier dont les noms ne diffèrent que par la casse ou l'extension ; le workflow Version le lance avant de publier.
+
 ## v0.52.0 · 24/11/2026
 
 - **WidgetConsent** : sans `state`, le bloc garde lui-même la réponse : un clic sur la coche affiche « Accepté », sur la croix « Refusé » (annoncé aux lecteurs d'écran). Avec `state`, l'app reste maître, comme avant.

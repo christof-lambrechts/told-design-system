@@ -15,6 +15,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Refuser les noms qui ne diffèrent que par la casse
+        # Contrast.tsx et contrast.ts cassaient la compilation sur macOS (v0.52.1).
+        run: node scripts/check-case.mjs
       - name: Lire la version
         id: v
         run: echo "tag=v$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"

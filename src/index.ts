@@ -64,8 +64,8 @@ export type { TranslationTableProps, TranslationGroup, TranslationRow, Language,
 // v0.9.0 : composants validés pour Told Record
 export { ContrastBadge, ContrastMenu, ColorField } from './components/Contrast/Contrast';
 export type { ContrastBadgeProps, ContrastMenuProps, ColorFieldProps } from './components/Contrast/Contrast';
-export { contrastRatio, fixContrast, formatRatio, passes, contrastThreshold } from './components/Contrast/contrast';
-export type { ContrastLevel } from './components/Contrast/contrast';
+export { contrastRatio, fixContrast, formatRatio, passes, contrastThreshold } from './components/Contrast/contrastMath';
+export type { ContrastLevel } from './components/Contrast/contrastMath';
 export { CopyField, CodeBlock } from './components/CopyField/CopyField';
 export type { CopyFieldProps, CodeBlockProps } from './components/CopyField/CopyField';
 export { Breadcrumb, EditableTitle } from './components/Breadcrumb/Breadcrumb';

@@ -3,7 +3,7 @@ import { GroupTab } from '../Tabs/Tabs';
 import { Switch } from '../Choice/Choice';
 import { Icon } from '../Icon/Icon';
 import { OptionChoiceGroup } from '../OptionSidebar/OptionCard';
-import { contrastRatio, formatRatio } from '../Contrast/contrast';
+import { contrastRatio, formatRatio } from '../Contrast/contrastMath';
 import styles from './ColorPicker.module.css';
 
 export type ColorFill =
