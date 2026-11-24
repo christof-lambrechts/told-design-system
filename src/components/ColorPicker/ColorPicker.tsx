@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent as R
 import { GroupTab } from '../Tabs/Tabs';
 import { Switch } from '../Choice/Choice';
 import { Icon } from '../Icon/Icon';
+import { OptionChoiceGroup } from '../OptionSidebar/OptionCard';
 import { contrastRatio, formatRatio } from '../Contrast/contrast';
 import styles from './ColorPicker.module.css';
 
@@ -141,21 +142,14 @@ export interface ToneChoiceProps {
 
 /**
  * ToneChoice (Figma 9897:8199) : version claire ou sombre d'un élément (logo, texte posé sur un fond,
- * contour glass). Deux lignes, soleil (Clair) et lune (Sombre), la ligne choisie surlignée et cochée.
+ * contour glass). Deux OptionChoice (le style des choix du DS), soleil (Clair) et lune (Sombre).
  */
 export function ToneChoice({ value, onChange, label, showLabel }: ToneChoiceProps) {
   return (
     <div className={styles.section}>
       {showLabel && <span className={styles.label} aria-hidden="true">{label}</span>}
-      <div className={styles.tones} role="radiogroup" aria-label={label}>
-        {(['light', 'dark'] as const).map((t) => (
-          <button key={t} type="button" role="radio" aria-checked={value === t} className={styles.tone} onClick={() => onChange(t)}>
-            <span className={styles.toneIcon} aria-hidden="true"><Icon name={t === 'light' ? 'sun-03' : 'moon-02'} variant="stroke" size={14} /></span>
-            <span className={styles.toneLabel}>{t === 'light' ? 'Clair' : 'Sombre'}</span>
-            {value === t && <Icon name="tick-02" variant="stroke" size={16} aria-hidden="true" />}
-          </button>
-        ))}
-      </div>
+      <OptionChoiceGroup aria-label={label} value={value} onChange={(v) => onChange(v as TextTone)}
+        options={[{ value: 'light', label: 'Clair', icon: 'sun-03' }, { value: 'dark', label: 'Sombre', icon: 'moon-02' }]} />
     </div>
   );
 }

@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.49.0 · 24/11/2026
+
+- **ToneChoice** reprend le style des choix du DS : c'est un OptionChoiceGroup (picto dans un carré blanc à contour, fond bleu pâle sur le choix), soleil et lune pleins. Figma ToneChoice refait avec OptionChoice.
+
 ## v0.48.0 · 24/11/2026
 
 - **ToneChoice** (nouveau, Figma 9897:8199) : version claire ou sombre d'un élément, deux lignes avec icône encadrée, soleil (Clair) et lune (Sombre), la ligne choisie surlignée et cochée. Utilisé par ColorPicker (texte, contour glass).
