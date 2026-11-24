@@ -545,26 +545,6 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Statut : **codé told-ds v0.36.0**, à appliquer dans Record (plan court à présenter à Jonathan : format, lecteur, éditeur)
 - Réponse Record : appliqué sur la branche `christof` le 23/11 (décidé par Christof, pas encore dans `main`). Repris : les trois styles (centré, côte à côte, couverture), le média (une capture de la démo), jusqu'à 3 boutons en fin (liens https, plein puis contour puis sans fond), l'écran de début (titre, texte, bouton, affiché par défaut en démo guidée, masqué en Annonce). Dans l'éditeur : ChoiceField (Style) et les champs de l'app ; sur le canevas et dans le lecteur, les écrans sont dessinés par Record sur le modèle de Figma, car le lecteur ne charge pas React. Pas repris pour l'instant : récompense, points clés, compte à rebours, réseaux sociaux, contexte `widget`.
 
-### D-043 · « Ombre » du cadre du média pour tous les cadres (23/11, demandé par Christof)
-- Date, écran Record concerné : 23/11, éditeur de l'Annonce, réglage « Cadre du média » (`editor/media-frame-field.tsx`, `MediaFrameSettings`).
-- Besoin : choisir l'ombre (Aucune, Douce, Marquée) quel que soit le cadre : Ordinateur › Écran, Ordinateur › Navigateur, et Aucun (la capture seule), comme pour les mobiles, la tablette, l'iMac et le MacBook.
-- Ce qui manque dans le DS : `MediaFrameSettings` n'affiche « Ombre » que si l'appareil a des coloris (`current?.finishes`). L'Écran et le Navigateur n'en ont pas, et Aucun non plus : le réglage disparaît.
-- Contournement provisoire dans Record : un `ChoiceField` « Ombre » posé sous `MediaFrameSettings` quand celui-ci ne l'affiche pas (`// TODO DS: D-043`). Le lecteur applique `mediaShadows` au navigateur et à la capture seule.
-- Proposition : afficher « Ombre » pour tout cadre, juste après « Coloris » (ou après « Appareil » quand il n'y a pas de coloris), y compris pour Aucun.
-- Priorité : important
-- Statut : à faire
-- Réponse DS :
-
-### D-044 · MessageCard « désactivée » mais sélectionnable (23/11, demandé par Christof)
-- Date, écran Record concerné : 23/11, éditeur, colonne Étapes (`editor/editor.tsx`, StepList `intro` et `end`).
-- Besoin : l'écran de début et l'écran de fin s'activent ou se désactivent dans leur panneau. Désactivés, leur carte doit avoir l'air éteinte (grisée, transparente), mais rester cliquable pour ouvrir le panneau et les rallumer.
-- Ce qui manque dans le DS : `MessageCard` n'a que `disabled`, qui pose l'attribut HTML `disabled` (opacité 0,38 et clic impossible).
-- Contournement provisoire dans Record : la carte reste active, et un enveloppe lui donne l'opacité 0,38 (0,6 au survol, 1 au focus clavier) (`// TODO DS: D-044`).
-- Proposition : une propriété `inactive` (ou `off`) : même rendu que `disabled`, la carte reste un bouton cliquable, l'état sélectionné reste visible ; aperçu « Désactivé » au choix de Record.
-- Priorité : confort
-- Statut : à faire
-- Réponse DS :
-
 ### D-043 · Réglages en micro-modale (PopoverField + OptionPopover) (24/11, validé par Christof)
 - Sens : demande du DS vers Record (panneau Options de l'éditeur).
 - Référence Figma : page `🧩 Molécules / Options ✅`, section « Micro-modale · PopoverField + OptionPopover » (`9928:10859`) ; planche « Blocs d'option · fermé et ouvert » (`9920:7302`).
@@ -591,6 +571,26 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Priorité : important
 - Statut : **codé told-ds v0.55.0** (panneau), à appliquer dans Record (plan court à présenter à Jonathan : format et migration, lecteur, éditeur)
 - Réponse Record :
+
+### D-046 · « Ombre » du cadre du média pour tous les cadres (23/11, demandé par Christof)
+- Date, écran Record concerné : 23/11, éditeur de l'Annonce, réglage « Cadre du média » (`editor/media-frame-field.tsx`, `MediaFrameSettings`).
+- Besoin : choisir l'ombre (Aucune, Douce, Marquée) quel que soit le cadre : Ordinateur › Écran, Ordinateur › Navigateur, et Aucun (la capture seule), comme pour les mobiles, la tablette, l'iMac et le MacBook.
+- Ce qui manque dans le DS : `MediaFrameSettings` n'affiche « Ombre » que si l'appareil a des coloris (`current?.finishes`). L'Écran et le Navigateur n'en ont pas, et Aucun non plus : le réglage disparaît.
+- Contournement provisoire dans Record : un `ChoiceField` « Ombre » posé sous `MediaFrameSettings` quand celui-ci ne l'affiche pas (`// TODO DS: D-046`). Le lecteur applique `mediaShadows` au navigateur et à la capture seule.
+- Proposition : afficher « Ombre » pour tout cadre, juste après « Coloris » (ou après « Appareil » quand il n'y a pas de coloris), y compris pour Aucun.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+
+### D-047 · MessageCard « désactivée » mais sélectionnable (23/11, demandé par Christof)
+- Date, écran Record concerné : 23/11, éditeur, colonne Étapes (`editor/editor.tsx`, StepList `intro` et `end`).
+- Besoin : l'écran de début et l'écran de fin s'activent ou se désactivent dans leur panneau. Désactivés, leur carte doit avoir l'air éteinte (grisée, transparente), mais rester cliquable pour ouvrir le panneau et les rallumer.
+- Ce qui manque dans le DS : `MessageCard` n'a que `disabled`, qui pose l'attribut HTML `disabled` (opacité 0,38 et clic impossible).
+- Contournement provisoire dans Record : la carte reste active, et un enveloppe lui donne l'opacité 0,38 (0,6 au survol, 1 au focus clavier) (`// TODO DS: D-047`).
+- Proposition : une propriété `inactive` (ou `off`) : même rendu que `disabled`, la carte reste un bouton cliquable, l'état sélectionné reste visible ; aperçu « Désactivé » au choix de Record.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
 
 ## Questions de Record (20/11)
 - **Annonce en Carré 1:1 ?**
