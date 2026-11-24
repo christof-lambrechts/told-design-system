@@ -3,6 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.54.0 · 24/11/2026
+
+- **AvatarSettings** : Position et Contour (avec sa couleur) passent en `PopoverField` + micro-modale. Même API.
+- **MediaFrameSettings** : Cadre en `PopoverField` avec la liste illustrée (Aucun, Mobile, Tablette, Ordinateur ; sans Ordinateur en vertical) ; Appareil et Coloris réunis dans un seul champ (« iMac · Bleu »). Position, Orientation, Ombre et zoom de la capture inchangés. Même API.
+
 ## v0.53.0 · 24/11/2026
 
 - **PopoverField** et **OptionPopover** (Figma 9928:10883, 9928:10884) : un réglage long se résume dans un champ (aperçu + valeur + chevron, 36 de haut) qui ouvre une micro-modale de 320 à gauche du panneau. Échap, clic dehors ou Fermer la referment et rendent le focus au champ. Aperçus `PositionPreview` et `ColorPreview`.

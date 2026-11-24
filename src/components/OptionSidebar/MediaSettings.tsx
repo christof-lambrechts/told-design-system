@@ -4,6 +4,10 @@ import { ChoiceField } from './ChoiceField';
 import { SliderCapsule } from '../Slider/SliderCapsule';
 import { ButtonLink } from '../Button/ButtonMisc';
 import { PositionPicker, type Position } from './PositionPicker';
+import { PopoverField, ColorPreview } from '../Popover/OptionPopover';
+import { FormatOptionGroup } from './FormatOption';
+import { Icon } from '../Icon/Icon';
+import type { ChoiceIllustrationName } from '../ChoicePicker/illustrations';
 import styles from './AvatarSettings.module.css';
 
 export type MediaFrameKind = 'none' | 'mobile' | 'tablet' | 'desktop';
@@ -83,6 +87,14 @@ export interface MediaFrameSettingsProps {
   disabled?: boolean;
 }
 
+/** Choix du cadre dans la micro-modale (liste illustrée, 24/11). */
+const FRAME_CHOICES: Record<MediaFrameKind, { title: string; description: string; illustration: ChoiceIllustrationName; icon: 'image-03' | 'smart-phone-01' | 'tablet-01' | 'computer' }> = {
+  none: { title: 'Aucun', description: 'Capture seule.', illustration: 'frame-none', icon: 'image-03' },
+  mobile: { title: 'Mobile', description: 'Téléphone.', illustration: 'frame-mobile', icon: 'smart-phone-01' },
+  tablet: { title: 'Tablette', description: 'Tablette.', illustration: 'frame-tablet', icon: 'tablet-01' },
+  desktop: { title: 'Ordinateur', description: 'Écran d’ordinateur.', illustration: 'frame-desktop', icon: 'computer' },
+};
+
 const NOTES: Record<MediaFrameKind, string> = {
   none: 'La capture s’affiche seule, avec l’arrondi du kit.',
   mobile: 'La capture remplit l’écran : une capture d’ordinateur est rognée sur les côtés.',
@@ -90,15 +102,17 @@ const NOTES: Record<MediaFrameKind, string> = {
   desktop: 'La capture remplit l’écran du modèle choisi.',
 };
 
-/** MediaFrameSettings (Figma 9828:6305) : contenu du réglage « Cadre du média » de l'Annonce Record (OptionItem ouvert, picto `device`). Cadre Aucun | Mobile | Tablette | Ordinateur, puis Appareil (ou Orientation pour la tablette), Coloris et Ombre. */
+/** MediaFrameSettings (Figma 9828:6305) : contenu du réglage « Cadre du média » de l'Annonce Record (OptionItem ouvert, picto `device`). Cadre (champ + micro-modale illustrée, 24/11), Position, Orientation pour la tablette, Appareil et Coloris (un champ + micro-modale), Ombre. */
 export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange, finish, onFinishChange, orientation = 'portrait', onOrientationChange, shadow = 'soft', onShadowChange, slideOrientation = 'landscape', placement, onPlacementChange, captureZoom, onCaptureZoomChange, captureHelp, devices = mediaDevices, note, disabled }: MediaFrameSettingsProps) {
   const vertical = slideOrientation === 'portrait';
   const list = kind === 'none' ? [] : devices[kind];
   const current = list.find((d) => d.value === device) ?? list[0];
   return (
     <div className={styles.root}>
-      <GroupTab label="Cadre" value={kind} onChange={(v) => onKindChange(v as MediaFrameKind)}
-        items={[{ value: 'none', label: 'Aucun' }, { value: 'mobile', label: 'Mobile' }, { value: 'tablet', label: 'Tablette' }, ...(vertical ? [] : [{ value: 'desktop', label: 'Ordinateur' }])]} />
+      <PopoverField label="Cadre" disabled={disabled} value={FRAME_CHOICES[kind].title} preview={<Icon name={FRAME_CHOICES[kind].icon} size={18} />}>
+        <FormatOptionGroup aria-label="Cadre" value={kind} onChange={(v) => onKindChange(v as MediaFrameKind)}
+          options={(vertical ? (['none', 'mobile', 'tablet'] as const) : (['none', 'mobile', 'tablet', 'desktop'] as const)).map((k) => ({ value: k, ...FRAME_CHOICES[k] }))} />
+      </PopoverField>
       {placement && (
         <GroupTab label="Position" value={placement} onChange={(v) => onPlacementChange?.(v as MediaPlacement)}
           items={[{ value: 'inset', label: 'Avec marge' }, { value: 'edge', label: vertical ? 'En bas' : 'À droite' }, { value: 'corner', label: 'Dans le coin' }]} />
@@ -107,14 +121,22 @@ export function MediaFrameSettings({ kind, onKindChange, device, onDeviceChange,
         <GroupTab label="Orientation" value={orientation} onChange={(v) => onOrientationChange?.(v as MediaOrientation)}
           items={[{ value: 'portrait', label: 'Portrait' }, { value: 'landscape', label: 'Paysage' }]} />
       )}
-      {kind !== 'none' && list.length > 1 && (
-        <ChoiceField label="Appareil" disabled={disabled} value={current?.value ?? ''} onChange={(v) => onDeviceChange?.(v)}
-          options={list.map((d) => ({ value: d.value, label: d.label }))} />
-      )}
-      {current?.finishes && (
-        <ChoiceField label="Coloris" disabled={disabled} value={finish ?? current.finishes[0].value} onChange={(v) => onFinishChange?.(v)}
-          options={current.finishes.map((f) => ({ value: f.value, label: f.label, color: f.color }))} />
-      )}
+      {kind !== 'none' && (list.length > 1 || current?.finishes) && (() => {
+        const fin = current?.finishes?.find((f) => f.value === finish) ?? current?.finishes?.[0];
+        return (
+          <PopoverField label="Appareil" disabled={disabled} value={fin ? `${current.label} · ${fin.label}` : current?.label}
+            preview={fin ? <ColorPreview color={fin.color} /> : <Icon name={FRAME_CHOICES[kind].icon} size={18} />}>
+            {list.length > 1 && (
+              <ChoiceField label="Appareil" disabled={disabled} value={current?.value ?? ''} onChange={(v) => onDeviceChange?.(v)}
+                options={list.map((d) => ({ value: d.value, label: d.label }))} />
+            )}
+            {current?.finishes && (
+              <ChoiceField label="Coloris" disabled={disabled} value={fin?.value ?? ''} onChange={(v) => onFinishChange?.(v)}
+                options={current.finishes.map((f) => ({ value: f.value, label: f.label, color: f.color }))} />
+            )}
+          </PopoverField>
+        );
+      })()}
       {current?.finishes && (
         <ChoiceField label="Ombre" disabled={disabled} value={shadow} onChange={(v) => onShadowChange?.(v as MediaShadow)}
           options={[{ value: 'none', label: 'Aucune' }, { value: 'soft', label: 'Douce' }, { value: 'strong', label: 'Marquée' }]} />
