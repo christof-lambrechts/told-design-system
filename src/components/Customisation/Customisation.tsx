@@ -10,6 +10,7 @@ import { ColorField } from '../Contrast/Contrast';
 import { ToneChoice, type TextTone } from '../ColorPicker/ColorPicker';
 import { OptionChoiceGroup } from '../OptionSidebar/OptionCard';
 import { ProUpsellCard } from '../OptionSidebar/BrandSettings';
+import { PopoverField } from '../Popover/OptionPopover';
 import styles from './Customisation.module.css';
 
 /*
@@ -17,6 +18,8 @@ import styles from './Customisation.module.css';
  * Un composant par `type` Figma, posé dans le contenu d'une OptionItem ouverte. Les couleurs (bg-color-*,
  * color, font-color-light) sont le ColorPicker ; la position est le PositionPicker.
  * Tout est contrôlé : l'app garde les valeurs et reçoit les changements.
+ * Règle (24/11) : plus de 3 choix, ou réglage long et peu modifié = PopoverField + OptionPopover (arrondi, sons ;
+ * la position du widget se pose de même : PopoverField + PositionPreview + PositionPicker).
  */
 
 /** Interrupteur en tête d'un réglage (libellé à gauche, interrupteur à droite). */
@@ -148,20 +151,22 @@ export function WidgetLogoSettings({ enabled, onEnabledChange, image, onPick }: 
 // type=sound-design ---------------------------------------------------------------
 export interface SoundOption { value: string; label: string; description: string }
 export interface SoundSettingsProps { enabled: boolean; onEnabledChange?: (on: boolean) => void; sound: string; onSoundChange?: (s: string) => void; sounds: SoundOption[]; onPlay?: (s: string) => void }
-/** Sons du widget : une ambiance sonore parmi plusieurs, à écouter avant de choisir. */
+/** Sons du widget : une ambiance sonore parmi plusieurs, à écouter avant de choisir. Liste dans une micro-modale (24/11). */
 export function SoundSettings({ enabled, onEnabledChange, sound, onSoundChange, sounds, onPlay }: SoundSettingsProps) {
   const name = useId();
   return (
     <div className={styles.root}>
       <Head label="Sound design" checked={enabled} onChange={onEnabledChange} />
       {enabled && <>
-        <Button size="sm" iconLeft="play" onClick={() => onPlay?.(sound)} className={styles.full}>Écouter le son</Button>
-        <div role="radiogroup" aria-label="Ambiance sonore" className={styles.list}>
-          {sounds.map((s) => (
-            <Radio key={s.value} boxed name={name} value={s.value} label={s.label} description={s.description}
-              checked={s.value === sound} onChange={() => onSoundChange?.(s.value)} />
-          ))}
-        </div>
+        <PopoverField label="Ambiance sonore" value={sounds.find((x) => x.value === sound)?.label ?? ''} preview={<Icon name="music-note-03" size={18} />}>
+          <Button size="sm" iconLeft="play" onClick={() => onPlay?.(sound)} className={styles.full}>Écouter le son</Button>
+          <div role="radiogroup" aria-label="Ambiance sonore" className={styles.list}>
+            {sounds.map((s) => (
+              <Radio key={s.value} boxed name={name} value={s.value} label={s.label} description={s.description}
+                checked={s.value === sound} onChange={() => onSoundChange?.(s.value)} />
+            ))}
+          </div>
+        </PopoverField>
       </>}
     </div>
   );
@@ -169,13 +174,14 @@ export function SoundSettings({ enabled, onEnabledChange, sound, onSoundChange, 
 
 // type=radius ----------------------------------------------------------------------
 export type RadiusChoice = 'none' | 'sm' | 'md' | 'lg';
-/** Arrondi des éléments du widget (cartes, boutons, champs). */
+const RADII = [{ value: 'none', label: 'Angle droit' }, { value: 'sm', label: 'Légèrement arrondi' }, { value: 'md', label: 'Très arrondi' }, { value: 'lg', label: 'Arrondi' }];
+/** Arrondi des éléments du widget (cartes, boutons, champs) : 4 choix, donc champ + micro-modale (24/11). */
 export function RadiusSettings({ value, onChange }: { value: RadiusChoice; onChange?: (v: RadiusChoice) => void }) {
   return (
     <div className={styles.root}>
-      <span className={styles.label}>Arrondi des éléments</span>
-      <OptionChoiceGroup aria-label="Arrondi des éléments" value={value} onChange={(v) => onChange?.(v as RadiusChoice)}
-        options={[{ value: 'none', label: 'Angle droit' }, { value: 'sm', label: 'Légèrement arrondi' }, { value: 'md', label: 'Très arrondi' }, { value: 'lg', label: 'Arrondi' }]} />
+      <PopoverField label="Arrondi des éléments" value={RADII.find((r) => r.value === value)?.label ?? ''}>
+        <OptionChoiceGroup aria-label="Arrondi des éléments" value={value} onChange={(v) => onChange?.(v as RadiusChoice)} options={RADII} />
+      </PopoverField>
     </div>
   );
 }

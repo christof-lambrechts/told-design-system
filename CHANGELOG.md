@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.56.0 · 24/11/2026
+
+- **Réglages d'apparence Told en micro-modale** (même règle que Record) : `RadiusSettings` (4 arrondis) et `SoundSettings` (ambiances sonores + Écouter) passent en `PopoverField` + `OptionPopover`. Même API. La position du widget se pose de même côté app : `PopoverField` + `PositionPreview` + `PositionPicker`.
+
 ## v0.55.0 · 24/11/2026
 
 - **Position libre du média** (validée par Christof) : MediaFrameSettings reçoit `mediaScale` (0,5 à 3), `onMediaScaleChange` et `onRecenter` : « Taille et place du média » (curseur) et « Recentrer ». Le cadre et la capture se glissent ensemble n'importe où dans la zone du média, ce qui dépasse est coupé. Avec `mediaScale`, `placement` (Avec marge | À droite | Dans le coin) n'est plus montré ; `placement` et `MediaCropSettings` sont déconseillés.
