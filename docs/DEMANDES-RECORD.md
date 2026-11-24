@@ -154,8 +154,8 @@ Points d'attention :
 - Réponse Record (20/11) : repris en partie, liens internes en `Button href + linkAs={Link}` ; les liens qui ouvrent un nouvel onglet restent en contournement → D-016.
 
 ### D-012 · AppSidebar et TopBar codés
-- Statut : **AppSidebar codé told-ds v0.57.0** (menu commun Told + Told Record, piste B validée le 24/11) ; TopBar à suivre
-- Réponse DS : `<AppSidebar sections footer switcher account linkAs={Link} />` avec `ProjectSwitcher`, `AccountCard`, `NotificationBell`. Entrées Record : Told Record sous Told (CRÉER) ; « Nouvelle démo » = action « + » de l'entrée Told Record ; les projets de Record passent dans le menu du sélecteur (à confirmer : projet Told = site, projets Record = dossiers).
+- Statut : **codé told-ds v0.60.0** (AppSidebar v0.57.0, menu commun piste B validé le 24/11 ; TopBar v0.60.0)
+- Réponse DS : `<AppSidebar sections footer switcher account linkAs={Link} />` avec `ProjectSwitcher`, `AccountCard`, `NotificationBell` ; `<TopBar title description icon search action />` dans `<Layout type="page" topbar>`. Entrées Record : Told Record sous Told (CRÉER) ; « Nouvelle démo » = action « + » de l'entrée Told Record ; les projets de Record passent dans le menu du sélecteur (à confirmer : projet Told = site, projets Record = dossiers).
 
 ### D-005 · NavButtonItem : couleur de sélection invisible
 - Statut : **codé told-ds v0.12.0**

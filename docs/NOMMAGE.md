@@ -38,6 +38,7 @@ Figma a été renommé ; les instances des maquettes restent liées. Dans le cod
 | `OptionChoice` (21/11) | SelectionItem | | un choix (picto en petit carré, libellé, badge) dans la liste ouverte sous une OptionItem ; rangé page OptionContent. Codé v0.23.0 : `OptionChoiceGroup` (radio, une liste) |
 | `Layout` (24/11) | Layout (`type`) | Layout | `type` page \| settings \| editor \| analyser (Figma editor-told et editor-record = `editor`). Assemble AppLayout et EditorLayout, qui restent les briques. « Menu avec fond » archivé ; `AppLayout menu` déconseillé. Codé v0.59.0 |
 | `AppSidebar` (24/11) | AppSidebar | AppSidebar | menu latéral commun Told + Told Record ; entrées en données (`sections`, `footer`), `linkAs`, `collapsed`. Codé v0.57.0 |
+| `TopBar` (24/11) | TopBar | TopBar | barre du haut de Layout page et settings : titre, description, recherche ⌘K, barre IA, options, actions, notifications. Codé v0.60.0 |
 | `ProjectSwitcher` (24/11) | ProjectSwitcher | ProjectSwitcher | `project`, `organization`, `appearance`, `compact`. Codé v0.57.0 |
 | `AccountCard` (24/11) | AccountCard | AccountCard | `name`, `email`, `avatar`, `notifications`, `compact`. Codé v0.57.0 |
 | `NotificationBell` (24/11) | Notifications (dans AccountCard) | NotificationBell | `count`, `onClick`. Codé v0.57.0 |

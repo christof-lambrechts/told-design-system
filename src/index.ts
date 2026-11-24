@@ -158,3 +158,5 @@ export { AppSidebar, ProjectSwitcher, AccountCard, NotificationBell } from './co
 export type { AppSidebarProps, AppSidebarItem, AppSidebarSection, ProjectSwitcherProps, AccountCardProps, NotificationBellProps } from './components/AppSidebar/AppSidebar';
 export { Layout } from './components/Layout/Layout';
 export type { LayoutProps, LayoutPageProps, LayoutEditorProps, LayoutAnalyserProps } from './components/Layout/Layout';
+export { TopBar } from './components/TopBar/TopBar';
+export type { TopBarProps } from './components/TopBar/TopBar';

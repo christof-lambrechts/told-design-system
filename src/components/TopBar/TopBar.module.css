@@ -1,0 +1,11 @@
+/* TopBar (Figma 7858:1613) : 64 de haut, marges 9 / 24, écart 10, filet bas. */
+.bar { box-sizing: border-box; display: flex; align-items: center; gap: 10px; min-height: 64px; padding: 9px 24px; background: var(--neutral-surface-default); border-bottom: 1px solid var(--neutral-border-default); font-family: var(--font-family-body); }
+.icon { flex: none; display: flex; align-self: flex-start; padding-top: 2px; color: var(--content-default-default); }
+.bar:not(:has(.description)) .icon { align-self: center; padding-top: 0; }
+.titles { flex: none; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.title { margin: 0; font: var(--font-weight-bold) 18px / 27px var(--font-family-heading); letter-spacing: var(--letter-spacing-tight); color: var(--content-default-default); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.description { margin: 0; font: var(--font-weight-regular) var(--body-12-size) / var(--body-12-line-height) var(--font-family-body); color: var(--content-muted-default); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.spacer { flex: 1; }
+.intent { flex: 1; min-width: 0; padding: 0 10px; }
+.search { flex: 0 1 320px; min-width: 200px; }
+.options { flex: none; display: flex; align-items: center; gap: 4px; }

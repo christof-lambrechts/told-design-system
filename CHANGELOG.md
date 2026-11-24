@@ -3,6 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.60.0 · 24/11/2026
+
+- **TopBar** (Figma 7858:1613, D-012) : barre du haut des pages `page` et `settings` de Layout. `title` (h1), `description`, `icon`, `search` (`true` = SearchBar ⌘K), `intent` (barre IA, IntentInput compact ai), `options`, `secondaryAction`, `action`, `notifications`. Pas de sélecteur d'environnement (release 1).
+- Stories Gabarits › TopBar ; les stories Layout utilisent TopBar à la place de l'en-tête provisoire.
+
 ## v0.59.0 · 24/11/2026
 
 - **Layout** (Figma 9967:20874) : la base de toutes les pages de Told et de Told Record, `type` = `page` (Accueil, listes), `settings` (réglages), `editor` (Construire, Diffuser), `analyser` (résultats : colonne gauche facultative, colonne de 720, ou `width="full"` pour le tableau). Assemble AppLayout et EditorLayout ; les apps utilisent Layout.

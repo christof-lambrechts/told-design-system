@@ -8,7 +8,7 @@ import { ButtonGroup } from '../Button/ButtonGroup';
 import { Button } from '../Button/Button';
 import { ButtonTab } from '../Tabs/Tabs';
 import { NavButtonItem } from '../Nav/NavButtonItem';
-import { SearchBar } from '../Input/Input';
+import { TopBar } from '../TopBar/TopBar';
 
 const meta = {
   title: 'Gabarits/Layout',
@@ -30,19 +30,12 @@ const main = (current: string): { sections: AppSidebarSection[]; footer: AppSide
   };
 };
 const account = <AccountCard name="Dylan Laborie" email="dylan.laborie@evolt.io" notifications={<NotificationBell count={3} />} />;
-const Top = ({ title, sub, action }: { title: string; sub?: string; action?: ReactNode }) => (
-  <div style={{ height: 64, display: 'flex', alignItems: 'center', gap: 16, padding: '0 24px', borderBottom: '1px solid var(--neutral-border-default)' }}>
-    <div style={{ flex: 1 }}><strong style={{ fontSize: 18 }}>{title}</strong>{sub && <div style={{ fontSize: 12, color: 'var(--content-subtle-default)' }}>{sub}</div>}</div>
-    <div style={{ width: 280 }}><SearchBar placeholder="Rechercher" /></div>
-    {action}
-  </div>
-);
 const Full = ({ children }: { children: ReactNode }) => <div style={{ height: '100vh' }}>{children}</div>;
 
 export const Page: StoryObj = {
   name: 'page · Accueil et listes',
   render: () => { const m = main('told'); return <Full><Layout type="page" sidebar={<AppSidebar {...m} switcher={<ProjectSwitcher project="Mon premier projet" organization="Mon entreprise" appearance="outline" />} account={account} />}
-    topbar={<Top title="Told" sub="4 Told · 2 en ligne · 1 brouillon" action={<Button iconLeft="add-01">Créer un Told</Button>} />}>
+    topbar={<TopBar title="Told" icon="layers-01" description="4 Told · 2 en ligne · 1 brouillon" search action={<Button iconLeft="add-01">Créer un Told</Button>} />}>
     <div style={{ padding: 24 }}>Contenu de la page.</div></Layout></Full>; },
 };
 
@@ -59,7 +52,7 @@ export const Settings: StoryObj = {
           { id: 'me', title: 'Mon compte', items: [{ id: 'pr', label: 'Mon profil', icon: 'user', href: '#pr' }, { id: 'e', label: 'Préférences email', icon: 'mail-02', href: '#e' }, { id: 'x', label: 'Extension Chrome', icon: 'plug-socket', href: '#x' }] },
         ]}
         footer={[{ id: 'out', label: 'Se déconnecter', icon: 'logout-02', onClick: () => {} }]} />}
-      topbar={<Top title="Membres" sub="Les personnes qui ont accès à l’organisation" action={<Button iconLeft="add-01">Inviter</Button>} />}>
+      topbar={<TopBar title="Membres" icon="user-multiple-02" description="Les personnes qui ont accès à l’organisation" action={<Button iconLeft="add-01">Inviter</Button>} />}>
       <div style={{ padding: 24 }}>Contenu des réglages.</div></Layout></Full>
   ),
 };
