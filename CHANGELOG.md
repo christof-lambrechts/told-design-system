@@ -3,6 +3,12 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.48.0 · 24/11/2026
+
+- **ToneChoice** (nouveau, Figma 9897:8199) : version claire ou sombre d'un élément, deux lignes avec icône encadrée, soleil (Clair) et lune (Sombre), la ligne choisie surlignée et cochée. Utilisé par ColorPicker (texte, contour glass).
+- **LogoSettings** : « Version du logo » Clair | Sombre (`tone`, `onToneChange`), sous l'interrupteur et Told | Le mien ; masquée sans logo.
+- Icône `moon-02` (plein et contour).
+
 ## v0.47.0 · 23/11/2026
 
 - **OptionSidebar** plus aéré : marges latérales de 20 (au lieu de 14 à 16) sur l'en-tête, la portée, chaque OptionItem et l'en-tête contextuel. Figma OptionItem aligné (34 variantes).

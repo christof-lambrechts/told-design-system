@@ -141,5 +141,5 @@ export type { EyebrowSettingsProps, EyebrowStyle, LogoSettingsProps, BrandLogoCh
 // 23/11 : écrans de début et de fin communs à tous les produits.
 export { StartScreen, EndScreen, ScreenActions, RewardBlock, Countdown, SocialLinks } from './components/StartEndScreen/StartEndScreen';
 export type { ScreenProps, EndScreenProps, ScreenAction, ScreenActionsProps, RewardBlockProps, CountdownProps, SocialLinksProps, ScreenLayout, ScreenContext } from './components/StartEndScreen/StartEndScreen';
-export { ColorPicker, textToneColor } from './components/ColorPicker/ColorPicker';
-export type { ColorPickerProps, ColorFill, TextTone, GlassTone } from './components/ColorPicker/ColorPicker';
+export { ColorPicker, ToneChoice, textToneColor } from './components/ColorPicker/ColorPicker';
+export type { ColorPickerProps, ToneChoiceProps, ColorFill, TextTone, GlassTone } from './components/ColorPicker/ColorPicker';

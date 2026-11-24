@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ChoiceChips } from '../ChoiceChips/ChoiceChips';
 import { useState } from 'react';
+import type { TextTone } from '../ColorPicker/ColorPicker';
 import { OptionSidebar, OptionItem, PanelHeader } from './OptionSidebar';
 import { Switch } from '../Choice/Choice';
 import { Select, DropdownMenu, DropdownItem } from '../Select/Select';
@@ -200,6 +201,7 @@ export const SelonLaSelection: StoryObj = {
     const [st, setSt] = useState<EyebrowStyle>('badge');
     const [c, setC] = useState('#FFE84F');
     const [logo, setLogo] = useState<BrandLogoChoice>('told');
+    const [logoTone, setLogoTone] = useState<TextTone>('dark');
     return (
       <div style={{ display: 'flex', gap: 24, alignItems: 'flex-start' }}>
         <div style={{ width: 360, border: '1px solid var(--neutral-border-divider)', borderRadius: 12, background: 'var(--neutral-surface-default)' }}>
@@ -216,8 +218,8 @@ export const SelonLaSelection: StoryObj = {
           )}
         </div>
         <div style={{ width: 360, display: 'grid', gap: 16 }}>
-          <OptionItem variant="open" icon="brand-kit" label="Logo · offre gratuite" pro><LogoSettings plan="free" value="told" onUpgrade={() => {}} /></OptionItem>
-          <OptionItem variant="open" icon="brand-kit" label="Logo · offre payante"><LogoSettings plan="paid" value={logo} onChange={setLogo} onOpenBrandKit={() => {}} /></OptionItem>
+          <OptionItem variant="open" icon="brand-kit" label="Logo · offre gratuite" pro><LogoSettings plan="free" value="told" onUpgrade={() => {}} tone={logoTone} onToneChange={setLogoTone} /></OptionItem>
+          <OptionItem variant="open" icon="brand-kit" label="Logo · offre payante"><LogoSettings plan="paid" value={logo} onChange={setLogo} onOpenBrandKit={() => {}} tone={logoTone} onToneChange={setLogoTone} /></OptionItem>
         </div>
       </div>
     );

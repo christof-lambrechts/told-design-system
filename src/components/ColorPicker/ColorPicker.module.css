@@ -53,7 +53,8 @@
 .tone:hover { background: var(--neutral-surface-muted); }
 .tone[aria-checked='true']:hover { background: var(--brand-surface-muted, #E8EEFF); }
 .tone:focus-visible { box-shadow: var(--focus-ring); }
-.toneIcon { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; border: 1px solid var(--neutral-border-default); background: var(--neutral-surface-default); }
+.toneIcon { flex: none; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; background: var(--brand-surface-muted, #E8EEFF); color: var(--content-brand-default-on-light); }
+.toneLabel { flex: 1; }
 
 /* Popover du ColorField */
 .popover { box-sizing: border-box; padding: 16px; border-radius: 16px; border: 1px solid var(--neutral-border-default); background: var(--neutral-surface-default); box-shadow: 0 12px 32px rgb(15 23 41 / 14%); }

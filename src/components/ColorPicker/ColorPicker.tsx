@@ -131,15 +131,31 @@ function ContrastRow({ fg, bg }: { fg: string; bg: string }) {
   );
 }
 
-function ToneList({ value, onChange, label }: { value: TextTone; onChange: (t: TextTone) => void; label: string }) {
+export interface ToneChoiceProps {
+  value: TextTone;
+  onChange: (t: TextTone) => void;
+  /** Nom du choix, lu par les lecteurs d'écran (et affiché au-dessus avec `showLabel`). */
+  label: string;
+  showLabel?: boolean;
+}
+
+/**
+ * ToneChoice (Figma 9897:8199) : version claire ou sombre d'un élément (logo, texte posé sur un fond,
+ * contour glass). Deux lignes, soleil (Clair) et lune (Sombre), la ligne choisie surlignée et cochée.
+ */
+export function ToneChoice({ value, onChange, label, showLabel }: ToneChoiceProps) {
   return (
-    <div className={styles.tones} role="radiogroup" aria-label={label}>
-      {(['light', 'dark'] as const).map((t) => (
-        <button key={t} type="button" role="radio" aria-checked={value === t} className={styles.tone} onClick={() => onChange(t)}>
-          <span className={styles.toneIcon} aria-hidden="true"><Icon name="sun-03" size={14} /></span>
-          {t === 'light' ? 'Clair' : 'Sombre'}
-        </button>
-      ))}
+    <div className={styles.section}>
+      {showLabel && <span className={styles.label} aria-hidden="true">{label}</span>}
+      <div className={styles.tones} role="radiogroup" aria-label={label}>
+        {(['light', 'dark'] as const).map((t) => (
+          <button key={t} type="button" role="radio" aria-checked={value === t} className={styles.tone} onClick={() => onChange(t)}>
+            <span className={styles.toneIcon} aria-hidden="true"><Icon name={t === 'light' ? 'sun-03' : 'moon-02'} variant="stroke" size={14} /></span>
+            <span className={styles.toneLabel}>{t === 'light' ? 'Clair' : 'Sombre'}</span>
+            {value === t && <Icon name="tick-02" variant="stroke" size={16} aria-hidden="true" />}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
@@ -165,7 +181,7 @@ export function ColorPicker({ value, onChange, allowGradient, textTone, onTextTo
         items={[{ value: 'bg', label: 'Fond' }, { value: 'text', label: 'Texte' }]} />}
       {tab === 'text' && withText ? (
         <>
-          <ToneList value={textTone ?? 'dark'} onChange={onTextToneChange!} label="Couleur du texte" />
+          <ToneChoice value={textTone ?? 'dark'} onChange={onTextToneChange!} label="Couleur du texte" />
           <ContrastRow fg={fg} bg={grad ? value.from : value.color} />
         </>
       ) : (
@@ -223,7 +239,7 @@ export function ColorPicker({ value, onChange, allowGradient, textTone, onTextTo
           {glass && onGlassChange && (
             <div className={styles.section + ' ' + styles.sep}>
               <Switch size="sm" label="Ajouter un contour glass" checkPlacement="right" checked={glass.enabled} onChange={(e) => onGlassChange({ ...glass, enabled: e.target.checked })} />
-              {glass.enabled && <ToneList value={glass.tone} onChange={(t) => onGlassChange({ ...glass, tone: t })} label="Contour glass" />}
+              {glass.enabled && <ToneChoice value={glass.tone} onChange={(t) => onGlassChange({ ...glass, tone: t })} label="Contour glass" />}
             </div>
           )}
         </>
