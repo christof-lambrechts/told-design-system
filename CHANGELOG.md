@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.58.1 · 24/11/2026
+
+- Titres de groupe du menu un ton plus clairs que les entrées (`content-default-placeholder`, #6c8091) et capitales espacées à 6 % : la hiérarchie se lit (les entrées sont en `content-muted`). Figma aligné.
+
 ## v0.58.0 · 24/11/2026
 
 - **Gabarit Layout** (Figma, un seul set) : AppLayout = `type=page` et `type=settings`, EditorLayout = `editor-told`, `editor-record`, `analyser`. La version « menu avec fond » est archivée : `AppLayout menu` déconseillé, story retirée ; `AppSidebar surface` retiré (le menu est toujours transparent, menus secondaires compris).
