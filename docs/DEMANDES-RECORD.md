@@ -558,7 +558,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
   5. **Logo** : interrupteur sur la ligne (`OptionItem toggle`, sans chevron), activé la ligne s'ouvre sur Told | Le mien et **Version du logo Clair | Sombre** (`LogoSettings tone`, `onToneChange`) ; à faire avec D-039 (nouveau réglage `brand_logo_tone` dans le format).
 - Priorité : important
 - Statut : **codé told-ds v0.53.0 à v0.56.0**, à appliquer dans Record
-- Réponse Record :
+- Réponse Record : appliqué le 24/11 (branche christof) : Format en « Changer » et OptionPopover, ligne Proportions, aides dans le i, interrupteur du logo et Version du logo (`settings.brand_logo_tone`, logo Told seul, grisé avec le logo du kit). Trois manques restent, contournés : voir **D-048**.
 
 ### D-044 · Position libre du média (24/11, validé par Christof)
 - Sens : demande du DS vers Record (format, lecteur, éditeur, vidéo exportée).
@@ -571,6 +571,22 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Priorité : important
 - Statut : **codé told-ds v0.55.0** (panneau), à appliquer dans Record (plan court à présenter à Jonathan : format et migration, lecteur, éditeur)
 - Réponse Record :
+
+### D-048 · LogoSettings sur une ligne à interrupteur, ToneChoice désactivé, focus de l'OptionPopover (24/11, demandé par Christof)
+- Date, écran Record concerné : 24/11, panneau Options de l'Annonce, lignes Logo et Format (`slide-style-fields.tsx`, `format-popover.tsx`).
+- Besoin :
+  1. **Logo** : D-043 met l'interrupteur sur la ligne (`OptionItem toggle`). Ouverte, la ligne doit montrer seulement Told | Le mien et la Version du logo.
+  2. **Version du logo grisée** : avec « Le mien », Clair | Sombre reste visible mais désactivé (le choix vaut pour le logo Told seul, décision de Jonathan).
+  3. **Focus de la micro-modale** : à l'ouverture, le focus va sur le choix coché de la liste (pour les flèches), une fois la micro-modale placée ; Tab reste dans la micro-modale tant qu'elle est ouverte.
+- Ce qui manque ou gêne dans le DS :
+  1. `LogoSettings` affiche toujours son propre Switch « Afficher un logo » et sa note, en double avec l'interrupteur de la ligne. Il faudrait `showSwitch={false}` et `note={false}`, comme `AvatarSettings`.
+  2. Le GroupTab de `LogoSettings` répète le libellé « Logo » sous la ligne qui s'appelle déjà Logo : un libellé masquable (ou absent quand le composant est dans une ligne).
+  3. `ToneChoice` n'a pas d'état `disabled`.
+  4. `OptionPopover` pose le focus sur son premier contrôle avant d'avoir calculé sa position (ou sur « Fermer »), et ne garde pas le focus à l'intérieur (pas de piège à focus).
+- Contournement provisoire dans Record (`// TODO DS: D-048`) : le Switch et la note de LogoSettings masqués par une classe CSS ; ToneChoice dans un `fieldset disabled` à 38 % d'opacité ; le focus posé sur le choix coché au `requestAnimationFrame` suivant l'ouverture. Le libellé « Logo » répété et la sortie au Tab ne sont pas contournés.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
 
 ## Questions de Record (20/11)
 - **Annonce en Carré 1:1 ?**
