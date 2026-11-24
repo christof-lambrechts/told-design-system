@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.52.2 · 24/11/2026
+
+- **Chevrons au dessin standard** : en contour, `arrow-up-01`, `arrow-down-01`, `arrow-left-01` et `arrow-right-01` reprennent le dessin à branches droites des icônes `-stroke` (celui des listes déroulantes), au lieu du contour arrondi libre qui changeait d'allure selon la taille. Même correction dans Figma (variante `style=stroke` des quatre sets).
+
 ## v0.52.1 · 24/11/2026
 
 - **Correctif macOS** : `src/components/Contrast/contrast.ts` devient `contrastMath.ts`. Sur un disque insensible à la casse (macOS, Windows), il entrait en collision avec `Contrast.tsx` : l'import `../Contrast/Contrast` tombait sur le mauvais fichier et `tsc` échouait (12 erreurs dans Record). Les noms exportés ne changent pas.
