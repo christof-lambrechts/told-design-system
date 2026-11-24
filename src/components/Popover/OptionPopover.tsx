@@ -22,7 +22,7 @@ export interface OptionPopoverProps {
    */
   placement?: PopoverPlacement;
   children: ReactNode;
-  /** Largeur fixe. Par défaut la micro-modale suit son contenu (Hug), entre 220 et 360. */
+  /** Largeur fixe. Par défaut la micro-modale suit son contenu (Hug), entre 200 et 360. */
   width?: number;
 }
 
@@ -30,7 +30,7 @@ const GAP = 8;
 
 /**
  * OptionPopover (Figma 9928:10884) : micro-modale d'un réglage, ouverte par PopoverField.
- * Largeur au contenu (Hug, 220 à 360), rayon 12, ombre shadow-flat-8 ; titre + Fermer, contenu au choix (liste illustrée FormatOptionGroup,
+ * Largeur au contenu (Hug, 200 à 360), rayon 12, ombre shadow-flat-8 ; titre + Fermer, contenu au choix (liste illustrée FormatOptionGroup,
  * PositionPicker, ChoiceChips…). Échap, clic dehors ou Fermer la referment et rendent le focus au champ.
  */
 export function OptionPopover({ title, open, onClose, anchor, placement = 'left', children, width }: OptionPopoverProps) {

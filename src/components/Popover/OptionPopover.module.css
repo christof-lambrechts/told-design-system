@@ -1,4 +1,4 @@
-.popover { position: fixed; min-width: 220px; max-width: 360px; z-index: 1000; box-sizing: border-box; display: flex; flex-direction: column; border-radius: 12px; background: var(--neutral-surface-default); box-shadow: var(--shadow-flat-8), inset 0 0 0 1px var(--neutral-border-default); font-family: var(--font-family-body); max-height: calc(100vh - 16px); overflow: auto; }
+.popover { position: fixed; min-width: 200px; max-width: 360px; z-index: 1000; box-sizing: border-box; display: flex; flex-direction: column; border-radius: 12px; background: var(--neutral-surface-default); box-shadow: var(--shadow-flat-8), inset 0 0 0 1px var(--neutral-border-default); font-family: var(--font-family-body); max-height: calc(100vh - 16px); overflow: auto; }
 .head { display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; }
 .title { flex: 1; min-width: 0; font-size: var(--body-14-size); line-height: var(--body-14-line-height); font-weight: 600; color: var(--content-default-default); }
 .body { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 12px; }

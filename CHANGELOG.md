@@ -3,9 +3,13 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.54.2 · 24/11/2026
+
+- OptionPopover : largeur minimale 200 (au lieu de 220), la grille de position tient sans blanc à droite.
+
 ## v0.54.1 · 24/11/2026
 
-- **OptionPopover** suit la largeur de son contenu (Hug, de 220 à 360) au lieu de 320 fixes : plus de blanc à droite autour d'une grille de position. `width` reste possible pour forcer une largeur.
+- **OptionPopover** suit la largeur de son contenu (Hug, de 200 à 360) au lieu de 320 fixes : plus de blanc à droite autour d'une grille de position. `width` reste possible pour forcer une largeur.
 
 ## v0.54.0 · 24/11/2026
 
