@@ -3,6 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.58.2 · 24/11/2026
+
+- Titres de groupe du menu au style choisi par Christof dans Figma : 11, Medium, casse normale (« Créer », « Analyser », « Marque »), sans espacement, gris `gray-400`.
+- Menu commun : **Médias** passe dans le menu principal (groupe Marque, sous Kit de marque) et sort des réglages.
+
 ## v0.58.1 · 24/11/2026
 
 - Titres de groupe du menu un ton plus clairs que les entrées (`content-default-placeholder`, #6c8091) et capitales espacées à 6 % : la hiérarchie se lit (les entrées sont en `content-muted`). Figma aligné.

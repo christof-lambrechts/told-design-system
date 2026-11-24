@@ -9,7 +9,7 @@ const meta = {
   component: AppSidebar,
   parameters: {
     layout: 'fullscreen',
-    docs: { description: { component: 'Menu latéral commun à Told et Told Record (Figma AppSidebar 8:14681, piste B validée le 24/11) : Accueil ; CRÉER Scénarios, Told, Told Record ; ANALYSER Résultats, Audiences ; MARQUE Kit de marque, Ressources ; en bas Réglages et Aide, puis le compte. Les entrées sont des données (`sections`, `footer`) : le composant ne connaît aucun produit. Les liens se branchent sur le routeur avec `linkAs` (TanStack Router pour Told, Next.js pour Record).' } },
+    docs: { description: { component: 'Menu latéral commun à Told et Told Record (Figma AppSidebar 8:14681, piste B validée le 24/11) : Accueil ; Créer : Scénarios, Told, Told Record ; Analyser : Résultats, Audiences ; Marque : Kit de marque, Médias, Ressources ; en bas Réglages et Aide, puis le compte. Les entrées sont des données (`sections`, `footer`) : le composant ne connaît aucun produit. Les liens se branchent sur le routeur avec `linkAs` (TanStack Router pour Told, Next.js pour Record).' } },
   },
 } satisfies Meta<typeof AppSidebar>;
 export default meta;
@@ -29,8 +29,8 @@ const menuCommun = (current = 'told-record', onAdd?: (id: string) => void): { se
     ] },
     { id: 'brand', title: 'Marque', items: [
       { id: 'kit', label: 'Kit de marque', icon: 'paint-brush-04', href: '#kit' },
+      { id: 'medias', label: 'Médias', icon: 'image-03', href: '#medias' },
       { id: 'ressources', label: 'Ressources', icon: 'folder-01', children: [
-        { id: 'medias', label: 'Médias', href: '#medias' },
         { id: 'modeles', label: 'Modèles', href: '#modeles' },
       ] },
     ] },
@@ -84,7 +84,6 @@ export const Reglages: StoryObj = {
         ] },
         { id: 'marque', title: 'Marque', items: [
           { id: 'kit', label: 'Kit de marque', icon: 'paint-brush-04', href: '#kit' },
-          { id: 'medias', label: 'Ressources & médias', icon: 'image-03', href: '#medias' },
         ] },
         { id: 'ia', title: 'IA', items: [
           { id: 'agent', label: 'IA agent', icon: 'artificial-intelligence-02', href: '#agent' },
