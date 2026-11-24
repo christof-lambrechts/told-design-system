@@ -173,7 +173,7 @@ export interface OptionSidebarProps {
 /** OptionSidebar (6031:85898) : colonne d'options de l'éditeur. 356 de large, en-tête 16/16/12, bascule 4/16/12, puis les options. */
 export function OptionSidebar({ header, scopes, scope, onScopeChange, assist, children, width = 356 }: OptionSidebarProps) {
   return (
-    <aside className={styles.panel} style={{ width }}>
+    <aside className={styles.panel} style={{ width }} data-option-sidebar="">
       <div className={styles.panelHead}>{header}</div>
       {scopes && scope !== undefined && (
         <div className={styles.panelScope}>

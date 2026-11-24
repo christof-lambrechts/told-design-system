@@ -46,6 +46,12 @@ for (const line of readFileSync('catalog/icons-stroke-figma.txt', 'utf8').split(
   });
   const i = missing.indexOf(name); if (i >= 0) missing.splice(i, 1);
 }
+// Chevrons (arrow-*-01) : dessin standard à branches droites (icônes « -stroke » du fichier), pas le contour arrondi libre (24/11, Christof).
+for (const dir of ['up', 'down', 'left', 'right']) {
+  const n = `arrow-${dir}-01`;
+  const src = out[`${n}-stroke`];
+  if (src) stroke[n] = src.map(([d, e]) => ['path', e ? { d, fill: 'currentColor', stroke: 'none', fillRule: 'evenodd', clipRule: 'evenodd' } : { d, fill: 'currentColor', stroke: 'none' }]);
+}
 writeFileSync('src/components/Icon/iconsStroke.ts', `// Fichier généré par scripts/build-icons.mjs : version contour (HugeIcons stroke-rounded, MIT). Ne pas modifier.
 /** Icônes sans version contour (dessins maison) : ${missing.join(', ')}. Elles restent pleines. */
 export const iconsStroke: Record<string, [string, Record<string, string>][]> = ${JSON.stringify(stroke)};

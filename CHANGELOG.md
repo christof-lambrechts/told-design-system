@@ -3,6 +3,96 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.56.0 · 24/11/2026
+
+- **Réglages d'apparence Told en micro-modale** (même règle que Record) : `RadiusSettings` (4 arrondis) et `SoundSettings` (ambiances sonores + Écouter) passent en `PopoverField` + `OptionPopover`. Même API. La position du widget se pose de même côté app : `PopoverField` + `PositionPreview` + `PositionPicker`.
+
+## v0.55.0 · 24/11/2026
+
+- **Position libre du média** (validée par Christof) : MediaFrameSettings reçoit `mediaScale` (0,5 à 3), `onMediaScaleChange` et `onRecenter` : « Taille et place du média » (curseur) et « Recentrer ». Le cadre et la capture se glissent ensemble n'importe où dans la zone du média, ce qui dépasse est coupé. Avec `mediaScale`, `placement` (Avec marge | À droite | Dans le coin) n'est plus montré ; `placement` et `MediaCropSettings` sont déconseillés.
+
+## v0.54.2 · 24/11/2026
+
+- OptionPopover : largeur minimale 200 (au lieu de 220), la grille de position tient sans blanc à droite.
+
+## v0.54.1 · 24/11/2026
+
+- **OptionPopover** suit la largeur de son contenu (Hug, de 200 à 360) au lieu de 320 fixes : plus de blanc à droite autour d'une grille de position. `width` reste possible pour forcer une largeur.
+
+## v0.54.0 · 24/11/2026
+
+- **AvatarSettings** : Position et Contour (avec sa couleur) passent en `PopoverField` + micro-modale. Même API.
+- **MediaFrameSettings** : Cadre en `PopoverField` avec la liste illustrée (Aucun, Mobile, Tablette, Ordinateur ; sans Ordinateur en vertical) ; Appareil et Coloris réunis dans un seul champ (« iMac · Bleu »). Position, Orientation, Ombre et zoom de la capture inchangés. Même API.
+
+## v0.53.0 · 24/11/2026
+
+- **PopoverField** et **OptionPopover** (Figma 9928:10883, 9928:10884) : un réglage long se résume dans un champ (aperçu + valeur + chevron, 36 de haut) qui ouvre une micro-modale de 320 à gauche du panneau. Échap, clic dehors ou Fermer la referment et rendent le focus au champ. Aperçus `PositionPreview` et `ColorPreview`.
+- **Règle** : 3 choix ou moins = GroupTab ; plus de 3 choix, ou réglage long et peu modifié = PopoverField + OptionPopover, avec une liste illustrée (`FormatOptionGroup`) quand les choix se montrent mieux qu'ils ne se lisent. Le Format se change par « Changer » sur sa ligne, dans la même micro-modale.
+- **Illustrations** `frame-none`, `frame-mobile`, `frame-tablet`, `frame-desktop` (cadre du média) pour ChoiceIllustration et FormatOptionGroup.
+- `OptionSidebar` porte `data-option-sidebar` (repère de la micro-modale).
+- Story Panneaux › OptionPopover.
+
+## v0.52.2 · 24/11/2026
+
+- **Chevrons au dessin standard** : en contour, `arrow-up-01`, `arrow-down-01`, `arrow-left-01` et `arrow-right-01` reprennent le dessin à branches droites des icônes `-stroke` (celui des listes déroulantes), au lieu du contour arrondi libre qui changeait d'allure selon la taille. Même correction dans Figma (variante `style=stroke` des quatre sets).
+
+## v0.52.1 · 24/11/2026
+
+- **Correctif macOS** : `src/components/Contrast/contrast.ts` devient `contrastMath.ts`. Sur un disque insensible à la casse (macOS, Windows), il entrait en collision avec `Contrast.tsx` : l'import `../Contrast/Contrast` tombait sur le mauvais fichier et `tsc` échouait (12 erreurs dans Record). Les noms exportés ne changent pas.
+- `npm run check:case` (scripts/check-case.mjs) refuse deux fichiers d'un même dossier dont les noms ne diffèrent que par la casse ou l'extension ; le workflow Version le lance avant de publier.
+
+## v0.52.0 · 24/11/2026
+
+- **WidgetConsent** : sans `state`, le bloc garde lui-même la réponse : un clic sur la coche affiche « Accepté », sur la croix « Refusé » (annoncé aux lecteurs d'écran). Avec `state`, l'app reste maître, comme avant.
+
+## v0.51.0 · 24/11/2026
+
+- **OptionSidebar** : marges latérales de 16 (au lieu de 20 depuis la v0.47.0), sur l'en-tête, la portée, chaque OptionItem et l'en-tête contextuel. Figma OptionItem aligné (34 variantes).
+
+## v0.50.0 · 24/11/2026
+
+- **Réglages d'apparence** (Figma OptionCustomisation, cadre « Réglages d'apparence Told ») codés, un composant par type, à poser dans une OptionItem ouverte :
+  - OverlaySettings (voile clair ou sombre, flou) ;
+  - ProgressSettings (barre de progression et style) ;
+  - FooterSettings (pied de page, badge Told verrouillé en offre gratuite avec la carte Marque blanche) ;
+  - WidgetAvatarSettings (photo et nom) ;
+  - LabelSettings (Badge | Texte) ;
+  - CloseSettings (croix claire ou sombre, « Passer le tour », alerte quand il n'y a plus de sortie) ;
+  - CoverSettings et WidgetLogoSettings (image à ajouter ou changer) ;
+  - SoundSettings (ambiances à écouter et choisir) ;
+  - RadiusSettings (4 arrondis) ;
+  - NavButtonsSettings (icône et libellé des boutons droit et gauche) ;
+  - ShadowSettings (intensité, opacité, couleur) ;
+  - GlassSettings (ombre, lumière animée).
+  Les couleurs restent ColorPicker et ToneChoice, la position PositionPicker. Story « Réglages d'apparence ».
+
+## v0.49.0 · 24/11/2026
+
+- **ToneChoice** reprend le style des choix du DS : c'est un OptionChoiceGroup (picto dans un carré blanc à contour, fond bleu pâle sur le choix), soleil et lune pleins. Figma ToneChoice refait avec OptionChoice.
+
+## v0.48.0 · 24/11/2026
+
+- **ToneChoice** (nouveau, Figma 9897:8199) : version claire ou sombre d'un élément, deux lignes avec icône encadrée, soleil (Clair) et lune (Sombre), la ligne choisie surlignée et cochée. Utilisé par ColorPicker (texte, contour glass).
+- **LogoSettings** : « Version du logo » Clair | Sombre (`tone`, `onToneChange`), sous l'interrupteur et Told | Le mien ; masquée sans logo.
+- Icône `moon-02` (plein et contour).
+
+## v0.47.0 · 23/11/2026
+
+- **OptionSidebar** plus aéré : marges latérales de 20 (au lieu de 14 à 16) sur l'en-tête, la portée, chaque OptionItem et l'en-tête contextuel. Figma OptionItem aligné (34 variantes).
+
+## v0.46.0 · 23/11/2026
+
+- **StartScreen / EndScreen** : `mediaSide`, le côté de l'image en style Partagé, séparé de la position du texte : à droite (par défaut) ou à gauche en slide, pour des écrans inversés ; en haut ou en bas en vertical. `textPosition` ne déplace que le texte et le logo.
+
+## v0.45.0 · 23/11/2026
+
+- **PositionPicker** `item="text"` : la case choisie montre deux lignes de texte de longueurs différentes, alignées à gauche, centrées ou à droite selon la colonne. Figma : `_PositionCell` item=text-left|center|right, PositionPicker item=text.
+- **StartScreen / EndScreen** : `textPosition` (9 places) : le bloc texte en haut, au milieu ou en bas, aligné à gauche, au centre ou à droite (titre, description, boutons). Story « Position du texte ».
+
+## v0.44.0 · 23/11/2026
+
+- **SliderCapsule** : fond `Neutral/surface/muted`, le même que la piste de GroupTab (il était plus clair, en `subtle`). Figma aligné.
+
 ## v0.43.0 · 23/11/2026
 
 - **RewardBlock** : `surface` ; en couverture slide et vertical, ses boutons (Copier, Récupérer) passent en `dark` comme ceux de ScreenActions (suite 10, point 67).

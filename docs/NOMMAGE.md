@@ -36,6 +36,8 @@ Figma a été renommé ; les instances des maquettes restent liées. Dans le cod
 | `Alert` (codé v0.28.0) | | | message dans le contenu (carte, panneau) ; `Banner` = bandeau pleine largeur en haut de page |
 | `InfoCard` (21/11, codé v0.25.0) | | | bandeau en tête d'un canal ; `type` link, iframe (jaune), video, embed, email. Figma : InfoCard `type=liens | iframe | video | integrer | email` |
 | `OptionChoice` (21/11) | SelectionItem | | un choix (picto en petit carré, libellé, badge) dans la liste ouverte sous une OptionItem ; rangé page OptionContent. Codé v0.23.0 : `OptionChoiceGroup` (radio, une liste) |
+| `PopoverField` (24/11) | | | champ compact d'un réglage (aperçu, valeur, chevron) qui ouvre OptionPopover. Codé v0.53.0 |
+| `OptionPopover` (24/11) | | | micro-modale d’un réglage, largeur au contenu (200 à 360), titre + Fermer, contenu libre. Codé v0.53.0 |
 | `OptionCard` (21/11) | SwitchOptionCard | | ligne d'option à fond gris et interrupteur (Diffuser). Codé v0.23.0 (`toggle` ou `control`, contenu en `children`) |
 | `PositionPicker` (23/11) | position (ancien composant de OptionItem type=position), Widget position | | choix de position, points gris ; `item` widget \| avatar, `positions` 9 \| 5. Codé v0.29.0 |
 | `AvatarSettings` (23/11) | Réglages de l'avatar (cadre monté à la main dans R-11) | | contenu du réglage Avatar de Record. Codé v0.29.0 |

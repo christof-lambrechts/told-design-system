@@ -61,3 +61,20 @@
 .socialLink { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--neutral-surface-muted); color: var(--content-default-default); }
 .socialLink:focus-visible { outline: 2px solid var(--brand-color-brand); outline-offset: 2px; }
 .dark .socialLink { background: var(--paper-alpha-12); color: var(--paper-default); }
+
+/* textPosition : place du texte dans sa zone (PositionPicker item="text"). tv = haut / milieu / bas, th = gauche / centre / droite. */
+.th-left .content { align-items: flex-start; text-align: left; } .th-left .actions { justify-content: flex-start; }
+.th-center .content { align-items: center; text-align: center; } .th-center .actions { justify-content: center; }
+.th-right .content { align-items: flex-end; text-align: right; } .th-right .actions { justify-content: flex-end; }
+/* centered et cover (colonne) : l'écran place le bloc */
+.l-centered.tv-top, .l-cover.tv-top { justify-content: flex-start; }
+.l-centered.tv-middle, .l-cover.tv-middle { justify-content: center; }
+.l-centered.tv-bottom, .l-cover.tv-bottom { justify-content: flex-end; }
+.l-centered.th-left, .l-cover.th-left { align-items: flex-start; }
+.l-centered.th-center, .l-cover.th-center { align-items: center; }
+.l-centered.th-right, .l-cover.th-right { align-items: flex-end; }
+/* split (rangée) : la colonne texte se place en hauteur */
+.c-slide.l-split.tv-top .content { align-self: flex-start; } .c-slide.l-split.tv-middle .content { align-self: center; } .c-slide.l-split.tv-bottom .content { align-self: flex-end; }
+/* mediaSide : l'image de l'autre côté en split (slide : à gauche ; vertical : en bas). */
+.c-slide.l-split.mediaFlip { flex-direction: row; }
+.c-vertical.l-split.mediaFlip { flex-direction: column-reverse; }

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ChoiceChips } from '../ChoiceChips/ChoiceChips';
 import { useState } from 'react';
+import type { TextTone } from '../ColorPicker/ColorPicker';
 import { OptionSidebar, OptionItem, PanelHeader } from './OptionSidebar';
 import { Switch } from '../Choice/Choice';
 import { Select, DropdownMenu, DropdownItem } from '../Select/Select';
@@ -8,7 +9,7 @@ import { Button } from '../Button/Button';
 import { FormatOptionGroup } from './FormatOption';
 import { GroupTab } from '../Tabs/Tabs';
 import { PositionPicker, type Position } from './PositionPicker';
-import { MediaFrameSettings, MediaCropSettings, type MediaFrameKind, type MediaOrientation, type MediaShadow, type MediaPlacement } from './MediaSettings';
+import { MediaFrameSettings, MediaCropSettings, type MediaFrameKind, type MediaOrientation, type MediaShadow } from './MediaSettings';
 import { EyebrowSettings, LogoSettings, OptionContextHeader, type EyebrowStyle, type BrandLogoChoice } from './BrandSettings';
 import { AvatarSettings, type AvatarFrame, type AvatarShape, type AvatarSize } from './AvatarSettings';
 
@@ -167,7 +168,7 @@ export const ReglagesMedia: StoryObj = {
     const [shadow, setShadow] = useState<MediaShadow>('soft');
     const [slide, setSlide] = useState<MediaOrientation>('landscape');
     const [cz, setCz] = useState(1.2);
-    const [placement, setPlacement] = useState<MediaPlacement>('corner');
+    const [scale, setScale] = useState(1.6);
     const [device, setDevice] = useState('tablet');
     const [finish, setFinish] = useState('gray');
     const [zoom, setZoom] = useState(1.8);
@@ -180,7 +181,7 @@ export const ReglagesMedia: StoryObj = {
             <MediaFrameSettings kind={kind} onKindChange={(k) => { setKind(k); setDevice(({ desktop: 'imac', tablet: 'tablet', mobile: 'android', none: '' } as const)[k]); setFinish(''); }}
               device={device} onDeviceChange={(d) => { setDevice(d); setFinish(''); }} finish={finish || undefined} onFinishChange={setFinish}
               orientation={orientation} onOrientationChange={setOrientation} shadow={shadow} onShadowChange={setShadow}
-              slideOrientation={slide} placement={placement} onPlacementChange={setPlacement} captureZoom={cz} onCaptureZoomChange={setCz} />
+              slideOrientation={slide} mediaScale={scale} onMediaScaleChange={setScale} onRecenter={() => setScale(1)} captureZoom={cz} onCaptureZoomChange={setCz} />
           </OptionItem>
         </div>
         <div style={{ width: 360 }}>
@@ -200,6 +201,7 @@ export const SelonLaSelection: StoryObj = {
     const [st, setSt] = useState<EyebrowStyle>('badge');
     const [c, setC] = useState('#FFE84F');
     const [logo, setLogo] = useState<BrandLogoChoice>('told');
+    const [logoTone, setLogoTone] = useState<TextTone>('dark');
     return (
       <div style={{ display: 'flex', gap: 24, alignItems: 'flex-start' }}>
         <div style={{ width: 360, border: '1px solid var(--neutral-border-divider)', borderRadius: 12, background: 'var(--neutral-surface-default)' }}>
@@ -216,8 +218,8 @@ export const SelonLaSelection: StoryObj = {
           )}
         </div>
         <div style={{ width: 360, display: 'grid', gap: 16 }}>
-          <OptionItem variant="open" icon="brand-kit" label="Logo · offre gratuite" pro><LogoSettings plan="free" value="told" onUpgrade={() => {}} /></OptionItem>
-          <OptionItem variant="open" icon="brand-kit" label="Logo · offre payante"><LogoSettings plan="paid" value={logo} onChange={setLogo} onOpenBrandKit={() => {}} /></OptionItem>
+          <OptionItem variant="open" icon="brand-kit" label="Logo · offre gratuite" pro><LogoSettings plan="free" value="told" onUpgrade={() => {}} tone={logoTone} onToneChange={setLogoTone} /></OptionItem>
+          <OptionItem variant="open" icon="brand-kit" label="Logo · offre payante"><LogoSettings plan="paid" value={logo} onChange={setLogo} onOpenBrandKit={() => {}} tone={logoTone} onToneChange={setLogoTone} /></OptionItem>
         </div>
       </div>
     );

@@ -2,7 +2,8 @@ import { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent as R
 import { GroupTab } from '../Tabs/Tabs';
 import { Switch } from '../Choice/Choice';
 import { Icon } from '../Icon/Icon';
-import { contrastRatio, formatRatio } from '../Contrast/contrast';
+import { OptionChoiceGroup } from '../OptionSidebar/OptionCard';
+import { contrastRatio, formatRatio } from '../Contrast/contrastMath';
 import styles from './ColorPicker.module.css';
 
 export type ColorFill =
@@ -131,15 +132,24 @@ function ContrastRow({ fg, bg }: { fg: string; bg: string }) {
   );
 }
 
-function ToneList({ value, onChange, label }: { value: TextTone; onChange: (t: TextTone) => void; label: string }) {
+export interface ToneChoiceProps {
+  value: TextTone;
+  onChange: (t: TextTone) => void;
+  /** Nom du choix, lu par les lecteurs d'écran (et affiché au-dessus avec `showLabel`). */
+  label: string;
+  showLabel?: boolean;
+}
+
+/**
+ * ToneChoice (Figma 9897:8199) : version claire ou sombre d'un élément (logo, texte posé sur un fond,
+ * contour glass). Deux OptionChoice (le style des choix du DS), soleil (Clair) et lune (Sombre).
+ */
+export function ToneChoice({ value, onChange, label, showLabel }: ToneChoiceProps) {
   return (
-    <div className={styles.tones} role="radiogroup" aria-label={label}>
-      {(['light', 'dark'] as const).map((t) => (
-        <button key={t} type="button" role="radio" aria-checked={value === t} className={styles.tone} onClick={() => onChange(t)}>
-          <span className={styles.toneIcon} aria-hidden="true"><Icon name="sun-03" size={14} /></span>
-          {t === 'light' ? 'Clair' : 'Sombre'}
-        </button>
-      ))}
+    <div className={styles.section}>
+      {showLabel && <span className={styles.label} aria-hidden="true">{label}</span>}
+      <OptionChoiceGroup aria-label={label} value={value} onChange={(v) => onChange(v as TextTone)}
+        options={[{ value: 'light', label: 'Clair', icon: 'sun-03' }, { value: 'dark', label: 'Sombre', icon: 'moon-02' }]} />
     </div>
   );
 }
@@ -165,7 +175,7 @@ export function ColorPicker({ value, onChange, allowGradient, textTone, onTextTo
         items={[{ value: 'bg', label: 'Fond' }, { value: 'text', label: 'Texte' }]} />}
       {tab === 'text' && withText ? (
         <>
-          <ToneList value={textTone ?? 'dark'} onChange={onTextToneChange!} label="Couleur du texte" />
+          <ToneChoice value={textTone ?? 'dark'} onChange={onTextToneChange!} label="Couleur du texte" />
           <ContrastRow fg={fg} bg={grad ? value.from : value.color} />
         </>
       ) : (
@@ -223,7 +233,7 @@ export function ColorPicker({ value, onChange, allowGradient, textTone, onTextTo
           {glass && onGlassChange && (
             <div className={styles.section + ' ' + styles.sep}>
               <Switch size="sm" label="Ajouter un contour glass" checkPlacement="right" checked={glass.enabled} onChange={(e) => onGlassChange({ ...glass, enabled: e.target.checked })} />
-              {glass.enabled && <ToneList value={glass.tone} onChange={(t) => onGlassChange({ ...glass, tone: t })} label="Contour glass" />}
+              {glass.enabled && <ToneChoice value={glass.tone} onChange={(t) => onGlassChange({ ...glass, tone: t })} label="Contour glass" />}
             </div>
           )}
         </>

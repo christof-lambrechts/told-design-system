@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { StartScreen, EndScreen, RewardBlock, Countdown, SocialLinks, type ScreenLayout, type ScreenContext } from './StartEndScreen';
 import { Logo } from '../Logo/Logo';
+import { useState } from 'react';
+import { PositionPicker, type Position } from '../OptionSidebar/PositionPicker';
+import { GroupTab } from '../Tabs/Tabs';
 
 const meta = { title: 'Composants/Écrans de début et de fin', component: StartScreen, parameters: { layout: 'padded' } } satisfies Meta<typeof StartScreen>;
 export default meta;
@@ -38,4 +41,26 @@ export const Pieces: StoryObj = {
       <SocialLinks links={[{ network: 'linkedin', href: '#' }, { network: 'x', href: '#' }, { network: 'facebook', href: '#' }, { network: 'instagram', href: '#' }, { network: 'youtube', href: '#' }]} />
     </div>
   ),
+};
+
+/** Position du texte et du logo (PositionPicker item="text", 9 places) ; en Partagé, le côté de l'image se choisit à part (À gauche | À droite). */
+export const PositionDuTexte: StoryObj = {
+  name: 'Position du texte',
+  render: () => {
+    const [pos, setPos] = useState<Position>('bottom-left');
+    const [layout, setLayout] = useState<ScreenLayout>('split');
+    const [side, setSide] = useState<'left' | 'right'>('right');
+    return (
+      <div style={{ display: 'flex', gap: 32, alignItems: 'flex-start' }}>
+        <div style={{ display: 'grid', gap: 16, width: 220 }}>
+          <GroupTab label="Style" value={layout} onChange={(v) => setLayout(v as ScreenLayout)} items={[{ value: 'centered', label: 'Centré' }, { value: 'split', label: 'Partagé' }, { value: 'cover', label: 'Couverture' }]} />
+          {layout === 'split' && <GroupTab label="Image" value={side} onChange={(v) => setSide(v as 'left' | 'right')} items={[{ value: 'left', label: 'À gauche' }, { value: 'right', label: 'À droite' }]} />}
+          <PositionPicker label="Position du texte" item="text" value={pos} onChange={setPos} />
+        </div>
+        <div style={{ zoom: 0.6 }}>
+          <StartScreen layout={layout} textPosition={pos} mediaSide={side} logo={<Logo size="sm" theme={layout === 'cover' ? 'dark' : 'light'} />} media={media} {...start} actions={[{ label: 'Lancer l’annonce' }]} />
+        </div>
+      </div>
+    );
+  },
 };

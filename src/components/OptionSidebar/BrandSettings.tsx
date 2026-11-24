@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { GroupTab } from '../Tabs/Tabs';
 import { ColorField } from '../Contrast/Contrast';
-import { textToneColor, type TextTone } from '../ColorPicker/ColorPicker';
+import { ToneChoice, textToneColor, type TextTone } from '../ColorPicker/ColorPicker';
 import { ButtonLink, ButtonGradient } from '../Button/ButtonMisc';
 import { Switch } from '../Choice/Choice';
 import { Icon } from '../Icon/Icon';
@@ -54,6 +54,9 @@ export interface LogoSettingsProps {
   kitName?: string;
   onOpenBrandKit?: () => void;
   onUpgrade?: () => void;
+  /** Version du logo, claire ou sombre, selon le fond de la slide (ToneChoice). Absent : réglage masqué. */
+  tone?: TextTone;
+  onToneChange?: (t: TextTone) => void;
 }
 
 /**
@@ -63,7 +66,8 @@ export interface LogoSettingsProps {
  * Offre payante : « Afficher un logo » ; activé, Told | Le mien (kit de marque) ; désactivé, aucun logo.
  * L'offre est vérifiée côté serveur : ce composant ne fait que l'afficher.
  */
-export function LogoSettings({ plan, value, onChange, customLogo, kitName = 'Kit principal', onOpenBrandKit, onUpgrade }: LogoSettingsProps) {
+export function LogoSettings({ plan, value, onChange, customLogo, kitName = 'Kit principal', onOpenBrandKit, onUpgrade, tone, onToneChange }: LogoSettingsProps) {
+  const toneChoice = tone && onToneChange ? <ToneChoice label="Version du logo" showLabel value={tone} onChange={onToneChange} /> : null;
   const [open, setOpen] = useState<false | 'hover' | 'click'>(false);
   const box = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -97,6 +101,7 @@ export function LogoSettings({ plan, value, onChange, customLogo, kitName = 'Kit
             </div>
           )}
         </div>
+        {toneChoice}
       </div>
     );
   }
@@ -120,6 +125,7 @@ export function LogoSettings({ plan, value, onChange, customLogo, kitName = 'Kit
           {onOpenBrandKit && <div><ButtonLink iconRight={null} padding={false} onClick={onOpenBrandKit}>{customLogo ? 'Changer dans le kit de marque' : 'Ajouter mon logo au kit'}</ButtonLink></div>}
         </>
       )}
+      {on && toneChoice}
       <p className={styles.note}>{({ told: 'Le logo Told s’affiche en bas de la slide.', custom: 'Ton logo vient du kit de marque.', none: 'Aucun logo en bas de la slide.' } as const)[value]}</p>
     </div>
   );

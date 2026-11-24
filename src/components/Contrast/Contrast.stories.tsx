@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ColorField, ContrastBadge, ContrastMenu } from './Contrast';
-import type { ContrastLevel } from './contrast';
+import type { ContrastLevel } from './contrastMath';
 
 const meta = { title: 'Composants/Saisie et choix/Champ couleur et contraste', component: ColorField } satisfies Meta<typeof ColorField>;
 export default meta;

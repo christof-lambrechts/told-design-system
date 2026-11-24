@@ -64,8 +64,8 @@ export type { TranslationTableProps, TranslationGroup, TranslationRow, Language,
 // v0.9.0 : composants validés pour Told Record
 export { ContrastBadge, ContrastMenu, ColorField } from './components/Contrast/Contrast';
 export type { ContrastBadgeProps, ContrastMenuProps, ColorFieldProps } from './components/Contrast/Contrast';
-export { contrastRatio, fixContrast, formatRatio, passes, contrastThreshold } from './components/Contrast/contrast';
-export type { ContrastLevel } from './components/Contrast/contrast';
+export { contrastRatio, fixContrast, formatRatio, passes, contrastThreshold } from './components/Contrast/contrastMath';
+export type { ContrastLevel } from './components/Contrast/contrastMath';
 export { CopyField, CodeBlock } from './components/CopyField/CopyField';
 export type { CopyFieldProps, CodeBlockProps } from './components/CopyField/CopyField';
 export { Breadcrumb, EditableTitle } from './components/Breadcrumb/Breadcrumb';
@@ -118,6 +118,8 @@ export type { EditorLayoutProps } from './components/EditorLayout/EditorLayout';
 export { FilterBar, FilterChip, FilterLogic, FilterMenu } from './components/Filter/Filter';
 export type { FilterBarProps, FilterChipProps, FilterLogicProps, FilterMenuProps, FilterMenuItemData } from './components/Filter/Filter';
 export { FormatOptionGroup } from './components/OptionSidebar/FormatOption';
+export { OptionPopover, PopoverField, PositionPreview, ColorPreview } from './components/Popover/OptionPopover';
+export type { OptionPopoverProps, PopoverFieldProps, PopoverPlacement } from './components/Popover/OptionPopover';
 export type { FormatOptionGroupProps, FormatOptionData } from './components/OptionSidebar/FormatOption';
 export { OptionCard, OptionChoiceGroup } from './components/OptionSidebar/OptionCard';
 export type { OptionCardProps, OptionChoiceGroupProps, OptionChoiceData } from './components/OptionSidebar/OptionCard';
@@ -141,5 +143,13 @@ export type { EyebrowSettingsProps, EyebrowStyle, LogoSettingsProps, BrandLogoCh
 // 23/11 : écrans de début et de fin communs à tous les produits.
 export { StartScreen, EndScreen, ScreenActions, RewardBlock, Countdown, SocialLinks } from './components/StartEndScreen/StartEndScreen';
 export type { ScreenProps, EndScreenProps, ScreenAction, ScreenActionsProps, RewardBlockProps, CountdownProps, SocialLinksProps, ScreenLayout, ScreenContext } from './components/StartEndScreen/StartEndScreen';
-export { ColorPicker, textToneColor } from './components/ColorPicker/ColorPicker';
-export type { ColorPickerProps, ColorFill, TextTone, GlassTone } from './components/ColorPicker/ColorPicker';
+export { ColorPicker, ToneChoice, textToneColor } from './components/ColorPicker/ColorPicker';
+export type { ColorPickerProps, ToneChoiceProps, ColorFill, TextTone, GlassTone } from './components/ColorPicker/ColorPicker';
+export {
+  OverlaySettings, ProgressSettings, FooterSettings, WidgetAvatarSettings, LabelSettings, CloseSettings, CoverSettings,
+  WidgetLogoSettings, SoundSettings, RadiusSettings, NavButtonsSettings, ShadowSettings, GlassSettings,
+} from './components/Customisation/Customisation';
+export type {
+  OverlaySettingsProps, ProgressSettingsProps, FooterSettingsProps, WidgetAvatarSettingsProps, LabelSettingsProps, CloseSettingsProps,
+  ImageSettingsProps, SoundOption, SoundSettingsProps, RadiusChoice, NavButton, NavButtonsSettingsProps, ShadowSettingsProps, GlassSettingsProps,
+} from './components/Customisation/Customisation';

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type HTMLAttributes } from 'react';
 import { Icon } from '../Icon/Icon';
 import { ColorPicker, type TextTone } from '../ColorPicker/ColorPicker';
 import pickerStyles from '../ColorPicker/ColorPicker.module.css';
-import { contrastRatio, contrastThreshold, fixContrast, formatRatio, type ContrastLevel } from './contrast';
+import { contrastRatio, contrastThreshold, fixContrast, formatRatio, type ContrastLevel } from './contrastMath';
 import styles from './Contrast.module.css';
 
 const cx = (...c: (string | false | undefined)[]) => c.filter(Boolean).join(' ');

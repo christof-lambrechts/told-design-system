@@ -1,12 +1,21 @@
 /* _ChoiceIllustration (8773:100705) : aplats sans contour, 4 teintes (fond, carte, traits, accent de marque). 64 × 44. */
 import type { ReactElement } from 'react';
 
-export type ChoiceIllustrationName = 'ratio-16-9' | 'ratio-1-1' | 'ratio-4-3' | 'ratio-3-4' | 'widget' | 'modale' | 'banniere' | 'infobulle' | 'demo' | 'announcement' | 'inapp';
+export type ChoiceIllustrationName = 'ratio-16-9' | 'ratio-1-1' | 'ratio-4-3' | 'ratio-3-4' | 'widget' | 'modale' | 'banniere' | 'infobulle' | 'demo' | 'announcement' | 'inapp' | 'frame-none' | 'frame-mobile' | 'frame-tablet' | 'frame-desktop';
 
 const BG = 'var(--ci-bg, var(--neutral-surface-muted))';
 const CARD = 'var(--ci-card, var(--neutral-surface-default))';
 const LINE = 'var(--ci-line, var(--brand-neutral-50, #DFE5EA))';
 const ACC = 'var(--ci-accent, var(--brand-primary-500))';
+
+const INK = 'var(--content-default-default)';
+const capture = (x: number, y: number, w: number, h: number) => (
+  <>
+    <rect x={x} y={y} width={w} height={h} rx="2" fill={CARD} />
+    <rect x={x + 2} y={y + 2} width={Math.max(4, w * 0.45)} height="2" rx="1" fill={LINE} />
+    <rect x={x + 2} y={y + 6} width={Math.max(4, w * 0.3)} height="3" rx="1" fill={ACC} />
+  </>
+);
 
 const screen = (
   <>
@@ -36,6 +45,11 @@ const shapes: Record<ChoiceIllustrationName, ReactElement> = {
   demo: <><rect x="8" y="7" width="48" height="30" rx="4" fill={CARD} /><rect x="8" y="7" width="12" height="30" rx="4" fill={LINE} opacity=".5" /><rect x="24" y="12" width="20" height="3" rx="1.5" fill={LINE} /><rect x="24" y="17" width="28" height="8" rx="2" fill={LINE} opacity=".6" /><circle cx="44" cy="28" r="6" fill={ACC} opacity=".25" /><circle cx="44" cy="28" r="3" fill={ACC} /><path d="M46 28v9l2.5-2.2 1.8 3.7 1.5-.7-1.8-3.7 3.2-.1z" fill="var(--content-default-default)" stroke={CARD} strokeWidth="1" /></>,
   announcement: <><rect x="8" y="7" width="48" height="30" rx="4" fill={ACC} opacity=".14" /><rect x="12" y="12" width="6" height="3" rx="1.5" fill={ACC} /><rect x="12" y="17" width="16" height="3" rx="1.5" fill="var(--content-default-default)" opacity=".55" /><rect x="12" y="22" width="12" height="2" rx="1" fill="var(--content-default-default)" opacity=".3" /><rect x="12" y="29" width="9" height="4" rx="2" fill={ACC} /><rect x="31" y="11" width="21" height="22" rx="3" fill={CARD} /><rect x="31" y="11" width="21" height="3" rx="1.5" fill={LINE} /><rect x="34" y="18" width="14" height="2" rx="1" fill={LINE} /><rect x="34" y="22" width="10" height="2" rx="1" fill={LINE} /></>,
   inapp: <>{screen}<rect x="13" y="23" width="24" height="9" rx="3" fill={ACC} opacity=".14" /><rect x="16" y="26" width="12" height="3" rx="1.5" fill={ACC} /><path d="M51.2 23.5A5.5 5.5 0 1 1 46 20.5" stroke={ACC} strokeWidth="1.6" strokeLinecap="round" /><path d="M45 18l3.2 2.4-3.4 2z" fill={ACC} /></>,
+  /* Cadre du média (24/11) : la capture seule, dans un téléphone, une tablette ou un écran. */
+  'frame-none': capture(12, 10, 40, 24),
+  'frame-mobile': <><rect x="24" y="5" width="16" height="34" rx="4" fill={INK} />{capture(25.5, 7, 13, 30)}<rect x="29" y="8" width="6" height="2" rx="1" fill={INK} /></>,
+  'frame-tablet': <><rect x="13" y="6" width="38" height="32" rx="4" fill={INK} />{capture(15.5, 8.5, 33, 27)}</>,
+  'frame-desktop': <><rect x="10" y="5" width="44" height="28" rx="3" fill={INK} />{capture(12, 7, 40, 24)}<rect x="28" y="33" width="8" height="4" fill={LINE} /><rect x="23" y="36" width="18" height="2" rx="1" fill={LINE} /></>,
   infobulle: <>{screen}<rect x="28" y="18" width="10" height="4" rx="2" fill={LINE} /><rect x="24" y="25" width="20" height="8" rx="3" fill={ACC} /><path d="M34 22L36.17 25H31.83Z" fill={ACC} /></>,
 };
 

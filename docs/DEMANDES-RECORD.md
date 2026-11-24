@@ -45,7 +45,7 @@ Il remplace le document de projet `claude/V3-demandes-ds-record.md` (23/11/2026)
   - `TODO DS: D-023` (bouton menu avec le logo) et `TODO DS: D-024` (étapes Construire › Diffuser › Analyser) : **déjà codés en v0.15.0** (`ButtonEditionMenu`, `EditorSteps`, voir D-022 ci-dessous) ; à brancher.
   - `TODO DS: D-022` (AvatarGroup sans état inactif ni teinte par personne) devient **D-026**, codée en v0.20.0.
   - `TODO DS: D-025` (pas de carte de démo dans le DS) rejoint **D-011** (Card).
-  - Prochain numéro libre : **D-042**.
+  - Prochain numéro libre : **D-045** (D-042 pris par la conversation Code).
 - **Icônes pleines par défaut depuis v0.16.0** : une icône posée sans `variant` passe en plein. Le contour ne reste qu'au repos dans les menus (menu de navigation, entrées de DropdownMenu) ; les chevrons restent en trait. Vérifier visuellement les écrans après la mise à jour.
 - **Noms** : depuis le 20/11, un composant porte le même nom dans Figma et dans le code (règle et anciens noms : `docs/NOMMAGE.md` du dépôt told-ds). Dans le nouveau code, utiliser `OptionItem` et `OptionSidebar` (plus OptionPanelItem / OptionPanel), `Select` (Figma ne dit plus DropdownField), `Modal`, `Tag`, `Flag`, `Logo`, `ProgressSteps`.
 
@@ -564,6 +564,33 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Priorité : confort
 - Statut : à faire
 - Réponse DS :
+
+### D-043 · Réglages en micro-modale (PopoverField + OptionPopover) (24/11, validé par Christof)
+- Sens : demande du DS vers Record (panneau Options de l'éditeur).
+- Référence Figma : page `🧩 Molécules / Options ✅`, section « Micro-modale · PopoverField + OptionPopover » (`9928:10859`) ; planche « Blocs d'option · fermé et ouvert » (`9920:7302`).
+- Règle : **3 choix ou moins = GroupTab** ; **plus de 3 choix, ou réglage long et peu modifié = `PopoverField` + `OptionPopover`**, avec une liste illustrée (`FormatOptionGroup`) quand les choix se montrent mieux qu'ils ne se lisent.
+- Déjà fait dans le DS (rien à changer dans l'API) : `AvatarSettings` (Position, Contour et sa couleur), `MediaFrameSettings` (Cadre en liste illustrée, Appareil + Coloris dans un seul champ), `RadiusSettings`, `SoundSettings`.
+- À faire dans Record :
+  1. **Format** : la ligne Format garde son badge, l'action devient « Changer » et ouvre `<OptionPopover title="Format" anchor={ligne}>` avec `<FormatOptionGroup>` (Démo guidée, Annonce, Animation in-app). La grande modale Format sort de l'éditeur.
+  2. **Proportions** : ligne à part, sous Format, `GroupTab` Paysage 16:9 | Vertical 9:16 (badge « 16:9 »). Le Carré 1:1 attend une décision (format, lecteur, maquette).
+  3. Poser `data-option-sidebar` sur le conteneur du panneau Options de Record (si ce n'est pas `OptionSidebar`) : la micro-modale s'ouvre à gauche du panneau, sinon sous le champ.
+  4. **Textes d'aide** : les petites phrases sous les réglages vont dans le i de la ligne (`OptionItem info="…"`) ; passer `note={false}` à AvatarSettings et MediaFrameSettings, `captureHelp={false}`.
+  5. **Logo** : interrupteur sur la ligne (`OptionItem toggle`, sans chevron), activé la ligne s'ouvre sur Told | Le mien et **Version du logo Clair | Sombre** (`LogoSettings tone`, `onToneChange`) ; à faire avec D-039 (nouveau réglage `brand_logo_tone` dans le format).
+- Priorité : important
+- Statut : **codé told-ds v0.53.0 à v0.56.0**, à appliquer dans Record
+- Réponse Record :
+
+### D-044 · Position libre du média (24/11, validé par Christof)
+- Sens : demande du DS vers Record (format, lecteur, éditeur, vidéo exportée).
+- Référence Figma : section « Exploration · Position libre du média » (`9937:9231`, page Options) ; `MediaFrameSettings` (« Taille et place du média » + Recentrer).
+- Besoin : déplacer **le cadre et la capture ensemble** n'importe où dans la zone du média, l'agrandir ou le réduire ; ce qui dépasse la zone est coupé (ex. ordinateur agrandi × 1,6 et glissé dans le coin, le bas et la droite coupés). Remplace Avec marge | À droite | Dans le coin (`media_frame.placement`, D-034 et migration 20261217) **et** le réglage Cadrage (D-035, MediaCropSettings).
+- Panneau (told-ds v0.55.0) : `<MediaFrameSettings mediaScale={…} onMediaScaleChange={…} onRecenter={…}>` : curseur Taille de × 0,5 à × 3 (point à × 1), lien Recentrer. Sans `placement`.
+- Éditeur : sur la slide, le média sélectionné montre la zone du média en pointillés bleus, ses 4 poignées et la pastille « × 1,6 · glisse pour placer » ; **glisser** déplace, **tirer un coin** agrandit (le panneau suit). Pendant le glisser, la partie coupée reste visible en transparence.
+- Format de démo, proposition : `media_frame.place = { scale: 0.5..3, x: 0..1, y: 0..1 }` = centre du média dans sa zone (0,5 ; 0,5 = centré), bornes larges pour pouvoir sortir à moitié. Défaut `{ 1, 0.5, 0.5 }`. Reprise des démos existantes : inset → `{1, .5, .5}`, edge → centre collé au bord droit (ou bas en vertical), corner → coin bas droit.
+- Lecteur et vidéo : la zone du média coupe son contenu (`overflow: hidden`) ; le média reçoit `transform: translate(…) scale(scale)` depuis le centre. Même rendu dans la vidéo exportée.
+- Priorité : important
+- Statut : **codé told-ds v0.55.0** (panneau), à appliquer dans Record (plan court à présenter à Jonathan : format et migration, lecteur, éditeur)
+- Réponse Record :
 
 ## Questions de Record (20/11)
 - **Annonce en Carré 1:1 ?**
