@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.52.0 · 24/11/2026
+
+- **WidgetConsent** : sans `state`, le bloc garde lui-même la réponse : un clic sur la coche affiche « Accepté », sur la croix « Refusé » (annoncé aux lecteurs d'écran). Avec `state`, l'app reste maître, comme avant.
+
 ## v0.51.0 · 24/11/2026
 
 - **OptionSidebar** : marges latérales de 16 (au lieu de 20 depuis la v0.47.0), sur l'en-tête, la portée, chaque OptionItem et l'en-tête contextuel. Figma OptionItem aligné (34 variantes).

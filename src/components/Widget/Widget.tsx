@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import { useState, type ButtonHTMLAttributes, type ReactNode } from 'react';
 import { Icon, type IconName } from '../Icon/Icon';
 import { Logo } from '../Logo/Logo';
 import styles from './Widget.module.css';
@@ -77,6 +77,7 @@ export function ChecklistItem({ title, description, state = 'todo', actionLabel 
 export interface WidgetConsentProps {
   title?: ReactNode;
   message: ReactNode;
+  /** Contrôlé par l'app. Absent : le bloc garde lui-même la réponse (clic sur la croix ou la coche). */
   state?: 'ask' | 'accepted' | 'refused';
   onAccept?: () => void;
   onRefuse?: () => void;
@@ -84,7 +85,11 @@ export interface WidgetConsentProps {
 }
 
 /** Bloc de consentement du widget : message et deux boutons (croix, coche). */
-export function WidgetConsent({ title = 'Confidentialité', message, state = 'ask', onAccept, onRefuse, policyHref }: WidgetConsentProps) {
+export function WidgetConsent({ title = 'Confidentialité', message, state: controlled, onAccept, onRefuse, policyHref }: WidgetConsentProps) {
+  const [own, setOwn] = useState<'ask' | 'accepted' | 'refused'>('ask');
+  const state = controlled ?? own;
+  const accept = () => { if (controlled === undefined) setOwn('accepted'); onAccept?.(); };
+  const refuse = () => { if (controlled === undefined) setOwn('refused'); onRefuse?.(); };
   return (
     <div className={cx(styles.consent, state !== 'ask' && styles[`cs-${state}`])}>
       <div className={styles.consentBody}>
@@ -93,11 +98,11 @@ export function WidgetConsent({ title = 'Confidentialité', message, state = 'as
       </div>
       {state === 'ask' ? (
         <div className={styles.consentActions}>
-          <button type="button" onClick={onRefuse} aria-label="Refuser"><Icon name="cancel-01" size={16} /></button>
-          <button type="button" onClick={onAccept} aria-label="Accepter"><Icon name="tick-02" size={16} /></button>
+          <button type="button" onClick={refuse} aria-label="Refuser"><Icon name="cancel-01" size={16} /></button>
+          <button type="button" onClick={accept} aria-label="Accepter"><Icon name="tick-02" size={16} /></button>
         </div>
       ) : (
-        <div className={styles.consentDone}><Icon name={state === 'accepted' ? 'tick-02' : 'cancel-01'} size={14} />{state === 'accepted' ? 'Accepté' : 'Refusé'}</div>
+        <div className={styles.consentDone} role="status"><Icon name={state === 'accepted' ? 'tick-02' : 'cancel-01'} size={14} />{state === 'accepted' ? 'Accepté' : 'Refusé'}</div>
       )}
     </div>
   );
