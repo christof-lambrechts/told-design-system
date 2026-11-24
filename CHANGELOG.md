@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.51.0 · 24/11/2026
+
+- **OptionSidebar** : marges latérales de 16 (au lieu de 20 depuis la v0.47.0), sur l'en-tête, la portée, chaque OptionItem et l'en-tête contextuel. Figma OptionItem aligné (34 variantes).
+
 ## v0.50.0 · 24/11/2026
 
 - **Réglages d'apparence** (Figma OptionCustomisation, cadre « Réglages d'apparence Told ») codés, un composant par type, à poser dans une OptionItem ouverte :
