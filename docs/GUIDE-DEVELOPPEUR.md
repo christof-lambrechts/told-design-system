@@ -261,3 +261,11 @@ Après une mise à jour : `npm run typecheck` et `npm run build-storybook` doive
 - **Plus de 3 choix**, ou des choix avec couleur, avatar, vignette, icône ou glyphe : `ChoiceChips`.
 - `ChoiceField` applique la règle tout seul (même API que ChoiceChips, avec `label`).
 - **Options selon la sélection** : sans sélection, le panneau montre les réglages de la slide ; quand on sélectionne un élément de la slide (média, avatar, surtitre, titre, logo), il ne montre que ses réglages, sous un `OptionContextHeader` (retour, Échap).
+
+### Micro-modale d'un réglage (24/11, v0.53.0)
+
+- **Plus de 3 choix qui se montrent mieux qu'ils ne se lisent** (cadre du média, format), ou **réglage long qu'on change rarement** (position de l'avatar, couleur de contour, appareil et coloris) : `PopoverField` dans le panneau (aperçu + valeur + chevron, 36 de haut), qui ouvre `OptionPopover` (320 de large, titre + Fermer).
+- Dans la micro-modale : `FormatOptionGroup` pour une liste illustrée (illustrations `frame-none`, `frame-mobile`, `frame-tablet`, `frame-desktop`, `demo`, `announcement`, `inapp`), sinon le réglage lui-même (`PositionPicker`, `ChoiceField`…).
+- Le Format se change par le lien « Changer » de sa ligne `OptionItem`, qui ouvre `OptionPopover` (ancre : la ligne) au lieu de la grande modale.
+- La micro-modale s'ouvre à gauche du panneau (`placement="left"`, panneau repéré par `data-option-sidebar` sur `OptionSidebar`), repli sous le champ si la place manque. Échap, clic dehors ou Fermer la referment et rendent le focus au champ.
+- Aperçus prêts : `PositionPreview` (mini position) et `ColorPreview` (pastille).

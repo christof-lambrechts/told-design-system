@@ -1,0 +1,16 @@
+.popover { position: fixed; z-index: 1000; box-sizing: border-box; display: flex; flex-direction: column; border-radius: 12px; background: var(--neutral-surface-default); box-shadow: var(--shadow-flat-8), inset 0 0 0 1px var(--neutral-border-default); font-family: var(--font-family-body); max-height: calc(100vh - 16px); overflow: auto; }
+.head { display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; }
+.title { flex: 1; min-width: 0; font-size: var(--body-14-size); line-height: var(--body-14-line-height); font-weight: 600; color: var(--content-default-default); }
+.body { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 12px; }
+
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; font-family: var(--font-family-body); }
+.label { color: var(--content-subtle-default); }
+.trigger { all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 8px; width: 100%; height: 36px; padding: 0 10px; border-radius: 8px; background: var(--neutral-surface-default); box-shadow: inset 0 0 0 1px var(--input-brand-border-default); cursor: pointer; color: var(--content-default-default); }
+.trigger:hover:not(:disabled) { box-shadow: inset 0 0 0 1px var(--input-brand-border-hover); }
+.trigger:focus-visible { box-shadow: inset 0 0 0 1px var(--input-brand-border-focus), var(--focus-ring); }
+.open, .open:hover:not(:disabled) { box-shadow: inset 0 0 0 1.5px var(--input-brand-border-focus); }
+.trigger:disabled { opacity: .5; cursor: default; }
+.preview { flex: none; display: grid; place-items: center; width: 20px; height: 20px; color: var(--content-default-default); }
+.value { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--body-14-size); line-height: var(--body-14-line-height); }
+.chevron { flex: none; color: var(--content-muted-default); }
+.swatch { display: block; width: 18px; height: 18px; border-radius: 50%; box-shadow: inset 0 0 0 1px var(--neutral-border-default); }

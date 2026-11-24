@@ -118,6 +118,8 @@ export type { EditorLayoutProps } from './components/EditorLayout/EditorLayout';
 export { FilterBar, FilterChip, FilterLogic, FilterMenu } from './components/Filter/Filter';
 export type { FilterBarProps, FilterChipProps, FilterLogicProps, FilterMenuProps, FilterMenuItemData } from './components/Filter/Filter';
 export { FormatOptionGroup } from './components/OptionSidebar/FormatOption';
+export { OptionPopover, PopoverField, PositionPreview, ColorPreview } from './components/Popover/OptionPopover';
+export type { OptionPopoverProps, PopoverFieldProps, PopoverPlacement } from './components/Popover/OptionPopover';
 export type { FormatOptionGroupProps, FormatOptionData } from './components/OptionSidebar/FormatOption';
 export { OptionCard, OptionChoiceGroup } from './components/OptionSidebar/OptionCard';
 export type { OptionCardProps, OptionChoiceGroupProps, OptionChoiceData } from './components/OptionSidebar/OptionCard';

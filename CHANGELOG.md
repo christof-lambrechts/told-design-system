@@ -3,6 +3,14 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.53.0 · 24/11/2026
+
+- **PopoverField** et **OptionPopover** (Figma 9928:10883, 9928:10884) : un réglage long se résume dans un champ (aperçu + valeur + chevron, 36 de haut) qui ouvre une micro-modale de 320 à gauche du panneau. Échap, clic dehors ou Fermer la referment et rendent le focus au champ. Aperçus `PositionPreview` et `ColorPreview`.
+- **Règle** : 3 choix ou moins = GroupTab ; plus de 3 choix, ou réglage long et peu modifié = PopoverField + OptionPopover, avec une liste illustrée (`FormatOptionGroup`) quand les choix se montrent mieux qu'ils ne se lisent. Le Format se change par « Changer » sur sa ligne, dans la même micro-modale.
+- **Illustrations** `frame-none`, `frame-mobile`, `frame-tablet`, `frame-desktop` (cadre du média) pour ChoiceIllustration et FormatOptionGroup.
+- `OptionSidebar` porte `data-option-sidebar` (repère de la micro-modale).
+- Story Panneaux › OptionPopover.
+
 ## v0.52.2 · 24/11/2026
 
 - **Chevrons au dessin standard** : en contour, `arrow-up-01`, `arrow-down-01`, `arrow-left-01` et `arrow-right-01` reprennent le dessin à branches droites des icônes `-stroke` (celui des listes déroulantes), au lieu du contour arrondi libre qui changeait d'allure selon la taille. Même correction dans Figma (variante `style=stroke` des quatre sets).
