@@ -287,7 +287,7 @@ Points d'attention :
 - Réponse DS : `AvatarGroup people={[{ name, id, idle }]}` : `id` fixe la teinte (fonction `presenceColorFor(id)`, la même partout) ; `idle` estompe l'avatar et ajoute « inactif » au nom lu. `PresenceAvatar` accepte `personId` et `idle`.
 
 ## Demandes de Told Record encore ouvertes (regroupées le 25/11)
-Sens : Told Record vers le DS. Elles étaient dans les pull requests 4 à 8, jamais fusionnées. Les numéros déjà pris sur `main` ont changé : Record a mis à jour ses `TODO DS`. Prochain numéro libre pour Record : **D-084**.
+Sens : Told Record vers le DS. Elles étaient dans les pull requests 4 à 8, jamais fusionnées. Les numéros déjà pris sur `main` ont changé : Record a mis à jour ses `TODO DS`. Prochain numéro libre pour Record : **D-085**.
 
 ### D-042 · AvatarSettings, MediaFrameSettings, EyebrowSettings, LogoSettings : tout le réglage désactivable (23/11, demandé par Record)
 - Date, écran Record concerné : éditeur, « Avatar sur ce slide » (`editor/presenter.tsx`) et « Cadre du média » (`editor/media-frame-field.tsx`). Aussi « Surtitre » et « Logo » (`editor/slide-style-fields.tsx`, D-039, D-040).
@@ -436,6 +436,16 @@ Sens : Told Record vers le DS. Elles étaient dans les pull requests 4 à 8, jam
 - Statut : à faire
 - Réponse DS :
 - Numéro : demandée le 24/11 sous le numéro D-049 (pull request 8) ; D-049 est aussi pris par Told V3.
+
+### D-084 · Toaster : erreur d'hydratation avec un rendu serveur (25/11, demandé par Record)
+- Date, écran Record concerné : 25/11, toutes les pages de l'app (`src/app/(app)/layout.tsx`, Next.js App Router avec rendu serveur).
+- Besoin : poser `<Toaster />` une fois dans la mise en page, sans erreur d'hydratation.
+- Ce qui manque ou gêne dans le DS : `Toaster` renvoie `null` quand `document` n'existe pas (serveur) et un portail côté client. Le premier rendu client diffère du HTML du serveur : « Hydration failed » sur chaque chargement complet, et React reconstruit tout l'arbre côté client (un champ de fichier déjà rempli est perdu).
+- Contournement provisoire dans Record (`// TODO DS: D-084`) : `AppToaster` ne monte `Toaster` qu'après l'hydratation (`useSyncExternalStore` qui vaut `false` au serveur et à l'hydratation).
+- Proposition : monter le portail dans un effet (état `mounted`), ou avec `useSyncExternalStore`, pour que le premier rendu client soit `null` comme au serveur.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
 
 ## Demandes du DS vers Record (lecteur public)
 
