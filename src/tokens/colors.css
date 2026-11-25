@@ -49,15 +49,6 @@
   --gray-10: #f9fafb;
   --gray-20: #f2f4f6;
   --gray-30: #f2f2f3;
-  /* Teintes de présence (avatars et curseurs des collaborateurs), Figma presence/*. */
-  --presence-teal: #14b8a6;
-  --presence-pink: #ec4899;
-  --presence-orange: #f97316;
-  --presence-purple: #a855f7;
-  --presence-lime: #84cc16;
-  --presence-green: #22c55e;
-  --presence-yellow: #eab308;
-  --presence-slate: #64748b;
   --gray-40: #e8ecf0;
   --gray-50: #dfe5ea;
   --gray-100: #ccd5dd;
@@ -441,9 +432,9 @@
   --neutral-surface-strong: var(--brand-neutral-50);
   --neutral-surface-inverse: var(--brand-neutral-950);
   --neutral-surface-page: var(--brand-neutral-10);
-  --neutral-surface-canvas: var(--gray-10);
+  --neutral-surface-canvas: var(--gray-30);
   --neutral-surface-sidebar: #fcfcfd;
-  --neutral-surface-pattern: var(--gray-30);
+  --neutral-surface-pattern: var(--white-alpha-90);
   --neutral-surface-overlay: var(--black-alpha-40);
   --neutral-surface-scroll-bar: var(--black-alpha-20);
   --neutral-surface-subtleinverse: var(--black-alpha-10);
@@ -469,9 +460,6 @@
   --neutral-surface-white-alpha-5: var(--white-alpha-5);
   --neutral-surface-white-alpha-0: var(--white-alpha-0);
   --neutral-border-default: var(--gray-50);
-  --neutral-border-divider: var(--gray-40);
-  --neutral-surface-code: var(--neutral-surface-black-alpha-5);
-  --neutral-border-code: var(--neutral-surface-black-alpha-10);
   --neutral-border-hover: var(--brand-neutral-100);
   --neutral-border-pressed: var(--brand-primary-50);
   --neutral-border-subtle: var(--brand-neutral-20);
@@ -481,7 +469,6 @@
   --danger-border-danger: var(--brand-danger-500);
   --brand-surface-default: var(--brand-primary-10);
   --brand-surface-muted: var(--brand-primary-20);
-  --brand-surface-tint: var(--brand-primary-20);
   --brand-surface-strong: var(--brand-primary-50);
   --brand-surface-selected: var(--brand-primary-500);
   --brand-border-hover: var(--brand-primary-50);
@@ -1094,6 +1081,16 @@
   --badge-subtle-twine-content: var(--twine-700);
   --button-buttonsecondaryoutline-border-default: var(--input-brand-border-default);
   --button-buttonsecondaryoutline-border-hover: var(--input-brand-border-hover);
+  --chart-series-apple-subtle: var(--apple-100);
+  --chart-series-apple: var(--apple-200);
+  --chart-series-ocean-subtle: var(--ocean-100);
+  --chart-series-ocean: var(--ocean-200);
+  --chart-series-ocean-strong: var(--ocean-300);
+  --chart-series-pink: var(--pink-200);
+  --chart-series-pink-strong: var(--pink-400);
+  --chart-series-red-subtle: var(--red-50);
+  --chart-series-mustard: var(--mustard-300);
+  --chart-series-peach: var(--peach-300);
 }
 
 /* 01-color/semantic : Dark mode (seules les valeurs qui changent) */
@@ -1132,9 +1129,6 @@
   --neutral-surface-white-alpha-5: var(--black-alpha-5);
   --neutral-surface-white-alpha-0: var(--black-alpha-0);
   --neutral-border-default: var(--white-alpha-20);
-  --neutral-border-divider: var(--white-alpha-20);
-  --neutral-surface-code: var(--neutral-surface-white-alpha-5);
-  --neutral-border-code: var(--neutral-surface-white-alpha-10);
   --neutral-border-hover: var(--white-alpha-40);
   --neutral-border-pressed: var(--white-alpha-60);
   --neutral-border-subtle: var(--white-alpha-12);
@@ -1144,7 +1138,6 @@
   --danger-border-danger: var(--brand-danger-300);
   --brand-surface-default: var(--black-100);
   --brand-surface-muted: var(--white-alpha-20);
-  --brand-surface-tint: var(--brand-primary-alpha-20);
   --brand-surface-strong: var(--white-alpha-40);
   --brand-surface-selected: var(--brand-primary-300);
   --brand-border-hover: var(--white-alpha-20);
@@ -1612,4 +1605,14 @@
   --badge-subtle-twine-content: var(--twine-700);
   --button-buttonsecondaryoutline-border-default: var(--input-brand-border-default);
   --button-buttonsecondaryoutline-border-hover: var(--input-brand-border-hover);
+  --chart-series-apple-subtle: var(--apple-100);
+  --chart-series-apple: var(--apple-200);
+  --chart-series-ocean-subtle: var(--ocean-100);
+  --chart-series-ocean: var(--ocean-200);
+  --chart-series-ocean-strong: var(--ocean-300);
+  --chart-series-pink: var(--pink-200);
+  --chart-series-pink-strong: var(--pink-400);
+  --chart-series-red-subtle: var(--red-50);
+  --chart-series-mustard: var(--mustard-300);
+  --chart-series-peach: var(--peach-300);
 }

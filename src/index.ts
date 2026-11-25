@@ -162,3 +162,5 @@ export { TopBar } from './components/TopBar/TopBar';
 export type { TopBarProps } from './components/TopBar/TopBar';
 export { ContentBlock, ConsentBlock, ConsentPreview, InputLink, SecondaryBlock, Preset } from './components/QuestionEdit/QuestionEdit';
 export type { ContentBlockProps, ConsentBlockProps, InputLinkProps, SecondaryBlockProps, SecondaryBlockType, PresetProps, PresetType, BlockStateProps } from './components/QuestionEdit/QuestionEdit';
+export { DataTable, ColumnPicker, SaveReportModal, reportColors, NpsScoreLabel, npsCategory, TruncatedText, CellText, CellNumber, CellLanguage, CellDevice, CellRating, CellChoices, CellLink, CellConsent } from './components/DataTable/DataTable';
+export type { DataTableProps, DataTableColumn, SortState, SaveReportModalProps, SaveReportResult, SavedReport, ColumnPickerProps, ColumnPickerGroup, ColumnPickerItem, NpsCategory, Device } from './components/DataTable/DataTable';

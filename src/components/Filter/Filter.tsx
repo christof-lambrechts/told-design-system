@@ -82,8 +82,8 @@ export interface FilterBarProps {
   /** Enregistrer la vue (hasSaveView). */
   onSaveView?: () => void;
   saveViewLabel?: string;
-  /** page : bandeau avec filet ; floating : barre flottante au-dessus d'un tableau (rayon 12, ombre). */
-  placement?: 'page' | 'floating';
+  /** page : bandeau avec filet, sous l'en-tête (Analyser) ; floating : barre flottante (rayon 12, ombre) ; block : bloc arrondi au-dessus d'un tableau classique (page-table). */
+  placement?: 'page' | 'floating' | 'block';
   /** Menu d'ajout ouvert, posé sous « + Filtre ». */
   menu?: ReactNode;
   'aria-label'?: string;
@@ -92,7 +92,7 @@ export interface FilterBarProps {
 /** Barre de filtres : puces qui passent à la ligne, « + Filtre », actions alignées en haut à droite. */
 export function FilterBar({ children, onAdd, addLabel = 'Filtre', onClear, clearLabel = 'Effacer', onSaveView, saveViewLabel = 'Enregistrer la vue', placement = 'page', menu, ...rest }: FilterBarProps) {
   return (
-    <div role="group" aria-label={rest['aria-label'] ?? 'Filtres'} className={cx(styles.bar, placement === 'floating' && styles.floating)}>
+    <div role="group" aria-label={rest['aria-label'] ?? 'Filtres'} className={cx(styles.bar, placement === 'floating' && styles.floating, placement === 'block' && styles.block)}>
       <div className={styles.chips}>
         {children}
         {onAdd && (

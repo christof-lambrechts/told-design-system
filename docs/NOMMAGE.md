@@ -39,6 +39,11 @@ Figma a été renommé ; les instances des maquettes restent liées. Dans le cod
 | `Layout` (24/11) | Layout (`type`) | Layout | `type` page \| settings \| editor \| analyser (Figma editor-told et editor-record = `editor`). Assemble AppLayout et EditorLayout, qui restent les briques. « Menu avec fond » archivé ; `AppLayout menu` déconseillé. Codé v0.59.0 |
 | `AppSidebar` (24/11) | AppSidebar | AppSidebar | menu latéral commun Told + Told Record ; entrées en données (`sections`, `footer`), `linkAs`, `collapsed`. Codé v0.57.0 |
 | `TopBar` (24/11) | TopBar | TopBar | barre du haut de Layout page et settings : titre, description, recherche ⌘K, barre IA, options, actions, notifications. Codé v0.60.0 |
+| `DataTable` (25/11) | DataTable | Table (TableHeaderCell, TableCell, _TableContentItem) | tableau des réponses, contained ou full, colonnes figées. Codé v0.62.0 |
+| `ColumnPicker` | ColumnPicker | ColumnPicker, ColumnPickerItem | colonnes affichées. Codé v0.62.0 |
+| `ColumnMenu` | (dans DataTable) | ColumnMenu | menu d'une colonne. Codé v0.62.0 |
+| `NpsScoreLabel` | NpsScoreLabel | NpsScoreLabel | score NPS d'un répondant. Codé v0.62.0 |
+| `SaveReportModal` | SaveReportModal | SaveReportModal | enregistrer un rapport filtré. Codé v0.62.0 |
 | `Preset` (25/11) | Preset | Preset | une étape : titre, description, bloc du type, consentement. Codé v0.61.0 |
 | `ContentBlock` | ContentBlock | ContentBlock | titre ou description d'une étape. Codé v0.61.0 |
 | `ConsentBlock` | ConsentBlock, ConsentPreview | ConsentBlock, ConsentPreview | consentement d'une question. Codé v0.61.0 |

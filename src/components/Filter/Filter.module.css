@@ -1,6 +1,6 @@
-.chip { display: inline-flex; align-items: center; gap: 2px; height: 32px; padding: 0 4px 0 0; box-sizing: border-box; border-radius: 8px;
-  background: var(--neutral-surface-default); box-shadow: inset 0 0 0 1px var(--neutral-border-default); font-family: var(--font-family-body); }
-.chip:hover { background: var(--neutral-surface-subtle); box-shadow: inset 0 0 0 1px var(--neutral-border-hover); }
+.chip { display: inline-flex; align-items: center; gap: 2px; height: 28px; padding: 0 4px 0 0; box-sizing: border-box; border-radius: 8px;
+  background: var(--neutral-surface-subtle); box-shadow: inset 0 0 0 1px var(--neutral-border-default); font-family: var(--font-family-body); }
+.chip:hover { background: var(--neutral-surface-muted); box-shadow: inset 0 0 0 1px var(--neutral-border-hover); }
 .chipOpen, .chipOpen:hover { background: var(--brand-surface-default); box-shadow: inset 0 0 0 1px var(--brand-border-hover); }
 .chipIncomplete { box-shadow: none; outline: 1px dashed var(--brand-border-focus); outline-offset: -1px; }
 .chipHit { all: unset; display: inline-flex; align-items: center; gap: 6px; height: 100%; padding: 0 2px 0 6px; cursor: pointer; border-radius: 8px; white-space: nowrap; }
@@ -15,11 +15,13 @@
 .logic:focus-visible { box-shadow: var(--focus-ring); }
 .logicDrop { display: grid; place-items: center; width: 28px; height: 28px; }
 
-.bar { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 12px 20px; box-sizing: border-box;
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 8px 12px; box-sizing: border-box;
   background: var(--neutral-surface-default); border-bottom: 1px solid var(--neutral-border-default); font-family: var(--font-family-body); }
 .floating { border: 1px solid var(--neutral-border-default); border-radius: 12px; box-shadow: var(--shadow-flat-8); }
 .chips { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-.actions { flex: none; display: flex; align-items: center; gap: 8px; min-height: 32px; }
+.actions { flex: none; display: flex; align-items: center; gap: 8px; min-height: 28px; }
+/* block : filtres du tableau classique, dans un bloc arrondi (Layout page-table). */
+.block { border: 1px solid var(--neutral-border-default); border-radius: 12px; }
 .addWrap { position: relative; display: inline-flex; }
 .menuPos { position: absolute; top: calc(100% + 4px); left: 0; z-index: 20; }
 

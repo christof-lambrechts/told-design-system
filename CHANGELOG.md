@@ -3,6 +3,17 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.62.0 · 25/11/2026
+
+- **DataTable** (Figma page Table, validée le 25/11) : `variant` contained (contour arrondi) | full (bord à bord, Analyser › Tableau) ; colonnes figées à gauche (`pinned`, ombre au défilement), en-tête collant, tri, cases à cocher, menu de colonne (trier, filtrer, figer ou libérer, masquer), largeur des colonnes fixe, hauteur de ligne pilotée par la cellule la plus haute, `footer` (Pagination).
+- **ColumnPicker** : « Colonnes affichées » (recherche, groupes Répondant / Champs cachés / Questions, glisser pour réordonner, punaise pour figer, interrupteur pour afficher, Tout afficher, Réinitialiser).
+- **SaveReportModal** : enregistrer le rapport (mettre à jour, ou nouveau rapport avec nom et couleur).
+- Cellules : `CellText` (avec description), `CellNumber`, `CellLanguage` (drapeau dans un carré de 16), `CellDevice`, `CellRating`, `CellChoices`, `CellLink`, `CellConsent`, `NpsScoreLabel` (catégorie + note), `TruncatedText` (texte coupé, infobulle au survol).
+- **Layout** analyser : `filters` (barre de filtres en accordéon sous l'en-tête, elle pousse le contenu) ; `width="full"` = tableau bord à bord.
+- **FilterBar** : marges 8 / 12, puces à 28 sur fond gris clair (survol plus foncé), `placement="block"` (bloc arrondi au-dessus d'un tableau classique).
+- Icône `layout-table-01` (onglet Tableau). Jetons `chart-series-*` (séries de graphiques des rapports).
+- Story Composants › Tableau › DataTable › Analyser › Tableau : en-tête (Rapport, Colonnes, Filtres ; Enregistrer et annuler ; Partager clair, Extraire bleu), filtres, tableau, enregistrement.
+
 ## v0.61.0 · 25/11/2026
 
 - **Blocs d'une étape** (Figma page QuestionEdit, validée le 25/11), lot 1 : `Preset` (titre, description en option, bloc du type en `children`, consentement en option ; états `selected`, `dragging`, poignée au survol), `ContentBlock` (`type` title | description), `ConsentBlock` et `ConsentPreview`, `SecondaryBlock` (`type` image | text | video | button | divider ; poignée et suppression au survol), `InputLink` (bouton lien : texte + adresse).
