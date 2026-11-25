@@ -572,6 +572,42 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Statut : **codé told-ds v0.55.0** (panneau), à appliquer dans Record (plan court à présenter à Jonathan : format et migration, lecteur, éditeur)
 - Réponse Record :
 
+## Demandes de Told V3 (24 et 25/11)
+Sens : Told V3 (dossier `told-v3/told`, branche `v3/integration`) vers le DS. Numérotées dans le code de Told (`// TODO DS: D-0xx`), reportées ici le 25/11. Bilan côté Told : 64 composants du DS utilisés, 29 maison (`design-system/correspondance.json`).
+
+### Lot A · fondations (débloquent beaucoup d'écrans)
+- **D-061** · Icône « archive » manquante. Réponse DS : ajouter `archive-02` (HugeIcons). Statut : à faire.
+- **D-065** · Infobulle au survol. Réponse DS : `Tooltip` n'a que le visuel ; ajouter un déclencheur (`<Tooltip content="…">enfant</Tooltip>`, survol et focus, délai, position). Statut : à faire.
+- **D-071** · Popover ancré à son bouton. Réponse DS : `Popover` générique (ancre, placement, fermeture au clic dehors et Échap, focus) ; `OptionPopover` et le menu de colonne s'appuieront dessus. Statut : à faire.
+- **D-074** · Menu avec son déclencheur. Réponse DS : `DropdownMenu` + `MenuTrigger` (bouton, ouverture, clavier). Statut : à faire.
+- **D-072** · Accordéon. Réponse DS : `Accordion` + `AccordionItem` (hors panneau d'options). Statut : à faire.
+- **D-060, D-073** · File de toasts. Réponse DS : `Toaster` + `toast()` (pile, durée, action, fermeture). Statut : à faire.
+- **D-070** · Panneau latéral. Réponse DS : `SidePanel` (glisse depuis la droite, en-tête, pied, fermeture). Statut : à faire.
+- **D-074** · Modale classique, tableau des pages de réglages, zone de défilement. Réponse DS : Modal existe (à vérifier contre le besoin) ; tableau = `DataTable variant="contained"` (v0.62.0) ; `ScrollArea` à faire. Statut : en partie.
+- **D-051** · `ref` et attributs du déclencheur sur ProjectSwitcher et AccountCard. Statut : à faire.
+- **D-054** · `leftWidth` / `rightWidth` dans `Layout type="editor"`. Statut : à faire.
+- **D-055** · Colonne droite dans `Layout type="analyser"`. Statut : à faire.
+- **D-050** · SubStepItem sélectionné : fond dilué deux fois (~1 %). Statut : à corriger.
+- **D-048** · Recherche de l'AddBlockModal pilotable (`query`, `onQueryChange`) et textes passés en props. Statut : à faire.
+- **Textes en dur** : SaveReportModal et les blocs d'une étape (v0.61.0) ont leurs textes en français dans le DS : ajouter une prop `labels` (traduction depuis Told). Statut : à faire.
+
+### Lot B · Analyser
+- **D-056** · StatCard et cartes de résultats (NPS, choix, question ouverte, réponse, testeur) : dessinées et validées (page Report ✅), pas codées. Statut : à faire.
+- **D-057** · ReportNavItem et RespondentItem (colonnes gauches d'Analyser). Statut : à faire.
+- **D-052** · SectionTitle (titres de section de liste : pastille, libellé, compte, filet ; casse normale). Statut : à faire.
+- **D-053** · Ligne de liste d'objets (icône, titre, méta, colonnes, actions). Statut : à dessiner puis coder.
+
+### Lot C · Éditeur
+- **D-047** · ModuleEditCard, TabMessage (onglet avec croix dès deux pages), état « éteint » cliquable de MessageCard. Statut : à faire.
+- **D-049** · StepEditCard (les blocs Preset, ContentBlock, SecondaryBlock sont codés en v0.61.0). Statut : à faire.
+- **D-058** · SecondaryBlock : bouton d'action (copier un code, pas un lien) et bloc récompense. Statut : à dessiner puis coder.
+- Lot 2 de QuestionEdit : blocs par type (NPS, échelle, choix, liste, question ouverte…).
+
+### Notes de Told V3 (25/11, hors DS)
+- Mettre à jour un rapport : l'API ne sait pas modifier une vue enregistrée ; « Mettre à jour » recrée le rapport sous le même nom et supprime l'ancien. À prévoir côté back (modifier une vue).
+- Les filtres ne suivent pas d'un onglet à l'autre (Synthèse → Tableau les réinitialise). Proposition DS : les filtres et le rapport choisi appartiennent au Told, pas à l'onglet ; ils restent en changeant d'onglet.
+- Donnée de test : rapport fictif « Avec la langue » sur le Told « NPS site ».
+
 ## Questions de Record (20/11)
 - **Annonce en Carré 1:1 ?**
   - Christof a retenu les formats 16:9 et 9:16.
