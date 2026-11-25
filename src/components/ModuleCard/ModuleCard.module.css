@@ -9,7 +9,7 @@
   font-size: 11px; line-height: 14px; font-weight: var(--font-weight-medium); color: var(--content-muted-default); }
 .sub:hover { background: var(--neutral-surface-muted); }
 .sub:focus-visible, .card:focus-visible { box-shadow: var(--focus-ring); }
-.subSelected, .subSelected:hover { background: color-mix(in srgb, var(--selectionbox-background-checked) 10%, transparent); color: var(--content-default-selected); }
+.subSelected, .subSelected:hover { background: var(--selectionbox-background-checked); color: var(--content-default-selected); }
 .subLabel { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .meta { color: var(--content-subtle-default); flex: none; }
 .warnDot { width: 6px; height: 6px; border-radius: 50%; background: var(--brand-color-orange); flex: none; }

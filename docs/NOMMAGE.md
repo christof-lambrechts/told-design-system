@@ -48,6 +48,13 @@ Figma a été renommé ; les instances des maquettes restent liées. Dans le cod
 | `ContentBlock` | ContentBlock | ContentBlock | titre ou description d'une étape. Codé v0.61.0 |
 | `ConsentBlock` | ConsentBlock, ConsentPreview | ConsentBlock, ConsentPreview | consentement d'une question. Codé v0.61.0 |
 | `SecondaryBlock` | SecondaryBlock | SecondaryBlock | bloc complémentaire (image, texte, vidéo, boutons liens, séparateur). Codé v0.61.0 |
+| `Popover` (25/11) | Popover | OptionPopover (surface) | calque ancré à son bouton, clic dehors et Échap. Codé v0.63.0 |
+| `Menu` | Menu | DropdownMenu | DropdownMenu ouvert par son bouton (`trigger`). Codé v0.63.0 |
+| `TooltipTrigger` | TooltipTrigger | Tooltip | infobulle au survol et au focus. Codé v0.63.0 |
+| `Accordion` | Accordion, AccordionItem | Accordion | sections repliables hors panneau d'options. Codé v0.63.0 |
+| `Toaster` | Toaster, `toast()` | Toast | file de notifications. Codé v0.63.0 |
+| `SidePanel` | SidePanel | SidePanel | panneau latéral à droite (page Modals). Codé v0.63.0 |
+| `ScrollArea` | ScrollArea | ScrollBar | zone qui défile avec ombres. Codé v0.63.0 |
 | `InputLink` | InputLink | InputLink | un bouton lien (texte + adresse). Codé v0.61.0 |
 | `ProjectSwitcher` (24/11) | ProjectSwitcher | ProjectSwitcher | `project`, `organization`, `appearance`, `compact`. Codé v0.57.0 |
 | `AccountCard` (24/11) | AccountCard | AccountCard | `name`, `email`, `avatar`, `notifications`, `compact`. Codé v0.57.0 |

@@ -25,10 +25,14 @@ export interface LayoutEditorProps {
   right?: ReactNode;
   /** `center` : l'objet édité centré sur les points (Construire) ; `page` : colonne de lecture (Diffuser). */
   content?: 'center' | 'page';
+  /** Largeur de la colonne gauche (272 par défaut, D-054). */
+  leftWidth?: number;
+  /** Largeur de la colonne d'options (356 par défaut, D-054). */
+  rightWidth?: number;
   children: ReactNode;
 }
 
-/** Analyser : en-tête sur l'étape Analyser, colonne gauche (questions, répondants) facultative, centre sur le canevas uni, colonne de 720, pas de colonne droite. */
+/** Analyser : en-tête sur l'étape Analyser, colonne gauche (questions, répondants) facultative, centre sur le canevas uni, colonne de 720, colonne droite facultative. */
 export interface LayoutAnalyserProps {
   type: 'analyser';
   header: ReactNode;
@@ -41,6 +45,10 @@ export interface LayoutAnalyserProps {
    * Ouverte et fermée par le bouton « Filtres » de l'en-tête (accordéon) : ne rien passer quand elle est fermée.
    */
   filters?: ReactNode;
+  /** Colonne droite facultative (D-055) : détail d'un répondant, commentaires. Ignorée en pleine largeur. */
+  right?: ReactNode;
+  leftWidth?: number;
+  rightWidth?: number;
   children: ReactNode;
 }
 
@@ -60,7 +68,7 @@ export function Layout(props: LayoutProps) {
     return <AppLayout sidebar={p.sidebar} topbar={p.topbar} className={p.className}>{p.children}</AppLayout>;
   }
   if (props.type === 'editor') {
-    return <EditorLayout header={props.header} left={props.left} right={props.right} content={props.content}>{props.children}</EditorLayout>;
+    return <EditorLayout header={props.header} left={props.left} right={props.right} content={props.content} leftWidth={props.leftWidth} rightWidth={props.rightWidth}>{props.children}</EditorLayout>;
   }
   const a = props as LayoutAnalyserProps;
   const full = a.width === 'full';
@@ -76,14 +84,14 @@ export function Layout(props: LayoutProps) {
   if (a.filters) {
     return (
       <div className={styles.withFilters}>
-        <EditorLayout header={<>{a.header}<div className={styles.filters}>{a.filters}</div></>} left={a.left} content="page" dots={false} pageWidth={(a.width as number | undefined) ?? 720}>
+        <EditorLayout header={<>{a.header}<div className={styles.filters}>{a.filters}</div></>} left={a.left} right={a.right} leftWidth={a.leftWidth} rightWidth={a.rightWidth} content="page" dots={false} pageWidth={(a.width as number | undefined) ?? 720}>
           {a.children}
         </EditorLayout>
       </div>
     );
   }
   return (
-    <EditorLayout header={a.header} left={a.left} content={full ? 'center' : 'page'} dots={false}
+    <EditorLayout header={a.header} left={a.left} right={a.right} leftWidth={a.leftWidth} rightWidth={a.rightWidth} content={full ? 'center' : 'page'} dots={false}
       pageWidth={full ? undefined : (a.width as number | undefined) ?? 720}>
       {a.children}
     </EditorLayout>

@@ -3,6 +3,24 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.63.0 · 25/11/2026
+
+Lot A des demandes de Told V3 (fondations).
+- **Popover** (D-071) : calque ancré à son bouton (`trigger`), placement avec retournement, fermeture au clic dehors et à Échap (le focus revient au bouton), `open` / `onOpenChange` facultatifs, `surface={false}` pour un contenu qui porte sa propre surface.
+- **Menu** (D-074) : DropdownMenu `kind="menu"` ouvert par son bouton ; flèches, Début, Fin, Échap ; une entrée choisie ferme le menu.
+- **TooltipTrigger** (D-065) : Tooltip au survol et au focus, délai, position, `aria-describedby`, `enabled={false}` quand le texte n'est pas coupé.
+- **Accordion** + **AccordionItem** (D-072, Figma 635:66388) : titre, description, icône, chevron qui tourne ; `type` single ou multiple.
+- **Toaster** + `toast()` / `dismissToast()` (D-060, D-073) : pile en bas à droite, 5 s par défaut (`duration: 0` = reste), action, fermeture, annoncée aux lecteurs d'écran.
+- **SidePanel** (D-070, Figma 10009:122900) : panneau qui glisse depuis la droite, en-tête, contenu qui défile, pied ; Échap et le fond ferment.
+- **ScrollArea** (D-074) : barre fine, ombre en haut et en bas quand il reste du contenu.
+- Icône `archive-02` (D-061).
+- **Layout** : `leftWidth` / `rightWidth` en editor (D-054) ; `right` (et largeurs) en analyser (D-055).
+- **ProjectSwitcher**, **AccountCard** : `ref` et attributs transmis au bouton (D-051), utilisables en `trigger` d'un Menu.
+- **SubStepItem** sélectionné : fond au bon niveau (D-050, il était dilué deux fois).
+- **AddBlockModal** : recherche pilotable `query` / `onQueryChange`, état vide, textes en `labels` (D-048).
+- `labels` sur **SaveReportModal** et sur les blocs d'une étape (`questionEditLabels`, textes par défaut en français).
+- Story Composants › Calques › Popover, Menu, Tooltip.
+
 ## v0.62.0 · 25/11/2026
 
 - **DataTable** (Figma page Table, validée le 25/11) : `variant` contained (contour arrondi) | full (bord à bord, Analyser › Tableau) ; colonnes figées à gauche (`pinned`, ombre au défilement), en-tête collant, tri, cases à cocher, menu de colonne (trier, filtrer, figer ou libérer, masquer), largeur des colonnes fixe, hauteur de ligne pilotée par la cellule la plus haute, `footer` (Pagination).

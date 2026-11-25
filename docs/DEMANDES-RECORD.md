@@ -576,20 +576,20 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 Sens : Told V3 (dossier `told-v3/told`, branche `v3/integration`) vers le DS. Numérotées dans le code de Told (`// TODO DS: D-0xx`), reportées ici le 25/11. Bilan côté Told : 64 composants du DS utilisés, 29 maison (`design-system/correspondance.json`).
 
 ### Lot A · fondations (débloquent beaucoup d'écrans)
-- **D-061** · Icône « archive » manquante. Réponse DS : ajouter `archive-02` (HugeIcons). Statut : à faire.
-- **D-065** · Infobulle au survol. Réponse DS : `Tooltip` n'a que le visuel ; ajouter un déclencheur (`<Tooltip content="…">enfant</Tooltip>`, survol et focus, délai, position). Statut : à faire.
-- **D-071** · Popover ancré à son bouton. Réponse DS : `Popover` générique (ancre, placement, fermeture au clic dehors et Échap, focus) ; `OptionPopover` et le menu de colonne s'appuieront dessus. Statut : à faire.
-- **D-074** · Menu avec son déclencheur. Réponse DS : `DropdownMenu` + `MenuTrigger` (bouton, ouverture, clavier). Statut : à faire.
-- **D-072** · Accordéon. Réponse DS : `Accordion` + `AccordionItem` (hors panneau d'options). Statut : à faire.
-- **D-060, D-073** · File de toasts. Réponse DS : `Toaster` + `toast()` (pile, durée, action, fermeture). Statut : à faire.
-- **D-070** · Panneau latéral. Réponse DS : `SidePanel` (glisse depuis la droite, en-tête, pied, fermeture). Statut : à faire.
-- **D-074** · Modale classique, tableau des pages de réglages, zone de défilement. Réponse DS : Modal existe (à vérifier contre le besoin) ; tableau = `DataTable variant="contained"` (v0.62.0) ; `ScrollArea` à faire. Statut : en partie.
-- **D-051** · `ref` et attributs du déclencheur sur ProjectSwitcher et AccountCard. Statut : à faire.
-- **D-054** · `leftWidth` / `rightWidth` dans `Layout type="editor"`. Statut : à faire.
-- **D-055** · Colonne droite dans `Layout type="analyser"`. Statut : à faire.
-- **D-050** · SubStepItem sélectionné : fond dilué deux fois (~1 %). Statut : à corriger.
-- **D-048** · Recherche de l'AddBlockModal pilotable (`query`, `onQueryChange`) et textes passés en props. Statut : à faire.
-- **Textes en dur** : SaveReportModal et les blocs d'une étape (v0.61.0) ont leurs textes en français dans le DS : ajouter une prop `labels` (traduction depuis Told). Statut : à faire.
+- **D-061** · Icône « archive » manquante. Réponse DS : ajouter `archive-02` (HugeIcons). Statut : codé told-ds v0.63.0.
+- **D-065** · Infobulle au survol. Réponse DS : `Tooltip` n'a que le visuel ; ajouter un déclencheur `TooltipTrigger` (`<TooltipTrigger content="…">enfant</TooltipTrigger>`, survol et focus, délai, position). Statut : codé told-ds v0.63.0.
+- **D-071** · Popover ancré à son bouton. Réponse DS : `Popover` générique (ancre, placement, fermeture au clic dehors et Échap, focus) ; `OptionPopover` et le menu de colonne s'appuieront dessus. Statut : codé told-ds v0.63.0.
+- **D-074** · Menu avec son déclencheur. Réponse DS : `Menu` (DropdownMenu kind="menu" + son `trigger`). Statut : codé told-ds v0.63.0.
+- **D-072** · Accordéon. Réponse DS : `Accordion` + `AccordionItem` (hors panneau d'options). Statut : codé told-ds v0.63.0.
+- **D-060, D-073** · File de toasts. Réponse DS : `Toaster` + `toast()` (pile, durée, action, fermeture). Statut : codé told-ds v0.63.0.
+- **D-070** · Panneau latéral. Réponse DS : `SidePanel` (glisse depuis la droite, en-tête, pied, fermeture). Statut : codé told-ds v0.63.0.
+- **D-074** · Modale classique, tableau des pages de réglages, zone de défilement. Réponse DS : Modal existe (à vérifier contre le besoin) ; tableau = `DataTable variant="contained"` (v0.62.0) ; `ScrollArea` à faire. Statut : codé told-ds v0.63.0 (ScrollArea).
+- **D-051** · `ref` et attributs du déclencheur sur ProjectSwitcher et AccountCard. Statut : codé told-ds v0.63.0.
+- **D-054** · `leftWidth` / `rightWidth` dans `Layout type="editor"`. Statut : codé told-ds v0.63.0.
+- **D-055** · Colonne droite dans `Layout type="analyser"`. Statut : codé told-ds v0.63.0.
+- **D-050** · SubStepItem sélectionné : fond dilué deux fois (~1 %). Statut : codé told-ds v0.63.0.
+- **D-048** · Recherche de l'AddBlockModal pilotable (`query`, `onQueryChange`) et textes passés en props. Statut : codé told-ds v0.63.0.
+- **Textes en dur** : SaveReportModal et les blocs d'une étape (v0.61.0) ont leurs textes en français dans le DS : ajouter une prop `labels` (traduction depuis Told). Statut : codé told-ds v0.63.0.
 
 ### Lot B · Analyser
 - **D-056** · StatCard et cartes de résultats (NPS, choix, question ouverte, réponse, testeur) : dessinées et validées (page Report ✅), pas codées. Statut : à faire.

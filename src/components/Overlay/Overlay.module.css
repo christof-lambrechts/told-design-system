@@ -1,0 +1,49 @@
+/* Calques du DS : Popover, Menu, TooltipTrigger, Toaster, SidePanel, Accordion, ScrollArea (lot A, D-060 à D-074). */
+.layer { z-index: 1000; box-sizing: border-box; color: var(--content-default-default); font-family: var(--font-family-body); }
+.surface { padding: 4px; background: var(--neutral-surface-default); border: 1px solid var(--neutral-border-default); border-radius: 12px; box-shadow: var(--shadow-flat-8); }
+.anchor { display: contents; }
+.tip { z-index: 1100; pointer-events: none; }
+
+/* Accordéon (Figma 635:66388) : ligne de 34, marge 8 / 16, écart 8, titre 13 Medium, chevron qui tourne d'un quart. */
+.accordion { display: flex; flex-direction: column; font-family: var(--font-family-body); color: var(--content-default-default); }
+.accItem { border-bottom: 1px solid var(--neutral-border-default); }
+.accHead { margin: 0; }
+.accBtn { all: unset; box-sizing: border-box; width: 100%; min-height: 34px; display: flex; align-items: center; gap: 8px; padding: 8px 16px; cursor: pointer; }
+.accBtn:hover { background: var(--neutral-surface-subtle); }
+.accBtn:focus-visible { box-shadow: var(--focus-ring); border-radius: 8px; }
+.accIcon { flex: none; color: var(--content-muted-default); }
+.accTitles { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.accTitle { font: var(--font-weight-medium) 13px / 18px var(--font-family-body); }
+.accDesc { font: var(--font-weight-regular) 12px / 18px var(--font-family-body); color: var(--content-muted-default); }
+.accChevron { flex: none; color: var(--content-muted-default); transition: transform .15s; }
+.accOpen .accChevron { transform: rotate(90deg); }
+.accBody { padding: 4px 16px 16px; }
+
+/* Toasts */
+.toaster { position: fixed; right: 24px; bottom: 24px; z-index: 1200; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; pointer-events: none; }
+.toaster > * { pointer-events: auto; }
+.toastAction { all: unset; cursor: pointer; font: var(--font-weight-semibold) 13px / 18px var(--font-family-body); text-decoration: underline; text-underline-offset: 2px; }
+.toastAction:focus-visible { box-shadow: var(--focus-ring); border-radius: 4px; }
+
+/* Panneau latéral */
+.sideRoot { position: fixed; inset: 0; z-index: 900; }
+.sideOverlay { position: absolute; inset: 0; background: rgba(12, 18, 28, .32); animation: fade .15s ease-out; }
+.side { position: absolute; top: 0; right: 0; bottom: 0; max-width: calc(100vw - 32px); display: flex; flex-direction: column; background: var(--neutral-surface-default); color: var(--content-default-default); box-shadow: var(--shadow-flat-8); font-family: var(--font-family-body); outline: none; animation: slide .2s ease-out; }
+.sideHead { display: flex; align-items: flex-start; gap: 12px; padding: 20px 24px 16px; border-bottom: 1px solid var(--neutral-border-default); }
+.sideTitles { flex: 1; min-width: 0; }
+.sideTitle { margin: 0; font: var(--font-weight-semibold) 18px / 26px var(--font-family-heading); }
+.sideDesc { margin: 4px 0 0; font: var(--font-weight-regular) 14px / 20px var(--font-family-body); color: var(--content-muted-default); }
+.sideBody { flex: 1; min-height: 0; overflow: auto; padding: 20px 24px; }
+.sideFoot { display: flex; justify-content: flex-end; gap: 12px; padding: 16px 24px; border-top: 1px solid var(--neutral-border-default); }
+@keyframes slide { from { transform: translateX(24px); opacity: 0; } }
+@keyframes fade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .side, .sideOverlay { animation: none; } .accChevron { transition: none; } }
+
+/* Zone qui défile */
+.scroll { overflow: auto; scrollbar-width: thin; scrollbar-color: var(--neutral-border-default) transparent; outline: none; position: relative; }
+.scroll:focus-visible { box-shadow: var(--focus-ring); border-radius: 8px; }
+.scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.scroll::-webkit-scrollbar-thumb { background: var(--neutral-border-default); border-radius: 8px; }
+.scrollTop { box-shadow: inset 0 8px 8px -8px rgba(18, 26, 38, .16); }
+.scrollBottom { box-shadow: inset 0 -8px 8px -8px rgba(18, 26, 38, .16); }
+.scrollTop.scrollBottom { box-shadow: inset 0 8px 8px -8px rgba(18, 26, 38, .16), inset 0 -8px 8px -8px rgba(18, 26, 38, .16); }

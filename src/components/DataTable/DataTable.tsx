@@ -311,10 +311,25 @@ export interface SaveReportModalProps {
   /** Rapport en cours (proposé à la mise à jour). */
   currentId: string;
   onSave: (result: SaveReportResult) => void;
+  /** Textes de la modale, en français par défaut (traduction depuis l'app). */
+  labels?: Partial<SaveReportModalLabels>;
 }
 
+export interface SaveReportModalLabels {
+  title: string; description: string; cancel: string; save: string; create: string; target: string;
+  asNew: string; asNewHint: string; name: string; namePlaceholder: string; color: string;
+}
+const SAVE_LABELS: SaveReportModalLabels = {
+  title: 'Enregistrer le rapport',
+  description: 'Les filtres et les colonnes affichées sont gardés dans le rapport. Sans enregistrement, ils sont réinitialisés en quittant la page.',
+  cancel: 'Annuler', save: 'Enregistrer', create: 'Créer le rapport', target: 'Rapport à mettre à jour',
+  asNew: 'Enregistrer comme nouveau rapport', asNewHint: 'Par exemple : NPS négatifs, réponses mobiles.',
+  name: 'Nom du rapport', namePlaceholder: 'Par exemple : NPS négatifs', color: 'Couleur',
+};
+
 /** SaveReportModal : « Enregistrer le rapport » (filtres et colonnes). Mettre à jour un rapport, ou en créer un nouveau (nom, couleur). */
-export function SaveReportModal({ open, onClose, reports, currentId, onSave }: SaveReportModalProps) {
+export function SaveReportModal({ open, onClose, reports, currentId, onSave, labels }: SaveReportModalProps) {
+  const L = { ...SAVE_LABELS, ...labels };
   const [asNew, setAsNew] = useState(false);
   const [target, setTarget] = useState(currentId);
   const [name, setName] = useState('');
@@ -323,24 +338,24 @@ export function SaveReportModal({ open, onClose, reports, currentId, onSave }: S
   const canSave = asNew ? name.trim().length > 0 : !!target;
   const save = () => { if (!canSave) return; onSave(asNew ? { mode: 'new', name: name.trim(), color } : { mode: 'update', id: target }); };
   return (
-    <Modal open={open} onClose={onClose} title="Enregistrer le rapport" width={480} divider
-      description="Les filtres et les colonnes affichées sont gardés dans le rapport. Sans enregistrement, ils sont réinitialisés en quittant la page."
-      footer={<><Button variant="secondary-outline" onClick={onClose}>Annuler</Button><Button onClick={save} disabled={!canSave}>{asNew ? 'Créer le rapport' : 'Enregistrer'}</Button></>}>
+    <Modal open={open} onClose={onClose} title={L.title} width={480} divider
+      description={L.description}
+      footer={<><Button variant="secondary-outline" onClick={onClose}>{L.cancel}</Button><Button onClick={save} disabled={!canSave}>{asNew ? L.create : L.save}</Button></>}>
       <div className={styles.saveBody}>
         {!asNew && (
           <label className={styles.saveField}>
-            <span className={styles.saveLabel}>Rapport à mettre à jour</span>
+            <span className={styles.saveLabel}>{L.target}</span>
             <select className={styles.saveSelect} value={target} onChange={(e) => setTarget(e.target.value)}>
               {reports.map((r) => <option key={r.id} value={r.id}>{r.label}</option>)}
             </select>
           </label>
         )}
-        <Switch label="Enregistrer comme nouveau rapport" description={asNew ? undefined : 'Par exemple : NPS négatifs, réponses mobiles.'} checkPlacement="right" checked={asNew} onChange={(e) => setAsNew(e.target.checked)} />
+        <Switch label={L.asNew} description={asNew ? undefined : L.asNewHint} checkPlacement="right" checked={asNew} onChange={(e) => setAsNew(e.target.checked)} />
         {asNew && (
           <>
-            <Input label="Nom du rapport" placeholder="Par exemple : NPS négatifs" value={name} onChange={(e) => setName(e.target.value)} autoFocus />
+            <Input label={L.name} placeholder={L.namePlaceholder} value={name} onChange={(e) => setName(e.target.value)} autoFocus />
             <fieldset className={styles.colors}>
-              <legend className={styles.saveLabel}>Couleur</legend>
+              <legend className={styles.saveLabel}>{L.color}</legend>
               {reportColors.map((c) => (
                 <label key={c} className={styles.colorDot} style={{ background: `var(--brand-color-${c})` }}>
                   <input type="radio" name="report-color" value={c} checked={color === c} onChange={() => setColor(c)} aria-label={c} />

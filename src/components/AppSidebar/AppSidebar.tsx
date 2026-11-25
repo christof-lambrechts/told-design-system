@@ -1,4 +1,4 @@
-import { useId, useState, type AnchorHTMLAttributes, type ComponentType, type ReactNode } from 'react';
+import { forwardRef, useId, useState, type AnchorHTMLAttributes, type ButtonHTMLAttributes, type ComponentType, type ReactNode } from 'react';
 import { NavButtonItem } from '../Nav/NavButtonItem';
 import { Icon, type IconName } from '../Icon/Icon';
 import { ButtonIcon } from '../Button/Button';
@@ -147,7 +147,10 @@ export function AppSidebar({
   );
 }
 
-export interface ProjectSwitcherProps {
+type TriggerAttrs = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'type'>;
+
+/** D-051 : ref et attributs (aria-*, data-*, onKeyDown…) transmis au bouton, pour l'ancrer à un Menu ou un Popover. */
+export interface ProjectSwitcherProps extends TriggerAttrs {
   /** Nom du projet courant. */
   project: string;
   /** Organisation, sous le projet. */
@@ -155,8 +158,7 @@ export interface ProjectSwitcherProps {
   /** Initiales ou logo du projet (par défaut les 2 premières lettres). */
   initials?: string;
   logo?: ReactNode;
-  /** Ouvre le menu des projets et des organisations (géré par l'app, ex. DropdownMenu). */
-  onClick?: () => void;
+  /** Ouvre le menu des projets et des organisations (ou poser le composant en `trigger` d'un Menu). */
   open?: boolean;
   /** default : sans contour ; outline : liseré (menu transparent). */
   appearance?: 'default' | 'outline';
@@ -165,12 +167,12 @@ export interface ProjectSwitcherProps {
 }
 
 /** ProjectSwitcher (Figma 8575:1848) : projet courant + organisation, ouvre le choix du projet et de l'organisation. */
-export function ProjectSwitcher({ project, organization, initials, logo, onClick, open, appearance = 'default', compact }: ProjectSwitcherProps) {
+export const ProjectSwitcher = forwardRef<HTMLButtonElement, ProjectSwitcherProps>(function ProjectSwitcher({ project, organization, initials, logo, open, appearance = 'default', compact, className, ...rest }, ref) {
   const ini = (initials ?? project.split(/\s+/).map((w) => w[0]).join('').slice(0, 2)).toUpperCase();
   return (
-    <button type="button" className={cx(styles.ps, appearance === 'outline' && styles.psOutline, compact && styles.psCompact)}
-      aria-haspopup="menu" aria-expanded={open} onClick={onClick}
-      aria-label={compact ? `Projet : ${project}${organization ? `, ${organization}` : ''}` : undefined}>
+    <button ref={ref} type="button" className={cx(styles.ps, appearance === 'outline' && styles.psOutline, compact && styles.psCompact, className)}
+      aria-haspopup="menu" aria-expanded={open}
+      aria-label={compact ? `Projet : ${project}${organization ? `, ${organization}` : ''}` : undefined} {...rest}>
       <span className={styles.psIni} aria-hidden="true">{logo ?? ini}</span>
       {!compact && (
         <span className={styles.psText}>
@@ -181,7 +183,7 @@ export function ProjectSwitcher({ project, organization, initials, logo, onClick
       {!compact && <Icon name="unfold-more" size={14} className={styles.psChevron} />}
     </button>
   );
-}
+});
 
 export interface NotificationBellProps {
   /** Nombre de notifications non lues (0 : pas de pastille). */
@@ -202,13 +204,12 @@ export function NotificationBell({ count = 0, onClick, open }: NotificationBellP
   );
 }
 
-export interface AccountCardProps {
+export interface AccountCardProps extends TriggerAttrs {
   name: string;
   email?: string;
   /** Photo ; sinon les initiales. */
   avatar?: ReactNode;
-  /** Ouvre le menu du compte (profil, extension, déconnexion…), géré par l'app. */
-  onClick?: () => void;
+  /** Menu du compte ouvert (ou poser le composant en `trigger` d'un Menu : ref et attributs vont au bouton). */
   open?: boolean;
   /** Cloche à droite (NotificationBell). */
   notifications?: ReactNode;
@@ -216,12 +217,12 @@ export interface AccountCardProps {
 }
 
 /** AccountCard (Figma, AppSidebar › Compte) : avatar, nom, e-mail, cloche ; ouvre le menu du compte. */
-export function AccountCard({ name, email, avatar, onClick, open, notifications, compact }: AccountCardProps) {
+export const AccountCard = forwardRef<HTMLButtonElement, AccountCardProps>(function AccountCard({ name, email, avatar, open, notifications, compact, className, ...rest }, ref) {
   const ini = name.split(/\s+/).map((w) => w[0]).join('').slice(0, 2).toUpperCase();
   return (
-    <div className={cx(styles.ac, compact && styles.acCompact)}>
-      <button type="button" className={styles.acBtn} onClick={onClick} aria-haspopup="menu" aria-expanded={open}
-        aria-label={compact ? `Compte : ${name}` : undefined}>
+    <div className={cx(styles.ac, compact && styles.acCompact, className)}>
+      <button ref={ref} type="button" className={styles.acBtn} aria-haspopup="menu" aria-expanded={open}
+        aria-label={compact ? `Compte : ${name}` : undefined} {...rest}>
         <span className={styles.acAvatar} aria-hidden="true">{avatar ?? ini}</span>
         {!compact && (
           <span className={styles.acText}>
@@ -233,4 +234,4 @@ export function AccountCard({ name, email, avatar, onClick, open, notifications,
       {notifications}
     </div>
   );
-}
+});

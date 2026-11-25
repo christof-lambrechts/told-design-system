@@ -27,3 +27,4 @@
 .illu { margin: 0 30px 20px; flex: 1; border-radius: 16px; background: var(--neutral-surface-canvas); overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .foot { display: flex; gap: 16px; padding: 8px 20px; background: var(--neutral-surface-subtle); border-top: 1px solid var(--neutral-border-default); }
 .hint { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; line-height: 18px; color: var(--content-muted-default); }
+.empty { margin: 0; padding: 16px 8px; font: var(--font-weight-regular) 14px / 20px var(--font-family-body); color: var(--content-muted-default); }
