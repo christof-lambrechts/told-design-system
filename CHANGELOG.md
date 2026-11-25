@@ -3,6 +3,12 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.64.0 · 25/11/2026
+
+- **Toldie** (nouveau, Figma Toldies 4:4993) : les 15 Toldies de couleur en carré arrondi. `toldieFor(id)` choisit toujours le même Toldie pour un même identifiant ; `randomToldie()` en tire un au hasard, à enregistrer à la création d'une équipe ou d'une organisation.
+- **ProjectSwitcher** : le logo du projet est un Toldie par défaut (`toldie`, ou `toldieSeed` = id de l'équipe ou de l'organisation), remplacé par le logo importé dans les réglages (`logoUrl`). `initials` est déconseillé et ignoré : les initiales sont réservées aux personnes (Avatar).
+- Story Gabarits › AppSidebar › Logo du projet.
+
 ## v0.63.1 · 25/11/2026
 
 - Correctif couleurs : la régénération des jetons de la v0.62.0 était partie d'un export Figma ancien. Elle avait remis le canevas en gris foncé et les points en blanc, et supprimé `--neutral-border-divider` : les filets des colonnes de l'éditeur s'affichaient en noir. Elle avait aussi supprimé `--brand-surface-tint`, `--neutral-surface-code`, `--neutral-border-code` et les teintes `--presence-*`. Tout est rétabli comme en v0.61.0, et les exports `tokens/figma` sont corrigés pour que ça ne se reproduise pas.

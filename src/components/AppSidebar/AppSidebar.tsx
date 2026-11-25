@@ -2,6 +2,7 @@ import { forwardRef, useId, useState, type AnchorHTMLAttributes, type ButtonHTML
 import { NavButtonItem } from '../Nav/NavButtonItem';
 import { Icon, type IconName } from '../Icon/Icon';
 import { ButtonIcon } from '../Button/Button';
+import { Toldie, toldieFor, type ToldieName } from '../Toldie/Toldie';
 import styles from './AppSidebar.module.css';
 
 const cx = (...c: (string | false | undefined | null)[]) => c.filter(Boolean).join(' ');
@@ -155,9 +156,16 @@ export interface ProjectSwitcherProps extends TriggerAttrs {
   project: string;
   /** Organisation, sous le projet. */
   organization?: string;
-  /** Initiales ou logo du projet (par défaut les 2 premières lettres). */
-  initials?: string;
+  /** Logo importé dans les réglages (adresse de l'image) : remplace le Toldie. */
+  logoUrl?: string;
+  /** Toldie de l'équipe ou de l'organisation, tiré au hasard à sa création (randomToldie) et enregistré. Sans valeur : choisi d'après `toldieSeed`. */
+  toldie?: ToldieName;
+  /** Identifiant stable (id de l'équipe ou de l'organisation) pour choisir le Toldie quand `toldie` n'est pas enregistré. Par défaut : le nom du projet. */
+  toldieSeed?: string;
+  /** Logo libre (rare). Prioritaire sur logoUrl et toldie. */
   logo?: ReactNode;
+  /** @deprecated Les initiales sont réservées aux personnes (Avatar). Ignoré. */
+  initials?: string;
   /** Ouvre le menu des projets et des organisations (ou poser le composant en `trigger` d'un Menu). */
   open?: boolean;
   /** default : sans contour ; outline : liseré (menu transparent). */
@@ -167,13 +175,13 @@ export interface ProjectSwitcherProps extends TriggerAttrs {
 }
 
 /** ProjectSwitcher (Figma 8575:1848) : projet courant + organisation, ouvre le choix du projet et de l'organisation. */
-export const ProjectSwitcher = forwardRef<HTMLButtonElement, ProjectSwitcherProps>(function ProjectSwitcher({ project, organization, initials, logo, open, appearance = 'default', compact, className, ...rest }, ref) {
-  const ini = (initials ?? project.split(/\s+/).map((w) => w[0]).join('').slice(0, 2)).toUpperCase();
+export const ProjectSwitcher = forwardRef<HTMLButtonElement, ProjectSwitcherProps>(function ProjectSwitcher({ project, organization, initials: _initials, logo, logoUrl, toldie, toldieSeed, open, appearance = 'default', compact, className, ...rest }, ref) {
+  const mark = logo ?? (logoUrl ? <img src={logoUrl} alt="" className={styles.psImg} /> : <Toldie name={toldie ?? toldieFor(toldieSeed ?? project)} size={32} radius={8} />);
   return (
     <button ref={ref} type="button" className={cx(styles.ps, appearance === 'outline' && styles.psOutline, compact && styles.psCompact, className)}
       aria-haspopup="menu" aria-expanded={open}
       aria-label={compact ? `Projet : ${project}${organization ? `, ${organization}` : ''}` : undefined} {...rest}>
-      <span className={styles.psIni} aria-hidden="true">{logo ?? ini}</span>
+      <span className={styles.psIni} aria-hidden="true">{mark}</span>
       {!compact && (
         <span className={styles.psText}>
           <span className={styles.psName}>{project}</span>
