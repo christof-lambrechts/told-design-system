@@ -286,6 +286,157 @@ Points d'attention :
 - Statut : **codé told-ds v0.20.0**
 - Réponse DS : `AvatarGroup people={[{ name, id, idle }]}` : `id` fixe la teinte (fonction `presenceColorFor(id)`, la même partout) ; `idle` estompe l'avatar et ajoute « inactif » au nom lu. `PresenceAvatar` accepte `personId` et `idle`.
 
+## Demandes de Told Record encore ouvertes (regroupées le 25/11)
+Sens : Told Record vers le DS. Elles étaient dans les pull requests 4 à 8, jamais fusionnées. Les numéros déjà pris sur `main` ont changé : Record a mis à jour ses `TODO DS`. Prochain numéro libre pour Record : **D-084**.
+
+### D-042 · AvatarSettings, MediaFrameSettings, EyebrowSettings, LogoSettings : tout le réglage désactivable (23/11, demandé par Record)
+- Date, écran Record concerné : éditeur, « Avatar sur ce slide » (`editor/presenter.tsx`) et « Cadre du média » (`editor/media-frame-field.tsx`). Aussi « Surtitre » et « Logo » (`editor/slide-style-fields.tsx`, D-039, D-040).
+- Besoin : en lecture seule, ou quand un collègue tient le réglage, tout le réglage est inactif.
+- Ce qui manque ou gêne dans le DS : `disabled` n'atteint ni le ColorField « Couleur du contour » d'AvatarSettings (ColorField n'a pas de `disabled`), ni les GroupTab « Cadre » et « Orientation » de MediaFrameSettings (GroupTab n'a pas de `disabled`) : ils ont l'air actifs. EyebrowSettings et LogoSettings n'ont pas de `disabled` non plus (leurs GroupTab et ColorField).
+- Contournement provisoire dans Record : les changements sont ignorés pendant le verrou (`TODO DS: D-042`).
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+
+### D-045 · Colonne Étapes : « Ajouter une slide » toujours visible, ButtonIcon à bordure gris clair (24/11, demandé par Christof)
+- Date, écran Record concerné : 24/11, éditeur, colonne Étapes (`editor/editor.tsx`, StepList `addAfter` et StepThumb `menu`).
+- Besoin :
+  - « Ajouter une slide » (« Ajouter un écran » en démo guidée) reste visible en permanence, prend toute la largeur de la colonne, sans les traits de part et d'autre : moins de saut visuel quand le pointeur entre dans la colonne.
+  - Le « ⋯ » d'une vignette, au survol, a une bordure gris clair, comme le bouton `secondary-outline`, pas la bordure sombre.
+- Ce qui manque ou gêne dans le DS :
+  - `StepList` cache tout ce qui porte `data-step-add` hors survol (`revealAdd="hover"`), `addAfter` compris ; `revealAdd="always"` montrerait aussi les StepAddThumb de chaque slide. Et `InsertBar` dessine deux traits et fait 248 px.
+  - `ButtonIcon` n'a pas d'apparence à bordure gris clair : `appearance="outline"` prend `primary-outline` (bordure sombre en `neutral`).
+- Contournement provisoire dans Record (`// TODO DS: D-045`) :
+  - `addAfter` : un `Button` `secondary-outline`, `size="sm"`, `iconLeft="add-01"`, `fullWidth`, et une règle de la colonne qui garde le bloc `addAfter` affiché hors survol.
+  - « ⋯ » : `ButtonIcon` `outline` dont `--border` et `--border-hover` sont remplacés par ceux du `secondary-outline`.
+- Proposition :
+  - `StepList` : `addAfter` toujours visible (ou une propriété `revealAddAfter`), et un rendu « bouton pleine largeur » prévu dans Figma (StepList 9143:113854) à la place de l'InsertBar.
+  - `ButtonIcon` : une apparence `secondary-outline` (bordure `--button-buttonsecondaryoutline-border-*`), utilisée par défaut pour le menu de `StepThumb`.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+
+### D-046 · « Ombre » du cadre du média pour tous les cadres (23/11, demandé par Christof)
+- Date, écran Record concerné : 23/11, éditeur de l'Annonce, réglage « Cadre du média » (`editor/media-frame-field.tsx`, `MediaFrameSettings`).
+- Besoin : choisir l'ombre (Aucune, Douce, Marquée) quel que soit le cadre : Ordinateur › Écran, Ordinateur › Navigateur, et Aucun (la capture seule), comme pour les mobiles, la tablette, l'iMac et le MacBook.
+- Ce qui manque dans le DS : `MediaFrameSettings` n'affiche « Ombre » que si l'appareil a des coloris (`current?.finishes`). L'Écran et le Navigateur n'en ont pas, et Aucun non plus : le réglage disparaît.
+- Contournement provisoire dans Record : un `ChoiceField` « Ombre » posé sous `MediaFrameSettings` quand celui-ci ne l'affiche pas (`// TODO DS: D-046`). Le lecteur applique `mediaShadows` au navigateur et à la capture seule.
+- Proposition : afficher « Ombre » pour tout cadre, juste après « Coloris » (ou après « Appareil » quand il n'y a pas de coloris), y compris pour Aucun.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+
+### D-047 · MessageCard « désactivée » mais sélectionnable (23/11, demandé par Christof)
+- Date, écran Record concerné : 23/11, éditeur, colonne Étapes (`editor/editor.tsx`, StepList `intro` et `end`).
+- Besoin : l'écran de début et l'écran de fin s'activent ou se désactivent dans leur panneau. Désactivés, leur carte doit avoir l'air éteinte (grisée, transparente), mais rester cliquable pour ouvrir le panneau et les rallumer.
+- Ce qui manque dans le DS : `MessageCard` n'a que `disabled`, qui pose l'attribut HTML `disabled` (opacité 0,38 et clic impossible).
+- Contournement provisoire dans Record : la carte reste active, et un enveloppe lui donne l'opacité 0,38 (0,6 au survol, 1 au focus clavier) (`// TODO DS: D-047`).
+- Proposition : une propriété `inactive` (ou `off`) : même rendu que `disabled`, la carte reste un bouton cliquable, l'état sélectionné reste visible ; aperçu « Désactivé » au choix de Record.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Numéro : Told V3 a repris ce besoin dans sa D-047 (état « éteint » cliquable de MessageCard) : c'est la même demande.
+
+### D-075 · OptionSidebar : pas de filet sous l'en-tête
+- Date, écran Record concerné (fichier, route) : 21/11/2026, panneau Options de l'éditeur, `src/app/(app)/[org]/demos/[id]/editor/editor.tsx` ; maquette 9020:101470.
+- Besoin (ce que l'écran doit faire) : sous le titre « Options », la première option suit directement, sans filet (comme dans la maquette).
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : `.options` d'OptionSidebar a un `border-top` que la maquette n'a pas. Soit le retirer, soit une propriété pour le masquer.
+- Contournement provisoire dans Record : filet retiré par une règle `!important` autour d'OptionSidebar (le CSS du DS est hors couche et l'emporte sur Tailwind).
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Numéro : demandée le 21/11 sous le numéro D-027 (pull request 4, jamais fusionnée) ; D-027 est pris sur `main` par une demande du DS vers Record.
+
+### D-076 · ToolbarItem : icône en contour quand l'outil n'est pas actif
+- Date, écran Record concerné (fichier, route) : 21/11/2026, barre sous la capture dans l'éditeur (Flouter, Recadrer, Réenregistrer, Importer une image, Revenir), `src/app/(app)/[org]/demos/[id]/editor/capture-actions.tsx`.
+- Besoin (ce que l'écran doit faire) : icône en contour au repos, pleine seulement quand l'outil est actif (demande de Christof).
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : le commentaire de `ToolbarItem` annonce « icône en contour, pleine quand l'outil est actif », mais le code pose toujours `variant="solid"`. Attendu : `variant={active ? 'solid' : 'stroke'}`.
+- Contournement provisoire dans Record : l'icône du DS est masquée et une `Icon variant="stroke"` est posée par-dessus, aux couleurs de l'item.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Numéro : demandée le 21/11 sous le numéro D-028 (pull request 4, jamais fusionnée) ; D-028 est pris sur `main` par une demande du DS vers Record.
+
+### D-077 · OptionItem : le « i » (`info`) avec la bulle Tooltip
+- Date, écran Record concerné (fichier, route) : 21/11/2026, ligne Format du panneau Options, `src/app/(app)/[org]/demos/[id]/editor/format-popover.tsx`.
+- Besoin (ce que l'écran doit faire) : au survol et au focus du « i », l'explication s'affiche dans la bulle Tooltip du DS (« Le contenu est gardé : tu peux revenir à un autre format à tout moment. »).
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : `info` ne pose qu'un `title` natif (lent, parfois absent, invisible au clavier) avec un curseur « ? ». Attendu : le Tooltip du DS sur survol et focus, relié par `aria-describedby`.
+- Contournement provisoire dans Record : `title` retiré du bouton du DS, Tooltip du DS posé à côté et affiché au survol et au focus.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Numéro : demandée le 21/11 sous le numéro D-029 (pull request 4, jamais fusionnée) ; D-029 est pris sur `main` par une demande du DS vers Record.
+
+### D-078 · EditorSteps : nom de la zone et point « En pause »
+- Date, écran Record concerné (fichier, route) : 21/11/2026, en-tête de l'éditeur (`center`), `src/app/(app)/[org]/demos/[id]/editor/editor.tsx` (HeaderSteps).
+- Besoin (ce que l'écran doit faire) : un lecteur d'écran distingue les étapes de l'en-tête (Construire › Diffuser › Analyser) de la colonne des étapes de la démo ; le point de Diffuser dit « En pause » pour une démo mise en pause, pas « Brouillon ».
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : EditorSteps et StepList posent tous deux `aria-label="Étapes"` en dur sur leur `nav` (deux repères du même nom dans l'éditeur). EditorSteps n'a pas de prop pour son nom (`aria-label`) ni pour le texte de son point (`dotLabel` vaut « En ligne » ou « Brouillon »). Attendu : `aria-label` (défaut « Étapes de publication » par exemple) et `dotLabel` réglables, ou un état `paused`.
+- Contournement provisoire dans Record : après le rendu, le nom de la `nav` devient « Construire, diffuser, analyser » et le point « En pause » quand il le faut.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+- Numéro : demandée le 21/11 sous le numéro D-033 (pull request 4, jamais fusionnée) ; D-033 est pris sur `main` par une demande du DS vers Record.
+
+### D-079 · MessageCard : attributs passés au bouton (aria-current)
+- Date, écran Record concerné (fichier, route) : 21/11/2026, colonne Étapes de l'éditeur, carte « Écran de fin » (StepList `end`), `src/app/(app)/[org]/demos/[id]/editor/editor.tsx` (StepColumn).
+- Besoin (ce que l'écran doit faire) : l'écran de fin sélectionné s'annonce comme l'étape en cours (`aria-current="step"`), comme une vignette ; l'app peut aussi poser `data-*` (navigation au clavier) sur le bouton.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : MessageCard ne transmet aucun attribut à son `<button>` (seulement `disabled` et `onClick`) ; `selected` ne donne qu'un style, pas d'`aria-current`.
+- Contournement provisoire dans Record : un `<span class="contents" data-step="end" aria-current>` autour de la carte (mal exposé aux lecteurs d'écran).
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Numéro : demandée le 21/11 sous le numéro D-034 (pull request 4, jamais fusionnée) ; D-034 est pris sur `main` par une demande du DS vers Record.
+
+### D-080 · StepList : largeurs fixes, barre d'ajout au survol de la colonne, menu de StepThumb
+- Date, écran Record concerné (fichier, route) : 21/11/2026, colonne Étapes de l'éditeur, `src/app/(app)/[org]/demos/[id]/editor/editor.tsx` (StepColumn).
+- Besoin (ce que l'écran doit faire) : la colonne garde 16 px de marge et deux vignettes de 104 × 64 par slide ; les cartes Début et Fin et leurs séparations tiennent dans la colonne ; au survol de la colonne, la barre « + Ajouter une slide » se voit comme les autres ajouts ; le « ⋯ » d'une vignette ouvre une liste d'actions ancrée à la vignette, et des « + » se posent entre deux vignettes.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) :
+  - MessageCard (`.card`), FlowDivider et InsertBar (`.insert`) ont `width: 248px` : dans StepList (234 px dans la story, 232 en vrai), ils débordent et sont coupés à droite. Attendu : `width: 100%` dans StepList.
+  - InsertBar est en `opacity: 0` hors de son propre survol : posée en `addAfter`, elle reste invisible au survol de la colonne alors que `revealAdd` montre déjà les autres ajouts. Attendu : visible dès que StepList révèle ses ajouts.
+  - StepThumb : l'emplacement `menu` est un petit coin en haut à droite, affiché au survol ; rien pour une liste d'actions ancrée ni pour des éléments autour de la vignette (« + » entre deux étapes). `onClick` de l'app est écrasé par `onSelect`, qui ne passe pas l'événement (⇧ / ⌘ pour la sélection multiple).
+- Contournement provisoire dans Record : la colonne force `width: 100%` et l'opacité de la barre ; l'emplacement `menu` est étiré sur la vignette (le ⋯ en ButtonIcon, sa liste et les « + » dedans) ; la sélection lit `onClickCapture`.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+- Numéro : demandée le 21/11 sous le numéro D-035 (pull request 4, jamais fusionnée) ; D-035 est pris sur `main` par une demande du DS vers Record.
+
+### D-081 · Colonne `page` d'EditorLayout qui se rétrécit sur son contenu
+- Date, écran Record concerné (fichier, route) : 21/11/2026, étape Diffuser de l'éditeur, `src/app/(app)/[org]/demos/[id]/editor/share-panel.tsx`.
+- Besoin (ce que l'écran doit faire) : en `content="page"`, la colonne de lecture fait 680 px quelle que soit la carte affichée, et la largeur disponible en dessous.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : `.canvas` porte `place-items: center`, que Chrome applique aussi aux blocs (`justify-self`). `.page` repasse en `display: block` mais garde `place-items`, si bien que `.pageColumn` est centrée et prend la largeur de son contenu au lieu de s'étirer : 680 px pour « Partager par lien », 637 px pour « Exporter en vidéo » à 1280 px. Attendu : `.pageColumn { width: 100%; }` (ou `place-items: normal` sur `.page`).
+- Contournement provisoire dans Record : `[&_[class*=pageColumn]]:w-full` sur la section Diffuser, avec `TODO DS: D-039`.
+- Priorité : gênant
+- Statut : à faire
+- Réponse DS :
+- Numéro : demandée le 21/11 sous le numéro D-039 (pull request 4, jamais fusionnée) ; D-039 est pris sur `main` par une demande du DS vers Record.
+
+### D-082 · LogoSettings sur une ligne à interrupteur, ToneChoice désactivé, focus de l'OptionPopover (24/11, demandé par Christof)
+- Date, écran Record concerné : 24/11, panneau Options de l'Annonce, lignes Logo et Format (`slide-style-fields.tsx`, `format-popover.tsx`).
+- Besoin :
+  1. **Logo** : D-043 met l'interrupteur sur la ligne (`OptionItem toggle`). Ouverte, la ligne doit montrer seulement Told | Le mien et la Version du logo.
+  2. **Version du logo grisée** : avec « Le mien », Clair | Sombre reste visible mais désactivé (le choix vaut pour le logo Told seul, décision de Jonathan).
+  3. **Focus de la micro-modale** : à l'ouverture, le focus va sur le choix coché de la liste (pour les flèches), une fois la micro-modale placée ; Tab reste dans la micro-modale tant qu'elle est ouverte.
+- Ce qui manque ou gêne dans le DS :
+  1. `LogoSettings` affiche toujours son propre Switch « Afficher un logo » et sa note, en double avec l'interrupteur de la ligne. Il faudrait `showSwitch={false}` et `note={false}`, comme `AvatarSettings`.
+  2. Le GroupTab de `LogoSettings` répète le libellé « Logo » sous la ligne qui s'appelle déjà Logo : un libellé masquable (ou absent quand le composant est dans une ligne).
+  3. `ToneChoice` n'a pas d'état `disabled`.
+  4. `OptionPopover` pose le focus sur son premier contrôle avant d'avoir calculé sa position (ou sur « Fermer »), et ne garde pas le focus à l'intérieur (pas de piège à focus).
+- Contournement provisoire dans Record (`// TODO DS: D-048`) : le Switch et la note de LogoSettings masqués par une classe CSS ; ToneChoice dans un `fieldset disabled` à 38 % d'opacité ; le focus posé sur le choix coché au `requestAnimationFrame` suivant l'ouverture. Le libellé « Logo » répété et la sortie au Tab ne sont pas contournés.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Numéro : demandée le 24/11 sous le numéro D-048 (pull request 8) ; D-048 est aussi pris par Told V3.
+
+### D-083 · Zoom de la capture sans appareil dans MediaFrameSettings (24/11, demandé par Christof)
+- Date, écran Record concerné : 24/11, panneau Options de l'Annonce, bloc Cadre du média (`media-frame-field.tsx`).
+- Besoin : le Zoom de la capture (`captureZoom`) vaut pour tous les cadres de Record, y compris la capture seule (Cadre « Aucun ») ; D-044 range Recadrer et Zoom dans le bloc Cadre du média.
+- Ce qui manque ou gêne dans le DS : `MediaFrameSettings` n'affiche le curseur Zoom que si `kind !== 'none'`. Il faudrait le montrer aussi sans appareil (ou une propriété pour le forcer).
+- Contournement provisoire dans Record (`// TODO DS: D-049`) : avec le Cadre « Aucun », Record ajoute sous le composant le même `SliderCapsule` « Zoom » (× 1 à × 2).
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+- Numéro : demandée le 24/11 sous le numéro D-049 (pull request 8) ; D-049 est aussi pris par Told V3.
+
 ## Demandes du DS vers Record (lecteur public)
 
 Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dépôt Record : le DS ne le code pas. Il le décrit ici ; la conversation Code l'applique et répond sous la demande.
@@ -402,7 +553,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Rien à coder dans told-ds (le lecteur ne charge pas le DS) ; valeurs ci-dessus à reprendre dans `announcement.css`.
 - Priorité : confort
 - Statut : validé Figma, à appliquer dans Record
-- Réponse Record :
+- Réponse Record (23/11) : fait sur la branche christof (1e49995). `settings.presenter.frame` : border (défaut, démos existantes), none, color, glass-light, glass-dark ; `frame_color` (null = couleur primaire du kit). Valeurs de verre reprises dans `announcement.css` (cadre en ::before flouté). « Avatar à choisir » garde ses pointillés. Statut : fait côté Record.
 
 ### D-032 · Mockups photoréalistes pour le média de l'Annonce (23/11, demandé par Christof)
 - Sens : demande du DS vers Record (lecteur `packages/player`, `frame.ts`, et choix du cadre dans l'éditeur).
@@ -423,7 +574,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Images : à exporter depuis Figma en WebP (fond transparent), largeur 1600 au plus ; à fournir par la conversation DS si besoin. Licence Mockuuups à vérifier par Christof avant diffusion publique.
 - Priorité : confort
 - Statut : validé Figma (à confirmer par Christof), à appliquer dans Record
-- Réponse Record :
+- Réponse Record (23/11) : fait sur la branche christof (2b3adaa, puis c0e6d4a pour l'iPad, les 7 iMac et les photos sans ombre). Photo, écran (zones du tableau, capture rognée au format de l'écran ; sans cadrage enregistré, la capture entière), même photo par-dessus en darken. 20 photos WebP exportées de Figma (800 de large pour les téléphones, 1600 pour les autres) dans `public/player/mockups`, autorisées sur le domaine du lecteur public. Licence : abonnement Mockuuups payant de Told Record (POC). Statut : fait côté Record.
 
 ### D-033 · Réglage Avatar : position, contour, couleur (23/11, validé par Christof)
 - Sens : demande du DS vers Record (éditeur et lecteur).
@@ -438,7 +589,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - **Lecteur** (`packages/player`, `announcement.ts` et `.css`) : placer l'avatar à la position choisie (marge 24 sur une slide de 960, à l'échelle), avec le cadre D-031.
 - Priorité : important
 - Statut : **codé told-ds v0.29.0**, à appliquer dans Record
-- Réponse Record :
+- Réponse Record (23/11) : fait sur la branche christof (1e49995). AvatarSettings dans « Avatar sur ce slide » ouvert, AvatarPicker maison dans `avatar` (D-019). Format : `presenter.position` (null = place historique : colonne de texte en paysage, bas à droite sinon), `presenter.frame`, `presenter.frame_color` (snake_case comme le reste du format) ; pas de nouveau schema_version (clés facultatives). Lecteur : marge 24 sur 960, positions du bas au-dessus du logo et de la pause. Tailles et formes traduites (sm/md/lg ↔ small/medium/large ; round/rounded/square ↔ round/square/sharp). Point ouvert : en paysage, « En haut à gauche » recouvre le titre. Manque → D-042.
 
 ### D-034 · Cadre du média : picto et choix Aucun / Mobile / Ordinateur (23/11, demandé par Christof)
 - Sens : demande du DS vers Record (panneau Options de l'Annonce, et format de démo).
@@ -454,7 +605,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Format de démo : `media.frame = { kind: 'none' | 'mobile' | 'tablet' | 'desktop', device?, finish?, orientation?, shadow? }`. Rendu des photos : D-032 ; ombre : `filter` de `mediaShadows` sur l'image de l'appareil.
 - Priorité : important
 - Statut : **codé told-ds v0.30.0**, à appliquer dans Record
-- Réponse Record :
+- Réponse Record (23/11) : fait sur la branche christof (c0e6d4a), sauf les cadres dessinés « Simple » (téléphone) et « Portable » : le lecteur ne les dessine pas encore, ils sont retirés de `mediaDevices` dans Record. Format : `settings.media_frame = { kind, device, finish, orientation, shadow, capture_zoom }` (snake_case ; null = cadre du kit, sa barre de navigateur ou rien). « Navigateur » = la barre de navigateur du kit. Ombre : valeurs de `mediaShadows` recopiées dans le lecteur (qui ne charge pas le DS). Statut : fait côté Record (sans Simple ni Portable).
 
 ### D-035 · Cadrage du média : agrandir et placer la capture dans sa zone (23/11, demandé par Christof)
 - Sens : demande du DS vers Record (éditeur, format, lecteur).
@@ -479,7 +630,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Format de démo : `media.frame.captureZoom` (défaut 1).
 - Priorité : important
 - Statut : **codé told-ds v0.32.0**, à appliquer dans Record
-- Réponse Record :
+- Réponse Record (23/11) : fait sur la branche christof (c0e6d4a). `slideOrientation` suit l'orientation de l'Annonce (le Carré compte comme paysage) ; en passant en vertical, Ordinateur devient Mobile et la tablette paysage passe en portrait, avec un Toast ; le lecteur n'affiche jamais d'ordinateur dans une Annonce verticale. `capture_zoom` (×1 à ×2) agrandit les étapes sans cadrage enregistré ; un cadrage fait avec Recadrer est exact (pas re-zoomé). Recadrer prend le ratio de l'écran de l'appareil. Manque : GroupTab sans état désactivé → D-042. Statut : fait côté Record.
 
 ### D-037 · Formats d'enregistrement adaptés au mockup (23/11, proposition de Christof, à valider par Jonathan)
 - Sens : demande du DS vers Record (extension, puis éditeur).
@@ -493,7 +644,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Icônes : `computer`, `tablet-01` (ajoutée le 23/11), `smart-phone-01`.
 - Priorité : important
 - Statut : proposition, plan à présenter à Jonathan (règle « une fonctionnalité à la fois » de Record)
-- Réponse Record :
+- Réponse Record (23/11) : plan de l'architecte présenté à Jonathan, pas encore codé. Piste : émulation par l'extension (Chrome DevTools Protocol, permission `debugger`, bandeau jaune de Chrome) pour Tablette et Mobile seulement ; Ordinateur inchangé. En attente de la validation de Jonathan.
 
 ### D-038 · Options selon l'élément sélectionné, et règle onglets / pastilles (23/11, demandé par Christof)
 - Sens : demande du DS vers Record (panneau Options de l'éditeur).
@@ -505,7 +656,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
   - Média : Cadre du média, Cadrage du média, Zoom de la capture ; Avatar : Avatar sur ce slide + AvatarSettings ; Surtitre : EyebrowSettings (D-040).
 - Priorité : important
 - Statut : **codé told-ds v0.33.0**, à appliquer dans Record
-- Réponse Record :
+- Réponse Record (23/11) : fait sur la branche christof (69bd3ab). Clic sur le média, l'avatar, le surtitre, le titre, le texte ou le logo : le panneau ne montre que ses réglages sous `OptionContextHeader`, l'élément est entouré dans l'aperçu ; Échap (hors champ texte), la flèche ou un clic à côté de la slide reviennent aux réglages de la slide (Thème, Progression, Logo, Durée ; « Avatar sur ce slide » seulement pour l'allumer). Média : Cadre du média (zoom compris) et « Cadrage du média » (Recadrer). Titre et Texte : Apparition. Surtitre : EyebrowSettings et « Même surtitre pour toutes les étapes ». Progression passée en `ChoiceField` (« En haut / En bas » : pas de valeur « Aucune » dans le format pour l'instant) ; Taille, Forme, Ombre, Appareil suivent la règle via AvatarSettings et MediaFrameSettings. Restent en menu sur la ligne les listes longues ou chiffrées : Durée, Image sans animation. Statut : fait côté Record.
 
 ### D-039 · Logo de la slide : Told en offre gratuite, le sien ou aucun en offre payante (23/11, demandé par Christof)
 - Sens : demande du DS vers Record (panneau Options, kit de marque, lecteur, offres).
@@ -517,7 +668,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Format de démo : `settings.brandLogo = 'told' | 'custom' | 'none'` (défaut `told`).
 - Priorité : important
 - Statut : **codé told-ds v0.33.0** (panneau), à appliquer dans Record (offres à confirmer avec Jonathan)
-- Réponse Record :
+- Réponse Record (23/11) : panneau fait sur la branche christof (69bd3ab), offres pas encore. `settings.brand_logo = 'told' | 'custom' | 'none'` (snake_case ; null = logo du kit, le comportement d'avant, donc « Le mien » par défaut et non « told »). LogoSettings dans les réglages de la slide et au clic sur le logo ; le lecteur dessine le logo Told depuis un fichier statique de l'app (tracés du Logo du DS, le lecteur ne chargeant pas le DS). Offres : `plan="paid"` pour toutes les organisations tant que le plan (décision Record 0050 : offre lue en base, règle appliquée côté serveur à la lecture de la démo publiée, ProUpsellCard en offre gratuite) n'est pas validé par Jonathan. Statut : en partie fait côté Record.
 
 ### D-040 · Surtitre « Nouveau » : avec ou sans fond, couleur au choix (23/11, demandé par Christof)
 - Sens : demande du DS vers Record (éditeur, format, lecteur).
@@ -528,7 +679,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Format de démo : `slide.eyebrow = { variant: 'badge' | 'text', color }`.
 - Priorité : confort
 - Statut : **codé told-ds v0.33.0**, à appliquer dans Record
-- Réponse Record :
+- Réponse Record (23/11) : fait sur la branche christof (69bd3ab). Réglage de toute la démo et non de chaque slide, comme le surtitre commun : `settings.eyebrow_style = { variant: 'badge' | 'text', color }` (null = pastille blanche, l'aspect d'avant ; couleur null = défaut de la variante : blanc pour la pastille, couleur du kit pour le texte seul). Pastille : texte noir ou blanc selon le contraste. EyebrowSettings ne se désactive pas (GroupTab, ColorField) : ignoré pendant un verrou, voir D-042. Statut : fait côté Record.
 
 ### D-041 · Écrans de début et de fin de l'Annonce et de la démo, communs à tous les produits (23/11, validé par Christof)
 - Sens : demande du DS vers Record (éditeur, format, lecteur, vidéo exportée).
@@ -558,7 +709,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
   5. **Logo** : interrupteur sur la ligne (`OptionItem toggle`, sans chevron), activé la ligne s'ouvre sur Told | Le mien et **Version du logo Clair | Sombre** (`LogoSettings tone`, `onToneChange`) ; à faire avec D-039 (nouveau réglage `brand_logo_tone` dans le format).
 - Priorité : important
 - Statut : **codé told-ds v0.53.0 à v0.56.0**, à appliquer dans Record
-- Réponse Record :
+- Réponse Record : appliqué le 24/11 (branche christof) : Format en « Changer » et OptionPopover, ligne Proportions, aides dans le i, interrupteur du logo et Version du logo (`settings.brand_logo_tone`, logo Told seul, grisé avec le logo du kit). Trois manques restent, contournés : voir **D-082**.
 
 ### D-044 · Position libre du média (24/11, validé par Christof)
 - Sens : demande du DS vers Record (format, lecteur, éditeur, vidéo exportée).
@@ -570,7 +721,7 @@ Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dép
 - Lecteur et vidéo : la zone du média coupe son contenu (`overflow: hidden`) ; le média reçoit `transform: translate(…) scale(scale)` depuis le centre. Même rendu dans la vidéo exportée.
 - Priorité : important
 - Statut : **codé told-ds v0.55.0** (panneau), à appliquer dans Record (plan court à présenter à Jonathan : format et migration, lecteur, éditeur)
-- Réponse Record :
+- Réponse Record : appliqué le 24/11 (branche christof), décision 0060 de Record (ex-0057). `media_frame.place` remplace `placement` ; les anciennes positions se traduisent exactement (inset {1, .5, .5}, edge {1, 1, .5} en paysage ou {1, .5, 1}, corner {1, 1, 1}). Les versions publiées ne sont pas réécrites et le lecteur lit toujours `placement`. Recadrer et Zoom restent, dans le bloc Cadre du média (la section Cadrage disparaît). Un manque : voir **D-083**.
 
 ## Demandes de Told V3 (24 et 25/11)
 Sens : Told V3 (dossier `told-v3/told`, branche `v3/integration`) vers le DS. Numérotées dans le code de Told (`// TODO DS: D-0xx`), reportées ici le 25/11. Bilan côté Told : 64 composants du DS utilisés, 29 maison (`design-system/correspondance.json`).
