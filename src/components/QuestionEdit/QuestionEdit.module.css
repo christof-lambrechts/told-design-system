@@ -1,0 +1,46 @@
+/* QuestionEdit (Figma page 🧩 Molécules / QuestionEdit) : blocs d'une étape, 580 de large, marges 16 / 20, écart 12. */
+.block { box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: 16px 20px; font-family: var(--font-family-body); color: var(--content-default-default); }
+.blockDescription { padding-top: 0; }
+.titles { display: flex; flex-direction: column; gap: 4px; }
+.title { font: var(--font-weight-medium) 13px / 18px var(--font-family-body); color: var(--content-default-default); }
+.muted { margin: 0; font: var(--font-weight-regular) var(--body-12-size) / var(--body-12-line-height) var(--font-family-body); color: var(--content-muted-default); }
+.note { margin: 0; display: flex; gap: 8px; align-items: flex-start; padding: 8px; border-radius: 12px; background: var(--neutral-surface-subtle); font: var(--font-weight-regular) var(--body-12-size) / var(--body-12-line-height) var(--font-family-body); color: var(--content-muted-default); }
+.note > svg { flex: none; margin-top: 2px; }
+
+/* Consentement */
+.consent { padding-bottom: 20px; border-top: 1px solid var(--neutral-border-default); }
+.consentPreview { box-sizing: border-box; width: 280px; border-radius: 12px; overflow: hidden; background: var(--neutral-surface-inverse); color: var(--content-default-inverse); }
+.cpBody { display: flex; flex-direction: column; gap: 10px; padding: 12px; }
+.cpTitle { display: inline-flex; align-items: center; gap: 6px; font: var(--font-weight-medium) 12px / 18px var(--font-family-body); }
+.cpMessage { display: block; height: 10px; width: 100%; border-radius: 4px; background: currentColor; opacity: .2; }
+.cpChoices { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid color-mix(in srgb, currentColor 20%, transparent); }
+.cpChoices > span { display: flex; justify-content: center; padding: 8px 0; }
+.cpChoices > span + span { border-left: 1px solid color-mix(in srgb, currentColor 20%, transparent); }
+
+/* Bloc secondaire et preset : états */
+.secondary, .preset { position: relative; background: var(--neutral-surface-default); border-top: 1px solid var(--neutral-border-default); }
+.secondary { padding-bottom: 20px; }
+.preset { display: flex; flex-direction: column; }
+.selected { box-shadow: inset 0 0 0 2px var(--brand-border-selected); border-radius: 16px; }
+.dragging { border-radius: 16px; box-shadow: inset 0 0 0 2px var(--brand-border-selected), var(--shadow-flat-8); }
+.blockHead { display: flex; align-items: center; gap: 8px; min-height: 22px; color: var(--content-muted-default); }
+.blockLabel { flex: 1; font: var(--font-weight-regular) var(--body-12-size) / var(--body-12-line-height) var(--font-family-body); color: var(--content-muted-default); }
+.handle, .hoverOnly { opacity: 0; transition: opacity .12s; }
+.presetHandle { position: absolute; top: 16px; left: -2px; }
+.secondary:hover .handle, .secondary:hover .hoverOnly, .secondary:focus-within .handle, .secondary:focus-within .hoverOnly,
+.preset:hover .presetHandle, .preset:focus-within .presetHandle, .dragging .handle { opacity: 1; }
+.handle { cursor: grab; display: inline-flex; }
+.blockHead .handle { position: absolute; left: -2px; top: 16px; }
+
+/* Image */
+.drop { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 20px 0; border: 1px dashed var(--neutral-border-default); border-radius: 10px; background: var(--neutral-surface-subtle); color: var(--content-muted-default); cursor: pointer; text-align: center; }
+.drop:focus-within { outline: 2px solid var(--brand-border-selected); outline-offset: 2px; }
+.dropTitle { font: var(--font-weight-medium) 13px / 18px var(--font-family-body); color: var(--content-brand-default-on-light); }
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Boutons liens */
+.links { display: flex; flex-direction: column; gap: 12px; }
+.inputLink { display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 1px solid var(--neutral-border-default); border-radius: 12px; }
+.inputLinkHead { display: flex; align-items: center; justify-content: space-between; }
+.hint { margin: 0; display: flex; align-items: center; gap: 6px; font: var(--font-weight-regular) var(--body-12-size) / var(--body-12-line-height) var(--font-family-body); color: var(--content-muted-default); }
+.linkBtn { margin-left: 4px; padding: 0; border: 0; background: none; font: inherit; color: var(--content-brand-default-on-light); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }

@@ -160,3 +160,5 @@ export { Layout } from './components/Layout/Layout';
 export type { LayoutProps, LayoutPageProps, LayoutEditorProps, LayoutAnalyserProps } from './components/Layout/Layout';
 export { TopBar } from './components/TopBar/TopBar';
 export type { TopBarProps } from './components/TopBar/TopBar';
+export { ContentBlock, ConsentBlock, ConsentPreview, InputLink, SecondaryBlock, Preset } from './components/QuestionEdit/QuestionEdit';
+export type { ContentBlockProps, ConsentBlockProps, InputLinkProps, SecondaryBlockProps, SecondaryBlockType, PresetProps, PresetType, BlockStateProps } from './components/QuestionEdit/QuestionEdit';

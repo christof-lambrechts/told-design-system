@@ -39,6 +39,11 @@ Figma a été renommé ; les instances des maquettes restent liées. Dans le cod
 | `Layout` (24/11) | Layout (`type`) | Layout | `type` page \| settings \| editor \| analyser (Figma editor-told et editor-record = `editor`). Assemble AppLayout et EditorLayout, qui restent les briques. « Menu avec fond » archivé ; `AppLayout menu` déconseillé. Codé v0.59.0 |
 | `AppSidebar` (24/11) | AppSidebar | AppSidebar | menu latéral commun Told + Told Record ; entrées en données (`sections`, `footer`), `linkAs`, `collapsed`. Codé v0.57.0 |
 | `TopBar` (24/11) | TopBar | TopBar | barre du haut de Layout page et settings : titre, description, recherche ⌘K, barre IA, options, actions, notifications. Codé v0.60.0 |
+| `Preset` (25/11) | Preset | Preset | une étape : titre, description, bloc du type, consentement. Codé v0.61.0 |
+| `ContentBlock` | ContentBlock | ContentBlock | titre ou description d'une étape. Codé v0.61.0 |
+| `ConsentBlock` | ConsentBlock, ConsentPreview | ConsentBlock, ConsentPreview | consentement d'une question. Codé v0.61.0 |
+| `SecondaryBlock` | SecondaryBlock | SecondaryBlock | bloc complémentaire (image, texte, vidéo, boutons liens, séparateur). Codé v0.61.0 |
+| `InputLink` | InputLink | InputLink | un bouton lien (texte + adresse). Codé v0.61.0 |
 | `ProjectSwitcher` (24/11) | ProjectSwitcher | ProjectSwitcher | `project`, `organization`, `appearance`, `compact`. Codé v0.57.0 |
 | `AccountCard` (24/11) | AccountCard | AccountCard | `name`, `email`, `avatar`, `notifications`, `compact`. Codé v0.57.0 |
 | `NotificationBell` (24/11) | Notifications (dans AccountCard) | NotificationBell | `count`, `onClick`. Codé v0.57.0 |

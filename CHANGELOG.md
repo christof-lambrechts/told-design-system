@@ -3,6 +3,11 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.61.0 · 25/11/2026
+
+- **Blocs d'une étape** (Figma page QuestionEdit, validée le 25/11), lot 1 : `Preset` (titre, description en option, bloc du type en `children`, consentement en option ; états `selected`, `dragging`, poignée au survol), `ContentBlock` (`type` title | description), `ConsentBlock` et `ConsentPreview`, `SecondaryBlock` (`type` image | text | video | button | divider ; poignée et suppression au survol), `InputLink` (bouton lien : texte + adresse).
+- Stories Composants › Édition › Blocs d’une étape. Les blocs par type (NPS, échelle, liste, question ouverte…) arrivent au lot 2.
+
 ## v0.60.0 · 24/11/2026
 
 - **TopBar** (Figma 7858:1613, D-012) : barre du haut des pages `page` et `settings` de Layout. `title` (h1), `description`, `icon`, `search` (`true` = SearchBar ⌘K), `intent` (barre IA, IntentInput compact ai), `options`, `secondaryAction`, `action`, `notifications`. Pas de sélecteur d'environnement (release 1).
