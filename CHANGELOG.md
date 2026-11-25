@@ -3,6 +3,10 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.63.1 · 25/11/2026
+
+- Correctif couleurs : la régénération des jetons de la v0.62.0 était partie d'un export Figma ancien. Elle avait remis le canevas en gris foncé et les points en blanc, et supprimé `--neutral-border-divider` : les filets des colonnes de l'éditeur s'affichaient en noir. Elle avait aussi supprimé `--brand-surface-tint`, `--neutral-surface-code`, `--neutral-border-code` et les teintes `--presence-*`. Tout est rétabli comme en v0.61.0, et les exports `tokens/figma` sont corrigés pour que ça ne se reproduise pas.
+
 ## v0.63.0 · 25/11/2026
 
 Lot A des demandes de Told V3 (fondations).
