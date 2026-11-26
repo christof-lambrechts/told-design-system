@@ -286,6 +286,55 @@ Points d'attention :
 - Statut : **codé told-ds v0.20.0**
 - Réponse DS : `AvatarGroup people={[{ name, id, idle }]}` : `id` fixe la teinte (fonction `presenceColorFor(id)`, la même partout) ; `idle` estompe l'avatar et ajoute « inactif » au nom lu. `PresenceAvatar` accepte `personId` et `idle`.
 
+### D-076 · Correction d'une valeur sur place (popover ancré à un texte)
+- Date, écran Record concerné : 26/11, extension, page Résultat des données fictives (docs/ux/27 § 4.D, Figma Told Record R-51).
+- Besoin : une petite fenêtre accrochée à une valeur dans une image : titre, phrase, champ, « Appliquer » / « Laisser tel quel », note. Échap et clic dehors la ferment, le focus y reste.
+- Ce qui manque ou gêne dans le DS : OptionPopover s'ouvre depuis un PopoverField, pas depuis un point d'une image, et son contenu est un emplacement (_Slot) sans modèle « champ + actions ».
+- Contournement provisoire dans Record : cadre composé à la main (Input + Button), TODO DS: D-076.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+
+### D-078 · StepThumb : point de signalement nommé
+- Date, écran Record concerné : 26/11, extension, page Résultat (pellicule des images, Figma Told Record R-50).
+- Besoin : un point orange en coin, avec son libellé dans le nom accessible (« Étape 3, une valeur à regarder »).
+- Ce qui manque ou gêne dans le DS : le StepThumb de Figma n'a pas d'état de signalement (le code a `warning`).
+- Contournement provisoire dans Record : point posé par Record, TODO DS: D-078.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+
+### D-079 · Button : état en cours avec progression
+- Date, écran Record concerné : 26/11, extension, page Résultat (« Envoi · 4 sur 12 », Figma Told Record R-52), et les exports de l'app.
+- Besoin : un bouton qui garde sa taille et montre une progression, avec aria-busy.
+- Ce qui manque ou gêne dans le DS : Button n'a pas d'état de chargement.
+- Contournement provisoire dans Record : libellé changé, bouton désactivé, ProgressBar sous le bouton, TODO DS: D-079.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+
+### D-080 · Motif IA en mouvement
+- Date, écran Record concerné : 26/11, extension, page Préparation (docs/ux/27 § 4.C, Figma Told Record R-43 à R-49). Servira aussi à « Rédiger avec l'IA ».
+- Besoin :
+  1. le dégradé IA (purple-400 → blue-400) en variable, au lieu d'être écrit en dur dans Button.module.css ;
+  2. un « état d'attente IA » pleine page, sobre : étincelle de 32 px qui scintille sur un halo léger, phrase qui se remplace par un fondu, indicateur discret, lien secondaire ; variantes pause et échec ;
+  3. une révélation (un élément qui sort du fond) ;
+  chacun avec sa variante prefers-reduced-motion.
+- Ce qui manque ou gêne dans le DS : le DS a AiNotice (chargeur en ligne), AiTag, Button ai et les jetons de durée, mais aucun état d'attente IA animé.
+- Contournement provisoire dans Record : halo, étincelle et phrase posés par Record, TODO DS: D-080.
+- Priorité : important (c'est le moment fort du produit)
+- Statut : à faire
+- Réponse DS :
+
+### D-081 · GuidedPlayer et AmbientBackground exportés par told-ds
+- Date, écran Record concerné : 26/11, extension, pages Préparation et Résultat (docs/ux/27 §§ 4.C et 4.D, Figma Told Record R-43 à R-53).
+- Besoin : jouer la démo dans le player guidé du DS avant « Créer la démo », sur le fond IA du DS.
+- Ce qui manque ou gêne dans le DS : dans told-ds v0.63.1, GuidedPlayer n'existe pas en code, et AmbientBackground n'est qu'une page du catalogue (AtomesAmbientBackground.stories.tsx), pas un composant exporté par src/index.ts.
+- Contournement provisoire dans Record : fond clair uni pour la préparation (lot 3) ; le résultat attend ce composant (lot 5), TODO DS: D-081.
+- Priorité : bloquant pour le lot 5 de Record (résultat joué dans le player), important pour le lot 4 (animation)
+- Statut : à faire
+- Réponse DS :
+
 ## Demandes du DS vers Record (lecteur public)
 
 Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dépôt Record : le DS ne le code pas. Il le décrit ici ; la conversation Code l'applique et répond sous la demande.
