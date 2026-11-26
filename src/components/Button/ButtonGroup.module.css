@@ -1,13 +1,15 @@
-/* ButtonGroup (8810:1705). Les boutons gardent leur taille ; on retire les coins intérieurs. */
+/* ButtonGroup (8810:1705). Les boutons gardent leur taille ; on retire les coins intérieurs.
+   Un bouton peut être posé seul ou dans l'ancre d'un Popover / Menu ([data-ds-anchor], display: contents) : D-075. */
 .group { display: inline-flex; align-items: stretch; }
-.group > :not(:first-child) { border-top-left-radius: 0; border-bottom-left-radius: 0; }
-.group > :not(:last-child) { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.group > :not(:first-child):not([data-ds-anchor]), .group > [data-ds-anchor]:not(:first-child) > * { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.group > :not(:last-child):not([data-ds-anchor]), .group > [data-ds-anchor]:not(:last-child) > * { border-top-right-radius: 0; border-bottom-right-radius: 0; }
 /* outline : contour partagé (chevauchement de 1). */
-.outline > * + * { margin-left: -1px; }
-.outline > *:hover, .outline > *:focus-visible { position: relative; z-index: 1; }
+.outline > * + *:not([data-ds-anchor]), .outline > * + [data-ds-anchor] > * { margin-left: -1px; }
+.outline > :not([data-ds-anchor]):hover, .outline > :not([data-ds-anchor]):focus-visible,
+.outline > [data-ds-anchor] > :hover, .outline > [data-ds-anchor] > :focus-visible { position: relative; z-index: 1; }
 /* inverse : blanc 12 %, texte blanc, filet de 1 entre les boutons. */
 .inverse { gap: 1px; }
-.inverse > * {
+.inverse > :not([data-ds-anchor]), .inverse > [data-ds-anchor] > * {
   --bg: var(--white-alpha-12) !important; --bg-hover: var(--white-alpha-20) !important; --bg-pressed: var(--white-alpha-20) !important;
   --fg: var(--white-white-100) !important; --border: transparent !important; --border-hover: transparent !important;
 }

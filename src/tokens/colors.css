@@ -49,6 +49,14 @@
   --gray-10: #f9fafb;
   --gray-20: #f2f4f6;
   --gray-30: #f2f2f3;
+  --presence-teal: #14b8a6;
+  --presence-pink: #ec4899;
+  --presence-orange: #f97316;
+  --presence-purple: #a855f7;
+  --presence-lime: #84cc16;
+  --presence-green: #22c55e;
+  --presence-yellow: #eab308;
+  --presence-slate: #64748b;
   --gray-40: #e8ecf0;
   --gray-50: #dfe5ea;
   --gray-100: #ccd5dd;
@@ -432,9 +440,9 @@
   --neutral-surface-strong: var(--brand-neutral-50);
   --neutral-surface-inverse: var(--brand-neutral-950);
   --neutral-surface-page: var(--brand-neutral-10);
-  --neutral-surface-canvas: var(--gray-30);
+  --neutral-surface-canvas: var(--gray-10);
   --neutral-surface-sidebar: #fcfcfd;
-  --neutral-surface-pattern: var(--white-alpha-90);
+  --neutral-surface-pattern: var(--gray-30);
   --neutral-surface-overlay: var(--black-alpha-40);
   --neutral-surface-scroll-bar: var(--black-alpha-20);
   --neutral-surface-subtleinverse: var(--black-alpha-10);
@@ -463,6 +471,9 @@
   --neutral-border-hover: var(--brand-neutral-100);
   --neutral-border-pressed: var(--brand-primary-50);
   --neutral-border-subtle: var(--brand-neutral-20);
+  --neutral-border-divider: var(--gray-40);
+  --neutral-surface-code: var(--neutral-surface-black-alpha-5);
+  --neutral-border-code: var(--neutral-surface-black-alpha-10);
   --neutral-border-inverse: var(--white-alpha-20);
   --neutral-border-sidebar: #f6f6f9;
   --control-border-default: var(--gray-50);
@@ -471,6 +482,7 @@
   --brand-surface-muted: var(--brand-primary-20);
   --brand-surface-strong: var(--brand-primary-50);
   --brand-surface-selected: var(--brand-primary-500);
+  --brand-surface-tint: var(--brand-primary-20);
   --brand-border-hover: var(--brand-primary-50);
   --brand-border-pressed: var(--brand-primary-100);
   --brand-border-selected: var(--brand-primary-500);
@@ -1132,6 +1144,9 @@
   --neutral-border-hover: var(--white-alpha-40);
   --neutral-border-pressed: var(--white-alpha-60);
   --neutral-border-subtle: var(--white-alpha-12);
+  --neutral-border-divider: var(--white-alpha-20);
+  --neutral-surface-code: var(--neutral-surface-white-alpha-5);
+  --neutral-border-code: var(--neutral-surface-white-alpha-10);
   --neutral-border-inverse: var(--black-alpha-20);
   --neutral-border-sidebar: var(--white-alpha-12);
   --control-border-default: var(--white-alpha-20);
@@ -1140,6 +1155,7 @@
   --brand-surface-muted: var(--white-alpha-20);
   --brand-surface-strong: var(--white-alpha-40);
   --brand-surface-selected: var(--brand-primary-300);
+  --brand-surface-tint: var(--brand-primary-alpha-20);
   --brand-border-hover: var(--white-alpha-20);
   --brand-border-pressed: var(--white-alpha-40);
   --brand-border-selected: var(--white-white-100);

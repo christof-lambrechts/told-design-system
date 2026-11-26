@@ -55,6 +55,7 @@ Figma a été renommé ; les instances des maquettes restent liées. Dans le cod
 | `Toaster` | Toaster, `toast()` | Toast | file de notifications. Codé v0.63.0 |
 | `SidePanel` | SidePanel | SidePanel | panneau latéral à droite (page Modals). Codé v0.63.0 |
 | `ScrollArea` | ScrollArea | ScrollBar | zone qui défile avec ombres. Codé v0.63.0 |
+| `Toldie` (25/11) | Toldie, toldieFor, randomToldie | Toldies (rounded-square, full) | logo par défaut d'une équipe ou organisation ; ProjectSwitcher `toldie`, `logoUrl` (Figma `hasImage`). Codé v0.64.0 |
 | `InputLink` | InputLink | InputLink | un bouton lien (texte + adresse). Codé v0.61.0 |
 | `ProjectSwitcher` (24/11) | ProjectSwitcher | ProjectSwitcher | `project`, `organization`, `appearance`, `compact`. Codé v0.57.0 |
 | `AccountCard` (24/11) | AccountCard | AccountCard | `name`, `email`, `avatar`, `notifications`, `compact`. Codé v0.57.0 |

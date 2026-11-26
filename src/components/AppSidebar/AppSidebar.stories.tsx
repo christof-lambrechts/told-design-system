@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { AppSidebar, ProjectSwitcher, AccountCard, NotificationBell, type AppSidebarSection, type AppSidebarItem } from './AppSidebar';
+import { Toldie, TOLDIE_NAMES } from '../Toldie/Toldie';
 import { AppLayout } from '../AppLayout/AppLayout';
 import { NavButtonItem } from '../Nav/NavButtonItem';
 
@@ -96,5 +97,19 @@ export const Reglages: StoryObj = {
         ] },
       ]}
       footer={[{ id: 'logout', label: 'Se déconnecter', icon: 'logout-02', onClick: () => {} }]} />,
+  ),
+};
+
+const LOGO_DEMO = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" fill="#0f172a"/><path d="M8 22 16 8l8 14z" fill="#38bdf8"/></svg>');
+
+export const LogoDuProjet: StoryObj = {
+  name: 'Logo du projet (Toldie ou logo importé)',
+  render: () => (
+    <div style={{ display: 'grid', gap: 24, width: 272 }}>
+      <ProjectSwitcher project="Told Café" organization="Evolt" appearance="outline" toldie="packman-peach" />
+      <ProjectSwitcher project="Inqom" organization="Evolt" appearance="outline" toldieSeed="team-inqom" />
+      <ProjectSwitcher project="KLR" organization="Evolt" appearance="outline" logoUrl={LOGO_DEMO} />
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>{TOLDIE_NAMES.map((n) => <Toldie key={n} name={n} label={n} />)}</div>
+    </div>
   ),
 };

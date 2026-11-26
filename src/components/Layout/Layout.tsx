@@ -45,7 +45,7 @@ export interface LayoutAnalyserProps {
    * Ouverte et fermée par le bouton « Filtres » de l'en-tête (accordéon) : ne rien passer quand elle est fermée.
    */
   filters?: ReactNode;
-  /** Colonne droite facultative (D-055) : détail d'un répondant, commentaires. Ignorée en pleine largeur. */
+  /** Colonne droite facultative (D-055) : détail d'un répondant, inspecteur d'un filtre, commentaires. En pleine largeur, elle se pose à droite du tableau, qui se rétrécit. */
   right?: ReactNode;
   leftWidth?: number;
   rightWidth?: number;
@@ -77,7 +77,10 @@ export function Layout(props: LayoutProps) {
       <div className={styles.analyserTable}>
         <div className={styles.header}>{a.header}</div>
         {a.filters && <div className={styles.filters}>{a.filters}</div>}
-        <main className={styles.tableZone}>{a.children}</main>
+        <div className={styles.tableRow}>
+          <main className={styles.tableZone}>{a.children}</main>
+          {a.right && <aside className={styles.tableRight} style={{ width: a.rightWidth ?? 356 }}>{a.right}</aside>}
+        </div>
       </div>
     );
   }

@@ -28,3 +28,14 @@ function Demo({ divider, danger }: { divider?: boolean; danger?: boolean }) {
 export const Defaut: StoryObj = { name: 'Modal', render: () => <Demo /> };
 export const AvecFilets: StoryObj = { name: 'Avec filets', render: () => <Demo divider /> };
 export const Danger: StoryObj = { render: () => <Demo danger /> };
+
+export const AvecDeclencheur: StoryObj = {
+  name: 'Ouverte par son bouton (D-074)',
+  render: () => (
+    <Modal title="Renommer le Told" trigger={<Button>Renommer</Button>}
+      header={<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}><strong style={{ font: 'var(--font-weight-semibold) 18px/26px var(--font-family-heading)' }}>Renommer le Told</strong></div>}
+      footer={(close) => <><Button color="neutral" variant="tertiary" onClick={close}>Annuler</Button><Button onClick={close}>Renommer</Button></>}>
+      <Input label="Nom" defaultValue="Satisfaction après une action" />
+    </Modal>
+  ),
+};

@@ -166,3 +166,5 @@ export { DataTable, ColumnPicker, SaveReportModal, reportColors, NpsScoreLabel, 
 export type { DataTableProps, DataTableColumn, SortState, SaveReportModalProps, SaveReportModalLabels, SaveReportResult, SavedReport, ColumnPickerProps, ColumnPickerGroup, ColumnPickerItem, NpsCategory, Device } from './components/DataTable/DataTable';
 export { Popover, Menu, TooltipTrigger, Accordion, AccordionItem, Toaster, toast, dismissToast, SidePanel, ScrollArea, useAnchoredPosition } from './components/Overlay/Overlay';
 export type { PopoverProps, MenuProps, TooltipTriggerProps, AccordionProps, AccordionItemProps, ToastOptions, SidePanelProps, ScrollAreaProps, Placement } from './components/Overlay/Overlay';
+export { Toldie, toldieFor, randomToldie, TOLDIE_NAMES } from './components/Toldie/Toldie';
+export type { ToldieProps, ToldieName } from './components/Toldie/Toldie';

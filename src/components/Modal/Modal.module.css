@@ -20,3 +20,4 @@
 .divider .body { padding: 20px 40px; }
 .centered .head { align-items: center; text-align: center; }
 .centered .foot { justify-content: center; }
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

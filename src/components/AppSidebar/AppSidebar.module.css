@@ -39,6 +39,7 @@
 .psOutline { box-shadow: inset 0 0 0 1px var(--neutral-border-default); background: var(--paper-alpha-5); border-radius: var(--component-cards-xl); }
 .psCompact { width: auto; padding: 4px; }
 .psIni { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: var(--component-cards-sm); background: var(--brand-surface-tint); color: var(--content-brand-default-on-light); font-size: var(--body-12-size); font-weight: 600; overflow: hidden; }
+.psImg { width: 100%; height: 100%; object-fit: cover; display: block; }
 .psText { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .psName { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--body-14-size); line-height: var(--body-14-line-height); font-weight: 600; color: var(--content-default-default); }
 .psOrg { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--body-12-size); line-height: var(--body-12-line-height); color: var(--content-subtle-default); }
