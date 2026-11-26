@@ -335,8 +335,44 @@ Points d'attention :
 - Statut : codé told-ds v0.66.0
 - Réponse DS : GuidedPlayer (`steps`, `state`, `index`, `onStepShown`, `step.overlays` / `renderOverlays` en fraction de l'image, suivent le zoom) et AmbientBackground (`tone`, `intensity`, `dots`, `animated`) exportés. Ni ressource distante ni eval ; styles en CSS modules, positions en style en ligne (CSSOM, compatible CSP). Images en data: ou blob: : prévoir `img-src 'self' data: blob:`. Variante mobile du lecteur (Figma device=mobile) pas encore codée.
 
+### D-090 · Arbre réordonnable à trois niveaux (groupe, sous-groupe, élément)
+- Date, écran Record concerné (fichier, route) : 26/11/2026, éditeur d'une vitrine de démos, colonne de gauche, `src/app/(app)/[org]/vitrines/[id]/` (décision 0064 de Told Record, lot 4).
+- Besoin (ce que l'écran doit faire) : afficher et réordonner thèmes > sous-thèmes > démos. Chaque ligne : poignée, chevron (groupes), icône, libellé tronqué, étiquette à droite (compte ou Badge), menu « ⋯ » au survol et au focus. États : sélectionnée, atténuée (élément masqué), en cours de glisser (40 %), cible de dépôt (fond teinté sur un groupe), ligne de dépôt entre deux lignes. Un groupe plié s'ouvre au survol pendant un glisser. Clavier selon le motif ARIA tree : ↑ ↓ ← → Entrée, Alt+↑/↓ pour déplacer d'un cran (au bord, vers le parent voisin), Maj+F10 pour le menu ; un seul arrêt de tabulation. Le composant émet `onMove({ id, parentId, beforeId })` et laisse l'app faire l'annonce vocale (ou prend ses textes en props). Règles de dépôt fournies par l'app (`canDrop(item, parent)`).
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : aucun composant d'arbre. `NavButtonItem` a deux niveaux et `expanded`, mais ni poignée, ni troisième niveau, ni état de glisser ou de dépôt, ni clavier d'arbre ; `StepDropLine` est pensé pour la colonne de vignettes ; `ModuleCard` + `SubStepItem` font deux niveaux sans glisser entre parents.
+- Contournement provisoire dans Record : `NavButtonItem` (niveaux primary et secondary, retrait à la main pour le troisième), `StepDropLine` entre les lignes, glisser-déposer HTML et clavier posés par Record sur un `role="tree"`, `// TODO DS: D-090`.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+
+### D-091 · Cadre d'aperçu de navigateur (adresse, ordinateur / mobile, mise à l'échelle)
+- Date, écran Record concerné (fichier, route) : 26/11/2026, éditeur d'une vitrine de démos, zone centrale, `src/app/(app)/[org]/vitrines/[id]/` (décision 0064 de Told Record, lot 4).
+- Besoin (ce que l'écran doit faire) : montrer une page web dans un cadre de navigateur : barre avec l'adresse (texte, tronqué au milieu), bascule Ordinateur / Mobile au-dessus, contenu rendu à une largeur fixe (1 360 px ou 390 px) et réduit pour tenir dans la zone (sans jamais agrandir), hauteur qui suit la zone, défilement interne. En mobile, cadre étroit centré. Le contenu est un enfant React (pas forcément une iframe). Pourra servir à l'onglet Design de Told.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : Figma a `PreviewToolbar` (8222:9684) et `CustomisationPreview`, non codés ; aucun composant codé ne met un contenu à l'échelle avec une barre d'adresse.
+- Contournement provisoire dans Record : cadre posé par Record (barre de 40 px, `ResizeObserver` et `transform: scale`), `GroupTab` pour la bascule, `// TODO DS: D-091`.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+
+### D-092 · Champ à préfixe fixe et état « disponible / déjà pris »
+- Date, écran Record concerné (fichier, route) : 26/11/2026, éditeur d'une vitrine de démos, étape Diffuser, section « Choisis l'adresse », `src/app/(app)/[org]/vitrines/[id]/` (décision 0064 de Told Record, lot 5).
+- Besoin (ce que l'écran doit faire) : saisir la fin d'une adresse web dont le début est fixe (`https://record.exemple/v/` + `comptoir`). La partie fixe est collée à gauche, dans le cadre du champ, sur fond neutre, non éditable, non sélectionnée avec la valeur, tronquée au début quand la place manque (`…/v/`). Sous le champ, un état de vérification : neutre « Vérification… », réussite « Adresse disponible. » (vert, icône coche), erreur « Cette adresse est déjà prise. » (rouge). Un bouton secondaire peut suivre le champ sur la même ligne. Lecteur d'écran : la partie fixe est reliée au champ (aria-describedby), l'état est annoncé (aria-live polite).
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : `Input` a `iconLeft` et `trailing`, pas de `prefix` en texte ; ses états sont `error` et `warning`, pas de réussite (`success`) ni d'état « en cours ». Pourra servir ailleurs (domaine propre, adresse d'organisation).
+- Contournement provisoire dans Record : `Input` dans un cadre posé par Record, partie fixe en `span` à gauche, état en texte d'aide coloré, `// TODO DS: D-092`.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+
+### D-093 · Modal : choisir l'élément qui reçoit le focus à l'ouverture
+- Date, écran Record concerné (fichier, route) : 26/11/2026, fenêtre « Dupliquer pour un client » d'une vitrine de démos, `src/app/(app)/[org]/vitrines/[id]/copies-panel.tsx` (décision 0064 de Told Record, lot 5b).
+- Besoin (ce que l'écran doit faire) : à l'ouverture, le focus va dans le premier champ (« Nom de la copie »), pour taper tout de suite. Les fenêtres de confirmation gardent le focus sur la fenêtre elle-même.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : `Modal` donne toujours le focus à son panneau (`panel.current?.focus()` dans son effet), après le montage des enfants : un `autoFocus` sur un `Input` est perdu. Il manque une propriété du type `initialFocus` (un ref ou un sélecteur), ou le respect d'un élément déjà focalisé dans la fenêtre.
+- Contournement provisoire dans Record : un effet de Record redonne le focus au champ juste après celui de la `Modal`, `// TODO DS: D-093`.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+
 ## Demandes de Told Record encore ouvertes (regroupées le 25/11)
-Sens : Told Record vers le DS. Elles étaient dans les pull requests 4 à 8, jamais fusionnées. Les numéros déjà pris sur `main` ont changé : Record a mis à jour ses `TODO DS`. Prochain numéro libre pour Record : **D-090**.
+Sens : Told Record vers le DS. Elles étaient dans les pull requests 4 à 8, jamais fusionnées. Les numéros déjà pris sur `main` ont changé : Record a mis à jour ses `TODO DS`. Prochain numéro libre pour Record : **D-094**.
 
 ### D-042 · AvatarSettings, MediaFrameSettings, EyebrowSettings, LogoSettings : tout le réglage désactivable (23/11, demandé par Record)
 - Date, écran Record concerné : éditeur, « Avatar sur ce slide » (`editor/presenter.tsx`) et « Cadre du média » (`editor/media-frame-field.tsx`). Aussi « Surtitre » et « Logo » (`editor/slide-style-fields.tsx`, D-039, D-040).
