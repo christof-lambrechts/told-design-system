@@ -362,8 +362,17 @@ Points d'attention :
 - Statut : à faire
 - Réponse DS :
 
+### D-093 · Modal : choisir l'élément qui reçoit le focus à l'ouverture
+- Date, écran Record concerné (fichier, route) : 26/11/2026, fenêtre « Dupliquer pour un client » d'une vitrine de démos, `src/app/(app)/[org]/vitrines/[id]/copies-panel.tsx` (décision 0064 de Told Record, lot 5b).
+- Besoin (ce que l'écran doit faire) : à l'ouverture, le focus va dans le premier champ (« Nom de la copie »), pour taper tout de suite. Les fenêtres de confirmation gardent le focus sur la fenêtre elle-même.
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : `Modal` donne toujours le focus à son panneau (`panel.current?.focus()` dans son effet), après le montage des enfants : un `autoFocus` sur un `Input` est perdu. Il manque une propriété du type `initialFocus` (un ref ou un sélecteur), ou le respect d'un élément déjà focalisé dans la fenêtre.
+- Contournement provisoire dans Record : un effet de Record redonne le focus au champ juste après celui de la `Modal`, `// TODO DS: D-093`.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+
 ## Demandes de Told Record encore ouvertes (regroupées le 25/11)
-Sens : Told Record vers le DS. Elles étaient dans les pull requests 4 à 8, jamais fusionnées. Les numéros déjà pris sur `main` ont changé : Record a mis à jour ses `TODO DS`. Prochain numéro libre pour Record : **D-090**.
+Sens : Told Record vers le DS. Elles étaient dans les pull requests 4 à 8, jamais fusionnées. Les numéros déjà pris sur `main` ont changé : Record a mis à jour ses `TODO DS`. Prochain numéro libre pour Record : **D-094**.
 
 ### D-042 · AvatarSettings, MediaFrameSettings, EyebrowSettings, LogoSettings : tout le réglage désactivable (23/11, demandé par Record)
 - Date, écran Record concerné : éditeur, « Avatar sur ce slide » (`editor/presenter.tsx`) et « Cadre du média » (`editor/media-frame-field.tsx`). Aussi « Surtitre » et « Logo » (`editor/slide-style-fields.tsx`, D-039, D-040).
