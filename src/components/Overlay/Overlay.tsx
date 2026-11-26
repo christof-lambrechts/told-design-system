@@ -97,7 +97,7 @@ export function Popover({ trigger, children, open: openProp, onOpenChange, place
   }) : trigger;
   return (
     <>
-      <span ref={setWrap} className={styles.anchor}>{triggerEl}</span>
+      <span ref={setWrap} className={styles.anchor} data-ds-anchor="">{triggerEl}</span>
       {open && createPortal(
         <div ref={setLayer} id={id} role={role === 'menu' ? undefined : role} aria-label={rest['aria-label']} data-theme="light"
           className={cx(styles.layer, surface && styles.surface, className)} style={{ ...pos, width }}>
@@ -162,7 +162,7 @@ export function TooltipTrigger({ content, children, placement = 'top', delay = 4
   const el = isValidElement(children) ? cloneElement(children as ReactElement<{ 'aria-describedby'?: string }>, { 'aria-describedby': open ? id : undefined }) : children;
   return (
     <>
-      <span ref={setWrap} className={styles.anchor} onMouseEnter={show} onMouseLeave={hide} onFocus={show} onBlur={hide}>{el}</span>
+      <span ref={setWrap} className={styles.anchor} data-ds-anchor="" onMouseEnter={show} onMouseLeave={hide} onFocus={show} onBlur={hide}>{el}</span>
       {open && createPortal(<div ref={setLayer} className={styles.tip} style={pos}><TooltipBubble id={id} size={size} direction={DIR[placement].d}>{content}</TooltipBubble></div>, document.body)}
     </>
   );

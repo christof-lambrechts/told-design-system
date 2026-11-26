@@ -5,6 +5,8 @@ import { Layout } from '../Layout/Layout';
 import { EditorHeader, ButtonEditionMenu, EditorSteps, type EditorStep } from '../EditorHeader/EditorHeader';
 import { Breadcrumb } from '../Breadcrumb/Breadcrumb';
 import { ButtonGroup } from '../Button/ButtonGroup';
+import { Popover as DsPopover } from '../Overlay/Overlay';
+import { DropdownItem } from '../Select/Select';
 import { Button, ButtonIcon } from '../Button/Button';
 import { ButtonTab } from '../Tabs/Tabs';
 import { Pagination } from '../Pagination/Pagination';
@@ -115,9 +117,6 @@ export const AnalyserTableau: StoryObj = {
     const [reports, setReports] = useState([{ id: 'global', label: 'Rapport global' }, { id: 'neg', label: 'NPS négatifs' }]);
     const [current, setCurrent] = useState('global');
     const [page, setPage] = useState(1);
-    const [panel, setPanel] = useState<null | 'report' | 'columns'>(null);
-    const statusRef = useRef<HTMLSpanElement>(null);
-    useEffect(() => { if (!panel) return; const d = (e: PointerEvent) => { if (!statusRef.current?.contains(e.target as Node)) setPanel(null); }; window.addEventListener('pointerdown', d); return () => window.removeEventListener('pointerdown', d); }, [panel]);
     const changes = t.changed || filtered;
     const header = (
       <EditorHeader
@@ -125,22 +124,19 @@ export const AnalyserTableau: StoryObj = {
         center={<EditorSteps value={step} onChange={setStep} published />}
         end={<><span data-theme="light" style={{ display: 'inline-flex' }}><Button size="sm" color="neutral" variant="secondary-outline" iconLeft="share-03">Partager</Button></span><Button size="sm" iconLeft="download-05">Extraire</Button></>}
         tabs={<><ButtonTab size="sm" appearance="ghost" icon="dashboard-speed-02">Synthèse</ButtonTab><ButtonTab size="sm" appearance="ghost" icon="message-multiple-02">Réponses</ButtonTab><ButtonTab size="sm" appearance="ghost" icon="layout-table-01" selected>Tableau</ButtonTab><ButtonTab size="sm" appearance="ghost" icon="user-multiple-02">Parcours</ButtonTab></>}
-        status={<span ref={statusRef} style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+        status={<span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
           <ButtonGroup appearance="inverse">
-            <Button size="sm" color="neutral" iconLeft="chart-01" iconRight="arrow-down-01" aria-expanded={panel === 'report'} onClick={() => setPanel(panel === 'report' ? null : 'report')}>{reports.find((r) => r.id === current)!.label}</Button>
-            <Button size="sm" color="neutral" iconLeft="left-to-right-list-bullet" iconRight="arrow-down-01" aria-expanded={panel === 'columns'} onClick={() => setPanel(panel === 'columns' ? null : 'columns')}>Colonnes</Button>
+            <DsPopover aria-label="Rapports" placement="bottom-end" width={220}
+              trigger={<Button size="sm" color="neutral" iconLeft="chart-01" iconRight="arrow-down-01">{reports.find((r) => r.id === current)!.label}</Button>}>
+              {(close) => reports.map((r) => <DropdownItem key={r.id} selected={r.id === current} onClick={() => { setCurrent(r.id); close(); }}>{r.label}</DropdownItem>)}
+            </DsPopover>
+            <DsPopover aria-label="Colonnes" placement="bottom-end" surface={false}
+              trigger={<Button size="sm" color="neutral" iconLeft="left-to-right-list-bullet" iconRight="arrow-down-01">Colonnes</Button>}>
+              {t.picker}
+            </DsPopover>
             <Button size="sm" color="neutral" iconLeft="filter" iconRight="arrow-down-01" aria-expanded={filtersOpen} onClick={() => setFiltersOpen(!filtersOpen)}>Filtres</Button>
           </ButtonGroup>
           {changes && <><Button size="sm" onClick={() => setSaving(true)}>Enregistrer</Button><ButtonIcon icon="cancel-01" label="Annuler les modifications" appearance="ghost" size="sm" onClick={() => { t.reset(); setFiltered(false); }} /></>}
-          {panel && (
-            <div data-theme="light" style={{ position: 'absolute', top: 'calc(100% + 8px)', right: 0, zIndex: 50 }}>
-              {panel === 'columns' ? t.picker : (
-                <div style={{ background: 'var(--neutral-surface-default)', color: 'var(--content-default-default)', border: '1px solid var(--neutral-border-default)', borderRadius: 12, padding: 4, width: 220, boxShadow: 'var(--shadow-flat-8)' }}>
-                  {reports.map((r) => <button key={r.id} type="button" onClick={() => { setCurrent(r.id); setPanel(null); }} style={{ all: 'unset', display: 'block', padding: '6px 10px', borderRadius: 8, cursor: 'pointer', font: '14px/20px var(--font-family-body)', background: r.id === current ? 'var(--selectionbox-background-checked)' : undefined }}>{r.label}</button>)}
-                </div>
-              )}
-            </div>
-          )}
         </span>}
       />
     );

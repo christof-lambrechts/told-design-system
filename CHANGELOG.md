@@ -3,6 +3,14 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.65.0 · 26/11/2026
+
+- **ButtonGroup + Popover / Menu** (D-075) : un bouton posé dans un Popover ou un Menu prend sa place dans le groupe (coins intérieurs droits, contour partagé, style inverse). L'ancre des calques porte `data-ds-anchor`. Story DataTable › Analyser › Tableau : « Rapport » et « Colonnes » en Popover.
+- **Layout analyser pleine largeur** (D-055) : `right` (et `rightWidth`) pose une colonne à droite du tableau, qui se rétrécit (inspecteur d'un filtre, détail d'un répondant).
+- **Modal** (D-074) : `trigger` (ouverture par son bouton, focus qui revient), `open` facultatif, `defaultOpen`, `onOpenChange` ; `header` libre (le `title` reste le nom accessible) ; `children` et `footer` acceptent une fonction qui reçoit `close`. Story « Ouverte par son bouton ».
+- **Avatar** (D-074) : `initials` pour des initiales déjà calculées.
+- Figma TopBar : action principale « Nouveau Told » avec icône add-01 par défaut ; libellés réglables sur les boutons exposés.
+
 ## v0.64.0 · 25/11/2026
 
 - **Toldie** (nouveau, Figma Toldies 4:4993) : les 15 Toldies de couleur en carré arrondi. `toldieFor(id)` choisit toujours le même Toldie pour un même identifiant ; `randomToldie()` en tire un au hasard, à enregistrer à la création d'une équipe ou d'une organisation.

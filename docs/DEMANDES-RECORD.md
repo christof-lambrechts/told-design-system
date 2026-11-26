@@ -651,3 +651,6 @@ Jetons :
 - AvatarPicker.
 - Contenus d'options Record.
 - EmptyIllustration (validée le 21/11, à exporter en code).
+
+### D-075 · ButtonGroup et Popover (Told V3, 25/11)
+Statut : codé told-ds v0.65.0. Les restes : D-055 pleine largeur codé v0.65.0 ; D-074 Modal avec déclencheur et en-tête libre, Avatar `initials` codés v0.65.0 ; icône `pause` déjà dans le DS (`<Icon name="pause" />`) ; Select « teinte d'accent » en attente : le Select de Figma n'a pas de teinte, préciser l'écran et le besoin.
