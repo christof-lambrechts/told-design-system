@@ -353,6 +353,15 @@ Points d'attention :
 - Statut : à faire
 - Réponse DS :
 
+### D-092 · Champ à préfixe fixe et état « disponible / déjà pris »
+- Date, écran Record concerné (fichier, route) : 26/11/2026, éditeur d'une vitrine de démos, étape Diffuser, section « Choisis l'adresse », `src/app/(app)/[org]/vitrines/[id]/` (décision 0064 de Told Record, lot 5).
+- Besoin (ce que l'écran doit faire) : saisir la fin d'une adresse web dont le début est fixe (`https://record.exemple/v/` + `comptoir`). La partie fixe est collée à gauche, dans le cadre du champ, sur fond neutre, non éditable, non sélectionnée avec la valeur, tronquée au début quand la place manque (`…/v/`). Sous le champ, un état de vérification : neutre « Vérification… », réussite « Adresse disponible. » (vert, icône coche), erreur « Cette adresse est déjà prise. » (rouge). Un bouton secondaire peut suivre le champ sur la même ligne. Lecteur d'écran : la partie fixe est reliée au champ (aria-describedby), l'état est annoncé (aria-live polite).
+- Ce qui manque ou gêne dans le DS (composant, propriété, état, jeton) : `Input` a `iconLeft` et `trailing`, pas de `prefix` en texte ; ses états sont `error` et `warning`, pas de réussite (`success`) ni d'état « en cours ». Pourra servir ailleurs (domaine propre, adresse d'organisation).
+- Contournement provisoire dans Record : `Input` dans un cadre posé par Record, partie fixe en `span` à gauche, état en texte d'aide coloré, `// TODO DS: D-092`.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+
 ## Demandes de Told Record encore ouvertes (regroupées le 25/11)
 Sens : Told Record vers le DS. Elles étaient dans les pull requests 4 à 8, jamais fusionnées. Les numéros déjà pris sur `main` ont changé : Record a mis à jour ses `TODO DS`. Prochain numéro libre pour Record : **D-090**.
 
