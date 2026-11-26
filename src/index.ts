@@ -168,3 +168,9 @@ export { Popover, Menu, TooltipTrigger, Accordion, AccordionItem, Toaster, toast
 export type { PopoverProps, MenuProps, TooltipTriggerProps, AccordionProps, AccordionItemProps, ToastOptions, SidePanelProps, ScrollAreaProps, Placement } from './components/Overlay/Overlay';
 export { Toldie, toldieFor, randomToldie, TOLDIE_NAMES } from './components/Toldie/Toldie';
 export type { ToldieProps, ToldieName } from './components/Toldie/Toldie';
+export { AmbientBackground } from './components/Ambient/AmbientBackground';
+export type { AmbientBackgroundProps, AmbientTone, AmbientIntensity } from './components/Ambient/AmbientBackground';
+export { GuidedPlayer } from './components/RecordPlayer/GuidedPlayer';
+export type { GuidedPlayerProps, GuidedStep, GuidedOverlay, GuidedRect, GuidedScreen, GuidedPlayerLabels } from './components/RecordPlayer/GuidedPlayer';
+export { ValueCorrection, ValueMarker } from './components/RecordPlayer/ValueCorrection';
+export type { ValueCorrectionProps, ValueMarkerProps, ValueCorrectionLabels } from './components/RecordPlayer/ValueCorrection';

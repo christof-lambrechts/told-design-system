@@ -1,0 +1,17 @@
+/* AmbientBackground (8301:923). Halos placés comme dans le cadre Figma de 480 × 320 (en %), flou 90. */
+.root { position: relative; overflow: hidden; isolation: isolate; }
+.halos { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.halos > span { position: absolute; border-radius: 50%; filter: blur(90px); }
+.h1 { left: -16.7%; top: -25%; width: 87.5%; height: 112.5%; }
+.h2 { left: 66.7%; top: -18.75%; width: 66.7%; height: 100%; }
+.h3 { left: 33.3%; top: 62.5%; width: 83.3%; height: 81.25%; }
+.dots { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background-image: radial-gradient(circle, var(--ambient-dots) 0.75px, transparent 1px); background-size: 6px 6px; }
+.content { position: relative; z-index: 2; height: 100%; }
+.animated .h1 { animation: drift1 18s ease-in-out infinite alternate; }
+.animated .h2 { animation: drift2 22s ease-in-out infinite alternate; }
+.animated .h3 { animation: drift3 20s ease-in-out infinite alternate; }
+@keyframes drift1 { to { transform: translate(6%, 8%) scale(1.06); } }
+@keyframes drift2 { to { transform: translate(-8%, 6%) scale(0.95); } }
+@keyframes drift3 { to { transform: translate(5%, -7%) scale(1.04); } }
+@media (prefers-reduced-motion: reduce) { .animated .halos > span { animation: none; } }

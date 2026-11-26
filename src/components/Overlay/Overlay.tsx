@@ -57,7 +57,13 @@ export interface PopoverProps {
   trigger: ReactElement;
   children: ReactNode | ((close: () => void) => ReactNode);
   open?: boolean;
+  /** Ouvert au premier affichage (non contrôlé). */
+  defaultOpen?: boolean;
   onOpenChange?: (open: boolean) => void;
+  /** Le focus va au premier champ ou bouton du calque à l'ouverture et y reste (Tab boucle) : pour un petit formulaire (D-086). */
+  trapFocus?: boolean;
+  /** Écart entre le bouton et le calque, en px (6 par défaut). */
+  offset?: number;
   placement?: Placement;
   /** Largeur du calque (sinon : celle du contenu). */
   width?: number;
@@ -73,23 +79,38 @@ export interface PopoverProps {
  * Popover : calque ancré à son bouton (D-071). S'ouvre au clic, se ferme au clic dehors, à Échap (le focus revient au bouton),
  * se replace s'il manque de place. Base de Menu ; à utiliser pour « Rapport », « Colonnes », un sélecteur.
  */
-export function Popover({ trigger, children, open: openProp, onOpenChange, placement = 'bottom-start', width, surface = true, role = 'dialog', className, ...rest }: PopoverProps) {
-  const [inner, setInner] = useState(false);
+export function Popover({ trigger, children, open: openProp, defaultOpen = false, onOpenChange, trapFocus = false, offset = 6, placement = 'bottom-start', width, surface = true, role = 'dialog', className, ...rest }: PopoverProps) {
+  const [inner, setInner] = useState(defaultOpen);
   const open = openProp ?? inner;
   const set = useCallback((v: boolean) => { if (openProp === undefined) setInner(v); onOpenChange?.(v); }, [openProp, onOpenChange]);
   const [wrap, setWrap] = useState<HTMLSpanElement | null>(null);
   const anchor = anchorOf(wrap);
   const [layer, setLayer] = useState<HTMLDivElement | null>(null);
   const id = useId();
-  const pos = useAnchoredPosition(anchor, layer, open, placement);
+  const pos = useAnchoredPosition(anchor, layer, open, placement, offset);
   const close = useCallback(() => { set(false); anchor?.focus(); }, [set, anchor]);
   useEffect(() => {
     if (!open) return;
     const down = (e: PointerEvent) => { const t = e.target as Node; if (!layer?.contains(t) && !anchor?.contains(t)) set(false); };
-    const key = (e: KeyboardEvent) => { if (e.key === 'Escape') { e.stopPropagation(); close(); } };
+    const key = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { e.stopPropagation(); close(); return; }
+      if (trapFocus && e.key === 'Tab' && layer) {
+        const f = [...layer.querySelectorAll<HTMLElement>('input, textarea, select, button, a[href], [tabindex]:not([tabindex="-1"])')].filter((el) => !el.hasAttribute('disabled'));
+        if (!f.length) return;
+        const first = f[0], last = f[f.length - 1];
+        if (!layer.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+        else if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    };
     window.addEventListener('pointerdown', down); window.addEventListener('keydown', key);
     return () => { window.removeEventListener('pointerdown', down); window.removeEventListener('keydown', key); };
-  }, [open, layer, anchor, set, close]);
+  }, [open, layer, anchor, set, close, trapFocus]);
+  useEffect(() => {
+    if (!open || !trapFocus || !layer) return;
+    const el = layer.querySelector<HTMLElement>('input, textarea, select, button, [tabindex]:not([tabindex="-1"])');
+    el?.focus();
+  }, [open, trapFocus, layer]);
   const t = trigger as TriggerEl;
   const triggerEl = isValidElement(t) ? cloneElement(t, {
     onClick: (e: RMouseEvent) => { t.props.onClick?.(e); if (!e.defaultPrevented) set(!open); },

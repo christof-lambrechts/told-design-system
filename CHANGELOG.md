@@ -3,6 +3,15 @@
 Chaque version a un tag Git (`vX.Y.Z`). Pour en choisir une dans un projet :
 `npm install github:christof-lambrechts/told-design-system#v0.3.0`
 
+## v0.66.0 · 26/11/2026
+
+Demandes de Told Record D-089 et D-086 (page Résultat des données fictives).
+- **GuidedPlayer** (Figma 8847:1765, D-089) : joue une suite d'étapes (`steps` : image, point cliqué, zoom, infobulle, durée) avec la barre de lecture (lecture, segments, ‹ n / N ›, temps, recommencer, plein écran, mention). Écrans `start` et `end` facultatifs. Piloté par l'app : `state="step"` + `index` pour afficher une étape précise (clic sur la pellicule). `onStepShown(index)` à chaque étape affichée, image chargée. Éléments posés sur l'image à une position en fraction de l'image (`step.overlays`, `renderOverlays`), qui suivent le zoom. Clavier : Espace, flèches. Aucune ressource distante ni eval (CSP stricte). Mouvements coupés avec prefers-reduced-motion.
+- **AmbientBackground** exporté (Figma 8301:923, D-089) : `tone` lavender | brand, `intensity` pale | soft | medium | vivid, `dots`, `animated` (dérive lente, coupée avec prefers-reduced-motion).
+- **ValueCorrection** et **ValueMarker** (D-086, R-51 et R-55) : contour sur une valeur d'une image (`tone` review en pointillés orange, blocking en rouge plein) et petite fenêtre accrochée : titre, phrase, champ « Remplaçant », « Appliquer », « Laisser tel quel », note. Échap et clic dehors ferment, le focus reste dans la fenêtre et revient au contour ; en bloquant, la fenêtre s'ouvre d'elle-même.
+- **Popover** : `defaultOpen`, `trapFocus` (focus au premier champ, Tab qui boucle), `offset`.
+- Story Gabarits › Lecteur Record › GuidedPlayer (départ, étapes et fin ; résultat des données fictives ; AmbientBackground).
+
 ## v0.65.0 · 26/11/2026
 
 - **ButtonGroup + Popover / Menu** (D-075) : un bouton posé dans un Popover ou un Menu prend sa place dans le groupe (coins intérieurs droits, contour partagé, style inverse). L'ancre des calques porte `data-ds-anchor`. Story DataTable › Analyser › Tableau : « Rapport » et « Colonnes » en Popover.

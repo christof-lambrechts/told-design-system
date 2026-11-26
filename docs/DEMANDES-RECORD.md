@@ -292,8 +292,8 @@ Points d'attention :
 - Ce qui manque ou gêne dans le DS : OptionPopover s'ouvre depuis un PopoverField, pas depuis un point d'une image, et son contenu est un emplacement (_Slot) sans modèle « champ + actions ».
 - Contournement provisoire dans Record : cadre composé à la main (Input + Button), TODO DS: D-086.
 - Priorité : important
-- Statut : à faire
-- Réponse DS :
+- Statut : codé told-ds v0.66.0
+- Réponse DS : ValueCorrection + ValueMarker : à poser dans un overlay de GuidedPlayer (`{ id, x, y, width, height, content: <ValueCorrection value=… onApply=… onKeep=… /> }`). `tone="blocking"` pour R-55 (contour rouge, fenêtre ouverte d'emblée, titre « Valeur d'origine encore visible »). Textes réglables par `labels`.
 
 ### D-087 · StepThumb : point de signalement nommé
 - Date, écran Record concerné : 26/11, extension, page Résultat (pellicule des images, Figma Told Record R-50).
@@ -332,8 +332,8 @@ Points d'attention :
 - Ce qui manque ou gêne dans le DS : dans told-ds v0.63.1, GuidedPlayer n'existe pas en code, et AmbientBackground n'est qu'une page du catalogue (AtomesAmbientBackground.stories.tsx), pas un composant exporté par src/index.ts.
 - Contournement provisoire dans Record : fond clair uni pour la préparation (lot 3) ; le résultat attend ce composant (lot 5), TODO DS: D-089.
 - Priorité : bloquant pour le lot 5 de Record (résultat joué dans le player), important pour le lot 4 (animation)
-- Statut : à faire
-- Réponse DS :
+- Statut : codé told-ds v0.66.0
+- Réponse DS : GuidedPlayer (`steps`, `state`, `index`, `onStepShown`, `step.overlays` / `renderOverlays` en fraction de l'image, suivent le zoom) et AmbientBackground (`tone`, `intensity`, `dots`, `animated`) exportés. Ni ressource distante ni eval ; styles en CSS modules, positions en style en ligne (CSSOM, compatible CSP). Images en data: ou blob: : prévoir `img-src 'self' data: blob:`. Variante mobile du lecteur (Figma device=mobile) pas encore codée.
 
 ## Demandes de Told Record encore ouvertes (regroupées le 25/11)
 Sens : Told Record vers le DS. Elles étaient dans les pull requests 4 à 8, jamais fusionnées. Les numéros déjà pris sur `main` ont changé : Record a mis à jour ses `TODO DS`. Prochain numéro libre pour Record : **D-090**.
