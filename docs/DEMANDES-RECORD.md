@@ -496,6 +496,33 @@ Sens : Told Record vers le DS. Elles étaient dans les pull requests 4 à 8, jam
 - Statut : à faire
 - Réponse DS :
 
+### D-094 · TimeField : champ d'heure à pas (− / +, flèches)
+- Date, écran Record concerné (fichier, route) : 28/11/2026, éditeur, écran « Titre et média » avec une vidéo commentée, section « Ce que dit l'avatar » (`src/app/(app)/[org]/demos/[id]/editor/cues-field.tsx`, décision 0067 de Told Record, docs/ux/30).
+- Besoin (ce que l'écran doit faire) : régler l'heure d'une phrase dans la vidéo. Un champ court au format `0:12,5` (minutes, secondes, dixièmes), un bouton − et un bouton + (0,1 s), ↑ / ↓ au clavier (0,1 s, Maj : 1 s), Entrée pour valider. Saisie libre (« 12.5 », « 0:12,5 ») relue par l'app, qui affiche une erreur sous le champ (« La vidéo s'arrête à 0:45,0. ») et remet la dernière valeur valide. En lecture seule, l'heure seule, sans boutons. Noms accessibles fournis par l'app (« Phrase 2 : 0,1 s plus tôt »).
+- Ce qui manque ou gêne dans le DS : pas de champ numérique à pas (Input n'a ni boutons − / + ni gestion des flèches), pas de format de durée.
+- Contournement provisoire dans Record : Input en taille réduite (64 px) encadré de deux boutons texte « − » et « + » faits à la main, TODO DS: D-094.
+- Priorité : important
+- Statut : à faire
+- Réponse DS :
+
+### D-095 · Ligne minutée (phrase ou sous-titre calé sur une vidéo)
+- Date, écran Record concerné (fichier, route) : 28/11/2026, même section « Ce que dit l'avatar » (`cues-field.tsx`, décision 0067, docs/ux/30).
+- Besoin (ce que l'écran doit faire) : une liste de phrases, chacune sur une carte : en haut, un ButtonIcon « lecture » (aller à l'heure dans la vidéo), le champ d'heure (D-094), un ButtonIcon « supprimer » à droite ; dessous, un TextArea ; sous le texte, un compteur « 44 / 42 car. » qui passe en orange avec une phrase d'avertissement, et un lien « Caler sur la vidéo (0:08,2) ». La phrase en cours de lecture est mise en avant (contour accent, fond subtle, `aria-current`). Un collègue qui tient la liste : champs en lecture seule, contour accent. Doit tenir dans un panneau de 320 px.
+- Ce qui manque ou gêne dans le DS : pas de « ligne de liste éditable » avec en-tête d'actions, texte et pied (compteur + lien) ; pas d'état « en cours de lecture ».
+- Contournement provisoire dans Record : carte composée à la main (bordure 8 px, ButtonIcon, Input, TextArea), TODO DS: D-095.
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+
+### D-096 · Icône « couper » (ciseaux)
+- Date, écran Record concerné (fichier, route) : 28/11/2026, même section ; Entrée coupe une phrase en deux à l'endroit du curseur (docs/ux/30).
+- Besoin (ce que l'écran doit faire) : montrer l'action « couper la phrase ici » (bouton ou menu de la ligne D-095), en plus du raccourci Entrée.
+- Ce qui manque ou gêne dans le DS : pas d'icône ciseaux (« scissor » / « cut ») dans le jeu d'icônes.
+- Contournement provisoire dans Record : pas de bouton, seulement Entrée et une aide sous la liste (« Entrée coupe une phrase en deux »).
+- Priorité : confort
+- Statut : à faire
+- Réponse DS :
+
 ## Demandes du DS vers Record (lecteur public)
 
 Le lecteur public (`packages/player`, paquet autonome léger) reste dans le dépôt Record : le DS ne le code pas. Il le décrit ici ; la conversation Code l'applique et répond sous la demande.
